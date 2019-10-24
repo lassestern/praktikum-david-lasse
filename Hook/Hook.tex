@@ -1,25 +1,66 @@
-\documentclass{scrartcl}
+\documentclass[titlepage = firstcover]{scrartcl}
 \usepackage[aux]{rerunfilecheck}
-
 \usepackage{fontspec}
+\usepackage[main=ngerman, english, french]{babel}
 
-\usepackage[main=ngerman]{babel}
+% mehr Pakete hier
+\usepackage{expl3}
+\usepackage{xparse}
 
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-
+%Mathematik------------------------------------------------------
+\usepackage{amsmath}   % unverzichtbare Mathe-Befehle
+\usepackage{amssymb}   % viele Mathe-Symbole
+\usepackage{mathtools} % Erweiterungen für amsmath
 \usepackage[
-  math-style=ISO,
-  bold-style=ISO,
-  sans-style=italic,
-  nabla=upright,
-  partial=upright,
-]{unicode-math}
+  math-style=ISO,    % \
+  bold-style=ISO,    % |
+  sans-style=italic, % | ISO-Standard folgen
+  nabla=upright,     % |
+  partial=upright,   % /
+]{unicode-math}% "Does exactly what it says on the tin."
 
-\usepackage[unicode]{hyperref}
+% Laden von OTF-Mathefonts
+% Ermöglich Unicode Eingabe von Zeichen: α statt \alpha
+
+\setmathfont{Latin Modern Math}
+%\setmathfont{Tex Gyre Pagella Math} % alternativ zu Latin Modern Math
+\setmathfont{XITS Math}[range={scr, bfscr}]
+\setmathfont{XITS Math}[range={cal, bfcal}, StylisticSet=1]
+
+\AtBeginDocument{ % wird bei \begin{document}
+  % werden sonst wieder von unicode-math überschrieben
+  \RenewDocumentCommand \Re {} {\operatorname{Re}}
+  \RenewDocumentCommand \Im {} {\operatorname{Im}}
+}
+\usepackage{mleftright}
+\setlength{\delimitershortfall}{-1sp}
+
+%Sprache----------------------------------------------------------
+\usepackage{microtype}
+\usepackage{xfrac}
+\usepackage[autostyle]{csquotes}    % babel
+\usepackage[unicode, pdfusetitle]{hyperref}
 \usepackage{bookmark}
-\usepackage{booktabs}
+\usepackage[shortcuts]{extdash}
+%Einstellungen hier, z.B. Fonts
+\usepackage{booktabs} % Tabellen
+
+%Defininierte funktionen
+\DeclareMathOperator{\f}{xyz}
+
+\ExplSyntaxOn % bequeme Syntax für Definition von Befehlen
+
+\NewDocumentCommand \I {} {         %Befehl \I definieren,keine Argumente
+  \symup{i}                         %Ergebnis von \I
+} 
+\NewDocumentCommand \dif {m} % m = mandatory (Pflichtargument für \dif)
+{
+  \mathinner{\symup{d} #1}
+}
+
+\ExplSyntaxOff % Syntax wieder ausschalten. Wichtig!
+
+
 
 \title{Das Hooksche Gesetz}
 \author{Paul Horn \and Lasse Sternemann}
@@ -46,25 +87,26 @@
         F = D \cdot \Delta x  \qquad \Leftrightarrow  \qquad D = \frac{F}{\Delta x}
     \end{equation} 
 
+        Mit der obrigen Formel berechnen wir dann zu den gemessenen Werten die einzelnen Federkonstanten und den Mittelwert.
         \begin{table}
             \centering
             \caption{Messdaten}
             \label{tab:Tabelle_1}
             
-            \begin{tabular}{c c}
+            \begin{tabular}{c c c}
                 \toprule
-                $\Delta x$ \ [cm] & $F$ \ [N] & $D$ \\
+                {$\Delta x$ \ [cm]} & {$F$ \ [N]} & {$D$ \ [$\frac{N}{cm}$]}\\
                 \midrule
-                5 & 0,15 \\
-                10 & 0,29 \\
-                15 & 0,44 \\
-                20 & 0,59 \\
-                25 & 0,74 \\
-                30 & 0,89 \\
-                35 & 1,04 \\
-                40 & 1,19 \\
-                45 & 1.34, \\
-                50 & 1,49 \\
+                5 & 0,15 & 0.03000\\
+                10 & 0,29 & 0.02900\\
+                15 & 0,44 & 0.02933\\
+                20 & 0,59 & 0.02950\\
+                25 & 0,74 & 0.02960\\
+                30 & 0,89 & 0.02967\\
+                35 & 1,04 & 0.02971\\
+                40 & 1,19 & 0.02975\\
+                45 & 1.34, & 0.02978\\
+                50 & 1,49 & 0.02980\\
                 \bottomrule
             \end{tabular}    
         \end{table}
