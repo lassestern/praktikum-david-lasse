@@ -1,3 +1,4 @@
+
 \documentclass[titlepage = firstcover]{scrartcl}
 \usepackage[aux]{rerunfilecheck}
 \usepackage{fontspec}
@@ -6,6 +7,7 @@
 % mehr Pakete hier
 \usepackage{expl3}
 \usepackage{xparse}
+\usepackage{graphicx}
 
 %Mathematik------------------------------------------------------
 \usepackage{amsmath}   % unverzichtbare Mathe-Befehle
@@ -18,6 +20,8 @@
   nabla=upright,     % |
   partial=upright,   % /
 ]{unicode-math}% "Does exactly what it says on the tin."
+
+
 
 % Laden von OTF-Mathefonts
 % Ermöglich Unicode Eingabe von Zeichen: α statt \alpha
@@ -63,11 +67,12 @@
 
 
 \title{Das Hooksche Gesetz}
-\author{Paul Horn \and Lasse Sternemann}
+\author{David Gutnikov \and Lasse Sternemann}
 \date{22.10.19}
 
 \begin{document}
     \maketitle
+
 
     \section{Versuchsbeschreibung}
         In diesem Versuch geht es darum, den Zusammenhang zwischen der auf die Feder wirkenden Kraft und der Federauslenkung zu bestimmen.
@@ -87,7 +92,14 @@
         F = D \cdot \Delta x  \qquad \Leftrightarrow  \qquad D = \frac{F}{\Delta x}
     \end{equation} 
 
-        Mit der obrigen Formel berechnen wir dann zu den gemessenen Werten die einzelnen Federkonstanten und den Mittelwert.
+      Mit der obrigen Formel berechnen wir dann zu den gemessenen Werten die einzelnen Federkonstanten.
+      Zudem berechnen wir mit der folgenden Formel den Mittelwert für die Federkonstante 
+        \begin{equation}
+          \bar{D} = \frac{1}{n} \cdot \sum_{i=1}^{n} D_{i}
+        \end{equation}  
+        und kommen auf $\bar{D}$ = 0,0296 . \\
+
+
         \begin{table}
             \centering
             \caption{Messdaten}
@@ -111,5 +123,12 @@
             \end{tabular}    
         \end{table}
         
+    \section{Lineare Regression}
+      Nun erstellen wir zwei Kurven. Die rote Kurve besteht aus den Messwerten der Auslenkung und den 
+      gemessenen Kräften, die Grüne aus den gemessenen Auslenkungen und den über den Mittelwert berechneten Kräften.
+      
+      \includegraphics{Hookgraph.pdf}
+
+      So Leuts, das sind die Messungen, Over nd out.
 
         \end{document}
