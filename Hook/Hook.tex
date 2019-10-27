@@ -64,6 +64,12 @@
 
 \ExplSyntaxOff % Syntax wieder ausschalten. Wichtig!
 
+\setlength{\parindent}{0pt} % Einrückung bei neuem Absatz ausschalten
+%\addtolength{\parskip}{\baselineskip} % Eine Leerzeile Abstand vor Absatz
+
+%\RedeclareSectionCommand[ % Abstand vor und nach section
+  %beforeskip=-1\baselineskip,
+  %afterskip=.25\baselineskip]{section}
 
 
 \title{Das Hooksche Gesetz}
@@ -86,51 +92,57 @@
 
         
     \section{Bestimmung der Federkonstante}
+
+      \subsection{Mittelwert}
         Nun wollen wir die Federkonstante bestimmen. Dazu stellen wir das Hooksche Gesetz nach D um.
 
-    \begin{equation}
-        F = D \cdot \Delta x  \qquad \Leftrightarrow  \qquad D = \frac{F}{\Delta x}
-    \end{equation} 
+        \begin{equation}
+            F = D \cdot \Delta x  \qquad \Leftrightarrow  \qquad D = \frac{F}{\Delta x}
+        \end{equation} 
 
-
-
-      Mit der obrigen Formel berechnen wir mit unseren Messwerten die einzelnen Federkonstanten. 
-
-      \begin{table}[h]
-        \centering
-        \caption{Messdaten}
-        \label{tab:Tabelle_1}
-        
-        \begin{tabular}{c c c}
-            \toprule
-            {$\Delta x$ \ [cm]} & {$F$ \ [N]} & {$D$ \ [$\frac{N}{cm}$]}\\
-            \midrule
-            5 & 0,15 & 0.03000\\
-            10 & 0,29 & 0.02900\\
-            15 & 0,44 & 0.02933\\
-            20 & 0,59 & 0.02950\\
-            25 & 0,74 & 0.02960\\
-            30 & 0,89 & 0.02967\\
-            35 & 1,04 & 0.02971\\
-            40 & 1,19 & 0.02975\\
-            45 & 1.34, & 0.02978\\
-            50 & 1,49 & 0.02980\\
-            \bottomrule
-        \end{tabular}    
-    \end{table}
-
-    \newpage
-    Zudem berechnen wir mit der folgenden Formel den Mittelwert für die Federkonstante 
-      \begin{equation}
-        \bar{D} = \frac{1}{n} \cdot \sum_{i=1}^{n} D_{i}
-      \end{equation}  
-    und kommen auf $\bar{D}$ = 0,0296 . 
-
-        
-    \section{Lineare Regression}
-      Nun tragen wir unsere Messwerte in einem Diagramm auf. Über diese Werte legen wir
-      eine Ausgleichsgerade, die aus den gemessenen Auslenkungen und dem Mittelwert der Federkonstanten hervorgeht.
       
-      \includegraphics[width=0.7\linewidth]{Hookgraph.pdf}
+
+        Mit der obrigen Formel berechnen wir mit unseren Messwerten die einzelnen Federkonstanten. 
+
+        \begin{table}[h]
+          \centering
+          \caption{Messdaten}
+          \label{tab:Tabelle_1}
+          
+          \begin{tabular}{c c c}
+              \toprule
+              {$\Delta x$ \ [cm]} & {$F$ \ [N]} & {$D$ \ [$\frac{N}{cm}$]}\\
+              \midrule
+              5 & 0,15 & 0.03000\\
+              10 & 0,29 & 0.02900\\
+              15 & 0,44 & 0.02933\\
+              20 & 0,59 & 0.02950\\
+              25 & 0,74 & 0.02960\\
+              30 & 0,89 & 0.02967\\
+              35 & 1,04 & 0.02971\\
+              40 & 1,19 & 0.02975\\
+              45 & 1.34, & 0.02978\\
+              50 & 1,49 & 0.02980\\
+              \bottomrule
+          \end{tabular}    
+      \end{table}
+
+      \newpage
+      Zudem berechnen wir mit der folgenden Formel den Mittelwert für die Federkonstante 
+        \begin{equation}
+          \bar{D} = \frac{1}{n} \cdot \sum_{i=1}^{n} D_{i}
+        \end{equation}  
+      und kommen auf $\bar{D}$ = 0,0296 . 
+
+        
+      \subsection{Lineare Regression}
+        Nun tragen wir unsere Messwerte in einem Diagramm auf. Über diese Werte legen wir
+        eine Ausgleichsgerade, die aus den gemessenen Auslenkungen und dem Mittelwert der Federkonstanten hervorgeht.
+        
+        \begin{center}
+          \includegraphics[width=0.6\linewidth]{Hookgraph.pdf}
+        \end{center}
+
+        Die Steigung der Ausgleichsgerade soll das $D$ sein und liegt bei 0,0299. Der y-Achsenabschnitt ist -0,0060.
 
         \end{document}
