@@ -128,19 +128,32 @@
       \end{table}
 
       \newpage
-      Zudem berechnen wir mit der folgenden Formel den Mittelwert für die Federkonstante 
+      Nun berechnen wir mit der folgenden Formel den Mittelwert für die Federkonstante 
         \begin{equation}
           \bar{D} = \frac{1}{n} \cdot \sum_{i=1}^{n} D_{i}
         \end{equation}  
-      und kommen auf $\bar{D}$ = 0,0296 . 
-
+      und kommen auf $\bar{D}$ = 0,0296 . Zusätzlich berechnen wir mit Hilfe der Standardabweichung der Stichprobe $s_x$ und dem 
+      Mittelwert der Federkonstante $\bar{D}$ die Standardabweichung des Mittelwerts $\Delta \bar{D}$.
+      
         
-      \subsection{Lineare Regression}
+        \begin{equation}
+          s_x = \sqrt{\frac{1}{n-1} \cdot \sum_{i=1}^{n} (D_i - \bar{D})}
+        \end{equation}
+      
+        \begin{equation}
+          \Delta \bar{D}=\frac{s_x}{\sqrt{n}} 
+        \end{equation}
+      
+        Durch Einsetzen unserer Werte in die Formeln 3 und 4 erhalten wir für die Standardabweichung des
+        Mittelwerts $\Delta \bar{D}$= 0,0028 
+      
+        \newpage
+        \subsection{Lineare Regression} 
         Nun tragen wir unsere Messwerte in einem Diagramm auf. Über diese Werte legen wir
         eine Ausgleichsgerade, die aus den gemessenen Auslenkungen und dem Mittelwert der Federkonstanten hervorgeht.
         
         \begin{center}
-          \includegraphics[width=0.6\linewidth]{Hookgraph.pdf}
+          \includegraphics[width=0.8\linewidth]{Hookgraph.pdf}
         \end{center}
 
         Die Steigung der Ausgleichsgerade soll das $D$ sein und liegt bei 0,0299. Der y-Achsenabschnitt ist -0,0060.
