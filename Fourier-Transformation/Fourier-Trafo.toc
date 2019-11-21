@@ -1,0 +1,4 @@
+\babel@toc {ngerman}{}
+\contentsline {section}{\numberline {1}Theorie der Fourier-Synthese}{2}{section.1}% 
+\contentsline {section}{\numberline {2}Fourier-Synthese von $f(t)=|sin(t)|$}{2}{section.2}% 
+\contentsline {section}{\numberline {3}Fourier-Synthese von $f(t)=t$}{4}{section.3}% 

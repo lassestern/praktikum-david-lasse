@@ -1,0 +1,172 @@
+This is LuaTeX, Version 1.10.0 (TeX Live 2019)  (format=lualatex 2019.9.23)  4 NOV 2019 13:03
+ restricted system commands enabled.
+**volumen.py
+(./volumen.py
+LaTeX2e <2018-12-01>
+Lua module: luaotfload-main 2019-09-13 3.00 luaotfload entry point
+Lua module: luaotfload-init 2019-09-13 3.00 luaotfload submodule / initializatio
+n
+Lua module: lualibs 2019-08-11 2.67 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2019-08-11 2.67 ConTeXt Lua libraries -- extended c
+ollection.
+Lua module: luaotfload-log 2019-09-13 3.00 luaotfload submodule / logging
+Lua module: luaotfload-parsers 2019-09-13 3.00 luaotfload submodule / filelist
+Lua module: luaotfload-configuration 2019-09-13 3.00 luaotfload submodule / conf
+ig file reader
+luaotfload | conf : Root cache directory is /home/lasse/.local/texlive/2019/texm
+f-var/luatex-cache/generic/names.
+luaotfload | init : Loading fontloader “fontloader-2019-08-11.lua” from kpse
+-resolved path “/home/lasse/.local/texlive/2019/texmf-dist/tex/luatex/luaotflo
+ad/fontloader-2019-08-11.lua”.
+Lua-only attribute luaotfload@state = 2
+Lua-only attribute luaotfload@noligature = 3
+Lua-only attribute luaotfload@syllabe = 4
+luaotfload | init : Context OpenType loader version “3.109”
+Inserting `luaotfload.node_processor' at position 1 in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' at position 1 in `hpack_filter'.
+Lua module: luaotfload-loaders 2019-09-13 3.00 luaotfload submodule / callback h
+andling
+Inserting `luaotfload.define_font' at position 1 in `define_font'.
+Lua module: luaotfload-database 2019-09-13 3.00 luaotfload submodule / database
+Lua module: luaotfload-unicode 2019-09-13 3.00 luaotfload submodule / Unicode he
+lpers
+Lua module: luaotfload-colors 2019-09-13 3.00 luaotfload submodule / color
+Lua-only attribute luaotfload_color_attribute = 5
+Lua module: luaotfload-resolvers 2019-09-13 3.00 luaotfload submodule / resolver
+s
+luaotfload | conf : Root cache directory is /home/lasse/.local/texlive/2019/texm
+f-var/luatex-cache/generic/names.
+Lua module: luaotfload-features 2019-09-13 3.00 luaotfload submodule / features
+Lua module: luaotfload-letterspace 2019-09-13 3.00 luaotfload submodule / color
+Lua module: luaotfload-embolden 2019-09-13 3.00 luaotfload submodule / color
+Lua module: luaotfload-notdef 2019-09-13 3.00 luaotfload submodule / color
+Lua module: luaotfload-auxiliary 2019-09-13 3.00 luaotfload submodule / auxiliar
+y functions
+Inserting `luaotfload.aux.set_sscale_dimens' at position 1 in `luaotfload.patch_
+font'.
+Inserting `luaotfload.aux.patch_cambria_domh' at position 2 in `luaotfload.patch
+_font'.
+Inserting `luaotfload.aux.fixup_fontdata' at position 1 in `luaotfload.patch_fon
+t_unsafe'.
+Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
+'.
+Inserting `luaotfload.aux.set_xheight' at position 4 in `luaotfload.patch_font'.
+Lua module: luaotfload-multiscript 2019-09-13 3.00 luaotfload submodule / multis
+cript
+Inserting `luaotfload.rewrite_fontname' at position 5 in `luaotfload.patch_font'
+.
+luaotfload | main : initialization completed in 0.111 seconds
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 i
+   mport numpy as np
+? q
+OK, entering \batchmode...
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 1--2
+[]import
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 A
+    = np.pi * (1.234/2)**2 * 0.470 + np.pi * (0.660/2)**2 * (1.202 - 0.470) ...
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 3--4
+[]A
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 B
+    = 0.494 * (3.476-1.542) * 0.804 + 0.214 * (3.476-1.542) * 0.932 + np.pi ...
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 5--6
+[]B
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 C
+    = np.pi * (1.234/2)**2 * 0.47 + np.pi * (0.276/2)**2 * 1.202 + np.pi * (...
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 7--8
+[]C
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.9 F
+   ehler = np.sqrt((4.508*1.202*0.3)**2 + (- np.pi * 0.5 *(1.202-0.588) * 0....
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 9--10
+[]Fehler
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.11 p
+    rint(A)
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+)
+! Emergency stop.
+<*> volumen.py
+           
+*** (job aborted, no legal \end found)
+
+
+
+Here is how much of LuaTeX's memory you used:
+ 8 strings out of 494291
+ 100000,106986 words of node,token memory allocated 15051 words of node memory still in use:
+   16 hlist, 18 disc, 6 local_par, 1 dir, 377 glue, 3 kern, 10 penalty, 1674 gly
+ph, 7 attribute, 34 glue_spec, 7 attribute_list, 1 temp nodes
+   avail lists: 1:1,3:1,4:222,5:1,7:156,10:221
+ 4367 multiletter control sequences out of 65536+600000
+ 14 fonts using 591799 bytes
+ 5i,0n,4p,1200b,15s stack positions out of 5000i,500n,10000p,200000b,100000s
+!  ==> Fatal error occurred, no output PDF file produced!

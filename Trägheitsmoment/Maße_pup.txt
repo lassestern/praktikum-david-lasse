@@ -1,0 +1,9 @@
+r_kopf = 0.0152
+r_torso = 0.02025
+l_torso = 0.0981
+r_bein = 0.00835
+l_bein = 0.1705
+a_bein = 0.01
+l_arm = 0.135
+a_arm1 = 0.027
+a_arm2 = 0.0905

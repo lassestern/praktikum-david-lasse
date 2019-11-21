@@ -1,0 +1,96 @@
+\documentclass[titlepage = firstcover]{scrartcl}
+\usepackage[aux]{rerunfilecheck}
+\usepackage{fontspec}
+\usepackage[main=ngerman, english, french]{babel}
+
+% mehr Pakete hier
+\usepackage{expl3}
+\usepackage{xparse}
+
+%Mathematik------------------------------------------------------
+\usepackage{amsmath}   % unverzichtbare Mathe-Befehle
+\usepackage{amssymb}   % viele Mathe-Symbole
+\usepackage{mathtools} % Erweiterungen fuÌˆr amsmath
+\usepackage[
+  math-style=ISO,    % \
+  bold-style=ISO,    % |
+  sans-style=italic, % | ISO-Standard folgen
+  nabla=upright,     % |
+  partial=upright,   % /
+]{unicode-math}% "Does exactly what it says on the tin."
+
+% Laden von OTF-Mathefonts
+% ErmoÌˆglich Unicode Eingabe von Zeichen: Î± statt \alpha
+
+\setmathfont{Latin Modern Math}
+%\setmathfont{Tex Gyre Pagella Math} % alternativ zu Latin Modern Math
+\setmathfont{XITS Math}[range={scr, bfscr}]
+\setmathfont{XITS Math}[range={cal, bfcal}, StylisticSet=1]
+
+\AtBeginDocument{ % wird bei \begin{document}
+  % werden sonst wieder von unicode-math uÌˆberschrieben
+  \RenewDocumentCommand \Re {} {\operatorname{Re}}
+  \RenewDocumentCommand \Im {} {\operatorname{Im}}
+}
+\usepackage{mleftright}
+\setlength{\delimitershortfall}{-1sp}
+
+%Sprache----------------------------------------------------------
+\usepackage{microtype}
+\usepackage{xfrac}
+\usepackage[autostyle]{csquotes}    % babel
+\usepackage[unicode, pdfusetitle]{hyperref}
+\usepackage{bookmark}
+\usepackage[shortcuts]{extdash}
+%Einstellungen hier, z.B. Fonts
+\usepackage{booktabs} % Tabellen
+
+%Defininierte funktionen
+\DeclareMathOperator{\f}{xyz}
+
+\ExplSyntaxOn % bequeme Syntax fuÌˆr Definition von Befehlen
+
+\NewDocumentCommand \I {} {         %Befehl \I definieren,keine Argumente
+  \symup{i}                         %Ergebnis von \I
+} 
+\NewDocumentCommand \dif {m} % m = mandatory (Pflichtargument fÃ¼r \dif)
+{
+  \mathinner{\symup{d} #1}
+}
+
+\ExplSyntaxOff % Syntax wieder ausschalten. Wichtig!
+
+
+\title{Das Trägheitsmoment}
+\author{David Gutniko \and Lasse Sternemann emails}
+\date{Durchführung am 19.11.2019}
+
+\begin{document}
+    \maketitle
+
+    \section{Zielsetzung}
+    Es sollen Trägheitsmomente verschiedener Körper durch Experimente gemessen und durch entsprechende Rechnungen überprüft werden. 
+    Dabei wird auch der in den Rechnungen angewandte Satz von Steiner durch die Messungen bestätigt. Die verschiedenen Körper sind dabei 
+    allesamt Symmetriekörper wie Kugeln und Zylinder oder werden als diese angenähert.
+
+    \section{Theoretische Grundlagen}
+    Das Trägheitsmoment beschreibt das Streben einer Masse sich gegen die Änderung der Winkelgeschwindigkeit zu widersetzen. Damit stellt es 
+    das Äquivalent zur trägen Masse dar, welche sich der translativen Beschleunigung entgegensetzt (!).
+    Standardmäßig betrachtet man das Trägheitsmoment bezüglich der Drehachse durch den Schwerpunkt des Körpers. So lässt sich das Trägheitsmoment 
+    $j$ für einen Körper aus vielen homogen verteilten Massenpunkten m durch Formel 1 berechnen. Dabei bezeichnet $m$ die Masse der einzelnen 
+    Massenpunkte und $r$ deren senkrechten Abstand zur Drehachse.
+    \begin{equation}
+      J = \sum_(i=1)^n m_i * r_i^2
+    \end{equation}
+    Um die Berechnung auf für reelle Körper genau möglich zu machen, reduziert man die Größe der Massenpunkte bis sie infinitesimal klein werden und man 
+    nun anstatt aufzusummieren über sie Integrieren kann. Daraus ergibt sich Formel 2.
+    \begin{equation}
+      J = \int r^2 dm
+    \end{equation}
+    Da die Masse der einzelnen Massenpunkte nicht bekannt ist, werden Trägheitsmomente normalerweise berechnet, indem man die Dichteverteilung des Körpers 
+    über das Volumen integriert. Bei den gemessenen Körpern liegen homogene Massenverteilungen vor, sodass sich zur Berechnung derer Trägheitsmomente 
+    Formel 2 ergibt.  
+
+
+
+\end{document}
