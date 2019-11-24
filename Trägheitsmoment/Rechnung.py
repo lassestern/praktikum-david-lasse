@@ -67,3 +67,20 @@ print(I_2m)
 I_D_linR = (D_m*4.99758)/(4*np.pi**2) - 2*I_S
 print("Trägheitsmoment der Drillachse anhand der lin. Regression berechnen:")
 print(I_D_linR)
+
+#Aufgabe 3
+T_3 = np.genfromtxt("T_posa.txt", unpack = True)
+
+T_3m = np.sum(T_3)/len(T_2)
+I_3m = (T_3m**2 * D_m)  / (4 * np.pi**2)
+
+print("Trägheitsmoment der Puppe in Position A:")
+print(I_3m)
+
+T_4 = np.genfromtxt("T_posb.txt", unpack = True)
+
+T_4m = np.sum(T_4)/len(T_2)
+I_4m = (T_4m**2 * D_m)  / (4 * np.pi**2)
+
+print("Trägheitsmoment der Puppe in Position B:")
+print(I_4m)
