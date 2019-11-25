@@ -62,35 +62,309 @@
 
 
 \title{Das Trägheitsmoment}
-\author{David Gutniko \and Lasse Sternemann emails}
+\author{David Gutnikov \and Lasse Sternemann emails}
 \date{Durchführung am 19.11.2019}
 
 \begin{document}
     \maketitle
+    \tableofcontents
+    \newpage
 
     \section{Zielsetzung}
     Es sollen Trägheitsmomente verschiedener Körper durch Experimente gemessen und durch entsprechende Rechnungen überprüft werden. 
     Dabei wird auch der in den Rechnungen angewandte Satz von Steiner durch die Messungen bestätigt. Die verschiedenen Körper sind dabei 
-    allesamt Symmetriekörper wie Kugeln und Zylinder oder werden als diese angenähert.
+    allesamt starre Symmetriekörper wie Kugeln und Zylinder oder werden als diese angenähert.
 
     \section{Theoretische Grundlagen}
-    Das Trägheitsmoment beschreibt das Streben einer Masse sich gegen die Änderung der Winkelgeschwindigkeit zu widersetzen. Damit stellt es 
-    das Äquivalent zur trägen Masse dar, welche sich der translativen Beschleunigung entgegensetzt (!).
-    Standardmäßig betrachtet man das Trägheitsmoment bezüglich der Drehachse durch den Schwerpunkt des Körpers. So lässt sich das Trägheitsmoment 
-    $j$ für einen Körper aus vielen homogen verteilten Massenpunkten m durch Formel 1 berechnen. Dabei bezeichnet $m$ die Masse der einzelnen 
-    Massenpunkte und $r$ deren senkrechten Abstand zur Drehachse.
-    \begin{equation}
-      J = \sum_(i=1)^n m_i * r_i^2
-    \end{equation}
-    Um die Berechnung auf für reelle Körper genau möglich zu machen, reduziert man die Größe der Massenpunkte bis sie infinitesimal klein werden und man 
-    nun anstatt aufzusummieren über sie Integrieren kann. Daraus ergibt sich Formel 2.
-    \begin{equation}
-      J = \int r^2 dm
-    \end{equation}
-    Da die Masse der einzelnen Massenpunkte nicht bekannt ist, werden Trägheitsmomente normalerweise berechnet, indem man die Dichteverteilung des Körpers 
-    über das Volumen integriert. Bei den gemessenen Körpern liegen homogene Massenverteilungen vor, sodass sich zur Berechnung derer Trägheitsmomente 
-    Formel 2 ergibt.  
+      \subsection{Trägheitsmoment}
+      Das Trägheitsmoment beschreibt das Streben einer Masse sich gegen die Änderung der Winkelgeschwindigkeit zu widersetzen. Damit stellt es 
+      das Äquivalent zur trägen Masse dar, welche sich der translativen Beschleunigung entgegensetzt (!). So geht in die translative kinetische Energie
+      die Masse und die Geschwindigkeit ein und in die Rotationsenergie das Trägheitsmoment und die Winkelgeschwindigkeit.
+      \begin{align}
+        E_{trans} = \frac{1}{2} mv^2 \\
+        E_{rot} = \frac{1}{2}J \omega^2
+      \end{align}
+      Standardmäßig betrachtet man das Trägheitsmoment bezüglich der Drehachse durch den Schwerpunkt des Körpers. So lässt sich das Trägheitsmoment 
+      $J$ für einen Körper aus vielen homogen verteilten Massenpunkten m durch Formel 1 berechnen. Dabei bezeichnet $m$ die Masse der einzelnen 
+      Massenpunkte und $r$ deren senkrechten Abstand zur Drehachse.
+      \begin{equation}
+        J = \sum_{i=1}^n m_i * r_i^2
+      \end{equation}
+      Um die Berechnung auf für reelle Körper genau möglich zu machen, reduziert man die Größe der Massenpunkte bis sie infinitesimal klein werden und  
+      nun anstatt aufzusummieren über sie Integrieren werden kann. Daraus ergibt sich Formel 2.
+      \begin{equation}
+        J = \int r^2 dm
+      \end{equation}
+      Da die Masse der einzelnen Massenpunkte nicht bekannt ist, werden Trägheitsmomente normalerweise berechnet, indem man die Dichteverteilung des Körpers 
+      über das Volumen integriert. Bei den gemessenen Körpern liegen homogene Massenverteilungen vor, sodass sich zur Berechnung derer Trägheitsmomente 
+      Formel 2 ergibt.  
+      \begin{equation}
+        J = \int_V r^2 \rho dV
+      \end{equation}
+      Das Berechnen der Allgemeinen Trägheitsmomente, der für den Versuch nötigen Körper, liefert die Formeln 4 bis 7.
+      \begin{align}
+        J_{Zylisym} = \frac{1}{2}mr^2 \\
+        J_{Zyliquer} = m(\frac{1}{4}r^2 + \frac{1}{12}ml^2) \\
+        J_{Kugel} = \frac{2}{5}mr^2
+      \end{align}
+      Das Trägheitsmoment eines homogenen  Vollzylinders, der sich um seine Symmetrieachse dreht, wird durch Formel 5 beschreiben. $m$ steht wieder für 
+      Masse und $r$ für den Radius des Vollzylinders. Wenn der selbe Vollzylinder um seine Querachse rotiert, wird sein Trägheitsmoment durch Formel 6 beschrieben 
+      und das im Vergleich zu Formel 5 neue $l$ steht für seine Länge. Der letzte Körper ist eine Kugel, die von Natur aus immer um ihre Hauptträgheitsachse 
+      rotiert. Ihr Trägheitsmoment wird durch Formel 8 beschrieben, wobei $m$ für ihre Masse und $r$ für ihren Radius steht. Bei dem im Experiment vorliegenden System
+      kommt es zu einer Schwingung mit der in Formel(x) beschriebenen Schwingungsdauer, über die ebenfalls das Trägheitsmoment des Körpers berechnet werden kann, Wenn
+      $D$ und $T$ bekannt sind.
+      \begin{equation}
+        T = 2\pi \sqrt{\frac{I}{D}}
+      \end{equation}
+
+      \subsection{Satz von Steiner}
+      Die obrigen Formeln gelten nur für Körper, die um ihre Symmetrieachse rotieren. Körper die um eine Achse außerhalb ihrer Symmetrieachse rotieren, erfahren
+      ein größeres Trägheitsmoment. Wenn die Drehachse parallel zu einer der Symmetrieachsen liegt, lässt sich der Zuwachs des Trägheitsmomentes durch den Satz 
+      von Steiner erklären. 
+      \begin{equation}
+        J_{ges} = J_{sym} + ma^2
+      \end{equation}
+      Dabei wird das Gesamtträgheitsmoment, wie in Formel 9 zu sehen, aus dem Hauptträgheitsmoment des Körpers durch seine Symmetrieachse und dem zweiten 
+      Summanden beschrieben. In diesem steht $m$ für die Masse des Körpers und $a$ für den senkrechten Abstand der Drehachse zur Symmetrieachse des
+      Hauptträgheitsmomentes.
+
+      \subsection{Winkelrichtgröße}
+      Wenn man eine Achse an eine Torsionsfeder anbringt und diese dann auslenkt, wirkt eine Kraft die als Drehmoment auf die angbrachte Achse im Abstand $r$
+      wirkt. Damit lassen sich das Drehmoment (Formel 10) und die Winkelrichtgröße der Torsionsfeder gleichsetzen (Formel 11). Wenn die Kraft senkrecht zum Radius gemessen wird,
+      beträgt der Sinus Eins und fällt weg.
+      \begin{equation}
+        \vec{M} = \vec{r} \times \vec{F}
+      \end{equation}
+      \begin{equation}
+        r \cdot F \cdot \sin(\alpha) = D \cdot \upvarphi
+      \end{equation}
+      \begin{equation*}
+        M \cdot F = D \cdot \upvarphi
+      \end{equation*} 
+
+      \subsection{Schwingungsdauer}
+      Federn führen, nachdem man sie ausgelenkt hat, eine harmonische Schwingung durch. Diese wird auch durch die Schwingungsdauer $T$ charakterisiert,
+      welche die Dauer einer Periode angibt. Wie in Formel 12 erkennbar, ist diese direkt von der Frequenz der harmonischen Schwingung abhängig.
+      \begin{equation}
+        T = 2\pi \omega
+      \end{equation}
+    
+    \section{Versuchsdurchführung}
+      \subsection{Bestimmung der Apperatparameter}
+      Um die späteren Versuche mit Berechnungen zu überprüfen müssen zuerst die Apperatparameter bestimmt werden. Eines dieser Parameter ist die Winkelrichtgröße 
+      der Torsionsfeder. Diese lässt sich berechnen, indem eine Achse senkrecht auf die Achse der Torsionsfeder gesetzt wird und diese dann um einen Winkel
+      ausgelenkt wird. Ein Kraftmesser misst die senkrecht auf die Achse wirkende Kraft bei konstantem Abstand zur Drehachse und variierendem Auslenkwinkel. Die 
+      Winkelrichtgröße lässt sich dann durch Umstellen von Formel 11 berechnen. Das zweite Parameter ist das Drehmoment der Drillachse, welches sich über 
+      die Bestimmungen verschiedener Trägheitsmomente unter Zuhilfenahme des Satzes von Steiner messen lässt. Dazu werden zwei Gewichte pro Messung um weitere 2,5 cm von 
+      der  Drillachse entfernt, befestigt und die Schwingungsdauer des Systems bei diesen verschieden Abständen gemessen.
+
+      \subsection{Trägheitsmoment verschiedener Symmetriekörper}
+      Zuerst wird eine homogene Holzkugel, welche unendlich viele, gleiche Trägheitsachsen hat, auf die Drillachse gesetzt und ausgelenkt. Daraufhin werden die 
+      zur auftretenden Schwingung gehörigen Schwingungsdauern gemessen, um später mit jener und den Apperatparametern das Trägheitsmoment der Kugel zu bestimmen.
+      Das zweite Trägheitsmoment ist das eines homogen gefüllten Zylinders bezüglich seiner Symmetrieachse. Auch hier wird das System aus Zylinder und Torsionsfeder
+      ausgelenkt und die Schwingungsdauer gemessen.
+
+      \subsection{Trägheitsmomente einer Holzpuppe}
+      Es werden zwei verschiedenen Trägheitsmomente bestimmt, indem man die Puppe in zwei verschiedenen Positionen auf die Drillachse setzt und dann die verschiedenen
+      Schwingungsdauern des Systems misst. In der ersten Position steht die Puppe senkrecht und hat die Arme angelegt. In der zweiten Position steht sie wieder 
+      senkrecht, aber streckt die Arme nun rechtwinklig aus, sodass eine Art T-Pose entsteht. Zur späteren Verifizierung der Messergebnisse werden Kopf, Beine, Arme
+      und Torso als Zylinder oder Kugel angenähert und der Satz von Steiner unter der Annahme verwendet, dass die Drehachse durch die gedachte Symmetrieachse der
+      Puppe führt.
+
+    \section{Ergebnisse und Auswertung}
+
+      \subsection{Gerätparameter}
+      \begin{table}[h]
+        \centering
+        \caption{$\varphi$ ist der Winkel um den die auf der Torsionsfeder liegende Achse ausgelenkt wird und $F$ ist die Kraft die bei zugehörigem Winkel senkrecht auf die Achse im Abstand von 20cm zur Drehachse wirkt.}
+        \label{tab:Tabelle_1}
+
+        \begin{tabular}{c c}
+          \toprule
+          {$\varphi$ [°]} & {$F$ [N]} \\
+          \midrule
+          30 & 0,041 \\
+          60 & 0,122 \\
+          90 & 0,194 \\
+          120 & 0,260 \\
+          150 & 0,330 \\
+          180 & 0,400 \\
+          210 & 0,450 \\
+          240 & 0,550 \\
+          270 & 0,600 \\
+          300 & 0,670 \\
+          \bottomrule
+        \end{tabular}
+      \end{table}
+      
+      Die Winkelrichtgröße lässt sich bestimmen, indem Formel 12 nach D umgestellt wird und $\alpha$ gleich 90 Grad gesetzt wird. Nun wird für jedes Wertepaar die
+      Winkelrichtgröße und daraus der Mittelwert mit zugehörigen Standardabweichung des Mittelwerts bestimmt. Dies führt zu Gleichung 12 für den Mittelwert.
+
+      \begin{equation}
+        D = \frac{MF}{\upvarphi} \pm \sqrt{\frac{\sum_{i=1}^{10}(x_i - \overline{x}^2)}{n(n-1)}}   
+      \end{equation}
+
+      Somit ergibt sich $D$ = 0,02410 $\pm$ 0,00097 N .
+      \newpage
+      \begin{table}[h]
+        \centering
+        \caption{a ist der Abstand der Gewichte von der Drehachse und T die Schwingungsdauer des Systems bei entsprechendem Abstand. Mit diesen Werten und dem Satz von Steiner lässt sich das Trägheitsmoment der Drillachse berechnen.}
+        \label{tab:Tabelle_2}
+        
+        \begin{tabular}{c c}
+          \toprule
+          {$a$ [m]} & {$T$ [s]} \\
+          \midrule
+          0,0506 & 2,76 \\
+          0,075 & 3,16 \\
+          0,106 & 3,44 \\
+          0,125 & 3,96 \\
+          0,1497 & 4,66 \\
+          0,175 & 5,02 \\
+          0,20045 & 5,76 \\
+          0,225 & 6,56 \\
+          0,2507 & 7,04 \\
+          0,275 & 7,69 \\
+          \bottomrule
+        \end{tabular}
+      \end{table}
+      
+      Zum Bestimmen des Trägheitsmomentes der Drillachse trägt man $T^2$ gegen $a^2$ auf und führt eine lineare Regression durch, die zusammen mit den Messwerten
+      in Graph 1 zu sehen ist.
+      \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.5\linewidth]{Drill.pdf}
+        \caption{Bei Veränderung des Abstandes a wurden immer wieder die entsprechenden T gemessen. Nun werden die Werte quadriert und T² gegen a² aufgetragen. Die gelbe Ausgleichsgerade stammt aus einer linearen Regression. Deren Steigung ist 715,169 und der y-Achsenabschnitt beträgt 5,00.}
+      \end{figure}
+      
+      Das Gesamtträgheitsmoment $I$ setzt sich aus dem Eigenträgheitsmoment der Drehachse $I_D$ und den Trägheitsmomenten der beiden Zylinder auf der Querachse 
+      $I_k$. Die zugehörige Formel wird nach $I_D$ umgestellt.
+      \begin{align}
+        I &= I_D + 2 \cdot I_k \\
+        I_D &= I -2 \cdot I_k
+      \end{align}
+      Dabei setzt sich $I_k$ aus dem Hauptträgheitsmoment der Zylinder und einer zusätzlichen Komponente aufgrund der Entfernung zur Drehachse zusammen.
+      Anwenden des Satzes von Steiner und einsetzen der Trägheitsmomente aus Formel x führen zu Formel z.
+      \begin{equation}
+        I_k = 2 \cdot I_S + ma^2 \Rightarrow I_k = m \cdot (\frac{r^2}{2} + \frac{h^2}{6}) - 2 \cdot ma^2
+      \end{equation}
+      Mit dem über die Schwingungsdauer bestimmten Gesamtträgheitsmoment des Systems folgt für $I_D$:
+      \begin{equation}
+        I_D = \frac{D}{4\pi^2} \cdot T^2 - 2m \cdot (\frac{r^2}{2} + \frac{h^2}{6}) - 2 \cdot ma^2
+      \end{equation}
+      Wenn Formel x dann nach $T^2$ umgestellt wird, stellt dies die Geradengleichung der linearen Regression dar.
+      \begin{align}
+        T^2 &= \frac{8\pi^2m}{D} \cdot a^2  + \frac{4\pi^2}{D}(I_D + 2 \cdot I_S) \\
+        T^2 &= m \cdot a^2 + b
+      \end{align}
+      Über den y-Achsenabschnitt lässt sich nun das Eigenträgheitsmoment der Drillachse mit Formel x bestimmen, wobei der y-Achsenabschnitt $T_0^2$=5,00 ist.
+      \begin{equation}
+        I_D = \frac{T_0^2D}{4\pi^2} - 2 \cdot I_S = 0,00298 \pm 3,879 \cdot 10^{-4}kgm^2
+      \end{equation}
+
+      \subsection{Trägheitsmomente verschiedener Körper}
+      
+     
+      
+      \begin{table}[h]
+        \centering
+        \caption{In der Tabelle sind die Messungen der Schwingungsdauern der Schwingungen aufgetragen, die nach dem Auslenken des Systems entstehen. Sie werden benötigt um die Trägheitsmomente zu berechnen}
+        \label{tab:Tabelle_3}
+
+        \begin{tabular}{c c}
+          \toprule
+          {$T_{Zyli}$ [s]} & {$T_{Kugel}$ [s]} \\
+          \midrule
+          0,97 & 1,69 \\
+          0,83 & 1,83 \\
+          0,86 & 1,80 \\
+          0,92 & 1,80 \\
+          0,92 & 1,72 \\
+          \bottomrule
+        \end{tabular}
+      \end{table}
+      
+      Das theoretisch berechnete Trägheitsmoment des Zylinders mit einer Masse von 1,1195 kg und einem Radius von 0,035 m beträgt nach Formel 7 
+      $I_{Zyli} = 6,68 \cdot 10^{-4} kgm^2$. \newline
+      
+      Die Trägheitsmoment des Zylinders lässt sich bestimmen, indem von dem über Formel x berechnete Trägheitsmoment das der Drillachse abgezogen wird. Kombiniert
+      mit der Gauß`schen Fehlerfortpflanzung ergibt sich für das gemessene Trägheitsmoment folgende Formel.
+      \begin{equation}
+        I_{Zyli} = \frac{D\overline{T}^2}{4\pi^2} \pm \sqrt{(\frac{D\overline{T}}{2\cdot \pi^2} \cdot \Delta \overline{T})^2 + (\frac{\overline{T}^2}{4 \cdot \pi^2} \cdot \Delta \overline{D})^2} - I_D \pm \Delta I_D
+      \end{equation}
+      $I_{Zyli} = -2,48 \cdot 10^{-3} \pm 4,216\cdot 10^{-4} \, kgm²$
+
+      Das Trägheitsmoment der Kugel, der Masse 1,0376 kg und des Radius` 0,0725 m, hat nach Formel 9 das Trägheitsmoment $I_{Kugel} = 1,92 \cdot 10^{-3} kgm^2$. \newline
+
+      Experimentell lässt sich dieses Trägheitsmoment analog zu dem des Zylinders bestimmen. Hier wird das Trägheitsmoment der Drillachse vom Trägheitsmoment
+      aus Formel 7 abgezogen.
+      \begin{equation}
+        I_{Kugel} = \frac{D\overline{T}^2}{4\pi^2} \pm \sqrt{(\frac{D\overline{T}}{2\cdot \pi^2} \cdot \Delta \overline{T})^2 + (\frac{\overline{T}^2}{4 \cdot \pi^2} \cdot \Delta \overline{D})^2} - I_D \pm \Delta I_D
+      \end{equation}
+      $I_{Kugel} = -1,0709 \cdot 10^{-3} \pm 4,841 \cdot 10^{-4} \, kgm²$
+      
+
+
+      \subsection{Trägheitsmomente der Holzpuppe}
+
+      
+      Zum bestimmen der Trägheitsmomente der Körperteile werden die Masse, Radien und ggf. Längen derer benötigt.
+      \begin{align*}
+        m_{Arm} &= 0,0137 \, \text{m} & r_{Arm} &= 0,00705 \, \text{m} & l_{Arme} &= 0,135 \, \text{m} & a_{Arma} &= 0,0270 \, \text{m} & a_{Armb} = 0,0905 \, \text{m} \\
+        m_{Bein} &= 0,0243 \, \text{m} & r_{Bein} &= 0,00835 \, \text{m} & l_{Bein} &= 0,1705 \, \text{m} & a_{Bein} &= 0,01 \, \text{m} & \\
+        m_{Torso} &= 0,0821 \, \text{m} &  r_{Torso} &= 0,02025 \, \text{m} & l_{Torso} &= 0,0981 \, \text{m} & \\ & \\
+        m_{Kopf} &= 0,00956 \, \text{m} & r_{Kopf} &= 0,0152 \, \text{m} & \\ & \\ &
+      \end{align*}
+
+      Über die Masse der einzelnen Körperteile, lässt sich das Trägheitsmoment der Holzpuppe in den verschiedenen Positionen über deren Hauptträgheitsmomente und 
+      den Satz von Steiner berechnen.
+      \begin{equation}
+        \begin{split}
+          I_{Posi} = \frac{2}{5} m_{Kopf}r_{Kopf}^2 + \frac{1}{2} m_{Torso} r_{Torso}^2 + m_{Arm} r_{Arm}^2 \\
+                    + 2 \cdot m_{Arm} a_{Arme}^2 + m_{Bein} r_{Bein}^2 + 2 \cdot m_{Bein} a_{Beine}^2
+        \end{split}
+      \end{equation}
+      Die a´s stehen dabei für den Abstand der Hauptträgheitsachse der Beine und Arme von der Drehachse. Dieser Abstand ändert sich für die Arme von Position a 
+      zu Position b. Es folgen zwei verschiedene Trägheitsmomente.\newline
+      
+      $I_{Posa} = 4,49 \cdot 10^{-5} \, \text{kgm²}$ \newline
+      
+      $I_{Posb} = 2,91 \cdot 10^{-4} \, \text{kgm²}$
+      \newpage
+      \begin{table}[h]
+        \centering
+        \caption{In der Tabelle finden sich die Messwerte der Schwingungsdauer zur Bewegung der Puppe nach der Auslenkung. Dabei steht $T_a$ für Position a, bei der die Puppe aufrecht steht und die Arme angelegt hat. In der zweiten Position, Position b, steht die Puppe wieder aufrecht, aber streckt die Arme nun senkrecht vom Körper.}
+        \label{tab:Tabelle_4}
+
+        \begin{tabular}{c c}
+          \toprule
+          {$T_a$ [s]} & {$T_b$ [s]} \\
+          \midrule
+          0,55 & 0,56 \\
+          0,32 & 0,56 \\
+          0,41 & 0,56 \\ 
+          0,46 & 0,54 \\
+          0,46 & 0,56 \\
+          \bottomrule
+        \end{tabular}
+      \end{table}  
+      
+      Nun lässt sich das Trägheitsmoment für beide Positionen analog zum Vorgehen bei den vorherigen Körpern bestimmen.
+      \begin{equation}
+        I_{Posi} = \frac{D\overline{T_i}^2}{4\pi^2} \pm \sqrt{(\frac{D\overline{T_i}}{2\cdot \pi^2} \cdot \Delta \overline{T_i})^2 + (\frac{\overline{T_i}^2}{4 \cdot \pi^2} \cdot \Delta \overline{D})^2} - I_D \pm \Delta I_D
+      \end{equation}
+
+      $I_{Posa} = -2,861 \cdot 10^{-3} \pm 4,087 \cdot 10^{-4} \, kgm²$ \newline
+
+      $I_{Posb} = -2,790 \cdot 10^{-3} \pm 3,963 \cdot 10^{-4} \, kgm²$
+        
+      
+
+    \section{Diskussion}
 
 
 
 \end{document}
+
+
+
