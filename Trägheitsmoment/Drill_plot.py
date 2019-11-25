@@ -18,6 +18,8 @@ plt.plot(x_plot, params[0] * x_plot + params[1], label = r'Lineare Regression')
 
 plt.legend(loc = 'best')
 print(params[0], params[1])
+errors = np.sqrt(np.diag(covariance_matrix))
+print(errors)
 
 plt.show()
 plt.savefig('Drill.pdf')
