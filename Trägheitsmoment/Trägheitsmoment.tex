@@ -145,9 +145,9 @@
       \subsection{Schwingungsdauer}
       Federn führen, nachdem man sie ausgelenkt hat, eine harmonische Schwingung durch. Diese wird auch durch die Schwingungsdauer $T$ charakterisiert,
       welche die Dauer einer Periode angibt. Wie in Formel 12 erkennbar, ist diese direkt von der Frequenz der harmonischen Schwingung abhängig.
-      \begin{equation}
+      \begin{equation*}
         T = 2\pi \omega
-      \end{equation}
+      \end{equation*}
     
     \section{Versuchsdurchführung}
       \subsection{Bestimmung der Apperatparameter}
@@ -200,9 +200,9 @@
       Die Winkelrichtgröße lässt sich bestimmen, indem Formel 12 nach D umgestellt wird und $\alpha$ gleich 90 Grad gesetzt wird. Nun wird für jedes Wertepaar die
       Winkelrichtgröße und daraus der Mittelwert mit zugehörigen Standardabweichung des Mittelwerts bestimmt. Dies führt zu Gleichung 12 für den Mittelwert.
 
-      \begin{equation}
+      \begin{equation*}
         D = \frac{MF}{\upvarphi} \pm \sqrt{\frac{\sum_{i=1}^{10}(x_i - \overline{x}^2)}{n(n-1)}}   
-      \end{equation}
+      \end{equation*}
 
       Somit ergibt sich $D$ = 0,02410 $\pm$ 0,00097 N .
       \newpage
@@ -239,12 +239,12 @@
       
       Das Gesamtträgheitsmoment $I$ setzt sich aus dem Eigenträgheitsmoment der Drehachse $I_D$ und den Trägheitsmomenten der beiden Zylinder auf der Querachse 
       $I_k$. Die zugehörige Formel wird nach $I_D$ umgestellt.
-      \begin{align}
+      \begin{align*}
         I &= I_D + 2 \cdot I_k \\
         I_D &= I -2 \cdot I_k
-      \end{align}
+      \end{align*}
       Dabei setzt sich $I_k$ aus dem Hauptträgheitsmoment der Zylinder und einer zusätzlichen Komponente aufgrund der Entfernung zur Drehachse zusammen.
-      Anwenden des Satzes von Steiner und einsetzen der Trägheitsmomente aus Formel x führen zu Formel z.
+      Anwenden des Satzes von Steiner und einsetzen der Trägheitsmomente aus Formel 7 führen zu Formel 13.
       \begin{equation}
         I_k = 2 \cdot I_S + ma^2 \Rightarrow I_k = m \cdot (\frac{r^2}{2} + \frac{h^2}{6}) - 2 \cdot ma^2
       \end{equation}
@@ -252,12 +252,12 @@
       \begin{equation}
         I_D = \frac{D}{4\pi^2} \cdot T^2 - 2m \cdot (\frac{r^2}{2} + \frac{h^2}{6}) - 2 \cdot ma^2
       \end{equation}
-      Wenn Formel x dann nach $T^2$ umgestellt wird, stellt dies die Geradengleichung der linearen Regression dar.
+      Wenn Formel 14 dann nach $T^2$ umgestellt wird, stellt dies die Geradengleichung der linearen Regression dar.
       \begin{align}
         T^2 &= \frac{8\pi^2m}{D} \cdot a^2  + \frac{4\pi^2}{D}(I_D + 2 \cdot I_S) \\
         T^2 &= m \cdot a^2 + b
       \end{align}
-      Über den y-Achsenabschnitt lässt sich nun das Eigenträgheitsmoment der Drillachse mit Formel x bestimmen, wobei der y-Achsenabschnitt $T_0^2$=5,00 ist.
+      Über den y-Achsenabschnitt lässt sich nun das Eigenträgheitsmoment der Drillachse mit Formel 14 bestimmen, wobei der y-Achsenabschnitt $T_0^2$=5,00 ist.
       \begin{equation}
         I_D = \frac{T_0^2D}{4\pi^2} - 2 \cdot I_S = 0,00298 \pm 3,879 \cdot 10^{-4}kgm^2
       \end{equation}
@@ -289,18 +289,18 @@
       
       Die Trägheitsmoment des Zylinders lässt sich bestimmen, indem von dem über Formel x berechnete Trägheitsmoment das der Drillachse abgezogen wird. Kombiniert
       mit der Gauß`schen Fehlerfortpflanzung ergibt sich für das gemessene Trägheitsmoment folgende Formel.
-      \begin{equation}
+      \begin{equation*}
         I_{Zyli} = \frac{D\overline{T}^2}{4\pi^2} \pm \sqrt{(\frac{D\overline{T}}{2\cdot \pi^2} \cdot \Delta \overline{T})^2 + (\frac{\overline{T}^2}{4 \cdot \pi^2} \cdot \Delta \overline{D})^2} - I_D \pm \Delta I_D
-      \end{equation}
+      \end{equation*}
       $I_{Zyli} = -2,48 \cdot 10^{-3} \pm 4,216\cdot 10^{-4} \, kgm²$
 
       Das Trägheitsmoment der Kugel, der Masse 1,0376 kg und des Radius` 0,0725 m, hat nach Formel 9 das Trägheitsmoment $I_{Kugel} = 1,92 \cdot 10^{-3} kgm^2$. \newline
 
       Experimentell lässt sich dieses Trägheitsmoment analog zu dem des Zylinders bestimmen. Hier wird das Trägheitsmoment der Drillachse vom Trägheitsmoment
       aus Formel 7 abgezogen.
-      \begin{equation}
+      \begin{equation*}
         I_{Kugel} = \frac{D\overline{T}^2}{4\pi^2} \pm \sqrt{(\frac{D\overline{T}}{2\cdot \pi^2} \cdot \Delta \overline{T})^2 + (\frac{\overline{T}^2}{4 \cdot \pi^2} \cdot \Delta \overline{D})^2} - I_D \pm \Delta I_D
-      \end{equation}
+      \end{equation*}
       $I_{Kugel} = -1,0709 \cdot 10^{-3} \pm 4,841 \cdot 10^{-4} \, kgm²$
       
 
@@ -316,6 +316,7 @@
         m_{Kopf} &= 0,00956 \, \text{m} & r_{Kopf} &= 0,0152 \, \text{m} & \\ & \\ &
       \end{align*}
 
+      Die Arme, die Beine und der Torso der Puppe werden als Zylinder, der Kopf als Kugel angenähert.
       Über die Masse der einzelnen Körperteile, lässt sich das Trägheitsmoment der Holzpuppe in den verschiedenen Positionen über deren Hauptträgheitsmomente und 
       den Satz von Steiner berechnen.
       \begin{equation}
@@ -350,9 +351,9 @@
       \end{table}  
       
       Nun lässt sich das Trägheitsmoment für beide Positionen analog zum Vorgehen bei den vorherigen Körpern bestimmen.
-      \begin{equation}
+      \begin{equation*}
         I_{Posi} = \frac{D\overline{T_i}^2}{4\pi^2} \pm \sqrt{(\frac{D\overline{T_i}}{2\cdot \pi^2} \cdot \Delta \overline{T_i})^2 + (\frac{\overline{T_i}^2}{4 \cdot \pi^2} \cdot \Delta \overline{D})^2} - I_D \pm \Delta I_D
-      \end{equation}
+      \end{equation*}
 
       $I_{Posa} = -2,861 \cdot 10^{-3} \pm 4,087 \cdot 10^{-4} \, kgm²$ \newline
 
@@ -361,7 +362,15 @@
       
 
     \section{Diskussion}
-
+    
+    Wie den errechneten Trägheitsmomenten der verschiedenen Körper klar zu entnehmen ist, scheint das Eigenträgheitsmoment der Drillachse viel zu groß zu sein.
+    Die Versuchsanleitung gibt die Annahme einer masselosen Stange, auf der die beiden Gewichte zur Bestimmung des Eigenträgheitsmoments der Drillachse befestigt sind, an.
+    Bei Verwendung dieser Annahme kommt es zu einem zu großen Eigenträgheitsmoment der Drillachse, da die Metallstange welche ein größeres Trägheitsmoment besitzt als die tatsächliche Drillachse in die Rechnung miteinbezogen wird.
+    Dies liegt daran, dass die Stange nicht wirklich masselos ist und die meisten Massenpunkte einen größeren Abstand senkrecht zur Drehachse haben, als fast alle Massenpunkte der Drillachse.
+    Da der Abstand quadratisch in das Trägheitsmoment eingeht, vergrößert die Metallstange des Eigenträgheitsmoment der Drillachse drastisch und verursacht die negativen Trägheitsmomente der Körper.
+    
+    Der Satz von Steiner konnte aufgrund der extremen Ungenauigkeiten nicht quantitativ belegt werden, doch ist das Trägheitsmoment der Puppe mit angewinkelten Armen (Position A)
+    kleiner als das Trägheitsmoment der Puppe mit ausgestreckten Armen (Position B). Das lässt darauf schließen, dass mit steigendem Abstand des Körpers zur Drehachse auch das Trägheitsmoment größer wird.
 
 
 \end{document}
