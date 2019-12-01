@@ -1,9 +1,9 @@
-PWD /home/lasse/Schreibtisch/praktikum-david-lasse/Trägheitsmoment
+PWD /home/lasse/Schreibtisch/praktikum-david-lasse/Stäbe
 INPUT /home/lasse/.local/texlive/2019/texmf.cnf
 INPUT /home/lasse/.local/texlive/2019/texmf-dist/web2c/texmf.cnf
 INPUT /home/lasse/.local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /home/lasse/Schreibtisch/praktikum-david-lasse/Trägheitsmoment/Trägheitsmoment.tex
-OUTPUT /home/lasse/Schreibtisch/praktikum-david-lasse/Trägheitsmoment/Trägheitsmoment.log
+INPUT /home/lasse/Schreibtisch/praktikum-david-lasse/Stäbe/Stäbe.tex
+OUTPUT /home/lasse/Schreibtisch/praktikum-david-lasse/Stäbe/Stäbe.log
 INPUT /home/lasse/.local/texlive/2019/texmf-dist/tex/latex/koma-script/scrartcl.cls
 INPUT /home/lasse/.local/texlive/2019/texmf-dist/tex/latex/koma-script/scrartcl.cls
 INPUT /home/lasse/.local/texlive/2019/texmf-dist/tex/latex/koma-script/scrkbase.sty
@@ -46,8 +46,8 @@ INPUT /home/lasse/.local/texlive/2019/texmf-dist/tex/generic/oberdiek/uniquecoun
 INPUT /home/lasse/.local/texlive/2019/texmf-dist/tex/generic/oberdiek/uniquecounter.sty
 INPUT /home/lasse/.local/texlive/2019/texmf-dist/tex/generic/oberdiek/bigintcalc.sty
 INPUT /home/lasse/.local/texlive/2019/texmf-dist/tex/generic/oberdiek/bigintcalc.sty
-INPUT /home/lasse/Schreibtisch/praktikum-david-lasse/Trägheitsmoment/Trägheitsmoment.aux
-INPUT /home/lasse/Schreibtisch/praktikum-david-lasse/Trägheitsmoment/Trägheitsmoment.aux
+INPUT /home/lasse/Schreibtisch/praktikum-david-lasse/Stäbe/Stäbe.aux
+INPUT /home/lasse/Schreibtisch/praktikum-david-lasse/Stäbe/Stäbe.aux
 INPUT /home/lasse/.local/texlive/2019/texmf-dist/tex/latex/fontspec/fontspec.sty
 INPUT /home/lasse/.local/texlive/2019/texmf-dist/tex/latex/fontspec/fontspec.sty
 INPUT /home/lasse/.local/texlive/2019/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
