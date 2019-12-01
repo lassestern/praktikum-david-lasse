@@ -62,7 +62,13 @@
 
 
 \title{Das Trägheitsmoment}
-\author{David Gutnikov \and Lasse Sternemann emails}
+\author{
+  David Gutnikov\\
+  \href{mailto:david.gutnikov@udo.edu}{david.gutnikov@udo.edu}
+ \and 
+  Lasse Sternemann\\
+  \href{mailto:lasse.sternemann@udo.edu}{lasse.sternemann@udo.edu}
+}
 \date{Durchführung am 19.11.2019}
 
 \begin{document}
@@ -107,6 +113,11 @@
         J_{Zyliquer} = m(\frac{1}{4}r^2 + \frac{1}{12}ml^2) \\
         J_{Kugel} = \frac{2}{5}mr^2
       \end{align}
+      \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.7\linewidth]{TM.png}
+        \caption{In der Abbildung sind die in den Formeln 4 bis 6 stehenden Trägheitsmomente ihren Köroern und Drehachsen zugeordnet. [1, S.2]}
+      \end{figure}
       Das Trägheitsmoment eines homogenen  Vollzylinders, der sich um seine Symmetrieachse dreht, wird durch Formel 4 beschreiben. $m$ steht dabei für dessen
       Masse und $r$ für den Radius des Vollzylinders. Wenn der selbe Vollzylinder um seine Querachse rotiert, wird sein Trägheitsmoment durch Formel 5 beschrieben 
       und das im Vergleich zu Formel 4 neue $l$ steht für seine Länge. Der letzte Körper ist eine Kugel, die von Natur aus immer um ihre Hauptträgheitsachse 
@@ -149,6 +160,18 @@
         T = 2\pi \omega
       \end{equation*}
     
+    \section{Versuchsaufbau}
+      Das für den Versuch grundlegende System besteht aus einer Torsionsfeder, auf der eine Drillachse befestigt ist. Auf dieser Drillachse werden für die Versuche
+      verschiedene Körper oder Querachsen auf die Drillachse gesetzt. Sie sind dann so mit der Torsionsfeder verbunden, dass sie die Feder bei eigener Auslenkung auch
+      auslenken. Wenn die äußere Kraft, die der Auslenkung zu Grunde liegt, wegfällt, beginnt das gesamte System des Testkörpers, der Drillachse und der 
+      Torsionsfeder zu schwingen und die Schwingungsparameter können über das Messen der Schwingungsdauer bestimmt werden.
+      \newpage
+      \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.3\linewidth, height=0.5\linewidth]{Versuchsaufbau.png}
+        \caption{Hier ist das System mit einer Kugel als Testkörper zu sehen. Diese ist wie zuvor beschrieben so an der Drillachse befestigt, dass ihr Haupträgheitsmoment auf der Drehachse des Systems liegt. [1, S.3]}
+      \end{figure}
+
     \section{Versuchsdurchführung}
       \subsection{Bestimmung der Apperatparameter}
       Um die späteren Versuche mit Berechnungen zu überprüfen, müssen zuerst die Apperatparameter bestimmt werden. Eines dieser Parameter ist die Winkelrichtgröße 
@@ -170,6 +193,12 @@
       senkrecht, aber streckt die Arme nun rechtwinklig aus, sodass eine Art T-Pose entsteht. Zur späteren Verifizierung der Messergebnisse werden Kopf, Beine, Arme
       und Torso als Kugel oder Zylinder angenähert und der Satz von Steiner unter der Annahme verwendet, dass die Drehachse durch die gedachte Symmetrieachse der
       Puppe führt.
+
+      \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.7\linewidth]{Puppe.png}
+        \caption{Die linke Puppe befindet sich in Position a und die rechte in Position b. [1, S.4]}
+      \end{figure}
 
     \section{Ergebnisse und Auswertung}
 
@@ -209,7 +238,7 @@
       \end{equation}
 
       Somit ergibt sich $D$ = 0,02410 $\pm$ 0,00097 N .
-      \newpage
+      %\newpage
       \begin{table}[h]
         \centering
         \caption{a ist der Abstand der Gewichte von der Drehachse und T die Schwingungsdauer des Systems bei entsprechendem Abstand. Mit diesen Werten und dem Satz von Steiner lässt sich das Trägheitsmoment der Drillachse berechnen.}
@@ -234,7 +263,8 @@
       \end{table}
       
       Zum Bestimmen des Trägheitsmomentes der Drillachse trägt man $T^2$ gegen $a^2$ auf und führt eine lineare Regression durch, die zusammen mit den Messwerten
-      in Abbildung 1 zu sehen ist.
+      in Abbildung 4 zu sehen ist. \newline
+
       \begin{figure}[h]
         \centering
         \includegraphics[width=0.8\linewidth]{Drill.pdf}
@@ -266,7 +296,7 @@
       \begin{equation*}
         I_D = \frac{T_0^2D}{4\pi^2} - 2 \cdot I_S = 0,00298 \pm 3,879 \cdot 10^{-4}kgm^2
       \end{equation*}
-      \newpage
+      
 
       \subsection{Trägheitsmomente verschiedener Körper}
       
@@ -369,16 +399,17 @@
 
     \section{Diskussion}
     
-    Wie den errechneten Trägheitsmomenten der verschiedenen Körper klar zu entnehmen ist, scheint das Eigenträgheitsmoment der Drillachse viel zu groß zu sein.
-    Die Versuchsanleitung gibt die Annahme einer masselosen Stange, auf der die beiden Gewichte zur Bestimmung des Eigenträgheitsmoments der Drillachse befestigt sind, an.
-    Bei Verwendung dieser Annahme kommt es zu einem zu großen Eigenträgheitsmoment der Drillachse, da die Metallstange, welche ein größeres Trägheitsmoment besitzt als die tatsächliche Drillachse, nicht in die Rechnung miteinbezogen wird.
-    Dies liegt daran, dass die Stange nicht wirklich masselos ist und die meisten Massenpunkte einen größeren Abstand senkrecht zur Drehachse haben, als fast alle Massenpunkte der Drillachse.
-    Da der Abstand quadratisch in das Trägheitsmoment eingeht, vergrößert die Metallstange des Eigenträgheitsmoment der Drillachse drastisch und verursacht die negativen Trägheitsmomente der Körper.
-    Zusätzlich bringt auch das ungenaue, händische Messen der kurzen Schwingungsdauern eine große Ungenauigkeit in die Messwerte.
-    Der Satz von Steiner konnte aufgrund der extremen Ungenauigkeiten nicht quantitativ belegt werden, doch ist das Trägheitsmoment der Puppe mit angewinkelten Armen (Position A)
-    kleiner als das Trägheitsmoment der Puppe mit ausgestreckten Armen (Position B). Das lässt darauf schließen, dass mit steigendem Abstand des Körpers zur Drehachse auch das Trägheitsmoment größer wird.
+      Wie den errechneten Trägheitsmomenten der verschiedenen Körper klar zu entnehmen ist, scheint das Eigenträgheitsmoment der Drillachse viel zu groß zu sein.
+      Die Versuchsanleitung gibt die Annahme einer masselosen Stange, auf der die beiden Gewichte zur Bestimmung des Eigenträgheitsmoments der Drillachse befestigt sind, an.
+      Bei Verwendung dieser Annahme kommt es zu einem zu großen Eigenträgheitsmoment der Drillachse, da die Metallstange, welche ein größeres Trägheitsmoment besitzt als die tatsächliche Drillachse, nicht in die Rechnung miteinbezogen wird.
+      Dies liegt daran, dass die Stange nicht wirklich masselos ist und die meisten Massenpunkte einen größeren Abstand senkrecht zur Drehachse haben, als fast alle Massenpunkte der Drillachse.
+      Da der Abstand quadratisch in das Trägheitsmoment eingeht, vergrößert die Metallstange des Eigenträgheitsmoment der Drillachse drastisch und verursacht die negativen Trägheitsmomente der Körper.
+      Zusätzlich bringt auch das ungenaue, händische Messen der kurzen Schwingungsdauern eine große Ungenauigkeit in die Messwerte.
+      Der Satz von Steiner konnte aufgrund der extremen Ungenauigkeiten nicht quantitativ belegt werden, doch ist das Trägheitsmoment der Puppe mit angewinkelten Armen (Position A)
+      kleiner als das Trägheitsmoment der Puppe mit ausgestreckten Armen (Position B). Das lässt darauf schließen, dass mit steigendem Abstand des Körpers zur Drehachse auch das Trägheitsmoment größer wird. \newpage
 
-
+    \section{Literaturverzeichnis}
+      [1] \textit{Versuchsanleitung V101 - Das Trägheitsmoment.} TU Dortmund, 2019
 \end{document}
 
 
