@@ -7,6 +7,8 @@
 \usepackage{expl3}
 \usepackage{xparse}
 \usepackage{pdfpages}
+\usepackage{csvsimple}
+\usepackage{pgfplotstable}
 
 %Mathematik------------------------------------------------------
 \usepackage{amsmath}   % unverzichtbare Mathe-Befehle
@@ -56,8 +58,11 @@
 
 
 \title{Biegung elastischer Stäbe}
-\author{David Gutnikov \and Lasse Sternemann \newline
-        }
+\author{
+  David Gutnikov \\
+  \href{mailto:david.gutnikov@edu.udo}{david.gutnikov@edu.udo} \and
+  Lasse Sternemann \\
+  \href{mailto:lasse.sternemann@edu.udo}{lasse.sternemann@edu.udo}}
 \date{Durchführung am 26.11.19}
 
 \begin{document}
@@ -70,38 +75,68 @@
 
     \section{Theorie}
       \subsection{Elastizitätsmodul}
-        Wenn Kräfte auf einen elastischen Körper wirken verformt sich dieser. Meistens werden diese Kräfte pro Fläche angegeben, was man dann Spannung nennt.
-        Diese Spannungen haben einen linearen Zusammenhang zu den durch sie verursachten Auslenkungen am Körper, sofern sie ausreichend klein seien.
-        Der Proportionalitätskoeffizient dieser Abhängigkeit ist der Elastizitätsmodul. Jedes Material besitzt ein eigenes Elastizitätsmodul, welches als Materialkonstante in verschiedenen Fachbereichen Anwendung findet.
+        Wenn Kräfte auf einen elastischen Körper wirken, verformt sich dieser, wie in Abbildung \ref{fig:verformung}
+        zu sehen ist. Meistens werden diese Kräfte pro Fläche angegeben, was als Spannung bezeichnet wird.
+        Diese Spannungen haben einen linearen Zusammenhang zu den durch sie verursachten, relativen Auslenkungen am
+        Körper (Auslenkung relativ zur Länge des Körpers), sofern sie ausreichend klein sind.
+        Der Proportionalitätskoeffizient dieser Abhängigkeit ist der Elastizitätsmodul. Jedes Material besitzt ein
+        eigenes Elastizitätsmodul, welches als Materialkonstante in verschiedenen Fachbereichen Anwendung findet.
         \begin{figure}[h]
           \centering
           \includegraphics[width=0.75\linewidth]{Verformung.png}
-          \caption{Der Körper wird durch $\sigma$ verformt und erfährt eine Ausdehnung von $\Delta$ L.}
+          \caption{Der Körper wird durch $\sigma$ verformt und erfährt eine Ausdehnung von $\Delta L$.}
           \label{fig:verformung}
         \end{figure}
+        
+        Die Formel bzw. das \glqq Hook'sche Gesetz\grqq{} sieht wie folgt aus mit der Auslenkung $\Delta L$ und der Länge des Körpers $L$:
+        \begin{equation*}
+          \sigma = E \cdot \frac{\Delta L}{L}
+        \end{equation*}
+        
+        \subsection{Biegung eines einseitig eingespannten Stabes}
+          Wie in Abbildung \ref{fig:theorieEins} zu sehen ist, wird der Stab durch die senkrecht zu ihm angreifende Kraft $F$ um $D$ 
+          ausgelenkt. Die Auslenkung kommt zustande, indem der Stab sich durch das äußere Drehmoment biegt, bis die 
+          inneren Normalspannungen ein Kräftegleichgewicht erzeugen und der Stab in der zugehörigen Auslenkung verbleibt.
+          Diese Auslenkung hängt vom Abstand zum Befestigungspunkt $x$, dem Elastizitätsmodul des Körpermaterials $E$, 
+          dem Flächenträgheitsmoment $I$ und der Länge des Körper s$L$, sowie der angreifenden Kraft $F$ ab. Dieser 
+          Zusammenhang ist in Formel \eqref{eqn:formelEins} dargestellt:
+          \begin{equation}
+            D(x) = \frac{F}{2EI} \cdot \Bigl(Lx^2 - \frac{x^3}{3}\Bigr)
+            \label{eqn:formelEins}
+          \end{equation}
+
+          \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.75\linewidth]{Einseitig_Theorie.png}
+            \caption{Der Stab wird einseitig eingespannt und an einer Seite ein Gewicht angehängt.}
+            \label{fig:theorieEins}
+          \end{figure}
+      
+        \subsection{Biegung eines zweiseitig eingespannten Stabes}
+          Wie in \ref{eqn:formelZweis} zu sehen ist, wird in der Mitte zwischen den Auflagepunkten eine senkrechte Kraft an
+          den Stab angelegt. Die anliegende Kraft wird auf die beiden Auflagepunkte übertragen und erzeugt auch hier nach 
+          dem obrigen Prinzip eine Auslenkung. Diese ist von den selben Größen wie Formel \eqref{eqn:formelEins} abhängig, 
+          unterscheidet sich jedoch um den Faktor 1/24. Demnach ergibt sich für die zweiseitige Auflage Formel 
+          \eqref{eqn:formelZweis}:
+          \begin{equation}
+            D(x) = \frac{F}{48EI} \cdot \Bigl(3L^2x - 4x^3\Bigr)
+            \label{eqn:formelZweis}
+          \end{equation}
+
+          \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.5\linewidth]{Zweiseitig_Theorie.png}
+            \caption{Der Stab wird einseitig eingespannt und an einer Seite ein Gewicht angehängt.}
+            \label{fig:theorieEins}
+          \end{figure}
+      
 
     \section{Versuchsdurchführung}
       Zur Bestimmung des Elastizitätsmoduls der Stabmaterialien werden Gewichte an dem Stab angebracht und daraufhin dessen Auslenkung abhängig von der Entfernung
       zum Angriffspunkt des Gewichts gemessen. Es werden zwei Stäbe verwendet, von denen einer einen runden Querschnitt und der andere einen rechteckigen hat. Beide
       Stäbe werden in zwei Positionen eingespannt und gemessen. Zum einen werden sie nur an einem Auflagepunkt eingespannt und das Gewicht möglichst weit davon entfernt
-      angebracht. Dieser Aufbau ist in Abbildung \ref{fig:fotoEinseitig} zu sehen. Bei dem zweiten, in Abbildung \ref{fig:fotoZweiseitig} zu sehenden Aufbau, liegt der Stab auf zwei Auflagepunkten und das
+      angebracht. Dieser Aufbau ist in Abbildung \ref{fig:theorieEins} zu sehen. Bei dem zweiten, in Abbildung \ref{fig:formelZweis} zu sehenden Aufbau, liegt der Stab auf zwei Auflagepunkten und das
       Gewicht greift in der Mitte der beiden Auflagepunkte an.\newline
-
-      \begin{figure}[h]
-        \centering
-        \begin{subfigure}{0.48\textwidth}
-          \centering
-          \includegraphics[height=5cm]{Einseitig.jpg}
-          \caption{Hier ist der rechteckige Stab einseitig auf der rechten Seite eingespannt. Über ihm sind die auf einer Centimeterskala befestigten Messuhren zu sehen.}
-          \label{fig:fotoEinseitig}
-        \end{subfigure}
-        \begin{subfigure}{0.48\textwidth}
-          \centering
-          \includegraphics[height=5cm]{Zweiseitig.jpg}
-          \caption{Nun ist der runde Stab beidseitig eingespannt. Es ist gut zu erkennen, dass das Gewicht in der Mitte zwischen den zwei Auflagepunkten befestigt ist. }
-          \label{fig:fotoZweiseitig}
-        \end{subfigure}
-      \end{figure}
 
       Zur Messung der Auslenkung werden Messuhren wie in Abbildung \ref{fig:fotoUhr} verwendet. Diese bestehen aus einem, an einer Feder befestigten, Messtaster und einer runden Skala. Wenn der 
       Messtaster eingedrückt wird, wird die Distanz auf der Rundskala, die von 0,01 bis 10 Millimeter geht, angezeigt. Mit diesen Messuhren wird vor Beginn der
@@ -114,9 +149,164 @@
       
       \begin{figure}[h]
         \centering
-        \includegraphics[width=0.5\linewidth]{Messuhr.jpg}
+        \includegraphics[width=0.25\linewidth]{Messuhr.jpg}
         \caption{Zu sehen ist eine der mechanischen Messuhren, die zur Bestimmung der Auslenkung genutzt worden ist. Sie ist auf 0,01mm genau und kann Längen bis zu 10mm messen.}
         \label{fig:fotoUhr}
       \end{figure}   
+    
+    \newpage
+    \section{Auswertung}
+      Für das Experiment wurde ein Stab mit rechteckiger Querschnittfläche der Länge $l_e = $
+      \subsection{Eckiger Stab}
+        \begin{table}[h]
+          \centering
+          \caption{Messwerte des eckigen, einseitig eingespannten Stabes.
+                   $x$ ist der Abstand vom Einspannpunkt,
+                   $D_0(x)$ ist die Auslenkung ohne Krafteinwirkung,
+                   $D_a(x)$ ist die Auslenkung mit Krafteinwirkung,
+                   $D(x)$ ist die tatsächliche Auslenkung, also die Differenz von $D_a$ und $D_0$.}
+          \label{tab:tabEeins}
+          \begin{tabular}{c c c c}
+            \toprule
+            {$x$ [m]} & {$D_0(x)$ [$10^{-3}m$]} & {$D_a(x)$ [$10^{-3}m$]} & {$D(x)$ [$10^{-3}m$]}\\
+            \midrule
+            0.03 & 0.07 & 0.17 & 0.10\\
+            0.06 & 0.09 & 0.39 & 0.30\\
+            0.09 & 0.11 & 0.57 & 0.46\\
+            0.12 & 0.15 & 0.86 & 0.75\\
+            0.15 & 0.17 & 1.20 & 1.03\\
+            0.18 & 0.22 & 1.63 & 1.47\\
+            0.21 & 0.24 & 1.97 & 1.73\\
+            0.24 & 0.10 & 2.40 & 2.30\\
+            0.27 & 0.09 & 2.80 & 2.71\\
+            0.30 &-0.05 & 3.26 & 3.31\\
+            0.33 &-0.11 & 3.74 & 3.85\\
+            0.36 &-0.21 & 4.23 & 4.44\\
+            0.39 &-0.25 & 4.77 & 5.02\\
+            0.42 &-0.31 & 5.33 & 5.64\\
+            0.45 &-0.33 & 5.89 & 6.22\\
+            \bottomrule            
+          \end{tabular}
+        \end{table}
 
-  \end{document}
+        \begin{figure}
+          \centering
+          \includegraphics[width=0.7\linewidth]{eeins.pdf}
+          \caption{In der Grafik sind die Auslenkungen D gegen Lx²-x³/3 aufgetragen. Durch diese Wertepaare wurde zudem per linearer Regression eine Ausgleichsgerade gelegt. Deren Steigung beträgt 0,08901088 und deren y-Achsenabschnitt 0,00014607.}
+          \label{fig:graphEeins}
+        \end{figure}
+
+        \begin{table}[h]
+          \centering
+          \caption{Messwerte des eckigen, zweiseitig eingespannten Stabes.
+                   $x$ ist der Abstand vom rechten Einspannpunkt,
+                   $D_0(x)$ ist die Auslenkung ohne Krafteinwirkung,
+                   $D_a(x)$ ist die Auslenkung mit Krafteinwirkung,
+                   $D(x)$ ist die tatsächliche Auslenkung, also die Differenz von $D_a$ und $D_0$,
+                   $x_{rel}$ ist der Abstand zum jeweils näheren Einspannpunkt.}
+          \label{tab:tabEzwei}
+          \begin{tabular}{c c c c c}
+            \toprule
+            {$x$ [m]} & {$D_0(x)$ [$10^{-3}m$]} & {$D_a(x)$ [$10^{-3}m$]} & {$D(x)$ [$10^{-3}m$]} & {$x_{rel}$ [m]}\\
+            \midrule
+            0.03 &  0.05 &  0.17 & 0.12 & 0.03\\
+            0.06 &  0.10 &  0.31 & 0.21 & 0.06\\
+            0.09 &  0.16 &  0.46 & 0.30 & 0.09\\
+            0.12 &  0.25 &  0.63 & 0.38 & 0.12\\
+            0.15 &  0.29 &  0.63 & 0.38 & 0.15\\
+            0.18 &  0.40 &  0.94 & 0.54 & 0.18\\
+            0.21 &  0.38 &  0.96 & 0.56 & 0.21\\
+            0.24 &  0.41 &  1.02 & 0.61 & 0.24\\
+            0.30 & -0.04 &  0.74 & 0.78 & 0.24\\
+            0.33 & -0.15 &  0.62 & 0.77 & 0.21\\
+            0.36 & -0.26 &  0.45 & 0.71 & 0.18\\
+            0.39 & -0.36 &  0.28 & 0.64 & 0.15\\
+            0.42 & -0.45 &  0.10 & 0.55 & 0.12\\
+            0.45 & -0.56 & -0.12 & 0.44 & 0.09\\
+            0.48 & -0.65 & -0.33 & 0.32 & 0.06\\
+            0.51 & -0.77 & -0.55 & 0.22 & 0.03\\
+            0.54 & -0.92 & -0.70 & 0.22 & 0.01\\
+            \bottomrule            
+          \end{tabular}
+        \end{table}
+  
+        \begin{figure}[h]
+          \centering
+          \includegraphics[width=0.7\linewidth]{ezwei.pdf}
+          \caption{In der Grafik sind die Auslenkungen D gegen Lx²-x³/3 aufgetragen. Durch diese Wertepaare wurde zudem per linearer Regression zwei Ausgleichsgerade gelegt. Es wurden zwei Ausgleichsgeraden generiert, da die zwei Uhren stark unterschiedlich gemessen haben. Die Gerade von Uhr 1 hat die Steigung $3,53205921\cdot10^{-3}$ und den y-Achsenabschnitt $1,65755043\cdot10^{-5}$, die von Uhr 2 die Steigung $4,03285\cdot10^{-3}$ und den y-Achsenabschnitt $0.13614\cdot10^{-3}$.}
+          \label{fig:graphEzwei}
+        \end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+      \newpage
+      \subsection{Runder Stab}
+      \begin{table}[h]
+        \centering
+        \caption{Messwerte des runden, einseitig eingespannten Stabes wie in Tabelle \ref{tab:tabEeins}.}
+        \label{tab:tabReins}
+        \begin{tabular}{c c c c}
+          \toprule
+          {$x$ [m]} & {$D_0(x)$ [$10^{-3}m$]} & {$D_a(x)$ [$10^{-3}m$]} & {$D(x)$ [$10^{-3}m$]}\\
+          \midrule
+          0.03 &-0.01 & 0.08 & 0.09\\
+          0.06 &-0.14 & 0.06 & 0.20\\
+          0.09 &-0.28 & 0.10 & 0.38\\
+          0.12 &-0.39 & 0.17 & 0.56\\
+          0.15 &-0.52 & 0.29 & 0.81\\
+          0.18 &-0.60 & 0.49 & 1.09\\
+          0.21 &-0.76 & 0.63 & 1.39\\
+          0.24 &-0.84 & 0.89 & 1.73\\
+          0.27 &-0.93 & 1.15 & 2.08\\
+          0.30 &-1.05 & 1.43 & 2.48\\
+          0.33 &-1.13 & 1.73 & 2.86\\
+          0.36 &-1.22 & 2.06 & 3.28\\
+          0.39 &-1.31 & 2.42 & 3.71\\
+          0.42 &-1.34 & 2.81 & 4.15\\
+          0.45 &-1.37 & 3.21 & 4.58\\
+          \bottomrule            
+        \end{tabular}
+      \end{table}
+    
+      \begin{figure}
+        \centering
+        \includegraphics[width=0.7\linewidth]{reins.pdf}
+        \caption{In der Grafik sind die Auslenkungen D gegen Lx²-x³/3 aufgetragen. Durch diese Wertepaare wurde zudem per linearer Regression eine Ausgleichsgerade gelegt. Deren Steigung beträgt 0,06525698 und deren y-Achsenabschnitt 0,00014415.}
+        \label{fig:graphReins}
+      \end{figure}
+
+      \begin{table}[h]
+        \centering
+        \caption{Messwerte des runden, zweiseitig eingespannten Stabes wie in Tabelle \ref{tab:tabEzwei}.}
+        \label{tab:tabRzwei}
+        \begin{tabular}{c c c c c}
+          \toprule
+          {$x$ [m]} & {$D_0(x)$ [$10^{-3}m$]} & {$D_a(x)$ [$10^{-3}m$]} & {$D(x)$ [$10^{-3}m$]} & {$x_{rel}$ [m]}\\
+          \midrule
+          0.03 & 0.28 & 0.40 & 0.12 & 0.03\\
+          0.06 & 0.41 & 0.65 & 0.24 & 0.06\\
+          0.09 & 0.42 & 0.85 & 0.43 & 0.09\\
+          0.12 & 0.41 & 0.97 & 0.56 & 0.12\\
+          0.15 & 0.37 & 1.05 & 0.68 & 0.15\\
+          0.18 & 0.26 & 1.12 & 0.86 & 0.18\\
+          0.21 & 0.24 & 1.08 & 0.84 & 0.21\\
+          0.24 & 0.19 & 1.07 & 0.88 & 0.24\\
+          0.30 & 0.70 & 1.81 & 1.11 & 0.25\\
+          0.33 & 0.61 & 1.68 & 1.07 & 0.22\\
+          0.36 & 0.55 & 1.52 & 0.97 & 0.19\\
+          0.39 & 0.49 & 1.34 & 0.85 & 0.16\\
+          0.42 & 0.42 & 1.16 & 0.74 & 0.13\\
+          0.45 & 0.34 & 0.96 & 0.62 & 0.10\\
+          0.48 & 0.25 & 0.75 & 0.50 & 0.07\\
+          0.51 & 0.16 & 0.50 & 0.34 & 0.04\\
+          0.54 & 0.04 & 0.29 & 0.25 & 0.01\\
+          \bottomrule            
+        \end{tabular}
+      \end{table}
+
+      \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.7\linewidth]{rzwei.pdf}
+        \caption{In der Grafik sind die Auslenkungen D gegen Lx²-x³/3 aufgetragen. Durch diese Wertepaare wurde zudem per linearer Regression zwei Ausgleichsgerade gelegt. Es wurden zwei Ausgleichsgeraden generiert, da die zwei Uhren stark unterschiedlich gemessen haben. Die Gerade von Uhr 1 hat die Steigung $5,60760\cdot10^{-3}$ und den y-Achsenabschnitt $-5,94841\cdot10^{-6}$, die von Uhr 2 die Steigung $6,61459\cdot10^{-3}$ und den y-Achsenabschnitt $2,98337\cdot10^{-5}$.}
+        \label{fig:graphRzwei}
+      \end{figure}
+
+\end{document}
