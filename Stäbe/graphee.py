@@ -10,8 +10,8 @@ params, covariance_matrix = np.polyfit(x_achs, D*10**(-3), deg = 1, cov = True)
 x_plot = np.linspace(0, 0.08)
 
 plt.plot(x_achs, D*10**(-3), "x", label =r"Messwerte")
-plt.xlabel(r"3L²x-4x³")
-plt.ylabel(r"D(x)")
+plt.xlabel(r"Lx²-x³/3 [m³]")
+plt.ylabel(r"D(x) [m]")
 
 
 plt.plot(x_plot, params[0] * x_plot + params[1], label = r'Lineare Regression')
@@ -32,3 +32,4 @@ delta_e=((0.0207+0.0189+1.1686+1.1597)*const.g) /(2*I*params[0]**2) * errors
 print(E)
 print(errors)
 print(delta_e)
+print(params)
