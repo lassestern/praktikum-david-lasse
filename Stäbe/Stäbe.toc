@@ -1,2 +1,10 @@
 \babel@toc {ngerman}{}
-\contentsline {section}{\numberline {1}Versuchsdurchführung}{2}{section.1}% 
+\contentsline {section}{\numberline {1}Zielsetzung}{2}{section.1}% 
+\contentsline {section}{\numberline {2}Theorie}{2}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Elastizitätsmodul}{2}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Biegung eines einseitig eingespannten Stabes}{2}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.3}Biegung eines zweiseitig eingespannten Stabes}{3}{subsection.2.3}% 
+\contentsline {section}{\numberline {3}Versuchsdurchführung}{3}{section.3}% 
+\contentsline {section}{\numberline {4}Auswertung}{5}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Eckiger Stab}{5}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Runder Stab}{6}{subsection.4.2}% 

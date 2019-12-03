@@ -21,16 +21,15 @@ plt.legend(loc = 'best')
 plt.show()
 plt.savefig("reins.pdf")
 plt.close()
-#print(params[0], params[1])
 errors = np.sqrt(np.diag(covariance_matrix[0]))
 
 I=np.pi*0.0044**4/4
 
 E=(0.0207+0.0189+1.1686)*const.g /(2*I*params[0])
-delta_e= E=(0.0207+0.0189+1.1686)*const.g /(2*I*params[0]**2) * errors[0]
+delta_e =(0.0207+0.0189+1.1686)*const.g /(2*I*params[0]**2) * errors[0]
 
 print("Elastizitätsmodul")
 print(E)
 print(errors)
 print(delta_e)
-print(params)
+#print(params)

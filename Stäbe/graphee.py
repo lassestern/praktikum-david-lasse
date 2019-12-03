@@ -32,4 +32,4 @@ delta_e=((0.0207+0.0189+1.1686+1.1597)*const.g) /(2*I*params[0]**2) * errors
 print(E)
 print(errors)
 print(delta_e)
-print(params)
+#print(params)
