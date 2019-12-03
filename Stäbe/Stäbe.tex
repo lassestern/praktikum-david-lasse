@@ -53,6 +53,7 @@
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{subcaption}
+\usepackage[section, below]{placeins}
 
 \setlength{\parindent}{0pt}
 
@@ -84,7 +85,7 @@
         \begin{figure}[h]
           \centering
           \includegraphics[width=0.75\linewidth]{Verformung.png}
-          \caption{Der Körper wird durch $\sigma$ verformt und erfährt eine Ausdehnung von $\Delta L$.}
+          \caption{Der Körper wird durch $\sigma$ verformt und erfährt eine Ausdehnung von $\Delta L$. [1, S.1]}
           \label{fig:verformung}
         \end{figure}
         
@@ -108,7 +109,7 @@
           \begin{figure}[h]
             \centering
             \includegraphics[width=0.75\linewidth]{Einseitig_Theorie.png}
-            \caption{Der Stab wird einseitig eingespannt und an einer Seite ein Gewicht angehängt.}
+            \caption{Der Stab wird einseitig eingespannt und an einer Seite ein Gewicht angehängt. [1, S.2]}
             \label{fig:theorieEins}
           \end{figure}
       
@@ -126,8 +127,8 @@
           \begin{figure}[h]
             \centering
             \includegraphics[width=0.5\linewidth]{Zweiseitig_Theorie.png}
-            \caption{Der Stab wird einseitig eingespannt und an einer Seite ein Gewicht angehängt.}
-            \label{fig:theorieEins}
+            \caption{Der Stab wird einseitig eingespannt und an einer Seite ein Gewicht angehängt. [1, S.5]}
+            \label{fig:theorieZwei}
           \end{figure}
       
 
@@ -153,32 +154,38 @@
         \caption{Zu sehen ist eine der mechanischen Messuhren, die zur Bestimmung der Auslenkung genutzt worden ist. Sie ist auf 0,01mm genau und kann Längen bis zu 10mm messen.}
         \label{fig:fotoUhr}
       \end{figure}   
-    
+      
+      \FloatBarrier
+
     \newpage
+
     \section{Auswertung}
-      Für das Experiment wurde ein Stab mit rechteckiger Querschnittfläche der Länge $l_e = $, der langen Seite der Grundfläche $b = $, der kurzen Seite der
-      Grundfläche $a = $ und der Masse $m_e = $ und ein runder Stab mit der Länge $l_r = $, dem Radius $r = $ und der Masse $m_r = $ verwendet. Zum späteren 
+      Für das Experiment wurde ein Stab mit rechteckiger Querschnittfläche der Länge $l_e = 0,639 m$, der langen Seite der Grundfläche $b = 0,0122 m$, der kurzen Seite der
+      Grundfläche $a = 0,011 m$ und der Masse $m_e = 0,605 kg$ und ein runder Stab mit der Länge $l_r = 0,6 m$, dem Radius $r = 0,0044 m$ und der Masse $m_r = 0,3655 kg$ verwendet. Zum späteren 
       Ermitteln des Elastizitätsmoduls müssen zunächst die Flächenträgheitsmomente der Stäbe berechnet werden. Dies erfolgt über die unten folgenden Formeln.
-      \begin{equation}
+      \begin{gather}
         I_e = \frac{ab^3}{12} = 1,6645 \cdot 10^{-9} m⁴\\
-        I_r = \frac{np.pi r^4}{4} = 2,94375 \cdot 10^{-10} m⁴
+        I_r = \frac{\pi r^4}{4} = 2,94375 \cdot 10^{-10} m⁴
         \label{eqn:Flächenträg}
-      \end{equation}
+      \end{gather}
       Um mit den Messwerten die Elastizitätsmodule zu bestimmen wird von einer linearen Regression gebrauch gemacht. Aus ihrer Steigung lässt sich nach Formel
-      x das Elastizitätsmodul bestimmen.
+      \ref{eqn:linregress} das Elastizitätsmodul bestimmen. In den Gleichung für den Elastizitätsmodul steht L für die Länge vom
+      Einspannpunkt zum Gewicht bzw. vom einen Auflagepunkt zum Anderen. DIe Kraft $F$ resultiert aus der angehängten Masse $m$.
+      Bei zweiseitiger Einspannung werden für $x$, die $x_{rel}-Werte$ aufgetragen.
       \begin{align}
         D(x) &= \frac{F}{48EI} &\cdot &\Bigl(3L^2x - 4x^3\Bigr) & \\
+        \label{eqn:linregresskomplett}
         D(x) &= \frac{F}{2EI} &\cdot &\Bigl(Lx^2 - \frac{x^3}{3}\Bigr) & \\
           y  &= m &\cdot &x &+ b
         \label{eqn:linregress}
       \end{align}
       \subsection{Eckiger Stab}
-        Um später einen Referenzwert zum gemessenen Elastizitätsmodul zu haben, wird die Dichte des Körpers mit Formel x berechnet.
+        Um später einen Referenzwert zum gemessenen Elastizitätsmodul zu haben, wird die Dichte des Körpers mit Formel \ref{eqn:DichteEck} berechnet.
         \begin{equation}
           \rho = \frac{m_e}{a b l_e} = 7,055 \frac{g}{cm^3}
           \label{eqn:DichteEck}
         \end{equation}
-        Auch wenn sich die Dichte des Stabes um circa 21 Prozent von der Literaturdichte von Kupfer (8,92 g/cm³) unterscheidet, lässt sich aufgrund der
+        Auch wenn sich die Dichte des Stabes um circa 21 \% von der Literaturdichte von Kupfer [1, S.1509] (8,92 g/cm³) unterscheidet, lässt sich aufgrund der
         markanten Farbe des Stabes vermuten, dass es sich um einen Kupferstab handelt.    
         \begin{table}[h]
           \centering
@@ -211,22 +218,24 @@
           \end{tabular}
         \end{table}
 
-        \begin{figure}
+        \begin{figure}[h]
           \centering
           \includegraphics[width=0.7\linewidth]{eeins.pdf}
           \caption{In der Grafik sind die Auslenkungen D gegen Lx²-x³/3 aufgetragen. Durch diese Wertepaare wurde zudem per linearer Regression eine Ausgleichsgerade gelegt. Deren Steigung beträgt 0,08901088 und deren y-Achsenabschnitt 0,00014607.}
           \label{fig:graphEeins}
         \end{figure}
 
-        Durch Umstellen von Gleichung x lässt sich das Elastizitätsmodul einfach berechnen. Der Fehler des Elastizitätsmoduls stammt aus der Gauß´schen 
-        Fehlerfortpflanzung des Fehlers der Steigung aus der linearen Regression.
+        Durch Umstellen von Gleichung \ref{eqn:linregresskomplett} bei $x = 0$ lässt sich das Elastizitätsmodul einfach berechnen. Der Fehler des Elastizitätsmoduls stammt aus der Gauß´schen 
+        Fehlerfortpflanzung des Fehlers der Steigung aus der linearen Regression. $m$ beträgt 2,3679 kg und $L$ beträgt 0,49 m.
         \begin{equation}
-          \Delta E = \frac{mg}{m^2 I n} \cdot \Delta m \text{mit n = 2 bzw. 48}
+          \Delta E = \frac{mg}{m^2 I n} \cdot \Delta m \quad \text{mit n = 2 bzw. 48}
           \label{eqn:Gauß}
         \end{equation}
         \begin{equation*}
-          E_1 = \frac{mg}{2mI} = 96,3950 \pm 5,9635 GPa \text{mit} \Delta a = \pm 5,9636 \cdot 10^{-4} Pa
+          E_1 = \frac{mg}{2mI} = 96,3950 \pm 5,9635 GPa \quad \text{mit } \Delta a = \pm 5,9636 \cdot 10^{-4} Pa
         \end{equation*}
+
+        \newpage
 
         \begin{table}[h]
           \centering
@@ -262,6 +271,8 @@
           \end{tabular}
         \end{table}
   
+        \newpage
+
         \begin{figure}[h]
           \centering
           \includegraphics[width=0.7\linewidth]{ezwei.pdf}
@@ -269,30 +280,32 @@
           \label{fig:graphEzwei}
         \end{figure}
 
-        Auch hier lässt sich das Elastizitätsmodul durch Umstellen von Gleichung x nach E berechnen. Diese mal stammt der Fehler aus der Gauß´schen 
+        Auch hier lässt sich das Elastizitätsmodul durch Umstellen von Gleichung \ref{eqn:linregresskomplett} bei $x = 0$ nach E berechnen. Diese mal stammt der Fehler aus der Gauß´schen 
         Fehlerfortpflanzung des gemittelten Fehlers der Steigungen aus den zwei linearen Regression, die aufgrund der unterschiedlichen Uhren durchgeführt 
-        worden sind. 
+        worden sind. Die Masse entspricht der bei einseitiger Einspannung und $L$ beträgt 0,55 m.
         \begin{equation*}
           \Delta a = (\Delta a_1 + \Delta a_2) \cdot \frac{1}{2} = 2,0632 \cdot 10^{-4}
         \end{equation*}
         \begin{equation*}
-          E_2 = \frac{mg}{2mI} = 76,8383 \pm 4,1913 GPa \text{mit} \Delta a = \pm 2,0632 \cdot 10^{-4}
+          E_2 = \frac{mg}{2mI} = 76,8383 \pm 4,1913 GPa \quad \text{mit } \Delta a = \pm 2,0632 \cdot 10^{-4}
         \end{equation*}
 
-        Beim Vergleich der beiden Elastizitätsmodule fällt auf, dass $E_2$ um 20,3 Prozent von $E_1$ abweicht. 
-        Währenddessen beträgt der Literaturwert $E_{Cu,Lit}$ xxx. $E_1$ weicht davon um xxx Prozent ab und $E_2$ um xxx Prozent.
+        Beim Vergleich der beiden Elastizitätsmodule fällt auf, dass $E_2$ um 20,3 \% von $E_1$ abweicht. 
+        Währenddessen ist der Literaturwert $E_{Cu,Lit} = 100$GPa [4]. $E_1$ weicht davon um 3,74 \% und $E_2$ um 30,14 \% ab.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+        \FloatBarrier
+
       \newpage
+
       \subsection{Runder Stab}
       \begin{table}[h]
         \centering
         Wieder wird über das Volumen und die Masse des Stabes die Dichte zur Identifizierung des Materials berechnet.
         \begin{equation*}
-          \rho = \frac{m_r}{np.pi r^2 l_r} = 10,0157 \frac{g}{cm^3}
+          \rho = \frac{m_r}{\pi r^2 l_r} = 10,0157 \frac{g}{cm^3}
         \end{equation*}
         Auch hier scheint die graue Farbe bereits Rückschluss auf das Metall Eisen ziehen lassen. Da die gemessene Dichte auch nur 22,6 Prozent von der 
-        Literaturdichte (7,85 g/cm³) abweicht, gehen wir von einem eisernen Stab aus. 
+        Literaturdichte (7,85 g/cm³) [4] abweicht, gehen wir von einem eisernen Stab aus. 
         \caption{Messwerte des runden, einseitig eingespannten Stabes wie in Tabelle \ref{tab:tabEeins}.}
         \label{tab:tabReins}
         \begin{tabular}{c c c c}
@@ -318,17 +331,21 @@
         \end{tabular}
       \end{table}
     
-      \begin{figure}
+      %\newpage
+
+      \begin{figure}[h]
         \centering
         \includegraphics[width=0.7\linewidth]{reins.pdf}
         \caption{In der Grafik sind die Auslenkungen D gegen Lx²-x³/3 aufgetragen. Durch diese Wertepaare wurde zudem per linearer Regression eine Ausgleichsgerade gelegt. Deren Steigung beträgt 0,06525698 und deren y-Achsenabschnitt 0,00014415.}
         \label{fig:graphReins}
       \end{figure}
 
-      Der Elastizitätsmodul des Materials wird nun analog zum eckigen Stab bei einseitiger Aufhängung bestimmt und es ergibt sich wieder mit Gauß'scher Fehlerfortpflanzung:
+      Der Elastizitätsmodul des Materials wird nun analog zum eckigen Stab bei einseitiger Aufhängung mit $L = 0,49 $ und $m = 1,2082 kg$ bestimmt. Daraus ergibt sich wieder mit Gauß'scher Fehlerfortpflanzung:
       \begin{equation*}
-        E_1 = 308,3912 \pm 2,2898 GPa \text{mit} \Delta a = \pm 4,8454 \cdot 10^{-4} Pa
+        E_1 = 308,3912 \pm 2,2898 GPa \quad \text{mit } \Delta a = \pm 4,8454 \cdot 10^{-4} Pa
       \end{equation*}
+
+      %\newpage
 
       \begin{table}[h]
         \centering
@@ -365,14 +382,44 @@
         \caption{In der Grafik sind die Auslenkungen D gegen Lx²-x³/3 aufgetragen. Durch diese Wertepaare wurde zudem per linearer Regression zwei Ausgleichsgerade gelegt. Es wurden zwei Ausgleichsgeraden generiert, da die zwei Uhren stark unterschiedlich gemessen haben. Die Gerade von Uhr 1 hat die Steigung $5,60760\cdot10^{-3}$ und den y-Achsenabschnitt $-5,94841\cdot10^{-6}$, die von Uhr 2 die Steigung $6,61459\cdot10^{-3}$ und den y-Achsenabschnitt $2,98337\cdot10^{-5}$.}
         \label{fig:graphRzwei}
       \end{figure}
-      Auch hier wird das Elastizitätsmodul analog zum Vorgang beim eckigen Stab bei zweiseitiger Auflage bestimmt.
+      Auch hier wird das Elastizitätsmodul analog zum Vorgang beim eckigen Stab bei zweiseitiger Auflage bestimmt. $L$ beträgt,
+      wie beim eckigen Stab 0,55 m und $m$ ist ebenfalls 2,3679.
       \begin{equation*}
         \Delta a = (\Delta a_1 + \Delta a_2) \cdot \frac{1}{2} = 1,5896 \cdot 10^{-4}
       \end{equation*}
       \begin{equation*}
-        E_2 = \frac{mg}{2mI} = 268,9202 \pm 6,9952 GPa \text{mit} \Delta a = \pm 1,5896 \cdot 10^{-4}
+        E_2 = \frac{mg}{2mI} = 268,9202 \pm 6,9952 GPa \quad \text{mit } \Delta a = \pm 1,5896 \cdot 10^{-4}
       \end{equation*}
 
-      Zunächst wird die ABweichung der im Experiment bestimmten Elastizitätsmodule berechnet. $E_2$ weicht um 12,7 Prozent von $E_1$ ab.
-      Von dem Literaturwert, der xxx beträgt, weicht $E_1$ um xxx Prozent ab und $E_2$ um xxx Prozent ab.
+      Zunächst wird die Abweichung der im Experiment bestimmten Elastizitätsmodule berechnet. $E_2$ weicht um 12,7 \% von $E_1$ ab.
+      Von dem Literaturwert [5, S.624], der 145GPa beträgt, weicht $E_1$ um 112,68 \% und $E_2$ um 85,4 \% ab.
+
+      \FloatBarrier
+
+    \newpage
+
+    \section{Diskussion}
+    Der Elastizitätsmodul, welcher aus den linearen Regressionen der Auslenkungen bei Einspannung des eckigen Stabes bestimmt wurde,
+    weicht mit einem kleinen Fehler von dem Literaturwert ab, sodass es sich bei dem Stabmaterial wohl tatsächlich um
+    Kupfer handelt. Die Genauigkeit dieser Messung könnte an der flachen Auflagefläche des Stabes, auf dem der Tastkopfes 
+    der Messuhr auflag. Die vorhandenen Abweichungen sind vermutlich daraufhin zurückzuführen, dass die Messuhren sehr
+    empfindlich waren und die Stäbe schon nicht lineare Anfangsauslenkungen aufgewiesen haben. Viel größere Abweichungen von
+    den Literaturwerten sind bei der Einspannung des runden Stabes festzustellen. Der wahrscheinliche Grund der großen Abweichungen
+    liegt in der gebogenen Oberfläche des Stabes, auf der der Tastkopf aufliegt. Durch horizontale Auslenkung des Stabes aus 
+    vorherigen Versuchen liegt der Tastkopf nicht immer an der höchsten Stelle des Stabes auf und die Messwerte variieren stark.
+    Hinzu kommt bei den Messungen mit zweiseitiger Einspannung, dass eine der beiden Messuhren im Vergleich zur anderen Uhr
+    variierende Werte geliefert hat. Dies lag nach äußerer Betrachtung an der nicht stabilen Befestigung der 2. Uhr.
+    Trotz der großen Abweichungen bei der Messung des Elastizitätsmoduls des runden Stabes, lässt sich das Elastizitätsmodul
+    über den Literaturwert verifizieren, wenn die großen Fehlerquellen bei der Messung in Betracht gezogen werden.
+
+    \newpage
+
+    \section{Literaturverzeichnis}
+      [1] \textit{Versuchsanleitung V103 - Biegung elastischer Stäbe.} TU Dormund, 2019
+      [2] N. N. Greenwood, A. Earnshaw: \textit{Chemie der Elemente. 1. Auflage.} VCH, Weinheim 1988
+      [3] Harry H. Binder: \textit{Lexikon der chemischen Elemente – das Periodensystem in Fakten, Zahlen und Daten.} S. Hirzel Verlag, Stuttgart 1999
+      [4] TU München: \textit{Baustoffsammlung der Fakultät für Architektur der TU München} 02.Dezember.2019.
+          \url{http://www.erlacher.net/wdb/metalle.php?doctype=2&id=6&gruppe=6} \newline
+      [5] Horst Kuchling: \textit{Taschenbuch der Physik.} Carl Hanser, 2011
+    
 \end{document}
