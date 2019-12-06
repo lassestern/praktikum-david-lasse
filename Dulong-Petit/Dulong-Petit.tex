@@ -1,0 +1,122 @@
+\documentclass[titlepage = firstcover]{scrartcl}
+\usepackage[aux]{rerunfilecheck}
+\usepackage{fontspec}
+\usepackage[main=ngerman, english, french]{babel}
+
+% mehr Pakete hier
+\usepackage{expl3}
+\usepackage{xparse}
+
+%Mathematik------------------------------------------------------
+\usepackage{amsmath}   % unverzichtbare Mathe-Befehle
+\usepackage{amssymb}   % viele Mathe-Symbole
+\usepackage{mathtools} % Erweiterungen fuÌˆr amsmath
+\usepackage[
+  math-style=ISO,    % \
+  bold-style=ISO,    % |
+  sans-style=italic, % | ISO-Standard folgen
+  nabla=upright,     % |
+  partial=upright,   % /
+]{unicode-math}% "Does exactly what it says on the tin."
+
+% Laden von OTF-Mathefonts
+% ErmoÌˆglich Unicode Eingabe von Zeichen: Î± statt \alpha
+
+\setmathfont{Latin Modern Math}
+%\setmathfont{Tex Gyre Pagella Math} % alternativ zu Latin Modern Math
+\setmathfont{XITS Math}[range={scr, bfscr}]
+\setmathfont{XITS Math}[range={cal, bfcal}, StylisticSet=1]
+
+\AtBeginDocument{ % wird bei \begin{document}
+  % werden sonst wieder von unicode-math uÌˆberschrieben
+  \RenewDocumentCommand \Re {} {\operatorname{Re}}
+  \RenewDocumentCommand \Im {} {\operatorname{Im}}
+}
+\usepackage{mleftright}
+\setlength{\delimitershortfall}{-1sp}
+
+%Sprache----------------------------------------------------------
+\usepackage{microtype}
+\usepackage{xfrac}
+\usepackage[autostyle]{csquotes}    % babel
+\usepackage[unicode, pdfusetitle]{hyperref}
+\usepackage{bookmark}
+\usepackage[shortcuts]{extdash}
+%Einstellungen hier, z.B. Fonts
+\usepackage{booktabs} % Tabellen
+
+%Defininierte funktionen
+\DeclareMathOperator{\f}{xyz}
+
+\ExplSyntaxOn % bequeme Syntax fuÌˆr Definition von Befehlen
+
+\NewDocumentCommand \I {} {         %Befehl \I definieren,keine Argumente
+  \symup{i}                         %Ergebnis von \I
+} 
+\NewDocumentCommand \dif {m} % m = mandatory (Pflichtargument fÃ¼r \dif)
+{
+  \mathinner{\symup{d} #1}
+}
+
+\ExplSyntaxOff % Syntax wieder ausschalten. Wichtig!
+
+
+\title{Das Dulong-Petitsche-Gesetz}
+\author{
+  David Gutnikov\\
+  \href{mailto:david.gutnikov@udo.edu}{david.gutnikov@udo.edu}
+ \and 
+  Lasse Sternemann\\
+  \href{mailto:lasse.sternemann@udo.edu}{lasse.sternemann@udo.edu}
+}
+\date{Durchführung am 03.12.2019}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    \newpage
+
+    \section{Zielsetzung}
+        sss
+
+
+    \section{Theoretische Grundlagen}
+        \subsection{Wärmekapazität}
+            Wenn ein Stoff, erhitzt wird und im Prozess keine andere Energie aufnimmt oder abgibt,
+            \begin{equation*}
+                \Delta U = \Delta Q + \Delta A = \Delta Q
+            \end{equation*}
+            nimmt er die Wärmemenge $\Delta Q$ auf. 
+            Die aufgenommene Wärmemenge $\Delta Q$ hängt dabei von der Änderung der Temperatur $\Delta T$,
+            der Masse des Körpers $m$, sowie der spezifischen Wärmekapazität des Elements $c$ ab. Dieser Zusammenhang definiert die spezifische
+            Wärmekapazität eines Stoffes, wie in Formel \eqref{eqn:wk} beschrieben.  
+            \begin{equation}
+                c = \frac{\Delta Q}{\Delta T \cdot m }
+                \label{eqn:wk}
+            \end{equation}
+        
+        \subsection{Molwärme nach dem Dulong-Petitschen-Gesetz}
+            Das Dulong-Petitsche-Gesetz geht davon aus, dass alle Festkörper die gleiche spezifische Wärmekapazität inne habe. Dies wird aus der
+            Teilchenenergie, der im Körper gebunden Atome hergeleitet, indem davon ausgegangen wird, dass sie sich in einer festen Position
+            innerhalb einer Gitterstruktur befinden. Ihre einzig mögliche Bewegung ist eine harmonische Schwingung um ihre Ruheposition. Wie für
+            harmonische üblich ist die kinetische Energie der Teilchen gleich der potentiellen Energie, sodass sich für die gesamte innere Energie eines 
+            Teilchens im Festkörper pro Freiheitsgrad Formel \eqref{eqn:eteilchen} ergibt, in der $k_{\text{b}}$ für die Boltzmann-Konstante steht.
+            \begin{equation}
+                U_{\text{Teilchen pro Freiheitsgrad}} = 2 \cdot E_{\text{Kin}} = k_{\text{b}} \cdot T \longrightarrow_{3 Freiheitsgrade} U_{\text{Teilchen}} = 3 \cdot k_{/text{b}} \cdot T
+                \label{eqn:eteilchen}
+            \end{equation} 
+            Da der Festkörper natürlich aus mehreren Teilchen besteht, wird die gesamte innere Energie des Festkörpers durch Formel \eqref{eqn:ekörper} beschrieben, 
+            wobei $N_{\text{A}}$ die Avogrado-Konstante ist, die multipliziert mit der Boltzmann-Konstante die allgemeine Gaskonstante $R$ ergibt. 
+            \begin{equation}
+                U_{\text{Körper}} = 3 \cdot N_{\text{A}} \cdot k_{\text{b}} = 3 \cdot R \cdot T := Q
+                \label{eqn:ekörper}
+            \end{equation}
+            Über diese Energie lässt sich die spezifische Molwärme beschreiben, die beschreibt wie viel Wärmemenge hinzugefügt werden muss, um ein Mol eines
+            Elements um eine Temperatur $\Delta T$ zu erhitzen, sofern der Druck konstant ist. Es ergibt sich für alle Festkörper aus einem Element
+            \begin{equation}
+                c_{\text{v}} = \frac{dU}{dT} = 3R \qquad \text{mit} \qquad dU = dQ + dA = dQ .
+            \end{equation}
+            
+        
+        
+\end{document}
