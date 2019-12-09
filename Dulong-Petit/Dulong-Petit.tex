@@ -45,21 +45,6 @@
 %Einstellungen hier, z.B. Fonts
 \usepackage{booktabs} % Tabellen
 
-%Defininierte funktionen
-\DeclareMathOperator{\f}{xyz}
-
-\ExplSyntaxOn % bequeme Syntax fuÌˆr Definition von Befehlen
-
-\NewDocumentCommand \I {} {         %Befehl \I definieren,keine Argumente
-  \symup{i}                         %Ergebnis von \I
-} 
-\NewDocumentCommand \dif {m} % m = mandatory (Pflichtargument fÃ¼r \dif)
-{
-  \mathinner{\symup{d} #1}
-}
-
-\ExplSyntaxOff % Syntax wieder ausschalten. Wichtig!
-
 
 \title{Das Dulong-Petitsche-Gesetz}
 \author{
@@ -117,6 +102,50 @@
                 c_{\text{v}} = \frac{dU}{dT} = 3R \qquad \text{mit} \qquad dU = dQ + dA = dQ .
             \end{equation}
             
-        
-        
+    \newpage
+
+    \section{Versuchsdurchführung}
+        Das konstante Volumen einer Körperprobe ist bei Durchführung eines Versuches schwierig zu erhalten.
+        Deshalb arbeitet man hier mit einer anderen konstanten Größe, dem konstanten Druck, welcher hier
+        der Atmosphärendruck ist. Es werden Körper aus verschiedenen Materialien der Massen $m_\text{k}$ in Wasser
+        eingetaucht und das Wasser wird auf die Temperatur $T_\text{k}$ erhitzt. Dabei nimmt der Körper die Temperatur $T_\text{k}$ an. Ab einer genügend hohen Temperatur
+        wird der Körper aus dem Gefäß entfernt und in ein mit Wasser mit Zimmertemperatur $T_\text{w}$ gefülltes
+        Dewar-Gefäß getaucht. Nach ca. 2 Minuten des Wartens ergibt sich eine Mischtemperatur $T_\text{m}$ im Gefäß.
+        Die verschiedenen Temperaturen werden mit einem Thermometer gemessen.
+        Die spezifischen Wärmekapazitäten werden, dann mit der spezifischen Wärmekapazität des Körpers $c_\text{k}$, des Wassers im Dewar-Gefäß bei ca. Zimmertemperatur
+        $c_\text{w}$, der Wärmekapazität des Dewar-Gefäßes $c_\text{g}m_\text{g}$ und der Masse des Wasser im Dewar-Gefäß
+        $m_\text{w}$ nach Formel \eqref{eqn:spezWärmekapazität} bestimmt.
+
+        Um die Wärmekapazität des Dewar-Gefäßes zu bestimmen ist ein weiteres Experiment nötig. Anstatt einer Körperprobe
+        wird nun Wasser der Masse $m_\text{y}$ auf eine Temperatur $T_\text{y}$ erhitzt und es wird damit genauso verfahren wie mit den Körpern.
+        D.h. es wird in das Dewar-Gefäß gegossen, worin sich schon Wasser der Masse $m_\text{x}$ und der Temperatur
+        $T_\text{x}$ befindet und mit welchem sich eine Mischtemperatur $T_\text{m}^{'}$ ergibt. Analog zu Formel
+        \eqref{eqn:spezWärmekapazität} gilt für die Wärmekapazität des Dewar-Gefäßesnach Formel \eqref{eqn:Wärmekapazität}.
+    
+
+    \section{Auswertung}
+        \subsection{Spezifische Wärmekapazität bei konstentem Druck}
+            Die Körperprobe gibt beim eintauchen in das Wasser im Dewar-Gefäß die Wärmemenge $Q_1$
+            \begin{equation*}
+                Q_1 = c_\text{k}m_\text{k}(T_\text{k} - T_\text{m})
+            \end{equation*}
+            ab, wobei das Wasser und das Dewar-Gefäß die Wärmemenge $Q_2$ aufnimmt.
+            \begin{equation*}
+                Q_2 = (c_\text{w}m_\text{w}) + c_\text{g}m_\text{g})(T_\text{k} - T_\text{m})
+            \end{equation*}
+            
+
+            \begin{equation}
+                \label{eqn:Wärmekapazität}
+                c_\text{g} m_\text{g} = \frac{c_\text{w} m_\text{y}(T_\text{y} - T_\text{m}^{'}) - c_\text{w} m_\text{x}(T_\text{m}^{'} - T_\text{x})}{(T_\text{m}^{'} - T_\text{x})}
+            \end{equation}
+
+            \begin{equation}
+                \label{eqn:spezWärmekapazität}
+                c_\text{k} = \frac{(c_\text{w} m_\text{w} + c_\text{g} m_\text{g})(T_\text{m} - T_\text{w})}{m_\text{k}(T_\text{k} - T_\text{m})}
+            \end{equation}
+    
+    
+    \section{Diskussion}
+
 \end{document}
