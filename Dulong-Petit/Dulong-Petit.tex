@@ -87,7 +87,7 @@
             harmonische üblich ist die kinetische Energie der Teilchen gleich der potentiellen Energie, sodass sich für die gesamte innere Energie eines 
             Teilchens im Festkörper pro Freiheitsgrad Formel \eqref{eqn:eteilchen} ergibt, in der $k_{\text{b}}$ für die Boltzmann-Konstante steht.
             \begin{equation}
-                U_{\text{Teilchen pro Freiheitsgrad}} = 2 \cdot E_{\text{Kin}} = k_{\text{b}} \cdot T \longrightarrow_{3 Freiheitsgrade} U_{\text{Teilchen}} = 3 \cdot k_{/text{b}} \cdot T
+                U_{\text{Teilchen pro Freiheitsgrad}} = 2 \cdot E_{\text{Kin}} = k_{\text{b}} \cdot T \quad \xrightarrow[\text{3 Freiheitsgrade}]{} \quad U_{\text{Teilchen}} = 3 \cdot k_{\text{b}} \cdot T
                 \label{eqn:eteilchen}
             \end{equation} 
             Da der Festkörper natürlich aus mehreren Teilchen besteht, wird die gesamte innere Energie des Festkörpers durch Formel \eqref{eqn:ekörper} beschrieben, 
@@ -101,8 +101,26 @@
             \begin{equation}
                 c_{\text{v}} = \frac{dU}{dT} = 3R \qquad \text{mit} \qquad dU = dQ + dA = dQ .
             \end{equation}
-<<<<<<< HEAD
             
+        \subsection{Einschränkung des Dulong-Petitschen-Gesetz}
+            Während der über das Dulong-Petit-Gesetz gegebene Wert von 3R bei hohen Temperatur von ca. 20°C und höher gut mit gemessenen Werten übereinstimmt,
+            fallen die Messwerte für niedrige Temperaturen stark ab. Dies liegt an der Verquantelung der harmonischen Schwingungen in der Gitterstruktur. 
+            Durch diese können die einzelnen Energien nur Vielfache des Produkts der Schwingfrequenz und des Planckschen Wirkungsquantum annehmen. Wenn 
+            die Schwingungen bei kleinen Temperaturen immer kleiner werden, kann es passieren, dass die Schwingungen so gering werden, dass ihre Energie
+            kleiner als das $1 \cdot \hbar \omega$ und sie liefern garkeinen Beitrag mehr, sodass die Molwärme gegen 0 geht. Dieses Verhalten kann man aus Formel
+            xxx entnehmen, die dem gerade beschriebenen quantenmechanischen Ansatz entspricht und die innere Energie eines schwingenden Teilchens beschreibt.
+            \begin{equation}
+              U_{\text{Teilchen}} = \frac{3 N_{\text{A}} \hbar \omega}{e^{\frac{\hbar \omega}{k_bT}}-1}
+              \label{eqn:QU}
+            \end{equation} 
+            Der Exponentialterm geht für $T \rightarrow 0$ gegen $\infty$ und die Molwärme dementsprechend gegen 0. Um die Molwärme für Große Temperaturen
+            zu betrachten wird die Taylor-Entwicklung des Exponentialterms (Formel \eqref{eqn:TEU}) genutzt. Mit dieser geht die Molwärme für hohe Temperaturen gegen 
+            den klassischen Wert von $3R$.
+            \begin{equation}
+              U_{\text{Teilchen}} \approx \frac{3 N_{\text{A}} \hbar \omega}{1 + \frac{\hbar \omega}{k_{\text{b}T}}}
+              \label{eqn:TEU}
+            \end{equation} 
+
     \newpage
 
     \section{Versuchsdurchführung}
@@ -149,28 +167,8 @@
     
     \section{Diskussion}
 
-=======
           
-          \subsection{Einschränkung des Dulong-Petitschen-Gesetz}
-            Während der über das Dulong-Petit-Gesetz gegebene Wert von 3R bei hohen Temperatur von ca. 20°C und höher gut mit gemessenen Werten übereinstimmt,
-            fallen die Messwerte für niedrige Temperaturen stark ab. Dies liegt an der Verquantelung der harmonischen Schwingungen in der Gitterstruktur. 
-            Durch diese können die einzelnen Energien nur Vielfache des Produkts der Schwingfrequenz und des Planckschen Wirkungsquantum annehmen. Wenn 
-            die Schwingungen bei kleinen Temperaturen immer kleiner werden, kann es passieren, dass die Schwingungen so gering werden, dass ihre Energie
-            kleiner als das $1 \cdot \hbar \omega$ und sie liefern garkeinen Beitrag mehr, sodass die Molwärme gegen 0 geht. Dieses Verhalten kann man aus Formel
-            xxx entnehmen, die dem gerade beschriebenen quantenmechanischen Ansatz entspricht und die innere Energie eines schwingenden Teilchens beschreibt.
-            \begin{equation}
-              U_{\text{Teilchen}} = \frac{3 N_{\text{A}} \hbar \omega}{e^{\frac{\hbar \omega}{k_bT}}-1}
-              \label{eqn:QU}
-            \end{equation} 
-            Der Exponentialterm geht für $T \rightarrow 0$ gegen $\infty$ und die Molwärme dementsprechend gegen 0. Um die Molwärme für Große Temperaturen
-            zu betrachten wird die Taylor-Entwicklung des Exponentialterms (Formel \eqref{eqn:TEU}) genutzt. Mit dieser geht die Molwärme für hohe Temperaturen gegen 
-            den klassischen Wert von $3R$.
-            \begin{equation}
-              U_{\text{Teilchen}} \approx \frac{3 N_{\text{A}} \hbar \omega}{1 + \frac{\hbar \omega}{k_{\text{b}T}}}
-              \label{eqn:TEU}
-            \end{equation} 
 
         
         
->>>>>>> d35bdb2cf9ba1e761171438266a2eef3311a4207
 \end{document}
