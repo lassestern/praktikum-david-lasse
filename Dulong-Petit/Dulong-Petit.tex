@@ -62,7 +62,7 @@
     \newpage
 
     \section{Zielsetzung}
-        Es soll überprüft werden, ob das klassische Dulong-Petit-Gesetz bei hohen Temperaturen treffende Aussagen zur spezifischen
+        Es soll überprüft werden, ob das Dulong-Petit-Gesetz bei genügend hohen Temperaturen treffende Aussagen zur spezifischen
         Wärmekapazität von Feststoffen trifft.
 
 
@@ -73,7 +73,7 @@
             \begin{equation*}
                 \Delta U = \Delta Q + \Delta A = \Delta Q
             \end{equation*}
-            nimmt er die Wärmemenge $\Delta Q$ auf. 
+            nimmt er die Wärmemenge $\Delta Q$ auf. $U$ und $E$ stehen im Protokoll für gemittelte Energien.
             Die aufgenommene Wärmemenge $\Delta Q$ hängt dabei von der Änderung der Temperatur $\Delta T$,
             der Masse des Körpers $m$, sowie der spezifischen Wärmekapazität des Elements $c$ ab. Dieser Zusammenhang definiert die spezifische
             Wärmekapazität eines Stoffes, wie in Formel \eqref{eqn:wk} beschrieben.  
@@ -84,33 +84,33 @@
         
         \subsection{Molwärme nach dem Dulong-Petitschen-Gesetz}
             Das Dulong-Petitsche-Gesetz geht davon aus, dass alle Festkörper die gleiche spezifische Wärmekapazität inne habe. Dies wird aus der
-            Teilchenenergie, der im Körper gebunden Atome hergeleitet, indem davon ausgegangen wird, dass sie sich in einer festen Position
+            Teilchenenergie, der im Körper gebundenen Atome hergeleitet, indem davon ausgegangen wird, dass sie sich in einer festen Position
             innerhalb einer Gitterstruktur befinden. Ihre einzig mögliche Bewegung ist eine harmonische Schwingung um ihre Ruheposition. Wie für
-            harmonische üblich ist die kinetische Energie der Teilchen gleich der potentiellen Energie, sodass sich für die gesamte innere Energie eines 
+            harmonische Oszilation üblich ist die gemittelte kinetische Energie der Teilchen gleich der gemittelten potentiellen Energie, sodass sich für die gesamte innere Energie eines 
             Teilchens im Festkörper pro Freiheitsgrad Formel \eqref{eqn:eteilchen} ergibt, in der $k_{\text{b}}$ für die Boltzmann-Konstante steht.
             \begin{equation}
                 U_{\text{Teilchen pro Freiheitsgrad}} = 2 \cdot E_{\text{Kin}} = k_{\text{b}} \cdot T \quad \xrightarrow[\text{3 Freiheitsgrade}]{} \quad U_{\text{Teilchen}} = 3 \cdot k_{\text{b}} \cdot T
                 \label{eqn:eteilchen}
             \end{equation} 
-            Da der Festkörper natürlich aus mehreren Teilchen besteht, wird die gesamte innere Energie des Festkörpers durch Formel \eqref{eqn:ekörper} beschrieben, 
+            Da der Festkörper natürlich aus mehreren Teilchen besteht, wird die gesamte innere Energie eines Mols der Teilchen aus denen der Festkörper besteht durch Formel \eqref{eqn:ekörper} beschrieben, 
             wobei $N_{\text{A}}$ die Avogrado-Konstante ist, die multipliziert mit der Boltzmann-Konstante die allgemeine Gaskonstante $R$ ergibt. 
             \begin{equation}
-                U_{\text{Körper}} = 3 \cdot N_{\text{A}} \cdot k_{\text{b}} = 3 \cdot R \cdot T := Q
+                U_{\text{Körper}} = 3 \cdot N_{\text{A}} \cdot k_{\text{b}} \cdot T = 3 \cdot R \cdot T := Q
                 \label{eqn:ekörper}
             \end{equation}
             Über diese Energie lässt sich die spezifische Molwärme beschreiben, die beschreibt wie viel Wärmemenge hinzugefügt werden muss, um ein Mol eines
             Elements um eine Temperatur $\Delta T$ zu erhitzen, sofern der Druck konstant ist. Es ergibt sich für alle Festkörper aus einem Element
             \begin{equation}
-                c_{\text{v}} = \frac{dU}{dT} = 3R \qquad \text{mit} \qquad dU = dQ + dA = dQ .
+                C_{\text{v}} = \frac{dU}{dT} = 3R \qquad \text{mit} \qquad dU = dQ + dA = dQ .
             \end{equation}
             
         \subsection{Einschränkung des Dulong-Petitschen-Gesetz}
-            Während der über das Dulong-Petit-Gesetz gegebene Wert von 3R bei hohen Temperatur von ca. 20°C und höher gut mit gemessenen Werten übereinstimmt,
+            Während der über das Dulong-Petit-Gesetz gegebene Wert von 3R bei hohen Temperaturen von ca. 20°C und höher gut mit gemessenen Werten übereinstimmt,
             fallen die Messwerte für niedrige Temperaturen stark ab. Dies liegt an der Verquantelung der harmonischen Schwingungen in der Gitterstruktur. 
             Durch diese können die einzelnen Energien nur Vielfache des Produkts der Schwingfrequenz und des Planckschen Wirkungsquantum annehmen. Wenn 
             die Schwingungen bei kleinen Temperaturen immer kleiner werden, kann es passieren, dass die Schwingungen so gering werden, dass ihre Energie
-            kleiner als das $1 \cdot \hbar \omega$ und sie liefern garkeinen Beitrag mehr, sodass die Molwärme gegen 0 geht. Dieses Verhalten kann man aus Formel
-            xxx entnehmen, die dem gerade beschriebenen quantenmechanischen Ansatz entspricht und die innere Energie eines schwingenden Teilchens beschreibt.
+            kleiner als das $1 \cdot \hbar \omega$ ist und sie garkeinen Beitrag mehr liefern, sodass die Molwärme gegen 0 geht. Dieses Verhalten kann man aus Formel
+            \eqref{eqn:QU} entnehmen, die dem gerade beschriebenen quantenmechanischen Ansatz entspricht und die innere Energie eines schwingenden Teilchens beschreibt.
             \begin{equation}
               U_{\text{Teilchen}} = \frac{3 N_{\text{A}} \hbar \omega}{e^{\frac{\hbar \omega}{k_bT}}-1}
               \label{eqn:QU}
@@ -189,7 +189,7 @@
 
                 \begin{tabular}{c c c c c}
                     \toprule
-                    {Element} & {$T_{\text{k}} \; [\text{°C}] $} & {$T_{\text{w}} \; [\text{°C}]$} &  {$T_{\text{m}} \; [\text{°C}]$} & {$m_{\text{w}} \; [\text{kg}]$}\\
+                    {Stoff} & {$T_{\text{k}} \; [\text{°C}] $} & {$T_{\text{w}} \; [\text{°C}]$} &  {$T_{\text{m}} \; [\text{°C}]$} & {$m_{\text{w}} \; [\text{kg}]$}\\
                     \midrule
                     Aluminium & 76,0 & 21,9 & 23,1 & 0,56288 \\
                               & 99,4 & 22,4 & 26,6 & 0,56416 \\
@@ -209,23 +209,54 @@
                 m_{\text{Cu}} =& 0,23645 \; \text{kg} \\
                 m_{\text{Graphit}} =& 0,10760 \; \text{kg}
             \end{align*}
-            werden nun die Mittelwerte $\overline{c_{\text{k}}}$ zu den einzelnen Metallen berechnet, indem vom 
-            Mittelwertssatz und Formel \eqref{eqn:spezWärmekapazität} gebrauch gemacht wird. Der zugehörige Fehler wird über die Standardabweichung des
-            Mittelwerts angegeben.Für Graphit fällt der Mittelwertssatz weg, da es nur einen 
-            Wert gibt.
-
+            werden nun die $c_{\text{k}}$ zu den einzelnen Metallen berechnet, indem von 
+            Formel \eqref{eqn:spezWärmekapazität} gebrauch gemacht wird. Diese Werte werden über
+            \begin{equation*}
+                C_{\text{p}} = \frac{c_{\text{k}} \cdot m_{\text{k}}}{n_{\text{k}}} = c_{\text{k}} \cdot M
+            \end{equation*} 
+            zu $C_{\text{p}}$ umgerechnet, wobei M [1, S.8] für das Verhältnis von Masse und Stoffmenge steht und auf der Praktikumsanleitung angegeben ist. 
+            Die gesuchten $C_{\text{V}}$ werden nun mit Formel \eqref{eqn:CV} berechnet.
             \begin{equation}
-                \overline{c_{\text{k}}} = \frac{1}{3} \cdot \sum_{n=1}^3 c_{\text{k}_n} \\
+                C_{\text{V}} = C_{\text{p}} - 9 \alpha^2 \upkappa  V_0 T_{\text{m}}
+                \label{eqn:CV} 
             \end{equation}
+            
+            \begin{table}[h]
+                \centering
+                \caption{Für die einzelnen Stoffe wurden die molaren Wärmekapazitäten bei konstantem Druck $C_{\text{p}}$ und konstantem Volumen $C_{\text{V}}$ aus der spezifischen Wärmekapazität $c_{\text{k}}$ berechnet.}
+                \label{tab:Tabelle2}
+
+                \begin{tabular}{c c c c}
+                    \toprule
+                    {Stoff} & {$c_{\text{k}} \; [{\frac{\text{J}}{\text{kgK}}}] $} & {$C_{\text{p}} \; [{\frac{\text{J}}{\text{molK}}}]$} &  {$C_{\text{V}} \; [{\frac{\text{J}}{\text{molK}}}]$} \\
+                    \midrule
+                    Aluminium & 527,9 & 14,3 & 13,1 \\
+                              & 1345,3 & 36,3 & 35,2 \\
+                              & 460,2 & 12,4 & 11,3 \\
+                    Kupfer    & 828,8 & 39,9 & 39,2 \\
+                              & 650,0 & 41,3 & 40,5 \\
+                              & 627,2 & 39,8 & 39,1 \\
+                    Graphit   & 778,1 & 9,3 & 9,3 \\
+                    \bottomrule
+                \end{tabular}
+
+            \end{table}
+            
+            Die $C_{\text{V}}$ werden daraufhin über den Mittelwertssatz gemittelt und der zugehörige Fehler wird über die Standardabweichung des Mittelwerts 
+            angegeben.Für Graphit fällt der Mittelwertssatz weg, da es nur einen Wert gibt.
+
+            \begin{equation*}
+                \overline{C_{\text{V}}} = \frac{1}{n} \cdot \sum_{n=1}^3 c_{\text{V}_n} \qquad \text{mit} \quad n=3
+            \end{equation*}
     
             \begin{equation*}
-                \Delta \overline{c_{\text{k}}} = \sqrt{\frac{1}{n(n-1)} \cdot \sum_{i=1}^3 (c_{\text{k}_i} - \overline{c_{\text{k}}}^2})
+                \Delta \overline{C_{\text{V}}} = \sqrt{\frac{1}{n(n-1)} \cdot \sum_{i=1}^n (C_{\text{V}_i} - \overline{C_{\text{V}}}^2}) \qquad \text{mit} \quad n=3
             \end{equation*}
 
             \begin{align*}
-                \text{Aluminium} &: \overline{c_{\text{k}}} =& (16 \pm 9) \frac{\text{J}}{\text{mol \cdot K}} \\
-                \text{Kupfer}    &: \overline{c_{\text{k}}} =& (27 \pm 10) \frac{\text{J}}{\text{mol \cdot K}} \\
-                \text{Graphit}   &: \overline{c_{\text{k}}} =& 9 \frac{\text{J}}{\text{mol \cdot K}} 
+                \text{Aluminium} &: \overline{C_{\text{V}}} =& (16 \pm 9) \frac{\text{J}}{\text{mol \cdot K}} \\
+                \text{Kupfer}    &: \overline{C_{\text{V}}} =& (27 \pm 10) \frac{\text{J}}{\text{mol \cdot K}} \\
+                \text{Graphit}   &: \overline{C_{\text{V}}} =& 9 \frac{\text{J}}{\text{mol \cdot K}} 
             \end{align*}
             Der Literaturwert [2] ist nach dem klassischen Dulong-Petit-Gesetz $c_{\text{k}} = 3R = 24,9 \frac{\text{J}}{\text{mol \cdot K}}$.
             Daraus ergeben sich folgende Abweichungen vom Literaturwert [2]:
@@ -240,10 +271,11 @@
     \section{Diskussion}
         Die aus den Messwerten berechneten spezifischen Wärmekapazitäten liegen allesamt relativ nah an dem aus dem klassischen Dulong-Petit-Gesetz
         stammenden Literaturwert [2] von 3R. Dies gilt besonders, wenn die Fehlerquellen betrachtet werden. Die größte Fehlerquelle liegt darin, dass der 
-        erhitzte Körper Körper definitiv nicht seine gesamte Wärmeenergie an das Wasser im Gefäß abgibt, da viel Wärme an die Umwelt abgegeben wird.
-        Die zweite Fehlerquelle ist das Umfüllen vom Wasser in das Dewar-Gefäß, da dabei Wasser verloren geht, das jedoch nicht vom gemessen 
-        Wassergewicht abgezogen worden ist. Wie bereits angemerkt, zeigt das Experiment dennoch, dass das klassische Dulong-Petit-Gesetz für 
-        Temperaturen ab und über Raumtemperatur gut anwendbar ist.
+        erhitzte Körper definitiv nicht seine gesamte Wärmeenergie an das Wasser im Gefäß abgibt, da viel Wärme an die Umwelt abgegeben wird.
+        Die zweite Fehlerquelle ist das Umfüllen vom Wasser in das Dewar-Gefäß, da dabei Wasser in Form von Dampf verloren geht, das jedoch nicht vom gemessen 
+        Wassergewicht abgezogen worden ist. Weitere im Vergleich kleine Messfehler ergeben sich durch eine nicht perfekte Eichung der Waage und des
+        Thermometers. Wie bereits angemerkt, zeigt das Experiment dennoch, dass das klassische Dulong-Petit-Gesetz für Temperaturen ab und über Raumtemperatur
+        gut anwendbar ist.
 
     \newpage
     
