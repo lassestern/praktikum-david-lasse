@@ -71,10 +71,11 @@ plt.clf()
 def stanni(Zahlen, Mittelwert):
     i=0
     s=0
+    n=len(Zahlen)
     while i<len(Zahlen):
         s = s + (Zahlen[i] - Mittelwert)**2
         i = i + 1
-    return np.sqrt(s)
+    return np.sqrt(s/(n*(n-1)))
 
 #Fern
 def fern(tt):
@@ -90,10 +91,14 @@ ASf = ((1.72031989+1.71229188+1.78683186)/3 + (0.03916327+0.10622593+0.10354813)
 Maxmit_1 = (1.72031989+1.71229188+1.78683186)/3
 Max_1 = [1.72031989, 1.71229188, 1.78683186]
 Maximafehler_1 = stanni(Max_1, Maxmit_1)
+print('Maxmit fern')
+print(Maxmit_1)
 
 Minmit_1 = (0.03916327+0.10622593+0.10354813)/3
 Min_1 = [0.03916327, 0.10622593, 0.10354813]
 Minimafehler_1 = stanni(Min_1, Minmit_1)
+print('Minmit fern')
+print(Minmit_1)
 
 
 print('Fehler gemittelte Minima')
@@ -120,10 +125,14 @@ ASn = ((14.47301367+ 14.41325395+ 14.392095  + 14.28839464+ 14.38114018)/5 + (0.
 Maxmit = (14.47301367+ 14.41325395+ 14.392095  + 14.28839464+ 14.38114018)/5
 Max = [14.47301367, 14.41325395, 14.392095, 14.28839464, 14.38114018]
 Maximafehler = stanni(Max, Maxmit)
+print('Maxmit nah')
+print(Maxmit)
 
 Minmit = (0.03329483+ 0.03299853 -0.02735525+  0.02409037 -0.00545716)/5 
 Min = [0.03329483, 0.03299853, -0.02735525,  0.02409037, -0.00545716]
 Minimafehler = stanni(Min, Minmit)
+print('Minmit nah')
+print(Minmit)
 
 
 print('Fehler gemittelte Minima')

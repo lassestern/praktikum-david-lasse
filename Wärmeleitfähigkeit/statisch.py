@@ -17,8 +17,8 @@ plt.savefig("Tstatisch.pdf")
 plt.close
 plt.clf()
 
-plt.plot(t, T7-T8, "x", label =r"Temperaturdifferenz Edelstahl")
-plt.plot(t, T2-T1, "x", label =r"Temperaturdifferenz Messing")
+plt.plot(t, T7-T8, "-", label =r"Temperaturdifferenz Edelstahl")
+plt.plot(t, T2-T1, "-", label =r"Temperaturdifferenz Messing")
 plt.xlabel(r"Zeit")
 plt.ylabel(r"Temperaturdifferenz")
 plt.legend(loc = "best")
@@ -38,7 +38,8 @@ print('Wärmestom Alu')
 i=1
 while i<6:
     Tdiff = abs(T5[i*30]-T6[i*30])
-    print(Wärmestrom(236, 0.012*0.004, Tdiff))
+    #print(Tdiff)
+    print(Wärmestrom(220, 0.012*0.004, Tdiff))
     i = i +1
 
 #Edelstahl
@@ -46,7 +47,8 @@ print('Wärmestom Edelstahl')
 i=1
 while i<6:
     Tdiff = abs(T7[i*30]-T8[i*30])
-    print(Wärmestrom(30, 0.012*0.004, Tdiff))
+    #print(Tdiff)
+    print(Wärmestrom(21, 0.012*0.004, Tdiff))
     i = i +1
 
 #Messing breit
@@ -54,7 +56,8 @@ print('Wärmestom Messing breit')
 i=1
 while i<6:
     Tdiff = abs(T1[i*30]-T2[i*30])
-    print(Wärmestrom(120, 0.012*0.004, Tdiff))
+    #print(Tdiff)
+    print(Wärmestrom(105, 0.012*0.004, Tdiff))
     i = i +1
 
 #Messing dünn
@@ -62,5 +65,6 @@ print('Wärmestom Messing dünn')
 i=1
 while i<6:
     Tdiff = abs(T3[i*30]-T4[i*30])
-    print(Wärmestrom(120, 0.007*0.004, Tdiff))
+    #print(Tdiff)
+    print(Wärmestrom(105, 0.007*0.004, Tdiff))
     i = i +1
