@@ -64,6 +64,47 @@
   \tableofcontents
   \newpage
 
+  \section{Durchführung}
+
+  \subsection{Allgemeines Vorgehen}
+  Der allgemeine Messvorgang zur Bestimmung der zu messenden Größen beruht darauf, dass in der Schaltung abgesehen von der Eigenschaft, des zu messenden 
+  Bauteils, alle anderen Bauteilwerte bekannt sind. Die in der Theorie erläuterten Formeln können dann Anwendung finden, wenn die minimale Brückenspannung
+  ermittelt worden ist. Dazu werden Variable Widerstände verstellt. Diese Variablen Widerstände werden durch Potentiometer realisiert, die einen 
+  Gesamtwiderstand von $1k\Omega$ inne haben und diesen entweder auf zwei Widerstände distributieren oder als einzelner Widerstand fungieren können.
+
+  \subsection{Wheatonsche Brücke}
+  Bei der Wheatonschen Brücke wird nur ein Potentiometer genutzt, um die Widerstände R3 und R4 zu variieren. Dies wird solange durchgeführt bis die 
+  Brückenspannung ihr Minimum erreicht. Dieses Minimum wird über ein Oszilloskop, das parallel zur "Brücke" geschaltet ist, ermittelt. Ein Minimum liegt 
+  vor, wenn die Amplitude des Wechselstroms bei Widerstandsänderung in beide Richtungen ansteigen würde. Das Schaltbild ist bereits in der Theroie 
+  aufgehführt. 
+
+  \subsection{Kapazitätsbrücke}
+  Wie in dem zugehörigen Schaltbild zu sehen, werden bei der Brücke zur Kapazitätsbestimmung nun die drei variablen Widerstände R2, R3 und R4 genutzt. Diese 
+  müssen immer wieder unabhängig voneinander variiert werden, bis auch hier ein Miminum der Brückenspannung ermittelt wird. Da der Kondensator ja auch einen 
+  Innenwiderstand besitzt, ist dieser im Schaltbild als RC-Glied dargestellt. Mit dem zum Minimum gehörenden Widerstandswerten können dann der Innenwiderstand 
+  und die Kapazität des RC-Glieds berechnet werden.
+
+  \subsection{Induktivitätsbrücke}
+  Auch bei der in Abbildung xx zu sehenden Induktionsbrücke sind wieder die drei variablen Widerstände R2, R3 und R4 vorhanden. Das Minimum der 
+  Brückenspannung wird nach dem selben Vorgehen wie bei der Kapazitätsbrücke bestimmt. Auch die Spule hat einen Innenwiderstand, sodass sie ähnlich zum 
+  Kondensator im Schaltbild als LC-Glied dargestellt ist. 
+
+  \subsection{Maxwellbrücke}
+  Bei der in Abbildung xx dargestellten Maxwellbrücke wird wieder die Induktivität und der Innenwiderstand derselben Spule bestimmt. Der Unterschied zur 
+  Messung mit der Induktivitätsbrücke liegt darin, dass R2 nun ein bekannter, nicht variabler Widerstand ist. R3 und R4 stehen durch das Potentiometer
+  im selben Zusammenhang wie in den vorherigen Schaltungen. Auch hier wird das Minimum der Brückenspannung wieder durch Variieren der beiden variablen 
+  Widerstände bestimmt.
+
+  \subsection{Wien-Robinson-Brücke}
+  Bie der in Abbildung xx zu sehenden Wien-Robinson-Brücke soll nun kein Wert eines Bauteils bestimmt, sondern die Frequenzabhängigkeit der Schaltung
+  betrachtet werden. Dazu wird die Frequenz des Wechselstroms variiert. Zunächst soll die Frequenz gefunden werden bei der die Brückenspannung minimal
+  wird und dann wird die Frequenz von diesem Wert aus um maximal 500 Hz erhöht und gesenkt, während die zugehörigen Spannungen notiert werden. Auch die 
+  Speisespannung wird für die spätere Auswertung notiert.
+
+
+  \newpage
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
   \section{Auswertung}
 
@@ -79,6 +120,13 @@
     \overline{x} = \frac{1}{N} \cdot \sum_{i=1}^{N} x_i
     \label{eqn:Mittelwertssatz}
   \end{equation}
+  Aufgrund des Bildens der Mittelwerte lässt sich der Fehler auch über die Standardabweichung des Mittelwerts angeben. Diese wird über folgende Formel 
+  berechnet:
+  \begin{equation} 
+    \Delta f = \sqrt{\sum_{i=1}^N (\frac{df}{dy_i}\cdot \Delta y_i)^2}
+    \label{eqn:stanni}
+  \end{equation} 
+  Als Fehler wird letztendlich der größere der beiden Fehler angegeben.
 
   \subsection{Wheatonsche Brücke}
   Mit den in Tabelle \ref{tab:Wheaton} gegebenen Werten lassen sich über Formel xx mehrere Werte für die beiden Widerstände berechnen. Aus diesen wird über 
@@ -90,7 +138,7 @@
   \end{align*}
   So ergeben sich folgende Werte für die Widerstände:
   \begin{align*}
-      R_{14} = (894 \pm 7) \Omega
+      R_{14} = (894 \pm 7) \Omega \\
       R_{13} = (314 \pm 3) \Omega
   \end{align*}
 
@@ -98,16 +146,16 @@
     \centering
     \caption{In der Tabelle sind die für die Rechnung notwendigen Widerstände für beide Widerstände angegeben.}
     \label{tab:Wheaton}
-    \begin{tabular}{c c c c}
+    \begin{tabular}{c c c c c}
       \toprule
-      {Wert} & {$R_{\text{2}} [\Omega]$} & {$R_{\text{3}} [\Omega]$} & {$R_{\text{4}} [\Omega]$} \\
+      {Wert} & {$R_{\text{x}} [\Omega]$} & {$R_{\text{2}} [\Omega]$} & {$R_{\text{3}} [\Omega]$} & {$R_{\text{4}} [\Omega]$} \\
       \midrule 
-      14 & 1000 & 472 & 528  \\
-       & 664 & 573 & 427 \\
-       & 332 & 730 & 270 \\
-      13 & 1000 & 236 & 764 \\
-       & 664 & 323 & 677 \\
-       & 332 & 489 & 511 \\
+      14 & 894 & 1000 & 472 & 528  \\
+       & 891 & 664 & 573 & 427 \\
+       & 897 & 332 & 730 & 270 \\
+      13 & 309 & 1000 & 236 & 764 \\
+       & 317 & 664 & 323 & 677 \\
+       & 318 & 332 & 489 & 511 \\
       \bottomrule
     \end{tabular}
   \end{table}
@@ -126,20 +174,21 @@
     \centering
     \caption{In der Tabelle sind die für die Rechnung notwendigen Widerstände für beide Widerstände angegeben.}
     \label{tab:Kap}
-    \begin{tabular}{c c c c c}
+    \begin{tabular}{c c c c c c c}
       \toprule
-      {Wert} & {$C_{\text{2}} [nF]$} & {$R_{\text{2}} [\Omega]$} & {$R_{\text{3}} [\Omega]$} & {$R_{\text{4}} [\Omega]$} \\
+      {Wert} & {$C_{\text{9}} [nF]$} & {$R_{\text{9}} [\Omega]$} & {$C_{\text{2}} [nF]$} & {$R_{\text{2}} [\Omega]$} & {$R_{\text{3}} [\Omega]$} & {$R_{\text{4}} [\Omega]$} \\
       \midrule 
-      9 & 399 & 500 & 480 & 520  \\
-       & 597 & 339 & 580 & 420 \\
-       & 992 & 204 & 693 & 307 \\
+      9 & 432 & 462 &399 & 500 & 480 & 520  \\
+       & 432 & 468 & 597 & 339 & 580 & 420 \\
+       & 439 & 460 & 992 & 204 & 693 & 307 \\
       \bottomrule
     \end{tabular}
   \end{table}
 
-  \subsection{Indu}
+  \subsection{Induktivitätsbrücke}
   Auch bei der Induktivitätsbrücke wird die Formel der Wheaton-Brücke wieder verwendet, um den Widerstand zu bestimmen. Die Induktivität der Spule 16 wird
-  über Formel xx berechnet. Der zugehörige Fehler folgt dabei aus den angegebenen relativen Fehlern.
+  über Formel xx berechnet. Der zugehörige Fehler aus den angegebenen relativen Fehlern ist diese mal kleiner als der 
+  des bestimmten Mittelwerts, sodass die Standardabweichung des Mittelwerts als Fehler angegeben wird.
   \begin{align*}
     \sigma_{\text{R2}} = 3 \% \\
     \sigma_{\text{R3/R4}} = 0,5 \% \\
@@ -152,19 +201,19 @@
     \centering
     \caption{In der Tabelle sind die für die Rechnung notwendigen Widerstände für beide Widerstände angegeben.}
     \label{tab:Indu}
-    \begin{tabular}{c c c c c}
+    \begin{tabular}{c c c c c c c}
       \toprule
-      {Wert} & {$L_{\text{2}} [mH]$} & {$R_{\text{2}} [\Omega]$} & {$R_{\text{3}} [\Omega]$} & {$R_{\text{4}} [\Omega]$} \\
+      {Wert} & {$L_{\text{16}} [mH]$} & {$R_{\text{16}} [\Omega]$} & {$L_{\text{2}} [mH]$} & {$R_{\text{2}} [\Omega]$} & {$R_{\text{3}} [\Omega]$} & {$R_{\text{4}} [\Omega]$} \\
       \midrule 
-      16 & 27,5 & 122 & 757 & 243  \\
-       & 24,6 & 115 & 789 & 211 \\
+      16 & 86 & 380 & 27,5 & 122 & 757 & 243  \\
+       & 55 & 430 & 24,6 & 115 & 789 & 211 \\
       \bottomrule
     \end{tabular}
   \end{table}
 
   \subsection{Maxwellbrücke}
-  Zur Bestimmung des Innenwiderstands wird wieder die Formel der Wheaton-Brücke genutzt und auch der Fehler ergibt sich wie zuvor. Die Induktivität der Spule
-  wird über Formel xx berechnet.
+  Zur Bestimmung des Innenwiderstands wird wieder die Formel der Wheaton-Brücke genutzt. Die Induktivität der Spule wird über Formel xx berechnet. Auch hier ist
+  der relative Gesamtfehler aus den angegeben Realtivfehlern kleiner als die Standardabweichung, sodass diese auch hier als Fehler angegeben wird. 
   \begin{align*}
     \sigma_{\text{R2}} = 3 \% \\
     \sigma_{\text{R3/R4}} = 3 \% \\
@@ -177,23 +226,33 @@
     \centering
     \caption{In der Tabelle sind die für die Rechnung notwendigen Widerstände für beide Widerstände angegeben.}
     \label{tab:Maxwell}
-    \begin{tabular}{c c c c c}
+    \begin{tabular}{c c c c c c c}
       \toprule
-      {Wert} & {$C_{\text{4}} [nF]$} & {$R_{\text{2}} [\Omega]$} & {$R_{\text{3}} [\Omega]$} & {$R_{\text{4}} [\Omega]$} \\
+      {Wert} & {$L_{\text{16}} [mH]$} & {$R_{\text{16}} [\Omega]$} & {$C_{\text{4}} [nF]$} & {$R_{\text{2}} [\Omega]$} & {$R_{\text{3}} [\Omega]$} & {$R_{\text{4}} [\Omega]$} \\
       \midrule 
-      16 & 399 & 1000 & 293 & 707  \\
-       & 399 & 332 & 557 & 443 \\
-       & 399 & 664 & 386 & 614 \\
-       & 450 & 332 & 555 & 445 \\
+      16 & 117 & 414 & 399 & 1000 & 293 & 707  \\
+       & 74 & 417 & 399 & 332 & 557 & 443 \\
+       & 102 & 417 & 399 & 664 & 386 & 614 \\
+       & 83 & 414 & 450 & 332 & 555 & 445 \\
       \bottomrule
     \end{tabular}
   \end{table}
 
   \subsection{Wien-Robinson-Brücke}
-
+  Bei der Wien-Robinson-Brücke soll die Abhängigkeit der Brückenspannung von der Frequenz betrachtet werden. Dazu wurde als Ausgangspunkt die Frequenz 
+  bestimmt, bei der die Brückenspannung minimal wird.
+  \begin{align*} 
+    R' = 332 \Omega \qquad R = 1000 \Omega \qquad C = 660 nF \\
+    \upnu = 241 Hz \qquad U_0 = 4 mV \qquad U_{\text{S}} =  500 mV
+  \end{align*} 
+  Von diesem Minimum aus wird die Frequenz variiert. Zum einem wird in Zehnerschritten 5 Schritte in beide Richtungen gegangen und zum anderen in 
+  Hunderterschritten 5 Schritte in beide Richtungen. Daraus ergeben sich die in Tabelle \ref{tab:Wien} eingetragenen Werte. Die Frequenzabhängigkeit wird in
+  Grafik \ref{fig:Graph} dargestellt. In diesem Plot wird das Verhältnis zwischen der Brückenspannung und der Speisespannung 
+  $\frac{U_{\text{Br}}}{U_{\text{Speise}}}$ gegen das Verhältnis zwischen der Frequenz und der Frequenz bei minimaler Spannung $\frac{\upsilon}{\upsilon_0}$
+  aufgetragen. Die berechnete Kurve und die Kurve der Messwerte weisen eine annähernd gleiche Form auf und auch die Minima stimmen überein. 
   \begin{table}[h]
     \centering
-    \caption{In der Tabelle sind die Temperaturen der einzelnen Messplatten zum Zeitpunkt t=700S angegeben.}
+    \caption{In der Tabelle sind die Brückenspannungenspannungen und die zugehörigen Frequenzen angegeben.}
     \label{tab:Wien}
     \begin{tabular}{c c }
       \toprule
@@ -223,4 +282,41 @@
     \end{tabular}
   \end{table}
 
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Brücke.pdf}
+    \caption{In der Grafik ist die Frequenzabhängigkeit der Brückenspannung zu einen als theoretische Kurve und zum anderen mit den Messwerten dargestellt. Dafür wurde auf der x-Achse das Verhätltnis zwischen der Frequenz und der Minimusfrequenz und auf die y-Achse das Verhältnis der Brückenspannung zur minimalen Brückenspannung aufgetragen.}
+    \label{fig:Graph}
+  \end{figure}
+
+  \subsection{Klirrfaktor}
+  Zuletzt soll noch der Klirrfaktor des Generators theoretisch berechnet werden. Dazu wird folgende Formel verwendet:
+  \begin{align*}
+    k = \frac{U_2}{U_1}
+  \end{align*}
+  $U_1$ entspricht dabei der Speisespannung von 0,5V und $U_2$ lässt sich wiefolgt berechnen:
+  \begin{align*}
+    U_2 = \frac{U_{\text{0}}}{\left(\frac{(\Omega ^2 - 1)^2}{9 \cdot ((1 - \Omega ^2)^2 + 9 \cdot \Omega ^2)}\right)} \qquad mit \; \Omega = 2
+  \end{align*}
+  Somit ergibt sich für den Klirrfaktor k
+  \begin{equation*}
+    k = \frac{0,004V}{0,014V} = 28,8 \cdot 10^{-3}
+  \end{equation*}
+
+\newpage
+
+\section{Diskussion}
+  Über die Genauigkeit der gemessenen Werte lässt sich in dieser Messung nur indirekt schließen, da keine genauen Vergleichswerte vorliegen. Die indirekten 
+  Folgerungen beruhen darauf, dass die Standardabweichungen der Mittelwerte bei der Wheatonschen Brücke als auch bei der Kapazitätsbrücke kleiner waren als 
+  die relativen Fehler der Bauteile. Dies lässt auf eine gute Messung schließen. Die Genauigkeit der Messung der Induktivität und des Eigenwiderstands der 
+  Spule 16 kann durch die verschiedenen Ergebnisse aus den zwei verschiedenen Messmethoden bewertet werden. So weichen die gemessenen Innenwiderstände nur um
+  2,7 \% voneinander ab, wodurch sich die Werte quasi gegenseitig bestätigen. Die beiden gemessenen Induktivitäten hingegen weichen um 37,6 \% voneinander ab
+  und bestätigen sich daher nur bedingt gegenseitig. Unterschiede zwischen den beiden Messungen können einerseits durch menschliche Ungenauigkeiten beim 
+  bestimmen der Minima und andererseits durch die Unterschiede zwischen den beiden Schaltungen entstehen. So wird in der Maxwellbrücke ein Kondensator 
+  eingebaut, der nicht verlustfrei ist, aber als das angenommen wird. Bei der Induktionsbrücke geschieht dasselbe mit der Spule L2. In Bezug auf die 
+  Wien-Robinson-Brücke ist eine Bestätigung der Messung besonders schwierig. Die Messwerte befinden sich zwar, abgesehen von sehr großen und sehr kleinen 
+  Frequenzverhältnissen, alle nah bei der Theorie. Doch das Problem liegt darin, dass die Speisespannung, die die Korrelation der Messwerte und der Theorie
+  nicht gemessen worden, sondern nur geschätzt worden ist. Hingegen unabhängig von dieser Schätzung bestätigen sich die Minima der beiden Kurven. Der zuletzt
+  ausgerechnete Klirrfaktor beruht rechnerisch auch auf der Speisespannung und ist daher auch als ungewiss anzusehen. 
+  
 \end{document}
