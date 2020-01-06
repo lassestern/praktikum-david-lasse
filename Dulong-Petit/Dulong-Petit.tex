@@ -56,34 +56,36 @@
 }
 \date{Durchführung am 03.12.2019}
 
+
 \begin{document}
     \maketitle
+    \newpage
     \tableofcontents
     \newpage
 
     \section{Zielsetzung}
-        Es soll überprüft werden, ob das Dulong-Petit-Gesetz bei genügend hohen Temperaturen treffende Aussagen zur spezifischen
-        Wärmekapazität von Feststoffen trifft.
+        Es soll überprüft werden, ob das Dulong-Petit-Gesetz bei genügend hohen Temperaturen treffende Aussagen zur Molwärme von Feststoffen trifft.
 
 
 
     \section{Theoretische Grundlagen}
         \subsection{Wärmekapazität}
-            Wenn ein Stoff, erhitzt wird und im Prozess keine andere Energie aufnimmt oder abgibt,
+            Wenn ein Stoff, nur erhitzt wird und im Prozess keine andere Energie aufnimmt oder abgibt, nimmt er die
+            Wärmemenge $\Delta Q$ auf, d.h. es gilt:
             \begin{equation*}
                 \Delta U = \Delta Q + \Delta A = \Delta Q
             \end{equation*}
-            nimmt er die Wärmemenge $\Delta Q$ auf. $U$ und $E$ stehen im Protokoll für gemittelte Energien.
+            $U$ und $E$ stehen im Protokoll für gemittelte Energien.
             Die aufgenommene Wärmemenge $\Delta Q$ hängt dabei von der Änderung der Temperatur $\Delta T$,
-            der Masse des Körpers $m$, sowie der spezifischen Wärmekapazität des Elements $c$ ab. Dieser Zusammenhang definiert die spezifische
-            Wärmekapazität eines Stoffes, wie in Formel \eqref{eqn:wk} beschrieben.  
+            der Masse des Körpers $m$, sowie der spezifischen Wärmekapazität des Elements $c$ ab. Dieser Zusammenhang
+            definiert die spezifische Wärmekapazität eines Stoffes, wie in Formel \eqref{eqn:wk} beschrieben.  
             \begin{equation}
                 c = \frac{\Delta Q}{\Delta T \cdot m }
                 \label{eqn:wk}
             \end{equation}
         
         \subsection{Molwärme nach dem Dulong-Petitschen-Gesetz}
-            Das Dulong-Petitsche-Gesetz geht davon aus, dass alle Festkörper die gleiche spezifische Wärmekapazität inne habe. Dies wird aus der
+            Das Dulong-Petitsche-Gesetz geht davon aus, dass alle Festkörper die gleiche Molwärme inne haben. Dies wird aus der
             Teilchenenergie, der im Körper gebundenen Atome hergeleitet, indem davon ausgegangen wird, dass sie sich in einer festen Position
             innerhalb einer Gitterstruktur befinden. Ihre einzig mögliche Bewegung ist eine harmonische Schwingung um ihre Ruheposition. Wie für
             harmonische Oszilation üblich ist die gemittelte kinetische Energie der Teilchen gleich der gemittelten potentiellen Energie, sodass sich für die gesamte innere Energie eines 
@@ -105,9 +107,9 @@
             \end{equation}
             
         \subsection{Einschränkung des Dulong-Petitschen-Gesetz}
-            Während der über das Dulong-Petit-Gesetz gegebene Wert von 3R bei hohen Temperaturen von ca. 20°C und höher gut mit gemessenen Werten übereinstimmt,
-            fallen die Messwerte für niedrige Temperaturen stark ab. Dies liegt an der Verquantelung der harmonischen Schwingungen in der Gitterstruktur. 
-            Durch diese können die einzelnen Energien nur Vielfache des Produkts der Schwingfrequenz und des Planckschen Wirkungsquantum annehmen. Wenn 
+            Während der über das Dulong-Petit-Gesetz gegebene Wert von 3R bei hohen Temperaturen von ca. 20°C und höher gut mit den tatsächlichen Werten übereinstimmen soll,
+            fallen die Werte für niedrige Temperaturen stark ab. Dies liegt an der Verquantelung der harmonischen Schwingungen in der Gitterstruktur. 
+            Durch diese können die einzelnen Energien nur ganzzahlige Vielfache des Produkts der Schwingfrequenz und des Planckschen Wirkungsquantum annehmen. Wenn 
             die Schwingungen bei kleinen Temperaturen immer kleiner werden, kann es passieren, dass die Schwingungen so gering werden, dass ihre Energie
             kleiner als das $1 \cdot \hbar \omega$ ist und sie garkeinen Beitrag mehr liefern, sodass die Molwärme gegen 0 geht. Dieses Verhalten kann man aus Formel
             \eqref{eqn:QU} entnehmen, die dem gerade beschriebenen quantenmechanischen Ansatz entspricht und die innere Energie eines schwingenden Teilchens beschreibt.
@@ -116,7 +118,7 @@
               \label{eqn:QU}
             \end{equation} 
             Der Exponentialterm geht für $T \rightarrow 0$ gegen $\infty$ und die Molwärme dementsprechend gegen 0. Um die Molwärme für Große Temperaturen
-            zu betrachten wird die Taylor-Entwicklung des Exponentialterms (Formel \eqref{eqn:TEU}) genutzt. Mit dieser geht die Molwärme für hohe Temperaturen gegen 
+            zu betrachten wird die Taylor-Entwicklung des Exponentialterms \eqref{eqn:TEU} genutzt. Mit dieser geht die Molwärme für hohe Temperaturen gegen 
             den klassischen Wert von $3R$.
             \begin{equation}
               U_{\text{Teilchen}} \approx \frac{3 N_{\text{A}} \hbar \omega}{1 + \frac{\hbar \omega}{k_{\text{b}T}}}
@@ -127,21 +129,22 @@
 
     \section{Versuchsdurchführung}
         Das konstante Volumen einer Körperprobe ist bei Durchführung eines Versuches schwierig zu erhalten.
-        Deshalb arbeitet man hier mit einer anderen konstanten Größe, dem konstanten Druck, welcher hier
+        Deshalb wird hier mit einer anderen konstanten Größe gearbeitet, dem konstanten Druck, welcher hier
         der Atmosphärendruck ist. Es werden Körper aus verschiedenen Materialien der Massen $m_\text{k}$ in Wasser
         eingetaucht und das Wasser wird auf die Temperatur $T_\text{k}$ erhitzt. Dabei nimmt der Körper die Temperatur $T_\text{k}$ an. Ab einer genügend hohen Temperatur
         wird der Körper aus dem Gefäß entfernt und in ein mit Wasser mit Zimmertemperatur $T_\text{w}$ gefülltes
         Dewar-Gefäß getaucht. Nach ca. 2 Minuten des Wartens ergibt sich eine Mischtemperatur $T_\text{m}$ im Gefäß.
         Die verschiedenen Temperaturen werden mit einem Thermometer gemessen.
-        Die spezifischen Wärmekapazitäten werden, dann mit der spezifischen Wärmekapazität des Körpers $c_\text{k}$, des Wassers im Dewar-Gefäß bei ca. Zimmertemperatur
+        Die spezifischen Wärmekapazitäten werden dann mit der spezifischen Wärmekapazität des Körpers $c_\text{k}$, die des Wassers im Dewar-Gefäß bei ca. Zimmertemperatur
         $c_\text{w}$, der Wärmekapazität des Dewar-Gefäßes $c_\text{g}m_\text{g}$ und der Masse des Wasser im Dewar-Gefäß
-        $m_\text{w}$ nach Formel \eqref{eqn:spezWärmekapazität} bestimmt.
-
-        Um die Wärmekapazität des Dewar-Gefäßes zu bestimmen ist ein weiteres Experiment nötig. Anstatt einer Körperprobe
+        $m_\text{w}$ nach \eqref{eqn:spezWärmekapazität} bestimmt.
+        
+        \noindent
+        Um die Wärmekapazität des Dewar-Gefäßes zu bestimmen ist eine weitere Messung nötig. Anstatt einer Körperprobe
         wird nun Wasser der Masse $m_\text{y}$ auf eine Temperatur $T_\text{y}$ erhitzt und es wird damit genauso verfahren wie mit den Körpern.
-        D.h. es wird in das Dewar-Gefäß gegossen, worin sich schon Wasser der Masse $m_\text{x}$ und der Temperatur
-        $T_\text{x}$ befindet und mit welchem sich eine Mischtemperatur $T_\text{m}^{'}$ ergibt. Analog zu Formel
-        \eqref{eqn:spezWärmekapazität} gilt für die Wärmekapazität des Dewar-Gefäßesnach Formel \eqref{eqn:Wärmekapazität}.
+        D.h. es wird in das Dewar-Gefäß gefüllt, worin sich schon Wasser der Masse $m_\text{x}$ und der Temperatur
+        $T_\text{x}$ befindet und mit welchem sich eine Mischtemperatur $T_\text{m}^{'}$ ergibt. Analog zu
+        \eqref{eqn:spezWärmekapazität} gilt für die Wärmekapazität des Dewar-Gefäßes \eqref{eqn:Wärmekapazität}.
     
 
     \section{Auswertung}
@@ -154,14 +157,14 @@
             \begin{equation*}
                 Q_2 = (c_\text{w}m_\text{w} + c_\text{g}m_\text{g})(T_\text{k} - T_\text{m})
             \end{equation*}
-            Demnach können $Q_1$ und $Q_2$ gleichgesetzt und nach der spezifischen Wärmekapazität $c_k$ umgestellt werden. Daraus folgt Formel \eqref{eqn:spezWärmekapazität}.
+            Demnach können $Q_1$ und $Q_2$ gleichgesetzt und nach der spezifischen Wärmekapazität $c_k$ umgestellt werden. Daraus folgt \eqref{eqn:spezWärmekapazität}.
             
             \begin{equation}
                 \label{eqn:spezWärmekapazität}
                 c_\text{k} = \frac{(c_\text{w} m_\text{w} + c_\text{g} m_\text{g})(T_\text{m} - T_\text{w})}{m_\text{k}(T_\text{k} - T_\text{m})}
             \end{equation}
-            Die letzte noch fehlende Größe in Formel \eqref{eqn:spezWärmekapazität} ist die Wärmekapazität des Dewar-Gefäßes $c_\text{g}m_\text{g}$. Diese
-            wird analog zu $c_{\text{k}}$ bestimmt, sodass sich die ähnliche Formel \eqref{eqn:Wärmekapazität} ergibt.
+            Die letzte noch fehlende Größe in \eqref{eqn:spezWärmekapazität} ist die Wärmekapazität des Dewar-Gefäßes $c_\text{g}m_\text{g}$. Diese
+            wird analog zu $c_{\text{k}}$ bestimmt, sodass sich folgende Formel ergibt:
 
             \begin{equation}
                 \label{eqn:Wärmekapazität}
@@ -171,14 +174,14 @@
         
 
         \subsection{Spezifische Wärmekapazität verschiedener Feststoffe}
-            Um Formel \eqref{eqn:spezWärmekapazität} nutzen zu können, wurde die Wärmekapazität des Dewar-Gefäßes bestimmt, wie in der Versuchsdurchführung
+            Um \eqref{eqn:spezWärmekapazität} nutzen zu können, wurde die Wärmekapazität des Dewar-Gefäßes bestimmt, wie in der Versuchsdurchführung
             beschrieben. Dabei wurden die Werte 
             \begin{align*}
                 m_{\text{y}} &= 0,28971 \:\text{kg} \\
                 T_{\text{y}} &= 67,5 \:\text{°C} \\
                 m_{\text{x}} &= 0,26010 \: \text{kg} \\
                 T_{\text{x}} &= 21,3 \:\text{°C} \\
-                T_{\text{m}} &= 21,3 \:\text{°C} 
+                T_{\text{m}} &= 43,1 \:\text{°C} 
             \end{align*}
             verwendet, sodass $c_\text{g} m_\text{g} = 268,6 \: \frac{\text{J}}{\text{K}}$. Mit diesem Wert lassen sich nun die spezifischen Wärmekapazitäten
             bei konstantem Druck berechnen.
@@ -202,80 +205,77 @@
                 \end{tabular}
 
             \end{table}
-            
+
+            \noindent
+            Zuerst werden die $c_{\text{k}}$ für Aluminium und Kupfer gemittelt (es gab nur eine Messung zu Graphit, deshalb kann da nicht gemittelt werden)
+            nach \eqref{eqn:mittelnck}
+            \begin{equation*}
+                \overline{c_{\text{k}}} = \frac{1}{n} \cdot \sum_{n=1}^3 c_{\text{k}_n} \qquad \text{mit} \quad n=3
+            \end{equation*}
             Aus den Werten von \ref{tab:Tabelle1} und den Massen der zu erhitzenden Körper
             \begin{align*}
                 m_{\text{Al}} =& 0,11279 \; \text{kg} \\
                 m_{\text{Cu}} =& 0,23645 \; \text{kg} \\
                 m_{\text{Graphit}} =& 0,10760 \; \text{kg}
             \end{align*}
-            werden nun die $c_{\text{k}}$ zu den einzelnen Metallen berechnet, indem von 
+            werden nun die $\overline{c_{\text{k}}}$ zu den einzelnen Metallen berechnet, indem von 
             Formel \eqref{eqn:spezWärmekapazität} gebrauch gemacht wird. Diese Werte werden über
             \begin{equation*}
-                C_{\text{p}} = \frac{c_{\text{k}} \cdot m_{\text{k}}}{n_{\text{k}}} = c_{\text{k}} \cdot M
+                C_{\text{p}} = \frac{\overline{c_{\text{k}}} \cdot m_{\text{k}}}{n_{\text{k}}} = \overline{c_{\text{k}}} \cdot M
             \end{equation*} 
             zu $C_{\text{p}}$ umgerechnet, wobei M [1, S.8] für das Verhältnis von Masse und Stoffmenge steht und auf der Praktikumsanleitung angegeben ist. 
-            Die gesuchten $C_{\text{V}}$ werden nun mit Formel \eqref{eqn:CV} berechnet.
-            \begin{equation}
-                C_{\text{V}} = C_{\text{p}} - 9 \alpha^2 \upkappa  V_0 T_{\text{m}}
+            Die gesuchten $C_{\text{V}}$ werden nun folgendermaßen berechnet.
+            \begin{align}
+                C_{\text{V}} &= C_{\text{p}} \hspace*{-3.5cm}&-\quad 9 \alpha^2 \upkappa  V_0 T_{\text{m}} \\
                 \label{eqn:CV} 
-            \end{equation}
+                             &= \overline{c_{\text{k}}}\cdot M \hspace*{-3.5cm}&-\quad 9 \alpha^2 \upkappa  V_0 T_{\text{m}}
+            \end{align}
             
             \begin{table}[h]
                 \centering
                 \caption{Für die einzelnen Stoffe wurden die molaren Wärmekapazitäten bei konstantem Druck $C_{\text{p}}$ und konstantem Volumen $C_{\text{V}}$ aus der spezifischen Wärmekapazität $c_{\text{k}}$ berechnet.}
                 \label{tab:Tabelle2}
 
-                \begin{tabular}{c c c c}
+                \begin{tabular}{c c c c c}
                     \toprule
-                    {Stoff} & {$c_{\text{k}} \; [{\frac{\text{J}}{\text{kgK}}}] $} & {$C_{\text{p}} \; [{\frac{\text{J}}{\text{molK}}}]$} &  {$C_{\text{V}} \; [{\frac{\text{J}}{\text{molK}}}]$} \\
+                    {Stoff} & {$M \; [{\frac{\text{kg}}{\text{mol}}}] $} & {$c_{\text{k}} \; [{\frac{\text{J}}{\text{kgK}}}] $} & {$C_{\text{p}} \; [{\frac{\text{J}}{\text{molK}}}]$} &  {$C_{\text{V}} \; [{\frac{\text{J}}{\text{molK}}}]$} \\
                     \midrule
-                    Aluminium & 527,9 & 14,3 & 13,1 \\
-                              & 1345,3 & 36,3 & 35,2 \\
-                              & 460,2 & 12,4 & 11,3 \\
-                    Kupfer    & 828,8 & 39,9 & 39,2 \\
-                              & 650,0 & 41,3 & 40,5 \\
-                              & 627,2 & 39,8 & 39,1 \\
-                    Graphit   & 778,1 & 9,3 & 9,3 \\
+                    Aluminium & 0,0270 & 777,8 & 21,0 & 19,9 \\
+                    Kupfer    & 0,0635 & 635,3 & 40,3 & 39,6 \\
+                    Graphit   & 0,0120 & 778,1 & 9,3 & 9,3 \\
                     \bottomrule
                 \end{tabular}
 
             \end{table}
             
-            Die $C_{\text{V}}$ werden daraufhin über den Mittelwertssatz gemittelt und der zugehörige Fehler wird über die Standardabweichung des Mittelwerts 
-            angegeben.Für Graphit fällt der Mittelwertssatz weg, da es nur einen Wert gibt.
-
             \begin{equation*}
-                \overline{C_{\text{V}}} = \frac{1}{n} \cdot \sum_{n=1}^3 c_{\text{V}_n} \qquad \text{mit} \quad n=3
-            \end{equation*}
-    
-            \begin{equation*}
-                \Delta \overline{C_{\text{V}}} = \sqrt{\frac{1}{n(n-1)} \cdot \sum_{i=1}^n (C_{\text{V}_i} - \overline{C_{\text{V}}}^2}) \qquad \text{mit} \quad n=3
+                \Delta C_{\text{V}} = \sqrt{\Delta C_p^2 + (9 \alpha^2 \upkappa  V_0)^2 \cdot \Delta T_{\text{m}}^2}
             \end{equation*}
 
             \begin{align*}
-                \text{Aluminium} &: \overline{C_{\text{V}}} =& (16 \pm 9) \frac{\text{J}}{\text{mol \cdot K}} \\
-                \text{Kupfer}    &: \overline{C_{\text{V}}} =& (27 \pm 10) \frac{\text{J}}{\text{mol \cdot K}} \\
-                \text{Graphit}   &: \overline{C_{\text{V}}} =& 9 \frac{\text{J}}{\text{mol \cdot K}} 
+                \text{Aluminium} &: C_{\text{V}} =& (20 \pm 8) \frac{\text{J}}{\text{mol \cdot K}} \\
+                \text{Kupfer}    &: C_{\text{V}} =& (39 \pm 1) \frac{\text{J}}{\text{mol \cdot K}} \\
+                \text{Graphit}   &: C_{\text{V}} =& 9 \frac{\text{J}}{\text{mol \cdot K}} 
             \end{align*}
             Der Literaturwert [2] ist nach dem klassischen Dulong-Petit-Gesetz $c_{\text{k}} = 3R = 24,9 \frac{\text{J}}{\text{mol \cdot K}}$.
             Daraus ergeben sich folgende Abweichungen vom Literaturwert [2]:
             \begin{align*}
-                \text{Aluminium} &: 35,7 \%  \\
-                \text{Kupfer}    &: 8,4 \%   \\
+                \text{Aluminium} &: 19,7 \%  \\
+                \text{Kupfer}    &: 56,6 \%   \\
                 \text{Graphit}   &: 63,9 \%
             \end{align*}
         
             \newpage
         
     \section{Diskussion}
-        Die aus den Messwerten berechneten spezifischen Wärmekapazitäten liegen allesamt relativ nah an dem aus dem klassischen Dulong-Petit-Gesetz
-        stammenden Literaturwert [2] von 3R. Dies gilt besonders, wenn die Fehlerquellen betrachtet werden. Die größte Fehlerquelle liegt darin, dass der 
-        erhitzte Körper definitiv nicht seine gesamte Wärmeenergie an das Wasser im Gefäß abgibt, da viel Wärme an die Umwelt abgegeben wird.
+        Die aus den Messwerten berechneten spezifischen Wärmekapazitäten liegt nur bei Aluminium relativ nah an dem aus dem klassischen Dulong-Petit-Gesetz
+        stammenden Literaturwert [2] von 3R. Ansonsten sind beim Kupfer und Graphit sehr weit vom tatsächlichen Wert liegende Werte rausgekommen.
+        Die größte Fehlerquelle liegt darin, dass der  erhitzte Körper definitiv nicht seine gesamte Wärmeenergie an das Wasser im Gefäß abgibt, da viel
+        Wärme an die Umwelt abgegeben wird. Außerdem wurde wahrscheinlich eine oder mehrere Temperaturmessungen daruch verfälscht, dass das Thermometer
+        zeitweise direkt mit dem Material in Berührung stand und teilweise nicht.
         Die zweite Fehlerquelle ist das Umfüllen vom Wasser in das Dewar-Gefäß, da dabei Wasser in Form von Dampf verloren geht, das jedoch nicht vom gemessen 
         Wassergewicht abgezogen worden ist. Weitere im Vergleich kleine Messfehler ergeben sich durch eine nicht perfekte Eichung der Waage und des
-        Thermometers. Wie bereits angemerkt, zeigt das Experiment dennoch, dass das klassische Dulong-Petit-Gesetz für Temperaturen ab und über Raumtemperatur
-        gut anwendbar ist.
+        Thermometers. Durch die gemessenen Ungenauigkeiten kann das Dulong-Petit-Gesetz nicht bestätigt werden.
 
     \newpage
     
