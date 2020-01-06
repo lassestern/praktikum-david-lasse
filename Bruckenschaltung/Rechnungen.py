@@ -234,9 +234,9 @@ U_reltheo = np.sqrt((omega**2-1)**2 / (9 * (1 - omega**2)**2 + 9 * omega**2))
 
 plt.plot(omega, U_rel, 'x', label = r'Messwerte')
 plt.plot(omega, U_reltheo, "-", label = r'Theoriekurve')
+plt.xlabel(r'$\nu / \nu _0$')
+plt.ylabel(r'$U_{Br} /  U_S $')
 plt.legend(loc = "best")
-plt.xlabel(r'xx') 
-plt.ylabel(r'xx')
 plt.savefig("Brücke.pdf")
 
 
@@ -246,11 +246,11 @@ plt.savefig("Brücke.pdf")
 
 #Klirrfaktor berechnen
 
-U_2 = 0.004 / U_reltheo
+f2 = np.sqrt((2**2-1)**2 / (9 * (1 - 2**2)**2 + 9 * 2**2))
+U_2 = 0.004 / f2
 k = U_2 / U_s
 
 print('Klirrfaktor')
 print(k)
-Mittelk = Mittel(k)
-print('Mittelwert Klirrfaktor')
-print(Mittelk)
+print(f2)
+print(U_2)

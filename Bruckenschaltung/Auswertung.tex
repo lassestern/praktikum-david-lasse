@@ -76,12 +76,30 @@
   Bei der Wheatonschen Brücke wird nur ein Potentiometer genutzt, um die Widerstände R3 und R4 zu variieren. Dies wird solange durchgeführt bis die 
   Brückenspannung ihr Minimum erreicht. Dieses Minimum wird über ein Oszilloskop, das parallel zur "Brücke" geschaltet ist, ermittelt. Ein Minimum liegt 
   vor, wenn die Amplitude des Wechselstroms bei Widerstandsänderung in beide Richtungen ansteigen würde. Das Schaltbild ist bereits in der Theroie 
-  aufgehführt.
+  aufgehführt. 
 
   \subsection{Kapazitätsbrücke}
-  Bei der Brücke zur Kapazitätsbestimmung werden die drei variablen Widerstände R2, R3 und R4 genutzt.
+  Wie in dem zugehörigen Schaltbild zu sehen, werden bei der Brücke zur Kapazitätsbestimmung nun die drei variablen Widerstände R2, R3 und R4 genutzt. Diese 
+  müssen immer wieder unabhängig voneinander variiert werden, bis auch hier ein Miminum der Brückenspannung ermittelt wird. Da der Kondensator ja auch einen 
+  Innenwiderstand besitzt, ist dieser im Schaltbild als RC-Glied dargestellt. Mit dem zum Minimum gehörenden Widerstandswerten können dann der Innenwiderstand 
+  und die Kapazität des RC-Glieds berechnet werden.
 
+  \subsection{Induktivitätsbrücke}
+  Auch bei der in Abbildung xx zu sehenden Induktionsbrücke sind wieder die drei variablen Widerstände R2, R3 und R4 vorhanden. Das Minimum der 
+  Brückenspannung wird nach dem selben Vorgehen wie bei der Kapazitätsbrücke bestimmt. Auch die Spule hat einen Innenwiderstand, sodass sie ähnlich zum 
+  Kondensator im Schaltbild als LC-Glied dargestellt ist. 
 
+  \subsection{Maxwellbrücke}
+  Bei der in Abbildung xx dargestellten Maxwellbrücke wird wieder die Induktivität und der Innenwiderstand derselben Spule bestimmt. Der Unterschied zur 
+  Messung mit der Induktivitätsbrücke liegt darin, dass R2 nun ein bekannter, nicht variabler Widerstand ist. R3 und R4 stehen durch das Potentiometer
+  im selben Zusammenhang wie in den vorherigen Schaltungen. Auch hier wird das Minimum der Brückenspannung wieder durch Variieren der beiden variablen 
+  Widerstände bestimmt.
+
+  \subsection{Wien-Robinson-Brücke}
+  Bie der in Abbildung xx zu sehenden Wien-Robinson-Brücke soll nun kein Wert eines Bauteils bestimmt, sondern die Frequenzabhängigkeit der Schaltung
+  betrachtet werden. Dazu wird die Frequenz des Wechselstroms variiert. Zunächst soll die Frequenz gefunden werden bei der die Brückenspannung minimal
+  wird und dann wird die Frequenz von diesem Wert aus um maximal 500 Hz erhöht und gesenkt, während die zugehörigen Spannungen notiert werden. Auch die 
+  Speisespannung wird für die spätere Auswertung notiert.
 
 
   \newpage
@@ -169,7 +187,8 @@
 
   \subsection{Induktivitätsbrücke}
   Auch bei der Induktivitätsbrücke wird die Formel der Wheaton-Brücke wieder verwendet, um den Widerstand zu bestimmen. Die Induktivität der Spule 16 wird
-  über Formel xx berechnet. Der zugehörige Fehler folgt dabei aus den angegebenen relativen Fehlern.
+  über Formel xx berechnet. Der zugehörige Fehler aus den angegebenen relativen Fehlern ist diese mal kleiner als der 
+  des bestimmten Mittelwerts, sodass die Standardabweichung des Mittelwerts als Fehler angegeben wird.
   \begin{align*}
     \sigma_{\text{R2}} = 3 \% \\
     \sigma_{\text{R3/R4}} = 0,5 \% \\
@@ -193,8 +212,8 @@
   \end{table}
 
   \subsection{Maxwellbrücke}
-  Zur Bestimmung des Innenwiderstands wird wieder die Formel der Wheaton-Brücke genutzt und auch der Fehler ergibt sich wie zuvor. Die Induktivität der Spule
-  wird über Formel xx berechnet.
+  Zur Bestimmung des Innenwiderstands wird wieder die Formel der Wheaton-Brücke genutzt. Die Induktivität der Spule wird über Formel xx berechnet. Auch hier ist
+  der relative Gesamtfehler aus den angegeben Realtivfehlern kleiner als die Standardabweichung, sodass diese auch hier als Fehler angegeben wird. 
   \begin{align*}
     \sigma_{\text{R2}} = 3 \% \\
     \sigma_{\text{R3/R4}} = 3 \% \\
@@ -223,8 +242,8 @@
   Bei der Wien-Robinson-Brücke soll die Abhängigkeit der Brückenspannung von der Frequenz betrachtet werden. Dazu wurde als Ausgangspunkt die Frequenz 
   bestimmt, bei der die Brückenspannung minimal wird.
   \begin{align*} 
-    R' = 332 \Omega \: R = 1000 \Omega \: C = 660 nF \\
-    \upnu = 241 Hz \: U_0 = 4 mV \: U_{\text{S}} =  500 mV
+    R' = 332 \Omega \qquad R = 1000 \Omega \qquad C = 660 nF \\
+    \upnu = 241 Hz \qquad U_0 = 4 mV \qquad U_{\text{S}} =  500 mV
   \end{align*} 
   Von diesem Minimum aus wird die Frequenz variiert. Zum einem wird in Zehnerschritten 5 Schritte in beide Richtungen gegangen und zum anderen in 
   Hunderterschritten 5 Schritte in beide Richtungen. Daraus ergeben sich die in Tabelle \ref{tab:Wien} eingetragenen Werte. Die Frequenzabhängigkeit wird in
@@ -266,7 +285,7 @@
   \begin{figure}[h]
     \centering
     \includegraphics[width=0.7\linewidth]{Brücke.pdf}
-    \caption{ululul}
+    \caption{In der Grafik ist die Frequenzabhängigkeit der Brückenspannung zu einen als theoretische Kurve und zum anderen mit den Messwerten dargestellt. Dafür wurde auf der x-Achse das Verhätltnis zwischen der Frequenz und der Minimusfrequenz und auf die y-Achse das Verhältnis der Brückenspannung zur minimalen Brückenspannung aufgetragen.}
     \label{fig:Graph}
   \end{figure}
 
@@ -275,9 +294,29 @@
   \begin{align*}
     k = \frac{U_2}{U_1}
   \end{align*}
-  $U_1$ entspricht dabei der Speisespannung und $U_2$ lässt sich wiefolgt berechnen:
+  $U_1$ entspricht dabei der Speisespannung von 0,5V und $U_2$ lässt sich wiefolgt berechnen:
   \begin{align*}
-    
+    U_2 = \frac{U_{\text{0}}}{\left(\frac{(\Omega ^2 - 1)^2}{9 \cdot ((1 - \Omega ^2)^2 + 9 \cdot \Omega ^2)}\right)} \qquad mit \; \Omega = 2
   \end{align*}
+  Somit ergibt sich für den Klirrfaktor k
+  \begin{equation*}
+    k = \frac{0,004V}{0,014V} = 28,8 \cdot 10^{-3}
+  \end{equation*}
 
+\newpage
+
+\section{Diskussion}
+  Über die Genauigkeit der gemessenen Werte lässt sich in dieser Messung nur indirekt schließen, da keine genauen Vergleichswerte vorliegen. Die indirekten 
+  Folgerungen beruhen darauf, dass die Standardabweichungen der Mittelwerte bei der Wheatonschen Brücke als auch bei der Kapazitätsbrücke kleiner waren als 
+  die relativen Fehler der Bauteile. Dies lässt auf eine gute Messung schließen. Die Genauigkeit der Messung der Induktivität und des Eigenwiderstands der 
+  Spule 16 kann durch die verschiedenen Ergebnisse aus den zwei verschiedenen Messmethoden bewertet werden. So weichen die gemessenen Innenwiderstände nur um
+  2,7 \% voneinander ab, wodurch sich die Werte quasi gegenseitig bestätigen. Die beiden gemessenen Induktivitäten hingegen weichen um 37,6 \% voneinander ab
+  und bestätigen sich daher nur bedingt gegenseitig. Unterschiede zwischen den beiden Messungen können einerseits durch menschliche Ungenauigkeiten beim 
+  bestimmen der Minima und andererseits durch die Unterschiede zwischen den beiden Schaltungen entstehen. So wird in der Maxwellbrücke ein Kondensator 
+  eingebaut, der nicht verlustfrei ist, aber als das angenommen wird. Bei der Induktionsbrücke geschieht dasselbe mit der Spule L2. In Bezug auf die 
+  Wien-Robinson-Brücke ist eine Bestätigung der Messung besonders schwierig. Die Messwerte befinden sich zwar, abgesehen von sehr großen und sehr kleinen 
+  Frequenzverhältnissen, alle nah bei der Theorie. Doch das Problem liegt darin, dass die Speisespannung, die die Korrelation der Messwerte und der Theorie
+  nicht gemessen worden, sondern nur geschätzt worden ist. Hingegen unabhängig von dieser Schätzung bestätigen sich die Minima der beiden Kurven. Der zuletzt
+  ausgerechnete Klirrfaktor beruht rechnerisch auch auf der Speisespannung und ist daher auch als ungewiss anzusehen. 
+  
 \end{document}
