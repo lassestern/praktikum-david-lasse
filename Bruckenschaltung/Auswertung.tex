@@ -64,6 +64,29 @@
   \tableofcontents
   \newpage
 
+  \section{Durchführung}
+
+  \subsection{Allgemeines Vorgehen}
+  Der allgemeine Messvorgang zur Bestimmung der zu messenden Größen beruht darauf, dass in der Schaltung abgesehen von der Eigenschaft, des zu messenden 
+  Bauteils, alle anderen Bauteilwerte bekannt sind. Die in der Theorie erläuterten Formeln können dann Anwendung finden, wenn die minimale Brückenspannung
+  ermittelt worden ist. Dazu werden Variable Widerstände verstellt. Diese Variablen Widerstände werden durch Potentiometer realisiert, die einen 
+  Gesamtwiderstand von $1k\Omega$ inne haben und diesen entweder auf zwei Widerstände distributieren oder als einzelner Widerstand fungieren können.
+
+  \subsection{Wheatonsche Brücke}
+  Bei der Wheatonschen Brücke wird nur ein Potentiometer genutzt, um die Widerstände R3 und R4 zu variieren. Dies wird solange durchgeführt bis die 
+  Brückenspannung ihr Minimum erreicht. Dieses Minimum wird über ein Oszilloskop, das parallel zur "Brücke" geschaltet ist, ermittelt. Ein Minimum liegt 
+  vor, wenn die Amplitude des Wechselstroms bei Widerstandsänderung in beide Richtungen ansteigen würde. Das Schaltbild ist bereits in der Theroie 
+  aufgehführt.
+
+  \subsection{Kapazitätsbrücke}
+  Bei der Brücke zur Kapazitätsbestimmung werden die drei variablen Widerstände R2, R3 und R4 genutzt.
+
+
+
+
+  \newpage
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
   \section{Auswertung}
 
@@ -79,6 +102,13 @@
     \overline{x} = \frac{1}{N} \cdot \sum_{i=1}^{N} x_i
     \label{eqn:Mittelwertssatz}
   \end{equation}
+  Aufgrund des Bildens der Mittelwerte lässt sich der Fehler auch über die Standardabweichung des Mittelwerts angeben. Diese wird über folgende Formel 
+  berechnet:
+  \begin{equation} 
+    \Delta f = \sqrt{\sum_{i=1}^N (\frac{df}{dy_i}\cdot \Delta y_i)^2}
+    \label{eqn:stanni}
+  \end{equation} 
+  Als Fehler wird letztendlich der größere der beiden Fehler angegeben.
 
   \subsection{Wheatonsche Brücke}
   Mit den in Tabelle \ref{tab:Wheaton} gegebenen Werten lassen sich über Formel xx mehrere Werte für die beiden Widerstände berechnen. Aus diesen wird über 
@@ -90,7 +120,7 @@
   \end{align*}
   So ergeben sich folgende Werte für die Widerstände:
   \begin{align*}
-      R_{14} = (894 \pm 7) \Omega
+      R_{14} = (894 \pm 7) \Omega \\
       R_{13} = (314 \pm 3) \Omega
   \end{align*}
 
@@ -98,16 +128,16 @@
     \centering
     \caption{In der Tabelle sind die für die Rechnung notwendigen Widerstände für beide Widerstände angegeben.}
     \label{tab:Wheaton}
-    \begin{tabular}{c c c c}
+    \begin{tabular}{c c c c c}
       \toprule
-      {Wert} & {$R_{\text{2}} [\Omega]$} & {$R_{\text{3}} [\Omega]$} & {$R_{\text{4}} [\Omega]$} \\
+      {Wert} & {$R_{\text{x}} [\Omega]$} & {$R_{\text{2}} [\Omega]$} & {$R_{\text{3}} [\Omega]$} & {$R_{\text{4}} [\Omega]$} \\
       \midrule 
-      14 & 1000 & 472 & 528  \\
-       & 664 & 573 & 427 \\
-       & 332 & 730 & 270 \\
-      13 & 1000 & 236 & 764 \\
-       & 664 & 323 & 677 \\
-       & 332 & 489 & 511 \\
+      14 & 894 & 1000 & 472 & 528  \\
+       & 891 & 664 & 573 & 427 \\
+       & 897 & 332 & 730 & 270 \\
+      13 & 309 & 1000 & 236 & 764 \\
+       & 317 & 664 & 323 & 677 \\
+       & 318 & 332 & 489 & 511 \\
       \bottomrule
     \end{tabular}
   \end{table}
@@ -126,18 +156,18 @@
     \centering
     \caption{In der Tabelle sind die für die Rechnung notwendigen Widerstände für beide Widerstände angegeben.}
     \label{tab:Kap}
-    \begin{tabular}{c c c c c}
+    \begin{tabular}{c c c c c c c}
       \toprule
-      {Wert} & {$C_{\text{2}} [nF]$} & {$R_{\text{2}} [\Omega]$} & {$R_{\text{3}} [\Omega]$} & {$R_{\text{4}} [\Omega]$} \\
+      {Wert} & {$C_{\text{9}} [nF]$} & {$R_{\text{9}} [\Omega]$} & {$C_{\text{2}} [nF]$} & {$R_{\text{2}} [\Omega]$} & {$R_{\text{3}} [\Omega]$} & {$R_{\text{4}} [\Omega]$} \\
       \midrule 
-      9 & 399 & 500 & 480 & 520  \\
-       & 597 & 339 & 580 & 420 \\
-       & 992 & 204 & 693 & 307 \\
+      9 & 432 & 462 &399 & 500 & 480 & 520  \\
+       & 432 & 468 & 597 & 339 & 580 & 420 \\
+       & 439 & 460 & 992 & 204 & 693 & 307 \\
       \bottomrule
     \end{tabular}
   \end{table}
 
-  \subsection{Indu}
+  \subsection{Induktivitätsbrücke}
   Auch bei der Induktivitätsbrücke wird die Formel der Wheaton-Brücke wieder verwendet, um den Widerstand zu bestimmen. Die Induktivität der Spule 16 wird
   über Formel xx berechnet. Der zugehörige Fehler folgt dabei aus den angegebenen relativen Fehlern.
   \begin{align*}
@@ -152,12 +182,12 @@
     \centering
     \caption{In der Tabelle sind die für die Rechnung notwendigen Widerstände für beide Widerstände angegeben.}
     \label{tab:Indu}
-    \begin{tabular}{c c c c c}
+    \begin{tabular}{c c c c c c c}
       \toprule
-      {Wert} & {$L_{\text{2}} [mH]$} & {$R_{\text{2}} [\Omega]$} & {$R_{\text{3}} [\Omega]$} & {$R_{\text{4}} [\Omega]$} \\
+      {Wert} & {$L_{\text{16}} [mH]$} & {$R_{\text{16}} [\Omega]$} & {$L_{\text{2}} [mH]$} & {$R_{\text{2}} [\Omega]$} & {$R_{\text{3}} [\Omega]$} & {$R_{\text{4}} [\Omega]$} \\
       \midrule 
-      16 & 27,5 & 122 & 757 & 243  \\
-       & 24,6 & 115 & 789 & 211 \\
+      16 & 86 & 380 & 27,5 & 122 & 757 & 243  \\
+       & 55 & 430 & 24,6 & 115 & 789 & 211 \\
       \bottomrule
     \end{tabular}
   \end{table}
@@ -177,23 +207,33 @@
     \centering
     \caption{In der Tabelle sind die für die Rechnung notwendigen Widerstände für beide Widerstände angegeben.}
     \label{tab:Maxwell}
-    \begin{tabular}{c c c c c}
+    \begin{tabular}{c c c c c c c}
       \toprule
-      {Wert} & {$C_{\text{4}} [nF]$} & {$R_{\text{2}} [\Omega]$} & {$R_{\text{3}} [\Omega]$} & {$R_{\text{4}} [\Omega]$} \\
+      {Wert} & {$L_{\text{16}} [mH]$} & {$R_{\text{16}} [\Omega]$} & {$C_{\text{4}} [nF]$} & {$R_{\text{2}} [\Omega]$} & {$R_{\text{3}} [\Omega]$} & {$R_{\text{4}} [\Omega]$} \\
       \midrule 
-      16 & 399 & 1000 & 293 & 707  \\
-       & 399 & 332 & 557 & 443 \\
-       & 399 & 664 & 386 & 614 \\
-       & 450 & 332 & 555 & 445 \\
+      16 & 117 & 414 & 399 & 1000 & 293 & 707  \\
+       & 74 & 417 & 399 & 332 & 557 & 443 \\
+       & 102 & 417 & 399 & 664 & 386 & 614 \\
+       & 83 & 414 & 450 & 332 & 555 & 445 \\
       \bottomrule
     \end{tabular}
   \end{table}
 
   \subsection{Wien-Robinson-Brücke}
-
+  Bei der Wien-Robinson-Brücke soll die Abhängigkeit der Brückenspannung von der Frequenz betrachtet werden. Dazu wurde als Ausgangspunkt die Frequenz 
+  bestimmt, bei der die Brückenspannung minimal wird.
+  \begin{align*} 
+    R' = 332 \Omega \: R = 1000 \Omega \: C = 660 nF \\
+    \upnu = 241 Hz \: U_0 = 4 mV \: U_{\text{S}} =  500 mV
+  \end{align*} 
+  Von diesem Minimum aus wird die Frequenz variiert. Zum einem wird in Zehnerschritten 5 Schritte in beide Richtungen gegangen und zum anderen in 
+  Hunderterschritten 5 Schritte in beide Richtungen. Daraus ergeben sich die in Tabelle \ref{tab:Wien} eingetragenen Werte. Die Frequenzabhängigkeit wird in
+  Grafik \ref{fig:Graph} dargestellt. In diesem Plot wird das Verhältnis zwischen der Brückenspannung und der Speisespannung 
+  $\frac{U_{\text{Br}}}{U_{\text{Speise}}}$ gegen das Verhältnis zwischen der Frequenz und der Frequenz bei minimaler Spannung $\frac{\upsilon}{\upsilon_0}$
+  aufgetragen. Die berechnete Kurve und die Kurve der Messwerte weisen eine annähernd gleiche Form auf und auch die Minima stimmen überein. 
   \begin{table}[h]
     \centering
-    \caption{In der Tabelle sind die Temperaturen der einzelnen Messplatten zum Zeitpunkt t=700S angegeben.}
+    \caption{In der Tabelle sind die Brückenspannungenspannungen und die zugehörigen Frequenzen angegeben.}
     \label{tab:Wien}
     \begin{tabular}{c c }
       \toprule
@@ -222,5 +262,22 @@
       \bottomrule
     \end{tabular}
   \end{table}
+
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Brücke.pdf}
+    \caption{ululul}
+    \label{fig:Graph}
+  \end{figure}
+
+  \subsection{Klirrfaktor}
+  Zuletzt soll noch der Klirrfaktor des Generators theoretisch berechnet werden. Dazu wird folgende Formel verwendet:
+  \begin{align*}
+    k = \frac{U_2}{U_1}
+  \end{align*}
+  $U_1$ entspricht dabei der Speisespannung und $U_2$ lässt sich wiefolgt berechnen:
+  \begin{align*}
+    
+  \end{align*}
 
 \end{document}

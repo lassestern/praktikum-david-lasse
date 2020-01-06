@@ -176,14 +176,14 @@ omega = 21.9
 
 R_x_16max = Wheaton(R_2_16max, R_3_16max, R_4_16max)
 MittelR16max = Mittel(R_x_16max)
-R_x_16_prozfehler2 = np.sqrt(0.03**2 + 0.035 **2 + 0.03**2)
+R_x_16_prozfehler2 = np.sqrt(0.03**2 + 0.03 **2 + 0.03**2)
 R_x_16_fehler2 = MittelR16 * R_x_16_prozfehler2
 
 
 L_x_16max = indmaxwell(R_2_16max, R_3_16max, C_4_16max)
 MittelL16max = Mittel(L_x_16max)
 MittelL16Fehlermax = stanni(L_x_16max, MittelL16max)
-L_x_16_prozfehlermax = np.sqrt(0.002**2 + 0.005 **2 + 0.005**2)
+L_x_16_prozfehlermax = np.sqrt(0.002**2 + 0.03 **2 + 0.03**2)
 L_x_16_fehlermax = MittelL16max * L_x_16_prozfehlermax
 
 print('R16max')
@@ -212,7 +212,7 @@ print(L_x_16_fehlermax)
 
 v, U = np.genfromtxt('Wienrobinsonwerte.txt', unpack = True) #U in mV
 v_0 = 241 # Hz
-U_s = 2.5
+U_s = 0.5
 
 x = np.linspace(0, 2.5, 21)
 
@@ -251,3 +251,6 @@ k = U_2 / U_s
 
 print('Klirrfaktor')
 print(k)
+Mittelk = Mittel(k)
+print('Mittelwert Klirrfaktor')
+print(Mittelk)
