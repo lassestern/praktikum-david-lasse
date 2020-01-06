@@ -1,0 +1,233 @@
+\documentclass[titlepage = firstcover]{scrartcl}
+\usepackage[aux]{rerunfilecheck}
+\usepackage{fontspec}
+\usepackage[main=ngerman, english, french]{babel}
+
+% mehr Pakete hier
+\usepackage{expl3}
+\usepackage{xparse}
+
+%Mathematik------------------------------------------------------
+\usepackage{amsmath}   % unverzichtbare Mathe-Befehle
+\usepackage{amssymb}   % viele Mathe-Symbole
+\usepackage{mathtools} % Erweiterungen fuÌˆr amsmath
+\usepackage[
+  math-style=ISO,    % \
+  bold-style=ISO,    % |
+  sans-style=italic, % | ISO-Standard folgen
+  nabla=upright,     % |
+  partial=upright,   % /
+]{unicode-math}% "Does exactly what it says on the tin."
+\usepackage[section, below]{placeins}
+
+% Laden von OTF-Mathefonts
+% ErmoÌˆglich Unicode Eingabe von Zeichen: Î± statt \alpha
+
+\setmathfont{Latin Modern Math}
+%\setmathfont{Tex Gyre Pagella Math} % alternativ zu Latin Modern Math
+\setmathfont{XITS Math}[range={scr, bfscr}]
+\setmathfont{XITS Math}[range={cal, bfcal}, StylisticSet=1]
+
+\AtBeginDocument{ % wird bei \begin{document}
+  % werden sonst wieder von unicode-math uÌˆberschrieben
+  \RenewDocumentCommand \Re {} {\operatorname{Re}}
+  \RenewDocumentCommand \Im {} {\operatorname{Im}}
+}
+\usepackage{mleftright}
+\setlength{\delimitershortfall}{-1sp}
+
+%Sprache----------------------------------------------------------
+\usepackage{microtype}
+\usepackage{xfrac}
+\usepackage[autostyle]{csquotes}    % babel
+\usepackage[unicode, pdfusetitle]{hyperref}
+\usepackage{bookmark}
+\usepackage[shortcuts]{extdash}
+%Einstellungen hier, z.B. Fonts
+\usepackage{booktabs} % Tabellen
+
+
+\title{Brückenschaltungen}
+\author{
+  David Gutnikov\\
+  \href{mailto:david.gutnikov@udo.edu}{david.gutnikov@udo.edu}
+ \and 
+  Lasse Sternemann\\
+  \href{mailto:lasse.sternemann@udo.edu}{lasse.sternemann@udo.edu}
+}
+\date{Durchführung am 03.12.2019}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    \newpage
+
+    \section{Zielsetzung}
+        Mithilfe von verschiedenen Brückenschaltungen sollen elektrische Widerstände und die damit verbundenen physikalischen Größen, wie z.B. die Kapazität
+        eines Kondensators oder die Induktivität einer Spule, möglichst genau gemessen werden.
+
+
+
+    \section{Theoretische Grundlagen}
+        \subsection{Allgemeine Brückenschaltung}
+          Brückenschaltungen bestehen aus vier oder mehr Widerständen, die wie in Abbildung \ref{fig:brueckenschalt} parallel und dann in Reihe geschaltet
+          sind.
+          \begin{figure}[h]
+            \centering
+            \caption{Die Abbildung einer einfachen Brückenschaltung.}
+            \includegraphics[width = 0.4\linewidth]{Brueckenschaltung.png}
+            \label{fig:brueckenschalt}
+          \end{figure}
+      
+          \FloatBarrier
+          \noindent
+          Hierbei wird die Spannung zwischen den Punkten A und B, als Brückenspannung $U$ bezeichnet. Diese Spannung lässt sich mit Hilfe der Kirchhoffschen
+          Gesetze durch die bekannten Größen der Widerstände und der Speisespannung $U_S$ darstellen.
+          Die Kirchhoffschen Gesetze lauten:
+          \subsubsection{Knotenregel}
+            In jedem Knotenpunkt in dem sich elektrische Ströme verzweigen, ist die Summe der hineinfließenden und der herausfließenden Ströme gleich.
+            \begin{equation}
+              I_1 = I_2 + I_3
+            \end{equation}
+            \begin{figure}[h]
+              \centering
+              \caption{Das Beispiel eines Verzweigungspunktes el. Ströme.}
+              \includegraphics[width = 0.4\linewidth]{Kirchhoff_1.png}
+              \label{fig:kirchhoff1}
+            \end{figure}
+            \FloatBarrier
+
+          \subsubsection{Maschenregel}
+            Alle Teilspannungen einer Masche eines elektrischen Netzwerkes summieren sich zu null. Dabei legt man eine Zählrichtung fest (meistens im Uhrzeigersinn). Zeigt der Strom
+            an den Teilspannungen in Zählrichtung, so wird diese positiv gezählt ($I_k > 0$), zeigt er in die entgegengesetzte Richtung, kriegt die Teilspannung ein negatives
+            Vorzeichen ($I_k < 0$).
+            \begin{equation}
+              \sum_k E_k = \sum_k I_k \cdot R_k
+            \end{equation}
+            \begin{figure}[h]
+              \centering
+              \caption{Das Beispiel einer Masche in einem Stromnetzwerk.}
+              \includegraphics[width = 0.4\linewidth]{Kirchhoff_2.png}
+              \label{fig:kirchhoff2}
+            \end{figure}
+            \FloatBarrier
+
+          Somit sähe die Brückenspannung wie folgt aus:
+          \begin{equation}
+            \label{eqn:brueckspannung}
+            U = \frac{R_2 R_3 - R_1 R_4}{(R_3 + R_4) (R_1 + R_2)}U_S
+          \end{equation}
+          Da hier jedoch die Nullmethode angewendet wird muss $U = 0$ sein. Das wird durch folgendes Verhältnis erreicht wie in \eqref{eqn:brueckspannung}
+          leicht zu erkennen ist:
+          \begin{equation}
+            \label{eqn:abgleichbed}
+            R_1 R_4 = R_2 R_3
+          \end{equation}
+          Da diese Abgleichbedingung nur von den Verhältnissen der Widerstände abhängt wird diese Brückenschaltung "abgeglichene Brücke" genannt und es ist
+          möglich eine Widerstandsmessung durchzuführen mit drei bekannten Widerständen.
+
+        \subsection{Brückenschaltung mit komplexen Widerständen}
+          Es ist auch möglich Kapazitäten und Iduktivitäten in eine Brückenschaltung mit einzubauen, dabei ist es sinnvoll kompelexe Widerstände zu benutzen,
+          welche allgemein wie folgt aussehen:
+          \begin{equation}
+            \label{eqn:komplexwiderstand}
+            R_Z = X + \text{i} Y
+          \end{equation}
+          Damit würde eine Brückenschaltung mit vier komplexen Widerständen folgende Abgleichbedingung nach \eqref{eqn:abgleichbed} haben:
+          \begin{align}
+            R_{Z1} R_{Z4} &= R_{Z2} R_{Z3} \\
+            (X_1 + \text{i} Y_1)(X_4 + \text{i} Y_4) &= (X_2 + \text{i} Y_2)(X_3 + \text{i} Y_3)
+          \end{align}
+          Durch das Gleichstellen der Real- und Imaginärteile entstehen zwei Bedingungen:
+          \begin{align}
+            \label{eqn:komplexabgleich1}
+            X_1 X_4 - Y_1 Y_4 &= X_2 X_3 - Y_2 Y_3 \\
+            \label{eqn:komplexabgleich2}
+            X_1 Y_4 + X_4 Y_1 &= X_2 Y_3 + X_3 Y_2
+          \end{align}
+          Beide Bedingungen müssen also bei einer Wechselstrombrücke erfüllt sein. Die Brückenspannung muss im Betrag verschwinden, dabei muss noch die Phase
+          ausgeglichen werden. Deshalb muss jede Wechselstrombrücke zwei unabhängige, veränderliche Stellglieder haben.
+
+        \subsection{Wheatstonesche Brücke}
+          Mit der Wheatstoneschen Brücke werden Widerstände gemessen. Sie ist in Abbildung \ref{fig:wheatstone} dargestellt.
+          \begin{figure}[h]
+            \centering
+            \caption{Die Wheatstonesche Brücke zur Widerstandsmessung.}
+            \includegraphics[width = 0.4\linewidth]{Wheatstonesche Bruecke.png}
+            \label{fig:wheatstone}
+          \end{figure}
+          Der gesuchte Widerstand $R_X$ wird durch Formel \eqref{eqn:abgleichbed} berechnet:
+          \begin{equation}
+            \label{eqn:abgleichbed}
+            R_X = R_2 \frac{R_3}{R_4}
+          \end{equation}
+
+        \subsection{Kapazitätsmessbrücke}
+          Da es keine idealen Kondensatoren in der Realität gibt, d.h. jeder reale Kondensator wandelt einen kleinen Teil der el. Energie in Wärme um,
+          werden Kondensatoren durch Ersatzschaltbilder, als ein in Reihe geschalteter Widerstand R und idealer Kondensator dargestellt. Somit sieht der
+          komplexe Widerstand des realen Kondesators wie folgt aus:
+          \begin{equation}
+            R_C = R - \text{i} \frac{1}{\omega C}
+          \end{equation}
+          Es gibt also zwei Unbekannte, den Widerstand $R_X$ und die Kapazität $C_X$. Deshalb werden auch zwei Abstimmffreiheitsgrade gebraucht, um der
+          Phasenverschiebung aufgrund von $R_X$ entgegenzuwirken. Hier wird dazu der Widerstand $R_2$ verändert.
+          \begin{figure}[h]
+            \centering
+            \caption{Die Kapazitätsmessbrücke.}
+            \includegraphics[width = 0.4\linewidth]{Kapazitaetsmessbruecke.png}
+            \label{fig:wheatstone}
+          \end{figure}
+          Es gelten für diese Schaltung nach \eqref{eqn:komplexwiderstand}
+          \begin{align*}
+            &X_1 = R_X, & X_2 &= R_2, & X_3 =& R_3, & X_4 =& R_4 \\
+            &Y_1 = -\frac{1}{\omega C_X}, & Y_2 &= -\frac{1}{\omega C_2}, & Y_3 =& 0, & Y_4 =& 0
+          \end{align*}
+          Das wird in \eqref{eqn:komplexabgleich1} und \eqref{eqn:komplexabgleich2} eingesetzt und nach den gesuchten Größen umgestellt:
+          \begin{align*}
+            R_X = R_2 \frac{R_3}{R_4} &&\text{und}&& C_X = C_2 \frac{R_4}{R_3}            
+          \end{align*}
+
+          \subsection{Induktivitätsmessbrücke}
+          Da es keine idealen Kondensatoren in der Realität gibt, d.h. jeder reale Kondensator wandelt einen kleinen Teil der el. Energie in Wärme um,
+          werden Kondensatoren durch Ersatzschaltbilder, als ein in Reihe geschalteter Widerstand R und idealer Kondensator dargestellt. Somit sieht der
+          komplexe Widerstand des realen Kondesators wie folgt aus:
+          \begin{equation}
+            R_C = R - \text{i} \frac{1}{\omega C}
+          \end{equation}
+          Es gibt also zwei Unbekannte, den Widerstand $R_X$ und die Kapazität $C_X$. Deshalb werden auch zwei Abstimmffreiheitsgrade gebraucht, um der
+          Phasenverschiebung aufgrund von $R_X$ entgegenzuwirken. Hier wird dazu der Widerstand $R_2$ verändert.
+          \begin{figure}[h]
+            \centering
+            \caption{Die Induktivitätsmessbrücke.}
+            \includegraphics[width = 0.4\linewidth]{Induktivitaetsmessbruecke.png}
+            \label{fig:wheatstone}
+          \end{figure}
+          Es gelten für diese Schaltung nach \eqref{eqn:komplexwiderstand}
+          \begin{align*}
+            &X_1 = R_X, & X_2 &= R_2, & X_3 =& R_3, & X_4 =& R_4 \\
+            &Y_1 = -\frac{1}{\omega C_X}, & Y_2 &= -\frac{1}{\omega C_2}, & Y_3 =& 0, & Y_4 =& 0
+          \end{align*}
+          Das wird in \eqref{eqn:komplexabgleich1} und \eqref{eqn:komplexabgleich2} eingesetzt und nach den gesuchten Größen umgestellt:
+          \begin{align*}
+            R_X = R_2 \frac{R_3}{R_4} &&\text{und}&& C_X = C_2 \frac{R_4}{R_3}            
+          \end{align*}
+
+          \section{Versuchsdurchführung}
+        Das konstante Volumen einer Körperprobe ist bei Durchführung eines Versuches schwierig zu erhalten.
+        Deshalb arbeitet man hier mit einer anderen konstanten Größe, dem konstanten Druck, welcher hier
+        der Atmosphärendruck ist. Es werden Körper aus verschiedenen Materialien der Massen $m_\text{k}$ in Wasser
+        eingetaucht und das Wasser wird auf die Temperatur $T_\text{k}$ erhitzt. Dabei nimmt der Körper die Temperatur $T_\text{k}$ an. Ab einer genügend hohen Temperatur
+        wird der Körper aus dem Gefäß entfernt und in ein mit Wasser mit Zimmertemperatur $T_\text{w}$ gefülltes
+        Dewar-Gefäß getaucht. Nach ca. 2 Minuten des Wartens ergibt sich eine Mischtemperatur $T_\text{m}$ im Gefäß.
+        Die verschiedenen Temperaturen werden mit einem Thermometer gemessen.
+        Die spezifischen Wärmekapazitäten werden, dann mit der spezifischen Wärmekapazität des Körpers $c_\text{k}$, des Wassers im Dewar-Gefäß bei ca. Zimmertemperatur
+        $c_\text{w}$, der Wärmekapazität des Dewar-Gefäßes $c_\text{g}m_\text{g}$ und der Masse des Wasser im Dewar-Gefäß
+        $m_\text{w}$ nach Formel \eqref{eqn:spezWärmekapazität} bestimmt.
+
+        Um die Wärmekapazität des Dewar-Gefäßes zu bestimmen ist ein weiteres Experiment nötig. Anstatt einer Körperprobe
+        wird nun Wasser der Masse $m_\text{y}$ auf eine Temperatur $T_\text{y}$ erhitzt und es wird damit genauso verfahren wie mit den Körpern.
+        D.h. es wird in das Dewar-Gefäß gegossen, worin sich schon Wasser der Masse $m_\text{x}$ und der Temperatur
+        $T_\text{x}$ befindet und mit welchem sich eine Mischtemperatur $T_\text{m}^{'}$ ergibt. Analog zu Formel
+        \eqref{eqn:spezWärmekapazität} gilt für die Wärmekapazität des Dewar-Gefäßesnach Formel \eqref{eqn:Wärmekapazität}.
+
+\end{document}
