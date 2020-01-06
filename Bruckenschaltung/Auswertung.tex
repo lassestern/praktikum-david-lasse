@@ -1,0 +1,226 @@
+\documentclass[titlepage = firstcover]{scrartcl}
+\usepackage[aux]{rerunfilecheck}
+\usepackage{fontspec}
+\usepackage[main=ngerman, english, french]{babel}
+
+% mehr Pakete hier
+\usepackage{expl3}
+\usepackage{xparse}
+
+%Mathematik------------------------------------------------------
+\usepackage{amsmath}   % unverzichtbare Mathe-Befehle
+\usepackage{amssymb}   % viele Mathe-Symbole
+\usepackage{mathtools} % Erweiterungen fuÌˆr amsmath
+\usepackage[
+  math-style=ISO,    % \
+  bold-style=ISO,    % |
+  sans-style=italic, % | ISO-Standard folgen
+  nabla=upright,     % |
+  partial=upright,   % /
+]{unicode-math}% "Does exactly what it says on the tin."
+\usepackage[section, below]{placeins}
+
+% Laden von OTF-Mathefonts
+% ErmoÌˆglich Unicode Eingabe von Zeichen: Î± statt \alpha
+
+\setmathfont{Latin Modern Math}
+%\setmathfont{Tex Gyre Pagella Math} % alternativ zu Latin Modern Math
+\setmathfont{XITS Math}[range={scr, bfscr}]
+\setmathfont{XITS Math}[range={cal, bfcal}, StylisticSet=1]
+
+\AtBeginDocument{ % wird bei \begin{document}
+  % werden sonst wieder von unicode-math uÌˆberschrieben
+  \RenewDocumentCommand \Re {} {\operatorname{Re}}
+  \RenewDocumentCommand \Im {} {\operatorname{Im}}
+}
+\usepackage{mleftright}
+\setlength{\delimitershortfall}{-1sp}
+
+%Sprache----------------------------------------------------------
+\usepackage{microtype}
+\usepackage{xfrac}
+\usepackage[autostyle]{csquotes}    % babel
+\usepackage[unicode, pdfusetitle]{hyperref}
+\usepackage{bookmark}
+\usepackage[shortcuts]{extdash}
+%Einstellungen hier, z.B. Fonts
+\usepackage{booktabs} % Tabellen
+
+
+\title{Wärmeleitfähigkeit}
+\author{
+  David Gutnikov\\
+  \href{mailto:david.gutnikov@udo.edu}{david.gutnikov@udo.edu}
+ \and 
+  Lasse Sternemann\\
+  \href{mailto:lasse.sternemann@udo.edu}{lasse.sternemann@udo.edu}
+}
+\date{Durchführung am 10.12.2019}
+
+
+\begin{document}
+  \maketitle
+  \newpage
+  \tableofcontents
+  \newpage
+
+
+  \section{Auswertung}
+
+  \subsection{Anmerkungen zu Rechenvorgängen}
+  Die in diesen Messungen entstandenen Fehler, wurden bereits als relative Fehler angegeben. Dadurch lassen sich die fortgepflanzten Fehler wie folgt 
+  beschreiben:
+  \begin{equation}
+      \sigma = \sqrt{\sum_{i=1}^N \sigma_i^2}
+      \label{eqn:Fehler}
+  \end{equation}
+  Zudem werden Mittelwerte über den Mittelwertssatz berrechnet:
+  \begin{equation}
+    \overline{x} = \frac{1}{N} \cdot \sum_{i=1}^{N} x_i
+    \label{eqn:Mittelwertssatz}
+  \end{equation}
+
+  \subsection{Wheatonsche Brücke}
+  Mit den in Tabelle \ref{tab:Wheaton} gegebenen Werten lassen sich über Formel xx mehrere Werte für die beiden Widerstände berechnen. Aus diesen wird über 
+  Formel \ref{eqn:Mittelwertssatz} ein Mittelwert berechnet. Der zugehörige Fehler ergibt sich aus Formel \ref{eqn:Fehler} und den folgenden prozentualen
+  Fehlern:
+  \begin{align*}
+      \sigma_{\text{R2}} = 0,2 \% \\
+      \sigma_{\text{R3/R4}} = 0,5 \% \\
+  \end{align*}
+  So ergeben sich folgende Werte für die Widerstände:
+  \begin{align*}
+      R_{14} = (894 \pm 7) \Omega
+      R_{13} = (314 \pm 3) \Omega
+  \end{align*}
+
+  \begin{table}[h]
+    \centering
+    \caption{In der Tabelle sind die für die Rechnung notwendigen Widerstände für beide Widerstände angegeben.}
+    \label{tab:Wheaton}
+    \begin{tabular}{c c c c}
+      \toprule
+      {Wert} & {$R_{\text{2}} [\Omega]$} & {$R_{\text{3}} [\Omega]$} & {$R_{\text{4}} [\Omega]$} \\
+      \midrule 
+      14 & 1000 & 472 & 528  \\
+       & 664 & 573 & 427 \\
+       & 332 & 730 & 270 \\
+      13 & 1000 & 236 & 764 \\
+       & 664 & 323 & 677 \\
+       & 332 & 489 & 511 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+  \subsection{Kapazitätsbrücke}
+  Nun werden Formel xx mit den Werten aus Tabelle \ref{tab:Kap} und wieder die angegeben relativen Fehler genutzt, um die Kapazität zu bestimmen.
+  \begin{align*}
+    \sigma_{\text{R2}} = 3 \% \\
+    \sigma_{\text{R3/R4}} = 0,5 \% \\
+    \sigma_{\text{C2}} = 0,2 \% \\
+    R_9 = (463 \pm 15) \Omega\\
+    C_9 = (435 \pm 4) \cdot 10^{-9} F
+  \end{align*}
+
+  \begin{table}[h]
+    \centering
+    \caption{In der Tabelle sind die für die Rechnung notwendigen Widerstände für beide Widerstände angegeben.}
+    \label{tab:Kap}
+    \begin{tabular}{c c c c c}
+      \toprule
+      {Wert} & {$C_{\text{2}} [nF]$} & {$R_{\text{2}} [\Omega]$} & {$R_{\text{3}} [\Omega]$} & {$R_{\text{4}} [\Omega]$} \\
+      \midrule 
+      9 & 399 & 500 & 480 & 520  \\
+       & 597 & 339 & 580 & 420 \\
+       & 992 & 204 & 693 & 307 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+  \subsection{Indu}
+  Auch bei der Induktivitätsbrücke wird die Formel der Wheaton-Brücke wieder verwendet, um den Widerstand zu bestimmen. Die Induktivität der Spule 16 wird
+  über Formel xx berechnet. Der zugehörige Fehler folgt dabei aus den angegebenen relativen Fehlern.
+  \begin{align*}
+    \sigma_{\text{R2}} = 3 \% \\
+    \sigma_{\text{R3/R4}} = 0,5 \% \\
+    \sigma_{\text{L2}} = 0,2 \% \\
+    R_{16} = (405 \pm 25) \Omega\\
+    L_{16} = (58 \pm 16) \cdot 10^{-3} H
+  \end{align*}
+
+  \begin{table}[h]
+    \centering
+    \caption{In der Tabelle sind die für die Rechnung notwendigen Widerstände für beide Widerstände angegeben.}
+    \label{tab:Indu}
+    \begin{tabular}{c c c c c}
+      \toprule
+      {Wert} & {$L_{\text{2}} [mH]$} & {$R_{\text{2}} [\Omega]$} & {$R_{\text{3}} [\Omega]$} & {$R_{\text{4}} [\Omega]$} \\
+      \midrule 
+      16 & 27,5 & 122 & 757 & 243  \\
+       & 24,6 & 115 & 789 & 211 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+  \subsection{Maxwellbrücke}
+  Zur Bestimmung des Innenwiderstands wird wieder die Formel der Wheaton-Brücke genutzt und auch der Fehler ergibt sich wie zuvor. Die Induktivität der Spule
+  wird über Formel xx berechnet.
+  \begin{align*}
+    \sigma_{\text{R2}} = 3 \% \\
+    \sigma_{\text{R3/R4}} = 3 \% \\
+    \sigma_{\text{L2}} = 0,2 \% \\
+    R_{16,2} = (416 \pm 25) \Omega\\
+    L_{16,2} = (93 \pm 10) \cdot 10^{-3} H
+  \end{align*}
+
+  \begin{table}[h]
+    \centering
+    \caption{In der Tabelle sind die für die Rechnung notwendigen Widerstände für beide Widerstände angegeben.}
+    \label{tab:Maxwell}
+    \begin{tabular}{c c c c c}
+      \toprule
+      {Wert} & {$C_{\text{4}} [nF]$} & {$R_{\text{2}} [\Omega]$} & {$R_{\text{3}} [\Omega]$} & {$R_{\text{4}} [\Omega]$} \\
+      \midrule 
+      16 & 399 & 1000 & 293 & 707  \\
+       & 399 & 332 & 557 & 443 \\
+       & 399 & 664 & 386 & 614 \\
+       & 450 & 332 & 555 & 445 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+  \subsection{Wien-Robinson-Brücke}
+
+  \begin{table}[h]
+    \centering
+    \caption{In der Tabelle sind die Temperaturen der einzelnen Messplatten zum Zeitpunkt t=700S angegeben.}
+    \label{tab:Wien}
+    \begin{tabular}{c c }
+      \toprule
+      {\text{Frequenz} [s]} & {U [\text{mV}]} \\
+      \midrule 
+        41 & 440    \\
+        91  & 440      \\
+        141 &  320 \\
+        191 &  128 \\
+        201 &  102 \\
+        211 &  76 \\
+        221 &  52,8 \\
+        231 &  28,8 \\
+        241 &  4 \\
+        251 &  25,6 \\
+        261 &  46,4 \\
+        271 &  65,6 \\
+        281 &  84,8 \\
+        291 &  102 \\
+        341 &  200 \\
+        391 &  280 \\
+        441 &  360 \\
+        491 &  400 \\
+        541 &  440 \\
+        591 &  520 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+\end{document}
