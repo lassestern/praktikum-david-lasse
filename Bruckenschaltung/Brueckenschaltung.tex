@@ -153,7 +153,7 @@
           \begin{figure}[h]
             \centering
             \caption{Die Wheatstonesche Brücke zur Widerstandsmessung.}
-            \includegraphics[width = 0.4\linewidth]{Wheatstonesche Bruecke.png}
+            \includegraphics[width = 0.4\linewidth]{Wheatstoneschebruecke.png}
             \label{fig:wheatstone}
           \end{figure}
           Der gesuchte Widerstand $R_X$ wird durch Formel \eqref{eqn:abgleichbed} berechnet:
@@ -164,8 +164,8 @@
 
         \subsection{Kapazitätsmessbrücke}
           Da es keine idealen Kondensatoren in der Realität gibt, d.h. jeder reale Kondensator wandelt einen kleinen Teil der el. Energie in Wärme um,
-          werden Kondensatoren durch Ersatzschaltbilder, als ein in Reihe geschalteter Widerstand R und idealer Kondensator dargestellt. Somit sieht der
-          komplexe Widerstand des realen Kondesators wie folgt aus:
+          werden Kondensatoren durch Ersatzschaltbilder, als ein in Reihe geschalteter Widerstand R und idealer Kondensator mit der Kapazität $C$ dargestellt.
+          Somit sieht der komplexe Widerstand des realen Kondesators wie folgt aus:
           \begin{equation}
             R_C = R - \text{i} \frac{1}{\omega C}
           \end{equation}
@@ -183,19 +183,18 @@
             &Y_1 = -\frac{1}{\omega C_X}, & Y_2 &= -\frac{1}{\omega C_2}, & Y_3 =& 0, & Y_4 =& 0
           \end{align*}
           Das wird in \eqref{eqn:komplexabgleich1} und \eqref{eqn:komplexabgleich2} eingesetzt und nach den gesuchten Größen umgestellt:
-          \begin{align*}
+          \begin{align}
             R_X = R_2 \frac{R_3}{R_4} &&\text{und}&& C_X = C_2 \frac{R_4}{R_3}            
-          \end{align*}
+          \end{align}
 
           \subsection{Induktivitätsmessbrücke}
-          Da es keine idealen Kondensatoren in der Realität gibt, d.h. jeder reale Kondensator wandelt einen kleinen Teil der el. Energie in Wärme um,
-          werden Kondensatoren durch Ersatzschaltbilder, als ein in Reihe geschalteter Widerstand R und idealer Kondensator dargestellt. Somit sieht der
-          komplexe Widerstand des realen Kondesators wie folgt aus:
+          Auch hier gibt es keine ideale Spule in der Realität. An jeder realen Spule existiert ein Spannungsabfall, deshalb wird hier genauso wie bei den
+          Kondensatoren verfahren und die Spulen werden, als ein in Reihe geschalteter Widerstand R und ideale Spule mit Induktivität $L$ dargestellt. 
           \begin{equation}
-            R_C = R - \text{i} \frac{1}{\omega C}
+            R_C = R - \text{i} \omega L
           \end{equation}
-          Es gibt also zwei Unbekannte, den Widerstand $R_X$ und die Kapazität $C_X$. Deshalb werden auch zwei Abstimmffreiheitsgrade gebraucht, um der
-          Phasenverschiebung aufgrund von $R_X$ entgegenzuwirken. Hier wird dazu der Widerstand $R_2$ verändert.
+          Es gibt wieder zwei Unbekannte, den Widerstand $R_X$ und die Induktivität $L_X$. Deshalb werden auch zwei Abstimmfreiheitsgrade gebraucht, um der
+          Phasenverschiebung aufgrund von $R_X$ entgegenzuwirken. Hier wird wie bei der Kapazitätsmessung der Widerstand $R_2$ verändert.
           \begin{figure}[h]
             \centering
             \caption{Die Induktivitätsmessbrücke.}
@@ -205,29 +204,68 @@
           Es gelten für diese Schaltung nach \eqref{eqn:komplexwiderstand}
           \begin{align*}
             &X_1 = R_X, & X_2 &= R_2, & X_3 =& R_3, & X_4 =& R_4 \\
-            &Y_1 = -\frac{1}{\omega C_X}, & Y_2 &= -\frac{1}{\omega C_2}, & Y_3 =& 0, & Y_4 =& 0
+            &Y_1 = \text{i} \omega L_X, & Y_2 &= \text{i} \omega L_2, & Y_3 =& 0, & Y_4 =& 0
           \end{align*}
-          Das wird in \eqref{eqn:komplexabgleich1} und \eqref{eqn:komplexabgleich2} eingesetzt und nach den gesuchten Größen umgestellt:
-          \begin{align*}
-            R_X = R_2 \frac{R_3}{R_4} &&\text{und}&& C_X = C_2 \frac{R_4}{R_3}            
-          \end{align*}
+          Nach dem gleichen Muster wie bei der Kapazitätsmessbrücke wird auch hier verfahren und es kommen ähnliche Formeln als Ergebnisse heraus:
+          \begin{align}
+            R_X = R_2 \frac{R_3}{R_4} &&\text{und}&& L_X = L_2 \frac{R_3}{R_4}            
+          \end{align}
+          Allerdings sollten die Verluste an der Spule mit der Induktivität $L_2$ bei dieser Methode sehr klein sein, was im Gegensatz zu einem verlustarmen
+          Kondensator schwierig zu realisieren ist. Deshalb wird die Spule in einer anderen Schaltung durch einen Kondensator ersetzt. Diese Schaltung für die
+          Induktionsmessung wird Maxwell-Brücke genannt.
+        \FloatBarrier
 
-          \section{Versuchsdurchführung}
-        Das konstante Volumen einer Körperprobe ist bei Durchführung eines Versuches schwierig zu erhalten.
-        Deshalb arbeitet man hier mit einer anderen konstanten Größe, dem konstanten Druck, welcher hier
-        der Atmosphärendruck ist. Es werden Körper aus verschiedenen Materialien der Massen $m_\text{k}$ in Wasser
-        eingetaucht und das Wasser wird auf die Temperatur $T_\text{k}$ erhitzt. Dabei nimmt der Körper die Temperatur $T_\text{k}$ an. Ab einer genügend hohen Temperatur
-        wird der Körper aus dem Gefäß entfernt und in ein mit Wasser mit Zimmertemperatur $T_\text{w}$ gefülltes
-        Dewar-Gefäß getaucht. Nach ca. 2 Minuten des Wartens ergibt sich eine Mischtemperatur $T_\text{m}$ im Gefäß.
-        Die verschiedenen Temperaturen werden mit einem Thermometer gemessen.
-        Die spezifischen Wärmekapazitäten werden, dann mit der spezifischen Wärmekapazität des Körpers $c_\text{k}$, des Wassers im Dewar-Gefäß bei ca. Zimmertemperatur
-        $c_\text{w}$, der Wärmekapazität des Dewar-Gefäßes $c_\text{g}m_\text{g}$ und der Masse des Wasser im Dewar-Gefäß
-        $m_\text{w}$ nach Formel \eqref{eqn:spezWärmekapazität} bestimmt.
+        \newpage
 
-        Um die Wärmekapazität des Dewar-Gefäßes zu bestimmen ist ein weiteres Experiment nötig. Anstatt einer Körperprobe
-        wird nun Wasser der Masse $m_\text{y}$ auf eine Temperatur $T_\text{y}$ erhitzt und es wird damit genauso verfahren wie mit den Körpern.
-        D.h. es wird in das Dewar-Gefäß gegossen, worin sich schon Wasser der Masse $m_\text{x}$ und der Temperatur
-        $T_\text{x}$ befindet und mit welchem sich eine Mischtemperatur $T_\text{m}^{'}$ ergibt. Analog zu Formel
-        \eqref{eqn:spezWärmekapazität} gilt für die Wärmekapazität des Dewar-Gefäßesnach Formel \eqref{eqn:Wärmekapazität}.
+        \subsection{Maxwell-Brücke}
+          Auch hier sind die Widerstände $R_3$ und $R_4$ veränderbar.
+          \begin{figure}[h]
+            \centering
+            \caption{Die Maxwell-Brücke zur Induktivitätsmessung.}
+            \includegraphics[width = 0.5\linewidth]{Maxwellbruecke.png}
+            \label{fig:maxwellbr}
+          \end{figure}
+          Und die zwei Abgleichbedingungen, welche man nach dem gleichen Vorgehen wie davor kriegt, lauten
+          \begin{align}
+            R_X = R_2 \frac{R_2 R_3}{R_4} &&\text{und}&& L_X = R_2 R_3 C_4             
+          \end{align}
+          \FloatBarrier
 
+      \noindent
+      Die bisher vorgestellten Brückenschaltungen waren frequenzunabhängig. Nur für die praktischen Zwecke war es günstig keine zu hohe Frequenz zu wählen,
+      da sonst der Einfluss der Streukapazitäten zu sehr in die Messung eingehen würde und keine zu niedrigen Frequenzen zu wählen, da es ein paar
+      Einschwingvorgänge braucht bevor sich eine für die Messung brauchbare stationäre Brückenspannung einpendelt.
+
+        \subsection{Wien-Robinson-Brücke}
+          Diese Brücke besitzt keine variierbaren Elemente zum Abgleich. Stattdessen wird die Speisespannung verändert, so dass sich eine möglichst
+          kleine Brückenspannung ergibt.
+          \begin{figure}[h]
+            \centering
+            \caption{Die Wien-Robinson-Brücke zum Frequenzfiltern.}
+            \includegraphics[width = 0.4\linewidth]{Wien_Robinson.png}
+            \label{fig:wienrobinsonbr}
+          \end{figure}
+          \FloatBarrier
+          \noindent
+          Durch ähnliche Überlegungen wie bei den vorherigen Brückenschaltungen erschließt sich ein Verhältnis von Brückenspannung $U_Br$ zur
+          Speisespannung $U_S$:
+          \begin{equation}
+            \label{eqn:wienrob}
+            \biggl(\frac{U_{Br}}{U_S} \biggr)^2 = \frac{\bigl(\omega^2 R^2 C^2 - 1 \bigr)^2}{9\Bigl(\bigl(1 - \omega^2 R^2 C^2 \bigr)^2 + 9 \omega^2 R^2 C^2 \Bigr)}
+          \end{equation}
+          Es ist deutlich, dass dieser Ausdruck wenn gilt
+          \begin{equation*}
+            \omega_0 = \frac{1}{R C}
+          \end{equation*}
+          Zur besseren Einsehbarkeit wird das folgende Verhältnis eingeführt
+          \begin{equation*}
+            \Omega = \frac{\omega}{\omega_0}
+          \end{equation*}
+          Mit den beiden oberen Formeln wird \eqref{eqn:wienrob} zu
+          \begin{equation}
+            \label{eqn:wienrob}
+            \biggl(\frac{U_{Br}}{U_S} \biggr)^2 = \frac{1}{9} \frac{\bigl(\Omega^2 - 1 \bigr)^2}{\bigl(1 - \Omega^2 \bigr)^2 + 9 \Omega^2}
+          \end{equation}
+          Es wird klar, dass die Wien-Robinson-Brücke als Frequenzfilter fungiert, welcher die Frequenz $\omega_0$ aus dem Frequenzspektrum filtert und
+          die umliegenden Frequenzen stark abschwächt.
 \end{document}
