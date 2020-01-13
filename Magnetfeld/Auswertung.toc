@@ -1,0 +1,12 @@
+\babel@toc {ngerman}{}
+\contentsline {section}{\numberline {1}Auswertung}{3}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Allgemeines}{3}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Magnetfelder in einfachen Spulen}{3}{subsection.1.2}% 
+\contentsline {subsubsection}{\numberline {1.2.1}Magnetfeld einer langen Spule}{3}{subsubsection.1.2.1}% 
+\contentsline {subsubsection}{\numberline {1.2.2}Magnetfeld einer kurzen Spule}{4}{subsubsection.1.2.2}% 
+\contentsline {subsection}{\numberline {1.3}Magnetfelder von Helmholtzspulen}{7}{subsection.1.3}% 
+\contentsline {subsubsection}{\numberline {1.3.1}Spulenabstand 10cm}{7}{subsubsection.1.3.1}% 
+\contentsline {subsubsection}{\numberline {1.3.2}Spulenabstand 15cm}{8}{subsubsection.1.3.2}% 
+\contentsline {subsubsection}{\numberline {1.3.3}Spulenabstand 20cm}{11}{subsubsection.1.3.3}% 
+\contentsline {subsection}{\numberline {1.4}Hysteresekurve}{12}{subsection.1.4}% 
+\contentsline {section}{\numberline {2}Diskussion}{14}{section.2}% 
