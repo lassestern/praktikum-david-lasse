@@ -82,6 +82,7 @@
                 B = 1,65 mT 
                 \label{eqn:BLang}
             \end{equation}
+            Dieser wird mit den in Abbildung \ref{fig:Spulelang} dargestellten und in Tabelle \ref{tab:Spulelang} eingetragenen Messwerten verglichen.
 
             \begin{table}[h]
                 \centering 
@@ -129,6 +130,8 @@
                 B = 3,80 mT \\
                 \label{eqn:Bkurz}
             \end{equation} 
+            Dieser wird später mit den Messwerten aus Tabelle \ref{tab:Spulekurz} verglichen. Der Verlauf dieser Messwerte ist auch in Abbildung 
+            \ref{fig:Spulekurz} dargestellt.
             \begin{table}[h]
                 \centering 
                 \caption{In der Tabelle ist die Stärke des Magnetfelds in Abhängigkeit von der Distanz zu einer der Spulenöffnung aufgelistet.}
@@ -178,11 +181,12 @@
             \end{equation*}
             \subsubsection{Spulenabstand 10cm}
             Bei diesem Spulenpaar beträgt der Spulenabstand 0,1m. Mit diesem und den allgemeinen Werten, die für alle Helmholtzspulenpaare gelten, lässt sich
-            folgender Referenzwert für die Mitte zwischen den zwei Spulen berechnen.
+            folgender Referenzwert für die Mitte zwischen den zwei Spulen, die bei 5cm liegt, berechnen.
             \begin{equation}
                 B_{\text{Mitte}} = 1,86 mT\\
                 \label{eqn:HelmA}
             \end{equation}
+            Die gemessenen Magnetfeldstärken \ref{tab:HelmholtzA} werden in Abbildung \ref{fig:HelmholtzA} gegen den Abstand zur Spule angegeben.
             \begin{table}[h]
                 \centering 
                 \caption{In der Tabelle ist die Stärke des Magnetfelds in Abhängigkeit von der Distanz zu einer der Spulenöffnung aufgelistet.}
@@ -218,7 +222,8 @@
             \newpage
 
             \subsubsection{Spulenabstand 15cm}
-            Hier wird die Magnetfeldstärke im Mittelpunkt analog zur ersten Helmholtzspule berechnet. Der Spulenabstand beträgt nun jedoch 0,15m.
+            Hier wird die Magnetfeldstärke im Mittelpunkt, der bei 7,075,5cm liegt, analog zur ersten Helmholtzspule berechnet. Der Spulenabstand beträgt nun 
+            jedoch 0,15m. Die Werte finden sich in Tabelle \ref{tab:HelmholtzB} und der Verlauf der Magnetfeldstärke in Abbildung \ref{fig:HelmholtzB}.
             \begin{equation}
                 B_{\text{Mitte}} = 1,023mT \\
                 \label{eqn:HelmB}
@@ -263,6 +268,7 @@
                 B_{\text{Mitte}} = 0,58 mT \\
                 \label{eqn:HelmC}
             \end{equation} 
+            Der Verlauf der in Tabelle \ref{tab:HelmholtzC} gegebenen Magnetfeldstärken wird in Abbildung \ref{fig:HelmholtzC} dargestellt. 
             \begin{table}[h]
                 \centering 
                 \caption{In der Tabelle ist die Stärke des Magnetfelds in Abhängigkeit von der Distanz zu einer der Spulenöffnung aufgelistet.}
@@ -298,8 +304,8 @@
             \newpage
                 
         \subsection{Hysteresekurve}
-            Die durch Auftragen der in Tabelle \ref{tab:Hysterese} eingetragenen Werte wird die Hysteresekurve modelliert. Sie beinhaltet 4 gesonderte Werte.
-            Die Remanenz, die die Magnetfeldstärke bei nicht vorhandener Stromstärke angibt.
+            Die durch Auftragen der in Tabelle \ref{tab:Hysterese} eingetragenen Werte wird die Hysteresekurve \ref{fig:Hysterese} modelliert. Sie beinhaltet 
+            5 gesonderte Werte. Die Remanenz, die die Magnetfeldstärke bei nicht vorhandener Stromstärke angibt.
             \begin{align}
                 B_{\text{R1}} = 131 \; A \\
                 B_{\text{R2}} = -133 \; A 
@@ -312,6 +318,10 @@
                 I_{\text{C2}} = 0,68 \; A
                 \label{eqn:Koerzitiv}
             \end{align} 
+            Der letzte Wert ist die Sättigungsmagnetisierung, die bei uns wiefolgt gemessen wurde:
+            \begin{equation*}
+                B_{\text{Sättigung}} = 726 \; mT
+            \end{equation*}
         \begin{table}[h]
             \centering 
             \caption{In der Tabelle ist die Stärke des Magnetfelds in Abhängigkeit von der Distanz zu einer der Spulenöffnung aufgelistet.}
@@ -355,7 +365,7 @@
         \begin{figure}[h]
             \centering
             \includegraphics{Hysterese.pdf}
-            \caption{In dieser Abbildung sind die Werte aus der obrigen Tabelle aufgetragen. Sie zeigen das Magnetfeld abhängig von der Entfernung zur Spulenöffnung, die bei x=0 liegt.}
+            \caption{In dieser Abbildung sind die Magnetfeldstärke gegen die Stromstärken aufgetragen, sodass sich die Hysteresekurve ergibt.}
             \label{fig:Hysterese}
 
         \end{figure}
@@ -371,9 +381,9 @@
         beide Kurven das erwartete Ergebnis. Die lange Spule weist ein Plataeu auf, das bei der kurzen Kurve verschwindet und nur noch als Peak zu sehen ist.
         Bei den Helmholtzspulenpaaren werden die theoretischen Werte mit den gemessenen Werten in den Zentren der Helmholtzspulenpaaren verglichen.
         \begin{align*}
-            10cm \qquad B_{\text{Messung}} = 2,051 mT \qquad B_{\text{Theorie}} = 1,86 mT \qquad Abweichung: \; 9,31 \% \\
-            15cm \qquad B_{\text{Messung}} = 1,245 mT \qquad B_{\text{Theorie}} = 1,02 mT \qquad Abweichung: \; 17,83 \% \\
-            20cm \qquad B_{\text{Messung}} = 0,742 mT \qquad B_{\text{Theorie}} = 0,58 mT \qquad Abweichung: \; 21,83 \% 
+            10cm \qquad B_{\text{Messung}} = 2,051 mT \qquad B_{\text{Theorie}} = 1,86 mT \qquad \text{Abweichung}: \; 9,31 \% \\
+            15cm \qquad B_{\text{Messung}} = 1,245 mT \qquad B_{\text{Theorie}} = 1,02 mT \qquad \text{Abweichung}: \; 17,83 \% \\
+            20cm \qquad B_{\text{Messung}} = 0,742 mT \qquad B_{\text{Theorie}} = 0,58 mT \qquad \text{Abweichung}: \; 21,83 \% 
         \end{align*}
         Unter Rücksichtnahme auf die äußeren Faktoren wie die Magnetfelder der anderen Gruppenexperimente bestätigen auch diese Theoriewerte die Messung.
         Unterstützt wird dies durch die erwartete Form der Plots in den Graphen \ref{fig:HelmholtzA}, \ref{fig:HelmholtzB} und \ref{fig:HelmholtzC}. Die Feld-
@@ -381,5 +391,9 @@
         Die letzte Messung liefer die Hysteresekurve, welche ebenfalls der erwarteten Form entspricht. Auch die zu erwartende Symmetrie lässt sich durch die 
         Ähnlichkeit der Remanenzen \ref{eqn:Remanenzen}, die um 1,5 \% voneinander abweichen und die Ähnlichkeit der Koerzitivstromstärken \ref{eqn:Koerzitiv},
         die um 4,41 \% voneinander abweichen. 
+
+\newpage
+\section{Literaturverzeichnis}
+        [1] \textit{Versuchsanleitung V308 - Magnetfelder und Spulen.} TU Dortmund, 2019
 
 \end{document}
