@@ -55,7 +55,7 @@
   Lasse Sternemann\\
   \href{mailto:lasse.sternemann@udo.edu}{lasse.sternemann@udo.edu}
 }
-\date{Durchführung am 03.12.2019}
+\date{Durchführung am 07.01.2020}
 
 \begin{document}
     \maketitle
@@ -99,7 +99,8 @@
       viel größer als ihr Radius $R$, so entsteht im Inneren der Spule ein homogenes Magnetfeld, da die Randeffekte mit steigendem Verhältnis $L/R$ schwächer
       werden. Außerhalb der Spule ist das Magnetfeld inhomogen. Für die magn. Flussdichte innerhalb der langen stromdurchflossenen Spule (Solenoid) gilt dann:
       \begin{equation}
-        B = \mu_0 \mu_r \frac{n}{L} I
+        B = \mu_0 \mu_r \frac{n}{L} I \\
+        \label{eqn:BFormel}
       \end{equation}
       Werden die beiden Enden eines Solenoides zu einer kreisfprmigen Spule (Toroid) des Umfanges $L = 2 \pi r_\text{T}$ verbunden, so verschwinden die Randeffekte und somit das Magnetfeld
       außerhalb der Spule. Innerhalb der Spule ist das Magnetfeld homogen und es gilt dafür:
@@ -118,7 +119,8 @@
       \noindent
       Das Magnetfeld auf der Symmetrieachse ergibt sich als Überlagerung der Magnetfelder der beiden Spulen:
       \begin{equation}
-        \vec{B}(x) = \frac{\mu_0 I n R^2}{(R^2 + x^2)^{3/2}}
+        \vec{B}(x) = \frac{\mu_0 I n R^2}{(R^2 + x^2)^{3/2}} \\
+        \label{eqn:FormelHelm}
       \end{equation}
       Unmagnetisierte ferromagnetische Materialien bestehen aus kleinen magnetischen Momenten, die ohne äußeres Magnetfeld statistisch / "willkürlich" verteilt sind.
       Wird jetzt ein äußeres Magnetfeld angelegt, richten sich diese magn. Momente in Richtung der magn. Feldlinien aus und verstärken das ursprüngliche Mangetfeld.
@@ -159,6 +161,342 @@
         Stromstärke in 1A Schritten bis auf 10A hochgedreht. Danach wird die Stromstärke bis -10A runtergestellt und wieder bis 10A gedreht.
         Dabei entsteht eine Kurve der magn. Flussdichte in Abhängigkeit von der Stromstärke und dadurch der magn. Feldstärke des angelegten Magnetfeldes.
 
-
+        \section{Auswertung}
+        \subsection{Allgemeines}
+            Im folgenden werden mehrfach Magnetfeldstärken bezüglich ihres Abstands zu einer der Spulenöffnungen angegeben. In diesen Fällen befindet sich die 
+            Spulenöffnungen bei x=0. Negative Werte befinden sich außerhalb der Spule und positive Werte innerhalb, solange sie nicht die Länge der Spule 
+            überschreiten. Der Wert magnetischen Feldkonstante $\mu_0$ wird in den Rechnungen aus der Konstantensammlung des National Institute of Standards 
+            and Technology [2] entnommen.
+        \subsection{Magnetfelder in einfachen Spulen}
+            \subsubsection{Magnetfeld einer langen Spule}
+                Um einen Vergleichswert zur Magnetfeldstärke in der langen Spule zu haben, wird über Formel \ref{eqn:BFormel} ein Theoriewert berechnet. Dazu werden folgende 
+                Eigenschaften der Spule und Experimentierbedigungen verwendet:
+                \begin{equation*}  
+                    L = 0,155m \qquad N = 300 \qquad I = 0,68 A 
+                \end{equation*}    
+                Somit ergibt sich für das homogene Magnetfeld innerhalb der langen Spule der Referenzwert:
+                \begin{equation}
+                    B = 1,65 mT 
+                    \label{eqn:BLang}
+                \end{equation}
+                Dieser wird mit den in Abbildung \ref{fig:Spulelang} dargestellten und in Tabelle \ref{tab:Spulelang} eingetragenen Messwerten verglichen.
+    
+                \begin{table}[h]
+                    \centering 
+                    \caption{In der Tabelle ist die Stärke des Magnetfelds in Abhängigkeit von der Distanz zu einer der Spulenöffnung aufgelistet.}
+                    \label{tab:Spulelang}
+    
+                    \begin{tabular}{c c c c}
+                        \toprule
+                        {x \ [m]} & {B \ [mT]} & {x \ [m]} & {B \ [mT]} \\
+                        \midrule
+                        -0,04 & 0,088  &  0,08   & 1,574 \\
+                        -0,03 & 0,128  &  0,09   & 1,566 \\
+                        -0,02 & 0,208  &  0,10   & 1,552 \\
+                        -0,01 & 0,377  &  0,11   & 1,483 \\
+                        0     & 0,69   &  0,12   & 1,483 \\
+                        0,01  & 1,08   &  0,13   & 1,397 \\
+                        0,02  & 1,322  &  0,14   & 1,217 \\
+                        0,03  & 1,443  &  0,15   & 0,879 \\
+                        0,04  & 1,506  &  0,16   & 0,502 \\
+                        0,05  & 1,538  &  0,17   & 0,272 \\
+                        0,06  & 1,559  &  0,18   & 0,158 \\
+                        0,07  & 1,569  &         & \\
+                        \bottomrule
+                    \end{tabular}                
+                \end{table}
+    
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics{Spulelang.pdf}
+                    \caption{In dieser Abbildung sind die Werte aus der obrigen Tabelle aufgetragen. Sie zeigen das Magnetfeld abhängig von der Entfernung zur Spulenöffnung, die bei x=0 liegt.}
+                    \label{fig:Spulelang}
+    
+                \end{figure}
+    
+                \FloatBarrier
+                \newpage
+    
+    
+            \subsubsection{Magnetfeld einer kurzen Spule}
+                Auch bei der kurzen Spule wird zuerst über Formel \ref{eqn:BFormel} ein theoretischer Referenzwert berechnet.
+                \begin{align*}
+                    L = 0,09cm \qquad N = 3400 \qquad I = 0,08A 
+                \end{align*}
+                \begin{equation}
+                    B = 3,80 mT \\
+                    \label{eqn:Bkurz}
+                \end{equation} 
+                Dieser wird später mit den Messwerten aus Tabelle \ref{tab:Spulekurz} verglichen. Der Verlauf dieser Messwerte ist auch in Abbildung 
+                \ref{fig:Spulekurz} dargestellt.
+                \begin{table}[h]
+                    \centering 
+                    \caption{In der Tabelle ist die Stärke des Magnetfelds in Abhängigkeit von der Distanz zu einer der Spulenöffnung aufgelistet.}
+                    \label{tab:Spulekurz}
+    
+                    \begin{tabular}{c c c c}
+                        \toprule
+                        {x \ [m]} & {B \ [mT]} \\
+                        \midrule
+                        -0,04 & 0,602 \\
+                        -0,03 & 0,777 \\
+                        -0,02 & 0,995 \\
+                        -0,01 & 1,271 \\
+                         0,00 & 1,579 \\
+                         0,01 & 1,885 \\
+                         0,02 & 2,165 \\
+                         0,03 & 2,375 \\
+                         0,04 & 2,5   \\
+                         0,05 & 2,529 \\
+                         0,06 & 2,462 \\
+                         0,07 & 2,299 \\
+                         0,08 & 2,052 \\
+                         0,09 & 1,761 \\
+                         0,1  & 1,444 \\
+                         0,11 & 1,142 \\
+                        \bottomrule
+                    \end{tabular}                
+                \end{table}
+    
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics{Spulekurz.pdf}
+                    \caption{In dieser Abbildung sind die Werte aus der obrigen Tabelle aufgetragen. Sie zeigen das Magnetfeld abhängig von der Entfernung zur Spulenöffnung, die bei x=0 liegt.}
+                    \label{fig:Spulekurz}
+    
+                \end{figure}
+    
+                \FloatBarrier
+                \newpage
+    
+    
+        \subsection{Magnetfelder von Helmholtzspulen}
+                Bei den folgenden Helmholtzspulenpaaren wurde nur der Spulenabstand varriert, demnach haben sie ansonsten die gleichen Eigenschaften und wurden an
+                die gleiche Stromstärke angeschlossen. Die Magnetfeldstärken in der Mitte der Helmholtzspulenpaare werden über Formel \ref{eqn:FormelHelm} 
+                berechnet.
+                \begin{equation*}
+                    R = 0,0625m \qquad N = 100 \qquad I = 1,94A \\
+                \end{equation*}
+                \subsubsection{Spulenabstand 10cm}
+                Bei diesem Spulenpaar beträgt der Spulenabstand 0,1m. Mit diesem und den allgemeinen Werten, die für alle Helmholtzspulenpaare gelten, lässt 
+                sich folgender Referenzwert für die Mitte zwischen den zwei Spulen, die bei 5cm liegt, berechnen.
+                \begin{equation}
+                    B_{\text{Mitte}} = 1,86 mT\\
+                    \label{eqn:HelmA}
+                \end{equation}
+                Die gemessenen Magnetfeldstärken \ref{tab:HelmholtzA} werden in Abbildung \ref{fig:HelmholtzA} gegen den Abstand zur Spule angegeben.
+                \begin{table}[h]
+                    \centering 
+                    \caption{In der Tabelle ist die Stärke des Magnetfelds in Abhängigkeit von der Distanz zu einer der Spulenöffnung aufgelistet.}
+                    \label{tab:HelmholtzA}
+    
+                    \begin{tabular}{c c c c}
+                        \toprule
+                        {x \ [m]} & {B \ [mT]} & {x \ [m]} & {B \ [mT]} \\
+                        \midrule
+                        0,01  & 2,01  & 0,12 & 1,267 \\
+                        0,015 & 1,968 & 0,13 & 1,034 \\
+                        0,02  & 1,947 & 0,14 & 0,837 \\
+                        0,025 & 1,929 & 0,15 & 0,674 \\
+                        0,03  & 1,934 & 0,16 & 0,547 \\
+                        0,035 & 1,943 & 0,17 & 0,444 \\
+                        0,04  & 1,973 & 0,18 & 0,362 \\
+                        0,045 & 2,006 & 0,19 & 0,298 \\
+                        0,05  & 2,051 & 0,20 & 0,245 \\
+                        0,11  & 1,526 & & \\
+                        \bottomrule
+                    \end{tabular}                
+                \end{table}
+    
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics{HelmholtzA.pdf}
+                    \caption{In dieser Abbildung sind die Werte aus der obrigen Tabelle aufgetragen. Sie zeigen das Magnetfeld abhängig von der Entfernung zur Spulenöffnung, die bei x=0 liegt.}
+                    \label{fig:HelmholtzA}
+    
+                \end{figure}
+    
+                \FloatBarrier
+                \newpage
+    
+                \subsubsection{Spulenabstand 15cm}
+                Hier wird die Magnetfeldstärke im Mittelpunkt, der bei 7,075,5cm liegt, analog zur ersten Helmholtzspule berechnet. Der Spulenabstand beträgt nun 
+                jedoch 0,15m. Die Werte finden sich in Tabelle \ref{tab:HelmholtzB} und der Verlauf der Magnetfeldstärke in Abbildung \ref{fig:HelmholtzB}.
+                \begin{equation}
+                    B_{\text{Mitte}} = 1,02mT \\
+                    \label{eqn:HelmB}
+                \end{equation}
+                \begin{table}[h]
+                    \centering 
+                    \caption{In der Tabelle ist die Stärke des Magnetfelds in Abhängigkeit von der Distanz zu einer der Spulenöffnung aufgelistet.}
+                    \label{tab:HelmholtzB}
+    
+                    \begin{tabular}{c c c c}
+                        \toprule
+                        {x \ [m]} & {B \ [mT]} & {x \ [m]} & {B \ [mT]} \\
+                        \midrule
+                        0,01  & 1,579 & 0,07 & 1,207 \\
+                        0,02  & 1,403 & 0,075 & 1,245 \\
+                        0,03  & 1,261 & 0,08 & 1,329 \\
+                        0,035 & 1,207 & 0,09 & 1,489 \\
+                        0,04  & 1,165 & 0,10 & 1,670 \\
+                        0,045 & 1,131 & 0,16 & 1,420 \\
+                        0,05  & 1,123 & 0,17 & 1,173 \\
+                        0,055 & 1,113 & 0,18 & 0,959 \\
+                        0,06  & 1,137 & 0,19 & 0,770 \\
+                        0,065 & 1,152 & 0,20 & 0,618 \\
+                        \bottomrule
+                    \end{tabular}                
+                \end{table}
+    
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics{HelmholtzB.pdf}
+                    \caption{In dieser Abbildung sind die Werte aus der obrigen Tabelle aufgetragen. Sie zeigen das Magnetfeld abhängig von der Entfernung zur Spulenöffnung, die bei x=0 liegt.}
+                    \label{fig:HelmholtzB}
+    
+                \end{figure}
+    
+                \FloatBarrier
+                \newpage
+    
+                \subsubsection{Spulenabstand 20cm}
+                Nun beträgt der Spulenabstand 0,2m und die Berechnung erfolgt wieder analog zu den anderen Rechnungen.
+                \begin{equation}
+                    B_{\text{Mitte}} = 0,58 mT \\
+                    \label{eqn:HelmC}
+                \end{equation} 
+                Der Verlauf der in Tabelle \ref{tab:HelmholtzC} gegebenen Magnetfeldstärken wird in Abbildung \ref{fig:HelmholtzC} dargestellt. 
+                \begin{table}[h]
+                    \centering 
+                    \caption{In der Tabelle ist die Stärke des Magnetfelds in Abhängigkeit von der Distanz zu einer der Spulenöffnung aufgelistet.}
+                    \label{tab:HelmholtzC}
+    
+                    \begin{tabular}{c c c c}
+                        \toprule
+                        {x \ [m]} & {B \ [mT]} & {x \ [m]} & {B \ [mT]} \\
+                        \midrule
+                        0,01 & 1,458 & 0,11 & 0,832 \\
+                        0,02 & 1,250 & 0,12 & 0,965 \\
+                        0,03 & 1,058 & 0,13 & 1,131 \\
+                        0,04 & 0,906 & 0,14 & 1,330 \\
+                        0,05 & 0,791 & 0,15 & 1,534 \\
+                        0,06 & 0,714 & 0,21 & 1,366 \\
+                        0,07 & 0,672 & 0,22 & 1,135 \\
+                        0,08 & 0,661 & 0,23 & 0,917 \\
+                        0,09 & 0,684 & 0,24 & 0,737 \\
+                        0,10 & 0,742 & 0,25 & 0,585 \\
+                        \bottomrule
+                    \end{tabular}                
+                \end{table}
+    
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics{HelmholtzC.pdf}
+                    \caption{In dieser Abbildung sind die Werte aus der obrigen Tabelle aufgetragen. Sie zeigen das Magnetfeld abhängig von der Entfernung zur Spulenöffnung, die bei x=0 liegt.}
+                    \label{fig:HelmholtzC}
+    
+                \end{figure}
+    
+                \FloatBarrier
+                \newpage
+                    
+            \subsection{Hysteresekurve}
+                Die durch Auftragen der in Tabelle \ref{tab:Hysterese} eingetragenen Werte wird die Hysteresekurve \ref{fig:Hysterese} modelliert, indem aus 
+                der Stromstärke die Koerzitivfeldstärke über Formel xxx berechnet wird. Sie beinhaltet 
+                5 gesonderte Werte. Die Remanenz, die die Magnetfeldstärke bei nicht vorhandener Stromstärke angibt.
+                \begin{align}
+                    B_{\text{R1}} = 131 \; \text{mT} \\
+                    B_{\text{R2}} = -133 \; \text{mT} 
+                    \label{eqn:Remanenzen}
+                \end{align}
+                Die zwei anderen ausgezeichneten Werte beschreiben die Koerzitivkraft, die dem gegebenen magnetischen Feld so entgegenwirkt, dass die gesamte
+                Magnetfeldstärke null ist. Diese Punkte liegen bei folgenden Stromstärken.
+                \begin{align}
+                    H_{\text{C1}} = -465 \; \frac{\text{A}}{\text{m}}\\
+                    H_{\text{C2}} = 486 \; \frac{\text{A}}{\text{m}}
+                    \label{eqn:Koerzitiv}
+                \end{align} 
+                Der letzte Wert ist die Sättigungsmagnetisierung, die bei uns wiefolgt gemessen wird:
+                \begin{equation*}
+                    B_{\text{Sättigung}} = 726 \; mT
+                \end{equation*}
+            \begin{table}[h]
+                \centering 
+                \caption{In der Tabelle ist die Stärke des Magnetfelds in Abhängigkeit von der Koerzitivfeldstärke bzw. Stromstärke aufgelistet.}
+                \label{tab:Hysterese}
+    
+                \begin{tabular}{c c c c c c}
+                    \toprule
+                    {I \ [A]} & {$H_C$ \ [A/m]} & {B \ [mT]} & {I \ [A]} & {$H_C$ \ [A/m]} & {B \ [mT]} \\
+                    \midrule
+                    0 &     0 & 3          & -6   & -4288& -599 \\
+                    1 &    714&      149   & -7   & -5003& -640 \\
+                    2 &    1429&     350   & -8   & -5718& -672 \\
+                    3 &     2144   & 446   & -9   & -6432& -702 \\
+                    4 &     2859   & 508   & -10  & -7147& -730 \\
+                    5 &     3573   & 560   & -9   & -6432& -711 \\
+                    6 &     4288   & 605   & -8   & -5718& -693 \\
+                    7 &     5003   & 640   & -7   & -5003& -671 \\
+                    8 &     5718   & 670   & -6   & -4288& -645 \\
+                    9 &     6432   & 700   & -5   & -3573& -617 \\
+                    10 &    7147   & 726  & -4    & -2859& -580 \\
+                    9 &     6432   & 709   & -3   & -2144& -533 \\
+                    8 &     5717   & 691   & -2   & -1429& -467 \\
+                    7 &     5003   & 668   & -1   & -715 & -331 \\
+                    6 &     4288   & 644   &  0   &  0   & -133 \\
+                    5 &     3573   & 614   & 0,68 &  486 &    0 \\
+                    4 &     2859   & 576   & 1    &  715 &   81 \\
+                    3 &     2144   & 520   & 2    &  1429&  258 \\
+                    2 &     1429   & 464   & 3    &  2144&  391 \\
+                    1 &     715    & 327   & 4    &  2859&  489 \\
+                    0 &     0      & 131   & 5    &  3573&  549 \\
+                    -0,65 & -465   & 0 & 6        &  4288&  595 \\
+                    -1 &    -715   & -70  & 7     &  5003&  638 \\
+                    -2 &    -1429  & -256 & 8     &  5718&  696 \\
+                    -3 &    -2144  & -392 & 9     &  6432&  699 \\
+                    -4 &    -2859  & -490 & 10    &  7147&  725 \\
+                    -5 &    -3573  & -552 & & & \\
+                    \bottomrule
+                \end{tabular}                
+            \end{table}
+    
+            \begin{figure}[h]
+                \centering
+                \includegraphics{Hysterese.pdf}
+                \caption{In dieser Abbildung sind die Magnetfeldstärken gegen die Koerzitivfeldstärken aufgetragen, sodass sich die Hysteresekurve ergibt.}
+                \label{fig:Hysterese}
+    
+            \end{figure}
+    
+            \newpage
+            
+    \section{Diskussion}
+            Zur Verifizierung der Messreihen werden die Theoriewerte mit den gemessenen Werten verglichen. Bei den beiden normalen Spulen wird der Theoriewert mit
+            dem Wert in der Mitte der Spule verglichen. So weicht die Magnetfeldstärke der langen Spule, \newline 
+            $B_{\text{Messung}} = 1,574 mT$,  um 4,81 \% von dem errechneten Wert 
+            \ref{eqn:BLang} ab. Der Wert der kurzen Spule, $B_{\text{Messung}} = 2,529 mT$, weicht um 43,45 \% vom Theoriewert \ref{eqn:Bkurz} ab. Während der Wert
+            der langen Spule gut mit dem Theoriewert übereinstimmt, weicht der der kurzen Spule stärker von dessen Theoriewert ab. Dies liegt vermutlich an der 
+            Annahme, dass die kurze Spule die Bedingungen für die Annäherung einer langen Spule nicht genügend erfüllt. Die lange Spule hingegen erfüllt die 
+            Bedingung hinreichend und die Abweichung zum Theoriewert fällt dementsprechend gering aus. Quantitativ liefern 
+            beide Kurven das erwartete Ergebnis. Die lange Spule weist ein Plataeu auf, das bei der kurzen Kurve verschwindet und nur noch als Peak zu sehen ist.
+            Bei den Helmholtzspulenpaaren werden die theoretischen Werte mit den gemessenen Werten in den Zentren der Helmholtzspulenpaaren verglichen.
+            \begin{align*}
+                10cm& \qquad B_{\text{Messung}} = 2,051 mT& \qquad B_{\text{Theorie}} = 1,86 mT& \qquad \text{Abweichung}: \; 9,31 \% \\
+                15cm& \qquad B_{\text{Messung}} = 1,245 mT& \qquad B_{\text{Theorie}} = 1,02 mT& \qquad \text{Abweichung}: \; 17,83 \% \\
+                20cm& \qquad B_{\text{Messung}} = 0,742 mT& \qquad B_{\text{Theorie}} = 0,58 mT& \qquad \text{Abweichung}: \; 21,83 \% 
+            \end{align*}
+            Unter Rücksichtnahme auf die äußeren Faktoren wie die Magnetfelder der anderen Gruppenexperimente bestätigen auch diese Theoriewerte die Messung.
+            Unterstützt wird dies durch die erwartete Form der Plots in den Graphen \ref{fig:HelmholtzA}, \ref{fig:HelmholtzB} und \ref{fig:HelmholtzC}. Die Feld-
+            stärke wird zu den Spulen maximal und sinkt gegen das Zentrum. Wie zu erwarten sinkt die Kurve stärker bei größeren Spulenabständen.
+            Die letzte Messung liefer die Hysteresekurve, welche ebenfalls der erwarteten Form entspricht. Auch die zu erwartende Symmetrie lässt sich durch die 
+            Ähnlichkeit der Remanenzen \ref{eqn:Remanenzen}, die um 1,5 \% voneinander abweichen und die Ähnlichkeit der Koerzitivfeldstärken \ref{eqn:Koerzitiv},
+            die um 4,4 \% voneinander abweichen. 
+    
+    \newpage
+    \section{Literaturverzeichnis}
+            [1] \textit{Versuchsanleitung V308 - Magnetfelder und Spulen.} TU Dortmund, 2019 \newline
+            [2] National Institute of Standards and Technology: \textit{Fundamental Physical Constants} 09.Dezember.2019
+                \url{https://physics.nist.gov/cgi-bin/cuu/Value?r}
 
 \end{document}

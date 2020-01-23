@@ -84,11 +84,15 @@ print(B_C)
 #Hysteresekurve der Ringspule
 xRing, BRing = np.genfromtxt('Hysterese.txt', unpack = True) #B in mT
 
-plt.plot(xRing[0:11], BRing[0:11], "yx", label = r'Neukurve')
-plt.plot(xRing[11:], BRing[11:], "bx", label = r'Hysteresekurve')
-plt.xlabel(r'I [A]')
+#H-Feld 
+H = 595 * xRing / (2 * np.pi * 0.1325) 
+print(H)
+plt.plot(H[0:11], BRing[0:11], "yx", label = r'Neukurve')
+plt.plot(H[11:], BRing[11:], "bx", label = r'Hysteresekurve')
+plt.xlabel(r'H [A/m]')
 plt.ylabel(r'B [mT]')
 plt.legend(loc = "best")
-plt.savefig('Hysterese.pdf')
 plt.grid()
+plt.savefig('Hysterese.pdf')
+
 plt.clf()
