@@ -1,0 +1,371 @@
+\documentclass[titlepage = firstcover]{scrartcl}
+\usepackage[aux]{rerunfilecheck}
+\usepackage{fontspec}
+\usepackage[main=ngerman, english, french]{babel}
+
+% mehr Pakete hier
+\usepackage{expl3}
+\usepackage{xparse}
+
+%Mathematik------------------------------------------------------
+\usepackage{amsmath}   % unverzichtbare Mathe-Befehle
+\usepackage{amssymb}   % viele Mathe-Symbole
+\usepackage{mathtools} % Erweiterungen fuÌˆr amsmath
+\usepackage[
+  math-style=ISO,    % \
+  bold-style=ISO,    % |
+  sans-style=italic, % | ISO-Standard folgen
+  nabla=upright,     % |
+  partial=upright,   % /
+]{unicode-math}% "Does exactly what it says on the tin."
+\usepackage[section, below]{placeins}
+
+% Laden von OTF-Mathefonts
+% ErmoÌˆglich Unicode Eingabe von Zeichen: Î± statt \alpha
+
+\setmathfont{Latin Modern Math}
+%\setmathfont{Tex Gyre Pagella Math} % alternativ zu Latin Modern Math
+\setmathfont{XITS Math}[range={scr, bfscr}]
+\setmathfont{XITS Math}[range={cal, bfcal}, StylisticSet=1]
+
+\AtBeginDocument{ % wird bei \begin{document}
+  % werden sonst wieder von unicode-math uÌˆberschrieben
+  \RenewDocumentCommand \Re {} {\operatorname{Re}}
+  \RenewDocumentCommand \Im {} {\operatorname{Im}}
+}
+\usepackage{mleftright}
+\setlength{\delimitershortfall}{-1sp}
+
+%Sprache----------------------------------------------------------
+\usepackage{microtype}
+\usepackage{xfrac}
+\usepackage[autostyle]{csquotes}    % babel
+\usepackage[unicode, pdfusetitle]{hyperref}
+\usepackage{bookmark}
+\usepackage[shortcuts]{extdash}
+%Einstellungen hier, z.B. Fonts
+\usepackage{booktabs} % Tabellen
+
+
+\title{Gekoppelte elektrische Schwingungen}
+\author{
+  David Gutnikov\\
+  \href{mailto:david.gutnikov@udo.edu}{david.gutnikov@udo.edu}
+ \and 
+  Lasse Sternemann\\
+  \href{mailto:lasse.sternemann@udo.edu}{lasse.sternemann@udo.edu}
+}
+\date{Durchführung am 14.01.2020}
+
+
+\begin{document}
+  \maketitle
+  \newpage
+  \tableofcontents
+  \newpage
+
+
+\section{Zielsetzung}
+    In diesem Versuch soll das Verhalten von gekoppelten Schwingkreisen genauer untersucht werden. Dazu werden nun elektrische Schwingkreise genutzt, da 
+    deren Verhalten weitaus besser zu messen ist, als das eines mechanischen Schwingungssystems.
+    
+\section{Theorie}   
+    \subsection{Kapazitiv gekoppelte Schwingkreise}
+        \begin{figure}[h]
+          \centering
+          \caption{Das Schaltbild zur Erzeugung einer kapazitiv gekoppelten Schwingung. [1]}
+          \includegraphics[width = 0.4\linewidth]{Schwingkreis.png}
+          \label{fig:Schwingkreis}
+        \end{figure}
+        Ein kapazitiv gekoppelter Schwingkreis besteht aus zwei einzelnen Schwingkreisen, die über einen Kondensator gekoppelt sind. In diesem Versuch 
+        werden dazu zwei LC-Schwingkreise verwendet, die wie in Abbildung \ref{fig:Schwingkreis} zu sehen geschaltet sind. Die Spulen haben hierbei dieselben Induktivitäten 
+        und auch die Kapazitäten des linken und rechten Kondensators gleichen sich. Um nun die Differentialgleichungen des Systems zu bestimmen, müssen 
+        zunächst die Zeitabhängigkeiten der Ströme und Spannungen betrachtet werden. Eine allgemeine Betrachtung der Ströme, über die kirchhoffsche 
+        Knotenregel, in Punkt A ergibt für die Ströme:
+        \begin{equation}
+            I_1 = I_k + I_2 \qquad \Rightarrow \qquad I_k = I_1 - I_2
+            \label{eqn:Knoten}
+        \end{equation} 
+        Die allgemeine Betrachtung der Spannungen in den Maschen 1 und 2 über die Kirchhoffsche Maschenregel liefert für beide Maschen:
+        \begin{align*}
+            U_\text{C} + U_\text{L} U_\text{K} = 0
+        \end{align*}
+        Durch Einsetzen der Zusammenhänge
+        \begin{align*}
+            U_{\text{C}} &= \frac{1}{\text{C}} \int I dt\\
+            U_{\text{L}} &= \text{L} \cdot \dot{I}
+        \end{align*}
+        und unter Berücksichtigung von Beziehung \ref{eqn:Knoten} ergibt sich nach einer zeitlichen Ableitung pro Schwingkreis eine Differentialgleichung.
+        \begin{align}
+            \text{Schwingkreis 1:} \qquad L\ddot{I_1} + \frac{I_1}{C} + \frac{\left(I_1 - I_2\right)}{C_k} = 0 \\
+            \text{Schwingkreis 2:} \qquad L\ddot{I_2} + \frac{I_2}{C} - \frac{\left(I_1 - I_2\right)}{C_k} = 0 
+            \label{eqn:ProtoDGL}
+        \end{align}
+        Um homogene Differentialgleichungen zu erhalten werden nun die Differenz oder Summe der Ströme $I_1$ und $I_2$ betrachtet. Dies gelingt durch 
+        einfaches Addieren bzw. Subtrahieren der beiden Gleichungen \ref{eqn:ProtoDGL}. 
+        Die sich dadurch ergebenden homogenen Differentialgleichungen
+        \begin{align}
+            \text{Stromsumme} &: \qquad L \cdot \frac{d²}{dt²}\left(I_1+I_2\right) + \frac{1}{C} \cdot \left(I_1 + I_2\right) = 0 \\
+            \text{Stromdifferenz} &: \qquad L \cdot \frac{d²}{dt²}\left(I_1-I_2\right) + \left(\frac{1}{C}+\frac{2}{C_k}\right) \cdot \left(I_1 - I_2\right) = 0
+        \end{align}
+        Die Lösung zur Differentialgleichung der Stromsumme entspricht einer harmonischen Schwingung mit der Schwingungsfrequenz:
+        \begin{align}
+            \left(I_1 + I_2\right)(t) &= \left(I_{1,0} + I_{2,0}\right) \cdot cos(\frac{t}{\sqrt{\text{LC}}}) \\
+            \nu^+ &= (2\pi \cdot \sqrt{\text{LC}})^{-1} 
+            \label{eqn:nu+}
+        \end{align}
+        Diese Schwingungsfrequenz entspricht der eines einzelnen LC-Kreises und die Amplitude der Stromsumme entspricht der Summe der einzelnen 
+        Stromamplituden. \newline
+        Analog dazu schwingt die Lösung der Stromdifferenz mit der Differenz der einzelnen Stromamplituden und mit folgender Frequenz:
+        \begin{align}
+            \left(I_1 - I_2\right)(t) &= \left(I_{1,0} - I_{2,0}\right) \cdot cos\left[\frac{t}{\sqrt{\text{L} \cdot \left(\frac{1}{C}+\frac{2}{C_k}\right)^{-1}}}\right] \\
+            \nu^- &= \left[2\pi \cdot \sqrt{L \cdot \left(\frac{1}{C}+\frac{2}{C_k}\right)^{-1}}\right]^{-1} 
+            \label{eqn:nu-}
+        \end{align}
+        Um nun die eigentlich gesuchten Funktionen der einzelnen Ströme zu erhalten, muss der vorherige Trick wieder rückgängig, gemacht werden, also 
+        die Lösungen der Schwingungen addiert bzw. subtrahiert werden, sodass sich die Lösungen für die einzelnen Ströme ergeben.
+        \begin{align}
+            I_1(t) = \frac{1}{2}(I_{1,0}+I_{2,0}) \cdot cos(2\pi \nu^+t) + \frac{1}{2}(I_{1,0}-I_{2,0}) \cdot cos(2\pi \nu^-t) \\
+            I_2(t) = \frac{1}{2}(I_{1,0}+I_{2,0}) \cdot cos(2\pi \nu^+t) - \frac{1}{2}(I_{1,0}-I_{2,0}) \cdot cos(2\pi \nu^-t) 
+            \label{eqn:EinzelDGL}
+        \end{align}
+        Eine Betrachtung dieser beiden Differentialgleichungen lässt auf zwei Spezialfälle schließen. Der eine ergibt sich, wenn beide Anfangsamplituden gleich
+        sind. In diesem Fall verschwindet die zweite Fundamentalschwingung nämlich komplett und nur der $\nu⁺$-Anteil schwingt. Andersherum verschwindet der
+        $\nu⁺$-Anteil und die erste Fundamentalschwingung, wenn die Anfangsamplituden zwar betragsmäßig gleich sind, jedoch entgegengesetzte Vorzeichen haben.
+        Abgesehen von diesen Fundamentalschwingungen kann es auch zu einer Schwebung kommen, wenn zu Beginn nur einer der Schwingkreise schwingt und die 
+        Anfangsamplitude der anderen Schwingung demnach gleich null ist. Für diese Schwebungen ergben sich folgende Schwingungsgleichungen:
+        \begin{align}
+            I_1(t) &= I_{1,0} \cdot cos\left(\frac{1}{2}\left(\nu⁺ + \nu⁻\right)t\right) \cdot cos\left(\frac{1}{2}\left(\nu⁺ - \nu⁻\right)t\right) \qquad \text{bei} \; I_{2,0} = 0\\
+            I_2(t) &= I_{1,0} \cdot sin\left(\frac{1}{2}\left(\nu⁺ + \nu⁻\right)t\right) \cdot sin\left(\frac{1}{2}\left(\nu⁺ - \nu⁻\right)t\right)
+            \label{eqn:Schwebung}
+        \end{align} 
+        Bei der Schwebung ändert sich die Amplitude mit der Schwebungsfrequenz
+        \begin{equation}
+            \nu_{\text{Schwebung}} = \nu⁺ - \nu⁻ \\
+            \label{eqn:Schwebungsfrequenz}
+        \end{equation}
+        während die eigentliche Schwingung mit der Schwingungsfrequenz
+        \begin{equation}
+            \nu_{\text{Schwingung}} = \frac{1}{2}(\nu⁺ + \nu⁻) \qquad \text{und bei nahezu gleicher Frequenz} \qquad \nu_{\text{Schwingung}} \approx \nu⁺ \\
+            \label{eqn:SchwebungSchwingung}
+        \end{equation}
+        Der Unterschied zwischen diesen zwei Frequenzen ist in Abbildung \ref{fig:Schwebung} zu erkennen.
+        \begin{figure}[h]
+            \centering
+            \caption{Das Schwingverhalten einer Schwebung in der die Schwebungsfrequenz (oben) und die eigentliche Frequenz der Schwingung (unten) zu sehen ist.[1]}
+            \includegraphics[width = 0.4\linewidth]{Schwebung.png}
+            \label{fig:Schwebung}
+        \end{figure}
+
+    \subsection{Frequenzabhängigkeit des Stroms im kapazitiv gekoppelten Schwingkreis}
+        \begin{figure}[h]
+            \centering
+            \caption{Das Schaltbild des kapazitiv gekoppelten Schwingkreis bei äußerer Anregung durch einen Sinusgenerator. Die Widerstände stehen dabei für sämtliche in den Schwingkreisen auftretende Verluste. [1] }
+            \includegraphics[width = 0.4\linewidth]{Strom.png}
+            \label{fig:Strom}
+        \end{figure}
+        Für die in Abbildung \ref{fig:Strom} zu sehenden Maschen ergebn sich über die Kirchhoffsche Maschenregel folgende Terme:
+        \begin{align}
+            \text{Masche 1} &= (Z_C + Z_L + Z_{C_k} + Z_R) \cdot I_1 - Z_{C_k} \cdot I_2 = U \\
+            \text{Masche 2} &= (Z_C + Z_L + Z_{C_k} + Z_R) \cdot I_2 - Z_{C_k} \cdot I_1 = 0 
+            \label{eqn:Mascheangeregt}
+        \end{align}
+        Dabei stehen die Zs für die Impedanzen der Kondensatoren, Spulen und Widerstände.
+        \begin{align*}
+            Z_C = -j\frac{1}{\omega C} \qquad Z_L= j\omega L \qquad  Z_{C_k} = -j\frac{1}{\omega C_k} \qquad Z_R = R \\
+        \end{align*}
+        Durch Eliminieren von $I_1$ lässt sich aus \ref{eqn:Mascheangeregt} folgende Formel für den Betrag von $I_2$ herleiten:
+        \begin{align}
+            |I_2| = |U| \cdot \frac{1}{\sqrt{4\omega²C_k^2R²Z(\omega)²+\left(\frac{1}{\omega C_k}-\omega C_kZ(\omega)²+\omega R^2 C_k\right)²}} \\
+            \text{mit} \qquad Z(\omega) = \omega L - \frac{1}{\omega}\left(\frac{1}{C} + \frac{1}{C_k}\right) 
+            \label{eqn:Z(w)}
+        \end{align} 
+        Bei zwei Resonanzfrequenzen wird $I_2$ maximal. Die zugehörigen maximalen Ströme lassen sich wiefolgt berechnen:
+        \begin{align}
+            |I(\omega⁺)| = |U| \cdot \frac{1}{R \cdot \sqrt{4 + \frac{R²C_k^2}{LC}}} \\
+            |I(\omega⁻)| = |U| \cdot \frac{1}{R \cdot \sqrt{4 + \frac{R²C_k^2}{LC} \cdot \left(1 + \frac{C}{C_k}\right)}} 
+            \label{eqn:Resonanzstrom}
+        \end{align}
+        In der Praxis lassen sich beide Ströme durch 
+        \begin{equation}
+            |I(\omega⁺)| \approx |I(\omega⁻)| \approx \frac{1}{2R} \\
+            \label{eqn:Näherung}
+        \end{equation}
+        annähern, da der restliche Teil der Wurzelterme vernachlässigbar klein ist.
+
+    \section{Durchführung}
+    \subsection{Justierung}
+        Gekoppelte Schwingungen basieren darauf, dass die einzelnen Schwinger untereinander Energie übetragen. Damit dieser Prozess vollständig ablaufen kann
+        müssen die beiden Schwingkreise auf dieselbe Resonanzfrequenz justiert werden. Dazu wird zunächst über Schaltung \ref{fig:Justierung} die 
+        Resonanzfrequenz des Schwingkreises mit fester Kapazität bestimmt. Dies geschieht indem die Phasenverschiebung zwischen Generatorspannung und 
+        Schwingkreisstrom gemessen wird. Dazu werden die im XY-Betrieb entsstehenden Lissajous-Figuren verwendet, da sie verschwinden, wenn die 
+        Resonanzfrequenz erreicht ist. Der andere Schwingkreis wird daraufhin mit derselben Schaltung auf die gemessene Resonanzfrequenz justiert, indem 
+        dessen Kapazität variiert wird bis auch hier die Lissajous-Figur zu einer Geraden wird.
+        \begin{figure}[h]
+            \centering
+            \caption{Das Schaltbild zur Justierung der beiden Schwingkreise. [1]}
+            \includegraphics[width = 0.4\linewidth]{Justierung.png}
+            \label{fig:Justierung}
+        \end{figure}
+
+    \subsection{Energieaustausch}
+        Zunächst soll der Energieaustausch zwischen den beiden Schwingkreisen beobachtet werden. Hierfür wird einer der Schwingkreise durch ein Rechtecksignal
+        extern angeregt und die Spannung des anderen, nicht angeregten Stromkreises am Oszilloskop dargestellt. Das zugehörige Schaltbild findet sich in 
+        Abbildung \ref{fig:Energieaustausch}. Auf dem Oszilloskopbild kann die Schwebung direkt erkannt werden und das Verhältnis aus Schwebungs- und Schwingungsfrequenz ermittelt
+        werden, indem die Maxima oder Minima der Schwingung innerhalb einer Schwebung abgezählt werden. Dieses Vorgehen wird für verschiedene Kapazitäten des
+        Koppelkondensators $C_k$ wiederholt.
+        \begin{figure}[h]
+            \centering
+            \caption{Das Schaltbild zur Beobachtung des Energieaustauschs zwischen den beiden Schwingkreisen. [1]}
+            \includegraphics[width = 0.4\linewidth]{Energieaustausch.png}
+            \label{fig:Energieaustausch}
+        \end{figure}
+
+    \subsection{Messung der Fundamentalfrequenzen}
+          Nun sollen die Fundamentalfrequenzen in Abhängigkeit von verschiedenen Kapazitäten des Koppelkondensators $C_k$ gemessen werden. Dazu wird dieselbe Schaltung 
+          genutzt mit dem Unterschied, dass über einen Sinusgenerator angeregt wird. Die Generatorspannung und die des nicht extern angeregten Schwingkreises werden
+          werden im XX-Betrieb auf das Oszilloskop gegeben und die Frequenz wird wieder über Lissajous-Figuren ermittelt. Sie sind vorhanden, wenn eine 
+          Phasenverschiebung von 0 (aufsteigende Gerade auf Oszilloskop) oder $\pi$ (absteigende Gerade auf Oszilloskop) vorliegt. 
+          
+    \subsection{Messung des frequenzabhängigen Stromverläufe}
+          Um den Verlauf der Stomstärken zu messen wird eine Schaltung genutzt, die der in Abbildung \ref{fig:Stromverlauf} ähnelt. Der Unterschied liegt darin, dass kein 
+          XY-Schreiber vorhanden ist und die Stromstärke daher anders bestimmt werden muss. Daher wird die an R abfallende Spannung  für beide 
+          Fundamentalschwingungen über ein Oszilloskop gemessen. Dies erfolgt unter Variation der Kapazität des Koppelkondensators. Die Stromstärke wird 
+          später über die gemessenen Spannungen und die Widerstände der Schaltung bestimmt. 
+          \begin{figure}[h]
+            \centering
+            \caption{Das Schaltbild zur Beobachtung des Energieaustauschs zwischen den beiden Schwingkreisen. [1]}
+            \includegraphics[width = 0.4\linewidth]{Stromverlauf.png}
+            \label{fig:Stromverlauf}
+          \end{figure}
+    
+    \section{Auswertung}
+          Hier wird die zweite Schaltung benutzt und für die einzelnen Messreihen verkabelt. Diese hat folgende Kenngrößen:
+          \begin{table}[h]
+            \centering
+            \caption{Die Werte des Schingkreises für die Induktivität, die Kapazität der Spule und die Kapazität des Kondensators.}
+            \label{tab:TabelleWerte}
+            \begin{tabular}{l c l}
+                %\toprule
+                $L$ & = & $23,954 \cdot 10^{-3} \text{H}$ \\
+                $C_\text{Sp}$ & = & $0,028 \cdot 10^{-9} \text{F}$ \\
+                $C$ & = & $0,7932 \cdot 10^{-9} \text{F}$
+                %\bottomrule
+            \end{tabular}
+        \end{table}
+        \FloatBarrier
+        \noindent
+        Die Kapazität des Koppelkondensators $C_\text{K}$ ist auf die Werte $0,997 \, \text{nF}$, $2,19 \, \text{nF}$, $2,86 \, \text{nF}$, $4,74 \, \text{nF}$,
+        $6,86 \, \text{nF}$, $8,18 \, \text{nF}$, $9,99 \, \text{nF}$, $12,0 \, \text{nF}$ mit einer Ungenauigkeit von $3\%$ einstellbar.
+
+        \noindent
+        Im Folgenden werden die Unsicherheiten mit der Gaußschen Fehlerfortpflanzung bestimmt bei $S$ fehlerbehafteten Größen $x_n$.
+        \begin{equation}
+            \sigma_f = \sqrt{\sum_{n=1}^{S} \biggl(\frac{\partial f}{\partial x_n} \cdot \sigma_{x_n} \biggr)^2}
+            \label{eqn:gauß}
+        \end{equation}
+    
+    \subsection{Resonanzfrequenz aus Justierung}
+        Wie schon in der Durchführung der Justierung erwähnt, wird zuerst die Resonanzfrequenz eines Stromkreises mithilfe einer Lissajous-Figur bestimmt und 
+        dann die Kapazität am anderen Stromkreis so verändert, dass dieser die gleiche Resonanzfrequenz hat wie der vorherige. Die so bestimmte Resonanzfrequenz
+        des ersten Schwingkreises ist:
+        \begin{equation}
+            \nu_{\text{res}} = 35,8 \text{kHz}
+        \end{equation}
+
+    \subsection{Frequenzverhältnis von Schwebung und Überlagerungsschwingung}
+        Das Frequenzverhältnis von Schwebung und Überlagerungsschwingung wird über die Anzahl der Maxima in einer Schwebungsperiode ermittelt.
+        Dies wird mit dem Theoriewert verglichen, welcher wie folgt berechnet wird:
+        \begin{equation}
+            n_\text{t} = \frac{\nu_\text{t}^- + \nu_\text{t}^+}{2 (\nu_\text{t}^- - \nu_\text{t}^+)}
+        \end{equation}
+        Wobei die beiden Frequenzen der Fundamentalschwingungen $\nu_\text{t}^+$ und $\nu_\text{t}^-$ mit \eqref{eqn:nu+} und \eqref{eqn:nu-} berechnet werden.
+        Die Abweichung des Frequenzverhältnisses vom theoretischen Wert $a$ wird berechnet durch:
+        \begin{equation}
+            a = \frac{| n - n_\text{t} |}{n_\text{t}}
+        \end{equation}
+        \begin{table}[h]
+            \centering
+            \caption{Die Kopplungskapazitäten, die theoretischen Frequenzen der Fundamentalschwingungen, das theoretische Frequenzverhältnis, das experimentell bestimmte Frequenzverhältnis und die Abweichung des Wertes vom Theoriewert.}
+            \label{tab:Tabelle1}
+            \begin{tabular}{c c c c c c}
+                \toprule
+                {$C_\text{k} / \text{nF}$} & {$\nu_\text{t}^+ / \text{kHz}$} & {$\nu_\text{t}^+ / \text{kHz}$} & {$n_\text{t}$} & {$n$} & {$a / \%$}\\
+                \midrule
+                2,19 & 35,88 & 46,55 & 3,86  & 3  & 22,37 \\
+                2,86 & 35,88 & 44,33 & 4,75  & 4  & 15,81 \\
+                4,74 & 35,88 & 41,22 & 7,22  & 7  & 3,08  \\
+                6,86 & 35,88 & 39,76 & 9,76  & 9  & 7,82  \\
+                8,18 & 35,88 & 39,08 & 11.73 & 11 & 6,19  \\
+                9,99 & 35,88 & 38,52 & 14,09 & 13 & 7,75  \\
+                12,0 & 35,88 & 38,10 & 16,71 & 16 & 4,30  \\
+                \bottomrule
+            \end{tabular}
+        \end{table}
+        \FloatBarrier
+        \noindent
+        
+    
+    \subsection{Bestimmung der Fundamentalfrequenzen}
+        Wie schon in der Durchführung erläutert werden die Fundamentalfrequenzen für die variierte Kopplungskapazität mithilfe von Lissajous-Figuren ermittelt.
+        Die Abweichungen von den Theoriewerten werden berechnet mit:
+        \begin{equation}
+            a_\nu = \frac{| \nu - \nu_\text{t} |}{\nu_\text{t}}
+        \end{equation}
+        \begin{table}[h]
+            \centering
+            \caption{Die theoretischen und gemessenen Werte für die Fundamentalfrequenzen und ihre Abweichungen.}
+            \label{tab:Tabelle2}
+            \begin{tabular}{c c c c c c c}
+                \toprule
+                {$C_\text{k} / \text{nF}$} & {$\nu_\text{t}^+ / \text{kHz}$} & {$\nu^+ / \text{kHz}$} & {$a_{\nu^+} / \%$} & {$\nu_\text{t}^- / \text{kHz}$} & {$\nu^- / \text{kHz}$} & {$a_{\nu^-} / \%$}\\
+                \midrule
+                0,997 & 35,88 & 35,8 & 0,24 & 56,26 & 56,4 & 0,25 \\
+                2,19  & 35,88 & 35,8 & 0,24 & 46,55 & 46,8 & 0,53 \\
+                2,86  & 35,88 & 35,8 & 0,24 & 44,33 & 44,6 & 0,62 \\
+                4,74  & 35,88 & 35,8 & 0,24 & 41,22 & 41,5 & 0,67 \\
+                6,86  & 35,88 & 35,8 & 0,24 & 39,76 & 40,0 & 0,61 \\
+                8,18  & 35,88 & 35,8 & 0,24 & 39,08 & 39,4 & 0,82 \\
+                9,99  & 35,88 & 35,8 & 0,24 & 38,52 & 38,9 & 0,97 \\
+                12,0  & 35,88 & 35,8 & 0,24 & 38,10 & 38,5 & 1,06 \\
+                \bottomrule
+            \end{tabular}
+        \end{table}
+        \FloatBarrier
+
+        \begin{figure}[h]
+            \centering
+            \caption{Die experimentellen und theoretischen Werte der Fundamentalfrequenzen gegen die Kopplungskapazitäten aufgetragen.}
+            \includegraphics[width = 0.8\linewidth]{Frequenzverlauf.pdf}
+            \label{fig:Stromverlauf}
+        \end{figure}
+        \FloatBarrier
+        \noindent
+
+    \subsection{Abhängigkeit des Stromes von den Fundamentalfrequenzen}
+        Bei den Fundementalfrequenzen $\omega^+ = \nu^+ \cdot 2\pi$ und $\omega^- = \nu^- \cdot 2\pi$ gilt für die beiden Ströme \ref{eqn:Resonanzstrom}
+        in den beiden Schwingungskreisen siehe \ref{fig:Stromverlauf}.
+        \begin{figure}[h]
+            \centering
+            \caption{Die Ströme bei den Fundamentalfrequenzen gegen die Kopplungskapazitäten aufgetragen.}
+            \includegraphics[width = 0.8\linewidth]{Stromverlauf.pdf}
+            \label{fig:Stromverlauf}
+        \end{figure}
+
+
+\section{Diskussion}
+Die vergleichsweise großen Abweichungen der beiden ersten Werte bei dem Frequenzverhältnis von Schwebung und Überlagerungsschwingung liegt daran, dass es 
+Ableseschwierigkeiten bei der Anzahl der Maxima bei kleinem Frequenzverhältnis gibt, weil versucht wurde die nächsten ganzzahligen Werte abzulesen.
+Wie erwartet ist die Resonanzfrequenz $\nu^+$ unabhängig von der Kopplungkapazität, da über sie keine Energie übertragen wird und deshalb die zwei
+Schwingkreise als einer angesehen werden. Die Abweichungen der Frequenz bei gegenphasiger Schwingung ist kleiner als 1\%, was auf eine ziemlich genaue
+Messung deutet. Der Vergleich der gemessenen und theoretischen Stromverläufe liefert ebenfalls ein zufriedenstellendes Ergebnis, da die Messwerte nur eine
+geringe Abweichung von zu einer Konstanten aufweisen und diese auch nahe des y-Wertes der Theoriegeraden liegt. Vorhandene Abweichungen entstehen durch den
+Dämpfungseffekt der Spule. 
+
+\newpage
+\section{Literaturverzeichnis}
+        [1] \textit{Versuchsanleitung V355 - Gekoppelte elektrische Schwingungen.} TU Dortmund, 2019 \newline
+
+
+\end{document}
+          
