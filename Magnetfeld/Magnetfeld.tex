@@ -66,7 +66,7 @@
     \section{Zielsetzung}
       Es werden magnetische Flussdichten von Spulen in Abhängigkeit vom Ort gemessen, um sie mit den theoretischen Werten vergleichen zu können. Aus dem
       gleichen Grund wird analog die magnetische Flussdichte eines Spulenpaares in verschiedenen Abständen zueinander gemessen. Außerdem wird mithilfe der
-      Hysteresekurve eines Toroides mit Eisenkern seine megnetische Flussdichte, Remanenz, Koerzitivkraft und Sättigungsmagnetisierung gemessen.
+      Hysteresekurve eines Toroides mit Eisenkern seine magnetische Flussdichte, Remanenz, Koerzitivkraft und Sättigungsmagnetisierung gemessen.
 
     \section{Theoretische Grundlagen}
       Wird eine Ladung bewegt, so wird ein Magnetfeld erzeugt. Dieses Magnetfeld wird durch Magnetfeldlinien dargestellt, welche im Gegensatz zu den
@@ -104,9 +104,9 @@
       \end{equation}
       Werden die beiden Enden eines Solenoides zu einer kreisfprmigen Spule (Toroid) des Umfanges $L = 2 \pi r_\text{T}$ verbunden, so verschwinden die Randeffekte und somit das Magnetfeld
       außerhalb der Spule. Innerhalb der Spule ist das Magnetfeld homogen und es gilt dafür:
-      \begin{equation}
-        B = \mu_0 \mu_r \frac{n}{2 \pi r_\text{T}} I
-      \end{equation}
+      \begin{align}
+        B = \mu_0 \mu_r \frac{n}{2 \pi r_\text{T}} I && \text{oder} &&& H = \mu_r \frac{n}{2 \pi r_\text{T}} I
+      \end{align}
       Um ein homogenes Magnetfeld zu erzeugen wird oft das sogenannte Helmholz-Spulenpaar verwendet. Es besteht aus zwei Spulen mit gleichem Radius $R$ und
       gleicher Windungszahl $n$, die in gleicher Richtung vom Strom $I$ durchflossen werden und wie in \ref{fig:helmholz} im Abstand von $R$ voneinander entfernt sind.
       \begin{figure}[h]
@@ -122,6 +122,8 @@
         \vec{B}(x) = \frac{\mu_0 I n R^2}{(R^2 + x^2)^{3/2}} \\
         \label{eqn:FormelHelm}
       \end{equation}
+      Paramagnetische Materialien haben ohne äußeres Magnetfeld kein inneres magnetisches Moment. Erst wenn ein Magnetfeld angelegt wird folgt die Magnetisierung des Stoffes diesem.
+      Diamagnetische Stoffe sind wie die paramagnetischen Stoffe nichtmagnetisch, doch im Gegensatz dazu entwickeln sie unter Einfluss eines äußeren Magnetfeldes ein entgegengesetztes Magnetfeld. \\
       Unmagnetisierte ferromagnetische Materialien bestehen aus kleinen magnetischen Momenten, die ohne äußeres Magnetfeld statistisch / "willkürlich" verteilt sind.
       Wird jetzt ein äußeres Magnetfeld angelegt, richten sich diese magn. Momente in Richtung der magn. Feldlinien aus und verstärken das ursprüngliche Mangetfeld.
       Dabei ist die Magnetisierung des Materials irreversibel, weshalb die Magnetisierungskurve (Hysteresekurve) nicht linear ist. Sie fängt bei
@@ -145,8 +147,8 @@
       \end{equation}
 
     \section{Durchführung}
-      \subsection{Magnetfledmessung einer Spule}
-        Hierbei wurden die Magnetfelder zweier verschiedener stromdurchflossener Spulen ausgemessen. Dazu wird eine longitudinale Hall-Sonde parallel in die
+      \subsection{Magnetfeldmessung einer Spule}
+        Hierbei werden die Magnetfelder zweier verschiedener stromdurchflossener Spulen ausgemessen. Dazu wird eine longitudinale Hall-Sonde parallel in die
         Mitte der Spule eingeführt und die magn. Flussdichte abhängig vom Ort, außerhalb und innerhalb in 1cm Schritten gemessen. Bei ausreichend kurzen Spulen reicht es aus nur von einer Seite aus
         zu messen, doch ist die Spule zu lang kann von zwei Seiten aus gemessen werden, um durchgehend (auch in der Mitte der Spule) Messwerte aufnehmen zu
         können.
