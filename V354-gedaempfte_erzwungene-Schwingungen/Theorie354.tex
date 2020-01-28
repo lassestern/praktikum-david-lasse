@@ -92,7 +92,7 @@
             \end{equation}  
             Durch Einsetzen der bekannten Formeln für die Spannungen an den einzelnen Bauteilen und der Definition des Stroms,
             \begin{align}
-                U_{\text{R}}(t) = R \cdot I(t) & U_{\text{C}}(t) = \frac{Q(t)}{C} & U_{\text{L}}(t) = L \cdot \dot{I} & I = \dot{Q} 
+                U_{\text{R}}(t) = R \cdot I(t) &\qquad U_{\text{C}}(t) = \frac{Q(t)}{C} & U_{\text{L}}(t) = L \cdot \dot{I} &\qquad I = \dot{Q} 
                 \label{eqn:Spannungen}
             \end{align}
             ergibt sich die Differentialgleichung für die gedämpfte Schwingung.
@@ -105,7 +105,7 @@
             \end{equation*} 
             ergibt folgende Formel für die Schwingfrequenz $\omega$:
             \begin{equation}
-                \omega_{\text{1,2}} = i\frac{R}{2L} \pm \sqrt{\frac{1}{LC}\frac{R^2}{4L^2}}
+                \omega_{\text{1,2}} = i\frac{R}{2L} \pm \sqrt{\frac{1}{LC} + \frac{R^2}{4L^2}}
                 \label{eqn:omega}
             \end{equation}
             Da die Wurzel zu zwei unterschiedlichen Frequenzen führt, wird die Lösung der Differentialgleichung durch eine Kombination von E-Funktionen
@@ -164,12 +164,12 @@
             \FloatBarrier
             Die äußere Anregung erzeugt eine Inhomogenität in der zugehörigen Differentialgleichung.
             \begin{equation}
-                \text{LC}\ddot{U_{\text{C}}(t)} + \text{RC} \dot{U_{\text{C}}(t)} + U_{\text{C}}(t) = U_0 \cdot e^{i\omega t}
+                \text{LC}\ddot{U}_{\text{C}}(t) + \text{RC} \dot{U_{\text{C}}(t)} + U_{\text{C}}(t) = U_0 \cdot e^{i\omega t}
                 \label{eqn:angeregt}
             \end{equation}
             Diese Gleichung lässt sich nach 
             \begin{equation*}
-                U(\omega) mit U_\text{C}(\omega,t) = U(\omega) \cdot e^{i\omega t}
+                U(\omega) \quad \text{mit} \quad U_\text{C}(\omega,t) = U(\omega) \cdot e^{i\omega t}
             \end{equation*}
             auflösen:
             \begin{equation}
@@ -183,8 +183,8 @@
             \end{equation}
             Das Betrachten dieser Beziehung liefert Schlüsse auf den Zusammenhang zwischen Frequenzen und Phasenverschiebungen. So gilt,
             \begin{align}
-                \phi_1 = \frac{\pi}{4}  & \omega_1 = + \frac{\text{R}}{\text{2L}} + \sqrt{\frac{\text{R²}}{4L²} + \frac{1}{\text{LC}}}, \\
-                \phi_2 = \frac{3\pi}{4} & \omega_2 = - \frac{\text{R}}{\text{2L}} + \sqrt{\frac{\text{R²}}{4L²} + \frac{1}{\text{LC}}}.
+                \phi_1 = \frac{\pi}{4}  &\qquad \omega_1 = + \frac{\text{R}}{\text{2L}} + \sqrt{\frac{\text{R²}}{4L²} + \frac{1}{\text{LC}}}, \\
+                \phi_2 = \frac{3\pi}{4} &\qquad \omega_2 = - \frac{\text{R}}{\text{2L}} + \sqrt{\frac{\text{R²}}{4L²} + \frac{1}{\text{LC}}}.
                 \label{eqn:freq}
             \end{align}
             Daraus kann direkt die Differenz von $\omega_1$ und $\omega_2$ abgelesen werden.
@@ -198,7 +198,7 @@
                 U_{\text{C}}(\omega) = \frac{U_0}{\sqrt{\left(1-\text{LC}\omega^2\right)^2 + \omega^2\text{R²C²}}}
                 \label{eqn:Uvonw}
             \end{equation}  
-            Eine Untersuchung des Grenzverhaltens der Gleichung zeigt, dass die Spanung $U_{\text{C}}$ für gegen \infty gehende Frequenzen gegen Null und für
+            Eine Untersuchung des Grenzverhaltens der Gleichung zeigt, dass die Spanung $U_{\text{C}}$ für gegen $\infty$ gehende Frequenzen gegen Null und für
             gegen Null gehende Frequenzen gegen die Erregerspannung $U_0$ geht. Eine ganz besondere Frequenz ist die Resonanzfrequenz,
             \begin{equation}
                 \omega_{\text{Res}} = \sqrt{\frac{1}{\text{LC}}-\frac{\text{R²}}{\text{2L²}}},
@@ -211,7 +211,7 @@
             \end{equation*} 
             läuft die Resonanzfrequenz gegen die Frequenz des unangeregten Schwingkreises
             \begin{equation*}
-                \omega_0^2 = \frac{1}{\text{L²C²}}
+                \omega_0^2 = \frac{1}{\text{LC}}
             \end{equation*}
             und die Spannung $U_{\text{C}}$ nimmt das $q$-fache der Erregerspannung $U_0$ an.
             $q$ beschreibt dabei die Güte des Schwingkreises und ist definiert als:
@@ -227,7 +227,8 @@
             \end{align*} 
             sodass sich für die Breite
             \begin{equation}
-                \omega_+ - \omega_- \circ \frac{\text{R}}{\text{L}}
+                \omega_+ - \omega_- \propto \frac{\text{R}}{\text{L}}
+                \label{eqn:breiteResonanzkurve}
             \end{equation}
             ergibt. Diese gleicht nun im Fall einer Schwachen Dämpfung der Differenz von $\omega_1$ und $\omega_2$ \ref{eqn:w1-w2}.
 
@@ -279,6 +280,193 @@
                 \label{fig:MessungD}
               \end{figure}
               \FloatBarrier
+
+    \section{Auswertung}
+        Die notierten Werte sind
+        \begin{align}
+            L &= (10,11 \pm 0,03) \text{mH} \\
+            C &= (2,093 \pm 0,003) \text{nF} \\
+            R_1 &= (48,1 \pm 0,1) \Omega \\
+            R_2 &= (509,5 \pm 0,5) \Omega
+        \end{align}
+        Diese Werte sind die Kenngrößen des Schwingkreises und werden in weiteren Rechnungen verwendet.
+        \subsection{Frequenzabhängigkeit der Spannungsamplitude}
+            Es wird die Zeitabhängigkeit der Spannungsamplitude untersucht. Dazu wird der Verlauf der Amplitude mit einer Thoeriekurve verglichen.
+            \begin{table}[h]
+                \centering
+                \caption{Die Werte der Amplituden in einer Schwingung.}
+                \label{tab:Tabelle1}
+                \begin{tabular}{c c}
+                    \toprule
+                    {$t / \mu\text{s}$} & {$U_\text{Amplitude} / \text{mV}$}\\
+                    \midrule
+                    0  &  145 \\ 
+                    16 & -140 \\
+                    28 &  122 \\ 
+                    44 & -117 \\
+                    58 &  104 \\ 
+                    73 & -100 \\
+                    87 &  88  \\
+                    102 & -82 \\
+                    118 & 74  \\
+                    133 & -71 \\
+                    147 & 62  \\
+                    163 & -60 \\
+                    178 & 52  \\
+                    195 & -50 \\
+                    211 & 44  \\
+                    226 & -42 \\
+                    \bottomrule
+                \end{tabular}
+            \end{table}
+            \FloatBarrier
+            \noindent
+            Dabei sind die positiven Werte jeweils die Werte Spannungsmaxima und die negativen Werte sind den Spannungsminima zugehörig.
+            \begin{figure}[h]
+                \centering
+                \caption{Die gefitteten Messwerte und die Theoriekurve zu den Messwerten aus \ref{tab:Tabelle1}.}
+                \includegraphics[width = 0.7\linewidth]{Spannungsamplituden.pdf}
+                \label{fig:Spannungsamplituden}
+            \end{figure}
+            \FloatBarrier
+            \noindent
+            Aus den Parametern $A_0$ und $\mu$ der Fit-Funktion
+            \begin{equation*}
+                A = A_0 \cdot e^{-2 \pi \mu t}
+            \end{equation*}
+            werden der effektiven Dämpfungswiderstand und $R_\text{eff}$ und die Abklingzeit $T_\text{ex}$ berechnet mit \eqref{eqn:Dämpffall}:
+            \begin{align}
+                R_\text{eff} &= (114,8 \pm 2,4) \; \Omega \\
+                T_\text{ex} &= (176 \pm 4) \; \mu \text{s}
+            \end{align}
+            Der Widerstand in der benutzten Schaltung $R_1 = (48,1 \pm 0,1) \Omega$ weicht um $66,7 \Omega$ von dem berechnete effektiven Dämpfungswiderstand
+            ab. Das kann an dem nicht miteinbezogenen Innenwiderstand des Generators von $50 \Omega$ liegen.
+
+        \subsection{Widerstand für aperiodischen Grenzfall}
+            Wie schon in der Durchführung erläutert variiert man den Dämpfungswiderstand in der Schaltung bis es gerade keinen Nulldurchgang der Spannung gibt.
+            Dieser Wert ist dann der Widerstand für den der aperiodische Grenzfall vorliegt.
+            \begin{equation*}
+                R_\text{ap} = 3470 \; \Omega
+            \end{equation*}
+            Mit
+            \begin{equation*}
+                \frac{R_\text{ap}²}{2L²} = \frac{1}{LC}
+            \end{equation*} 
+            berechnet man den Theoriewert des Widerstandes welcher bei
+            \begin{equation*}
+                R_{ap_t} = 4396 \; \Omega
+            \end{equation*}
+            liegt.
+            Es wird die Abweichung vom Theoriewert folgendermaßen bestimmt
+            \begin{equation}
+                a_{R_{ap}} = \frac{|R_{ap_t} - R_\text{ap}|}{R_{ap_t}} = 21,06 \%
+                \label{eqn:abweichung}
+            \end{equation}
+            Der Messwert scheint nicht zu weit vom Theoriewert abzuweichen. Mögliche Fehlerquellen könnten das ungenaue Ablesen und der nicht akkurat einstellbare Drehknopf des variierbaren Widerstandes sein.
+            
+        \subsection{Frequenzabhängigkeit der Kondensatorspannung}
+            In \ref{tab:Tabelle2} stehen die Messwerte der Frequenz $f$, der Kondensatorspannung $U_\text{C}$ und der Erregerspannung $U_0$.
+            \begin{table}[h]
+                \centering
+                \caption{Die Messwerte der Spannungen, ihrer Phase, Frequenz aufgetragen.}
+                \label{tab:Tabelle2}
+                \begin{tabular}{c c c c}
+                    \toprule
+                    {$f / \text{kHz}$} & {$U_\text{C} / \text{mV}$} & {$U_0 / \text{mV}$} & {$\varphi / \mu$s} \\
+                    \midrule
+                    10   &  121 & 430 & -   \\
+                    15   &  134 & 430 & 1,7 \\
+                    18   &  148 & 430 & 2   \\
+                    20   &  162 & 425 & 2,1 \\
+                    22   &  180 & 425 & 2,4 \\
+                    24   &  200 & 425 & 2,7 \\
+                    26   &  230 & 420 & 3   \\
+                    28   &  275 & 410 & 3,5 \\
+                    30   &  330 & 400 & 4,5 \\
+                    32   &  390 & 395 & 6   \\
+                    34   &  410 & 390 & 7,9 \\
+                    36   &  350 & 395 & 9,5 \\
+                    38   &  275 & 410 & 10  \\
+                    40   &  215 & 415 & 10,5\\
+                    42   &  170 & 420 & 10,5\\
+                    44   &  145 & 420 & 10  \\
+                    46   &  115 & 425 & 10  \\
+                    48   &  97  & 425 & 10  \\
+                    50   &  87  & 425 & 9,7 \\
+                    55   &  75  & 425 & 9   \\
+                    57.5 &  55  & 427 & 8,5 \\
+                    \bottomrule
+                \end{tabular}
+            \end{table}
+            \FloatBarrier
+            \noindent
+            Aus \ref{fig:Spannungsverhaeltnis} kann die Resonanzfrequenz bestimmt und dann mit dem Theoriewert verglichen werden.
+
+            \begin{figure}[h]
+                \centering
+                \caption{Die Messwerte halblogarithmisch für das Spannungsverhältnis aus \ref{tab:Tabelle2} gegen die Frequenz aufgetragen.}
+                \includegraphics[width = 0.7\linewidth]{Spannungsverhaeltnis_log.pdf}
+            \end{figure}
+            \FloatBarrier
+            \begin{figure}[h]
+                \centering
+                \caption{Die Messwerte linear für das Spannungsverhältnis aus \ref{tab:Tabelle2} gegen die Frequenz aufgetragen.}
+                \includegraphics[width = 0.7\linewidth]{Spannungsverhaeltnis.pdf}
+                \label{fig:Spannungsverhaeltnis}
+            \end{figure}
+            \FloatBarrier
+            \noindent
+            Aus \ref{fig:Spannungsverhaeltnis} ist eine Resonanzfrequenz von ca. $f_\text{res} = 35 \;$kHz ablesbar, welche analog zu \eqref{eqn:abweichung}
+            mit dem Theoriewert von $f_\text{res} = 34,59 \;$kHz verglichen wird:
+            \begin{equation*}
+                a_{f_\text{res}} =  11,72 \%
+            \end{equation*}
+            Die Güte wird einfach an \ref{fig:Spannungsverhaeltnis} abgelesen und mit \eqref{eqn:Güte} wird der theoretische Wert berechnet:
+            \begin{align}
+                q &= 1,08 \\
+                q_\text{theorie} &= 19,14 \\
+                a_\text{q} &= 94,38 \%
+            \end{align}
+            Es scheint, dass es einen systematischen Fehler in unserer Berechnung gibt und der Theoriewert um eine Zehnerpotenz zu groß ist.
+            Die theoretische Breite der Resonanzkurve wird nach \eqref{eqn:w1-w2} bestimmt und die experimentell bestimmte Breite wird aus
+            \ref{fig:Spannungsverhaeltnis} abgelesen:
+            \begin{align}
+                \nu_1 - \nu_2 &= 9 \; \text{kHz} \\
+                (\nu_1 - \nu_2)_\text{Theorie} &= 1,807 \; \text{kHz} \\
+                a_{\nu} &= 398 \%                
+            \end{align}
+            Auch hier gibt es augenscheinlich eine sehr große Abweichung, welcher wahrscheinlich einem Fehler in der Berechnung zuzuschulden ist.
+
+            \begin{figure}[h]
+                \centering
+                \caption{Die Messwerte halblogarithmisch für die Phase aus \ref{tab:Tabelle2} gegen die Frequenz aufgetragen.}
+                \includegraphics[width = 0.7\linewidth]{Phase_log.pdf}
+            \end{figure}
+            \FloatBarrier
+            \begin{figure}[h]
+                \centering
+                \caption{Die Messwerte linear für die Phase aus \ref{tab:Tabelle2} gegen die Frequenz aufgetragen.}
+                \includegraphics[width = 0.7\linewidth]{Phase.pdf}
+                \label{fig:phase}
+            \end{figure}
+            \FloatBarrier
+            \noindent
+            Hier ist aus \ref{}eine Resonanzfrequenz von ca. $f_\text{res} = 34 \;$kHz abzulesen, die vom zuvor berechneten Theoriewert von
+            $f_\text{res} = 34,59 \;$kHz um $a_res = 1,72 \%$ abweicht.
+            Mit \eqref{eqn:omega} werden $\nu_\text{1, theo}$ und $\nu_\text{2, theo}$ berechnet. Also die Frequenzen für die die Phase zwischen
+            Erregerspannung und Kondensatorspannung $\frac{\pi}{4}$ und $\frac{3\pi}{4}$ beträgt.
+            \begin{align}
+                \nu_\text{1, theo} &= 34.98 \; \text{kHz} \\
+                \nu_\text{2, theo} &= 34.422 \; \text{kHz}
+            \end{align}
+
+
+        \section{Diskussion}
+            Von der Form her sehen die einzelnen Graphen so aus wie es erwartet wird. Die Werte für den effektiven Dämpfungswiderstand und den Grenzwiderstand
+            für den aperiodischen Grenzfall liegen im Toleranzbereich, wenn man den Innenwiderstand des Generators mit einbezieht. Doch die Werte für die
+            Güte und die Breite der Resonanzkurve weichen sehr stark von ihren jeweiligen Theoriewerten ab, was möglicherweise zum Teil einem nicht so genauen
+            Ablesen der Werte und einem systematischen Fehler in der Rechnung, welcher auch nach wiederholtem Prüfen nicht behoben werden konnte, zu
+            verschulden ist.
 
     \section{Literaturverzeichnis}
         [1] \textit{Versuchsanleitung V354 - Gedämpfte und erzwungene Schwingungen.} TU Dormund, 2019
