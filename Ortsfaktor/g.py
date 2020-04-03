@@ -206,3 +206,24 @@ plt.ylabel(r"g [$m/s²$]")
 plt.legend(loc = "best")
 plt.savefig("5_s1.pdf")
 plt.clf()
+
+
+
+#Alle Messungen (Mittelwerte)
+
+
+Mittelwerte = ([g1mittel, g2mittel, g3mittel, g4mittel, g5mittel, g6mittel, g7mittel, g8mittel, g9mittel])
+StandardabweichungenMittelwerte = ([g1stanni, g2stanni, g3stanni, g4stanni, g5stanni, g6stanni, g7stanni, g8stanni, g9stanni])
+errX = ([0, 0, 0, 0, 0, 0, 0,0 ,0])
+errY = StandardabweichungenMittelwerte
+x3 = np.linspace(0, 9, 9)
+plt.axis([0, 10, 3, 11])
+#plt.plot( x3, Mittelwerte,  "x", label = r'Mittelwerte')
+#plt.plot( xg, g_plot, "-", label = r'Literaturwert')
+plt.errorbar(x3, Mittelwerte, xerr = 0, yerr=StandardabweichungenMittelwerte, fmt = "x")
+plt.ylabel(r"g [$m/s²$]")
+plt.legend(loc = "best")
+plt.savefig("Mittelwerte.pdf")
+plt.clf()
+print(StandardabweichungenMittelwerte)
+
