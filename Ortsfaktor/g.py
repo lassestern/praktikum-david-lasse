@@ -124,29 +124,32 @@ print(g6stanni)
 #Plots freier Fall
 g = const.g
 g_plot = np.array([g, g])
-xg = np.array([0, 20])
+xg = np.array([-1, 20])
 x=np.linspace(0, 20, 20)
-plt.axis([0, 20, 6, 11])
+plt.axis([0, 20, 3, 11])
 plt.plot( x, g9,  "x", label = r'Messwerte')
 plt.plot( xg, g_plot, "-", label = r'Literaturwert')
 plt.ylabel(r"g [$m/s²$]")
 plt.legend(loc = "best")
+plt.xticks([])
 plt.savefig("1415.pdf")
 plt.clf()
 
-plt.axis([0, 20, 6, 11])
+plt.axis([0, 20, 3, 11])
 plt.plot( x, g8,  "x", label = r'Messwerte')
 plt.plot( xg, g_plot, "-", label = r'Literaturwert')
 plt.ylabel(r"g [$m/s²$]")
 plt.legend(loc = "best")
+plt.xticks([])
 plt.savefig("1036.pdf")
 plt.clf()
 
-plt.axis([0, 20, 6, 11])
+plt.axis([0, 20, 3, 11])
 plt.plot( x, g7,  "x", label = r'Messwerte')
 plt.plot( xg, g_plot, "-", label = r'Literaturwert')
 plt.ylabel(r"g [$m/s²$]")
 plt.legend(loc = "best")
+plt.xticks([])
 plt.savefig("706.pdf")
 plt.clf()
 
@@ -159,6 +162,7 @@ plt.plot( x2, g1,  "x", label = r'Messwerte')
 plt.plot( xg, g_plot, "-", label = r'Literaturwert')
 plt.ylabel(r"g [$m/s²$]")
 plt.legend(loc = "best")
+plt.xticks([])
 plt.savefig("10_s1.pdf")
 plt.clf()
 
@@ -168,6 +172,7 @@ plt.plot( x2, g2,  "x", label = r'Messwerte')
 plt.plot( xg, g_plot, "-", label = r'Literaturwert')
 plt.ylabel(r"g [$m/s²$]")
 plt.legend(loc = "best")
+plt.xticks([])
 plt.savefig("10_s2.pdf")
 plt.clf()
 
@@ -177,6 +182,7 @@ plt.plot( x2, g3,  "x", label = r'Messwerte')
 plt.plot( xg, g_plot, "-", label = r'Literaturwert')
 plt.ylabel(r"g [$m/s²$]")
 plt.legend(loc = "best")
+plt.xticks([])
 plt.savefig("15_s1.pdf")
 plt.clf()
 
@@ -186,6 +192,7 @@ plt.plot( x2, g4,  "x", label = r'Messwerte')
 plt.plot( xg, g_plot, "-", label = r'Literaturwert')
 plt.ylabel(r"g [$m/s²$]")
 plt.legend(loc = "best")
+plt.xticks([])
 plt.savefig("15_s2.pdf")
 plt.clf()
 
@@ -195,6 +202,7 @@ plt.plot( x2, g5,  "x", label = r'Messwerte')
 plt.plot( xg, g_plot, "-", label = r'Literaturwert')
 plt.ylabel(r"g [$m/s²$]")
 plt.legend(loc = "best")
+plt.xticks([])
 plt.savefig("5_s2.pdf")
 plt.clf()
 
@@ -204,8 +212,47 @@ plt.plot( x2, g6,  "x", label = r'Messwerte')
 plt.plot( xg, g_plot, "-", label = r'Literaturwert')
 plt.ylabel(r"g [$m/s²$]")
 plt.legend(loc = "best")
+plt.xticks([])
 plt.savefig("5_s1.pdf")
 plt.clf()
+
+
+#Freier Fall Mittelwerte
+
+MittelwerteFF = ([g7mittel, g8mittel, g9mittel])
+StandardabweichungenMittelwerteFF = ([g7stanni, g8stanni, g9stanni])
+#errX = ([ 0,0 ,0])
+#errY = StandardabweichungenMittelwerteFF
+xFF = np.linspace(0, 3, 3)
+plt.axis([-1, 4, 3, 11])
+#plt.plot( x3, Mittelwerte,  "x", label = r'Mittelwerte')
+plt.plot( xg, g_plot, "-", label = r'Literaturwert')
+plt.errorbar(xFF, MittelwerteFF, xerr = 0, yerr=StandardabweichungenMittelwerteFF, fmt = "x", label = r"Mittelwerte Freier Fall")
+plt.ylabel(r"g [$m/s²$]")
+plt.legend(loc = "best")
+plt.xticks([])
+plt.savefig("MittelwerteFF.pdf")
+plt.clf()
+
+
+
+
+#Schiefe Ebene Mittelwerte
+MittelwerteSE = ([g1mittel, g2mittel, g3mittel, g4mittel, g5mittel, g6mittel])
+StandardabweichungenMittelwerteSE = ([g1stanni, g2stanni, g3stanni, g4stanni, g5stanni, g6stanni])
+errX = ([0, 0, 0, 0, 0, 0])
+errY = StandardabweichungenMittelwerteSE
+xSE = np.linspace(0, 6, 6)
+plt.axis([-1, 5, 3, 11])
+plt.plot( xg, g_plot, "-", label = r'Literaturwert')
+plt.errorbar(xSE, MittelwerteSE, xerr = 0, yerr=StandardabweichungenMittelwerteSE, fmt = "x", label = r"Mittelwerte Schiefe Ebene")
+plt.ylabel(r"g [$m/s²$]")
+plt.legend(loc = "best")
+plt.xticks([])
+plt.savefig("MittelwerteSE.pdf")
+plt.clf()
+
+
 
 
 
@@ -217,13 +264,13 @@ StandardabweichungenMittelwerte = ([g1stanni, g2stanni, g3stanni, g4stanni, g5st
 errX = ([0, 0, 0, 0, 0, 0, 0,0 ,0])
 errY = StandardabweichungenMittelwerte
 x3 = np.linspace(0, 9, 9)
-plt.axis([0, 10, 3, 11])
-#plt.plot( x3, Mittelwerte,  "x", label = r'Mittelwerte')
-#plt.plot( xg, g_plot, "-", label = r'Literaturwert')
+plt.axis([-1, 10, 3, 11])
+plt.plot( xg, g_plot, "-", label = r'Literaturwert')
 plt.errorbar(x3, Mittelwerte, xerr = 0, yerr=StandardabweichungenMittelwerte, fmt = "x")
 plt.ylabel(r"g [$m/s²$]")
 plt.legend(loc = "best")
 plt.savefig("Mittelwerte.pdf")
+plt.xticks([])
 plt.clf()
 print(StandardabweichungenMittelwerte)
 
