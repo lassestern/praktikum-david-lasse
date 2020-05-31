@@ -1,0 +1,19 @@
+\babel@toc {ngerman}{}
+\contentsline {section}{\numberline {1}Zielsetzung}{3}{section.1}% 
+\contentsline {section}{\numberline {2}Theoretische Grundlagen}{3}{section.2}% 
+\contentsline {section}{\numberline {3}Durchführung}{5}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Magnetfeldmessung einer Spule}{5}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Helmholtz-Spulenpaar}{5}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Hysteresekurve}{6}{subsection.3.3}% 
+\contentsline {section}{\numberline {4}Auswertung}{6}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Allgemeines}{6}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Magnetfelder in einfachen Spulen}{6}{subsection.4.2}% 
+\contentsline {subsubsection}{\numberline {4.2.1}Magnetfeld einer langen Spule}{6}{subsubsection.4.2.1}% 
+\contentsline {subsubsection}{\numberline {4.2.2}Magnetfeld einer kurzen Spule}{9}{subsubsection.4.2.2}% 
+\contentsline {subsection}{\numberline {4.3}Magnetfelder von Helmholtzspulen}{10}{subsection.4.3}% 
+\contentsline {subsubsection}{\numberline {4.3.1}Spulenabstand 10cm}{10}{subsubsection.4.3.1}% 
+\contentsline {subsubsection}{\numberline {4.3.2}Spulenabstand 15cm}{12}{subsubsection.4.3.2}% 
+\contentsline {subsubsection}{\numberline {4.3.3}Spulenabstand 20cm}{15}{subsubsection.4.3.3}% 
+\contentsline {subsection}{\numberline {4.4}Hysteresekurve}{16}{subsection.4.4}% 
+\contentsline {section}{\numberline {5}Diskussion}{18}{section.5}% 
+\contentsline {section}{\numberline {6}Literaturverzeichnis}{20}{section.6}% 

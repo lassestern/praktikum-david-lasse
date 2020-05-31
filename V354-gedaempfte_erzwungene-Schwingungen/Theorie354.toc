@@ -1,0 +1,16 @@
+\babel@toc {ngerman}{}
+\contentsline {section}{\numberline {1}Zielsetzung}{3}{section.1}% 
+\contentsline {section}{\numberline {2}Theorie}{3}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Gedämpfte Schwingung in einem RLC-Schwingkreis}{3}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Erzwungene Schwingungen in einem RLC-Schwingkreis}{5}{subsection.2.2}% 
+\contentsline {section}{\numberline {3}Durchführung}{7}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Frequenzabhängigkeit der Amplitude bei einer gedämpften Schwingung}{7}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Bestimmung des Dämpfungswiderstands beim aperiodischen Grenzfall}{8}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Frequenzabhängigkeit der Kondensatorspannung in einem Serienresonanzkreis}{8}{subsection.3.3}% 
+\contentsline {subsection}{\numberline {3.4}Frequenzabhängigkeit der Phase zwischen Erregerspannung und Kondensatorspannung in einem Serienresonanzkreis}{9}{subsection.3.4}% 
+\contentsline {section}{\numberline {4}Auswertung}{9}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Frequenzabhängigkeit der Spannungsamplitude}{9}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Widerstand für aperiodischen Grenzfall}{11}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Frequenzabhängigkeit der Kondensatorspannung}{12}{subsection.4.3}% 
+\contentsline {section}{\numberline {5}Diskussion}{15}{section.5}% 
+\contentsline {section}{\numberline {6}Literaturverzeichnis}{15}{section.6}% 

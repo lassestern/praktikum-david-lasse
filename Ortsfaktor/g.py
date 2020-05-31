@@ -243,7 +243,7 @@ StandardabweichungenMittelwerteSE = ([g1stanni, g2stanni, g3stanni, g4stanni, g5
 errX = ([0, 0, 0, 0, 0, 0])
 errY = StandardabweichungenMittelwerteSE
 xSE = np.linspace(0, 6, 6)
-plt.axis([-1, 5, 3, 11])
+plt.axis([-1, 7, 3, 11])
 plt.plot( xg, g_plot, "-", label = r'Literaturwert')
 plt.errorbar(xSE, MittelwerteSE, xerr = 0, yerr=StandardabweichungenMittelwerteSE, fmt = "x", label = r"Mittelwerte Schiefe Ebene")
 plt.ylabel(r"g [$m/s²$]")

@@ -1,0 +1,15 @@
+\babel@toc {ngerman}{}
+\contentsline {section}{\numberline {1}Zielsetzung}{3}{section.1}% 
+\contentsline {section}{\numberline {2}Theoretische Grundlagen}{3}{section.2}% 
+\contentsline {section}{\numberline {3}Versuchsdurchführung}{4}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Statische Methode}{4}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Dynamische Methode}{4}{subsection.3.2}% 
+\contentsline {section}{\numberline {4}Auswertung}{4}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Statische Methode}{5}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Dynamische Methode}{9}{subsection.4.2}% 
+\contentsline {subsubsection}{\numberline {4.2.1}Aluminium}{9}{subsubsection.4.2.1}% 
+\contentsline {subsubsection}{\numberline {4.2.2}Messing}{14}{subsubsection.4.2.2}% 
+\contentsline {subsubsection}{\numberline {4.2.3}Edelstahl}{18}{subsubsection.4.2.3}% 
+\contentsline {subsection}{\numberline {4.3}Diskussion}{22}{subsection.4.3}% 
+\contentsline {subsection}{\numberline {4.4}Anhang}{22}{subsection.4.4}% 
+\contentsline {subsection}{\numberline {4.5}Literaturverzeichnis}{22}{subsection.4.5}% 
