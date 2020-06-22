@@ -106,7 +106,7 @@
                 \begin{figure}[h]
                   \centering
                   \includegraphics[width = 0.8\textwidth]{Bilder/IUTheorie.png}
-                  \caption{In der Abbildung ist der schematische Aufbau zur Erzeugung von Spektrallicht und anschließender Aufteilung dieses in einzene monochromatische Strahlen zu sehen. Zudem ist ein Schwenkarm befestigt, der das Einstellen eines Schrims erlaubt, sodass immer nur ein monochromatischer Lichtstrahl durch die Schirmöffnung fällt.}
+                  \caption{In der Abbildung ist der schematische Aufbau zur Erzeugung von Spektrallicht und anschließender Aufteilung dieses in einzene monochromatische Strahlen zu sehen. Zudem ist ein Schwenkarm befestigt, der das Einstellen eines Schrims erlaubt, sodass immer nur ein monochromatischer Lichtstrahl durch die Schirmöffnung fällt. [1]}
                   \label{fig:IUTheorie}
                 \end{figure}
 
@@ -127,6 +127,39 @@
             \label{eqn:Eel}
         \end{equation}
 
+        \subsection{Gegenfeldmethode}
+        Wenn die Photoelektronen aus einer Kathode ausgelöst werden, können sie auf eine aufgestellte Anode treffen und so einen Photostrom zwischen Kathode und Anode erzeugen. Dann wird zwischen
+        Anode und Kathode eine regelbare Spannung gelegt, die die Elektronen entweder beschleunigt, "Beschleunigungsspannung", oder abbremst "Gegenfeldspannung". Mit steigender Gegenfeldspannung und 
+        so steigendem E-Feld erreichen nur noch die energiereichsten Elektronen die Ringanode und bei noch weiterer Erhöhung über diese Grenzspannung $U_{\text{G}}$ wird garkein Strom mehr gemessen. 
+        Durch Messung der Grenzspannung kann also bei Wissens der anderen Größen aus Gleichung \ref{eqn:Energiegleichung} und Einsetzens von Gleichung \ref{eqn:Eel} die Austrittsarbeit oder auch die 
+        Energie oder Frequenz des Lichts über folgende Formel (\ref{eqn:Bestimmung}) bestimmt werden.
+
+        \begin{equation}
+          h \cdot \nu = \text{A}_{\text{k}} + \frac{1}{2} m_{\text{e}}v_{\text{max}}^2
+          \label{eqn:Bestimmung}
+        \end{equation}
+        
+        \noindent
+        Ein mögliches Problem liegt auch in einer höheren Austrittsarbeit $A_A$ der Anode. Wenn diese mit der Kathode verbunden wird, passen sich die Fermi Niveaus an und trotz genügender Energie zum 
+        Austreten aus der Phtokathode entsteht kein Photostrom, da die Photoelektronen ein "natürliches" Gegenfeld durchdringen müssten. In diesem Fall muss eine beschleunigende Spannung angelegt 
+        werden, damit überhaupt ein Photostrom gemessen wird und dann wird diese gesenkt bis der Photostrom wieder auf Null fällt. Dieses Problem mit passender Lösung durch eine Beschleunigungsspannung
+        ist in Abbildung \ref{fig:bSpannung} zu sehen.  
+
+        \FloatBarrier
+
+                \begin{figure}[h]
+                  \centering
+                  \includegraphics[width = 0.8\textwidth]{Bilder/bSpannug.png}
+                  \caption{In der Abbildung ist die Energiedifferenz zwischen Photoelektronen an der Kathode und Anode zu sehen, die verdeutlicht warum trotz genügender Energie zum Photoeffekt kein Photostrom gemessen wird. Auf der rechten Seite ist die Erhöhung der Energie der Photoelektronen durch eine beschleunigende Spannung dargestellt. [1]}
+                  \label{fig:bSpannung}
+                \end{figure}
+
+        \FloatBarrier
+
+        \noindent
+
+
+
     \newpage
     \section{Aufbau und Durchführung}
         \subsection{Beleuchtung mit monochromatischen Licht}
@@ -141,13 +174,13 @@
                 \begin{figure}[h]
                   \centering
                   \includegraphics[width = 0.8\textwidth]{Bilder/Monolicht.png}
-                  \caption{In der Abbildung ist der schematische Aufbau zur Erzeugung von Spektrallicht und anschließender Aufteilung dieses in einzene monochromatische Strahlen zu sehen. Zudem ist ein Schwenkarm befestigt, der das Einstellen eines Schrims erlaubt, sodass immer nur ein monochromatischer Lichtstrahl durch die Schirmöffnung fällt.}
+                  \caption{In der Abbildung ist der schematische Aufbau zur Erzeugung von Spektrallicht und anschließender Aufteilung dieses in einzene monochromatische Strahlen zu sehen. Zudem ist ein Schwenkarm befestigt, der das Einstellen eines Schirms erlaubt, sodass immer nur ein monochromatischer Lichtstrahl durch die Schirmöffnung fällt. [1]}
                   \label{fig:MonoLicht}
                 \end{figure}
 
             \FloatBarrier
 
-        \subsection{Photozelle und Gegenfeldmethode}
+        \subsection{Photozelle}
             Der Photoeffekt wird letztendlich in einer Photozelle beobachtet. Diese ist in Abbildung \ref{fig:Photozelle} zu sehen und ist grundlegend ein evakuierter Glaskolben, zur Messung von Photoelektronen. In 
             diesem Glaskolben ist eine sogenannte Photokathode angebracht. Dabei handelt es sich um einen Schirm, der mit einer Metalllegierung bedampft worden ist, sodass bei Lichteinfall Elektronen 
             ausgelöst werden können. Wenige Zentimeter gegenüber der Photokathode befindet sich die zugehörige Ringanode.
@@ -157,7 +190,7 @@
                 \begin{figure}[h]
                   \centering
                   \includegraphics[width = 0.4\textwidth]{Bilder/Photozelle.png}
-                  \caption{In der Abbildung ist der schematische Aufbau einer Photozelle zu sehen.}
+                  \caption{In der Abbildung ist der schematische Aufbau einer Photozelle zu sehen. [1]}
                   \label{fig:Photozelle}
                 \end{figure}
 
@@ -166,29 +199,32 @@
             \noindent
             Zwischen Ringanode und Photokathode wird ein Picoamperemeter geschaltet, welches in der Lage ist den Strom zwischen Photokathode und Ringanode zu messen. Dieser Strom entsteht durch die
             ausgelösten Photoelektronen, die durch ihre kinetische Energie zur Ringanode fliegen und dort als Ladung aufgenommen werden. Zwischen Ringanode und Photokathode wird zudem ein elektrisches
-            Gegenfeld angelegt, das die losgelösten Elektronen abbremst. Mit steigender Spannung und so steigendem E-Feld erreichen nur noch die energiereichsten Elektronen die Ringanode und bei noch 
-            weiterer Erhöhung über diese Grenzspannung $U_{\text{G}}$ wird garkein Strom mehr gemessen. Durch Messung der Grenzspannung kann also bei Wissens der anderen Größen aus Gleichung 
-            \ref{eqn:Energiegleichung} und Einsetzens von Gleichung \ref{eqn:Eel} die Austrittsarbeit oder auch die Energie oder Frequenz des Lichts bestimmt werden.
+            Gegenfeld angelegt, um die Gegenfeldmethode durchführen zu können.
 
             \FloatBarrier
 
                 \begin{figure}[h]
                   \centering
                   \includegraphics[width = 0.6\textwidth]{Bilder/Schaltung.png}
-                  \caption{In der Abbildung ist der Schaltplan zur Erzeugung des Gegenfelds und Messung des Photostroms zwischen Photokathode und Ringanode zu sehen.}
+                  \caption{In der Abbildung ist der Schaltplan zur Erzeugung des Gegenfelds und Messung des Photostroms zwischen Photokathode und Ringanode zu sehen. [1]}
                   \label{fig:Schaltung}
                 \end{figure}
 
             \FloatBarrier
 
-
+        \newpage
         \subsection{Messungen des Photostroms}
             Mit Hilfe des beschriebenen Aufbaus wird zunächst für verschiedene Wellenlängen der Photostrom in Abhängigkeit von der angelegten Gegenspannung gemessen, um den in der Theorie
-            beschriebenen Zusammenhang $I_{\text{Ph}} \propto U^2$ zu überprüfen. \newline
+            beschriebenen Zusammenhang $I_{\text{Ph}} \propto U^2$ zu überprüfen. Dazu wird der Schwenkarm zuvor so bewegt, dass nur das Licht einer Wellenlänge auf die Photozelle trifft. 
+            Daraufhin wird über die Steurungseinheit der Photozelle die Spannung in der Photozelle beginnend mit einer Beschleunigungsspannung heruntergeregelt bis keine Photostrom mehr auftritt. 
+            Ist dies bei einer Spannung von 0 V nicht der Fall, wird auf eine Gegenspannung umgepolt und diese erhöht, bis der Photstrom auf Null fällt. Zunächst wird diese Messung im Abstand von 1 V
+            Schritten durchgeführt, wenn ein linearer Zusammenhang zwischen Photostrom und SPannung aufzutreten scheint wird auf eine genauere Spannungsänderung angepasst. \newline
             
             \noindent
             Daraufhin wird unter konstanter Lichtintensität, sowie konstanter Lichtwellenlänge von $\lambda = 578 \, \text{nm}$ der Photostrom in Abhängigkeit von der angelgten Feldspannung gemessen.
-            Im Gegensatz zur ersten Messung wird nun nicht nur eine bremsende, sondern auch eine beschleunigende Spannung angelegt, sodass die Spannung im Bereich von -20 bis +20 Volt variiert wird.  
+            Ähnlich zur ersten SPannung wird nun wieder von einer beschleunigenden Spannung bis zu einer Gegenspannung variiert. Die Spannung startet mit einer Beschleunigenden Spannung von 20 V und 
+            wird bis auf Null hinuntergeregelt und daraufhin auf eine Gegenspannung umgepolt und die Spannung erhöht bis der Photostrom wieder auf Null fällt. Auch hier wird im linearen Bereich mit 
+            einer geringeren Spannungsänderung pro Messchritt gemessen.
 
 
 
