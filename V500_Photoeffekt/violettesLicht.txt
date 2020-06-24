@@ -1,0 +1,17 @@
+#violettes Licht mit Wellenlaenge von 434nm
+#1. Spalte U in V; 2. Spalte Strom in nA; 3. Spalte Messunsicherheit des Stroms in nA
+0        8.4     0.2
+0.1      7.4     0.2
+0.2      6.0     0.2
+0.3      4.8     0.2
+0.4      3.6     0.2
+0.5      2.6     0.2
+0.6      1.6     0.2
+0.7      1.2     0.2
+0.8      0.44    0.02
+0.9      0.18    0.02
+1.0      0.02    0.02
+1.02     0       0.02
+
+
+

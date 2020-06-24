@@ -42,12 +42,13 @@
 \usepackage{microtype}
 \usepackage{xfrac}
 \usepackage[autostyle]{csquotes}    % babel
-\usepackage[unicode, pdfusetitle]{hyperref}
+\usepackage[german, unicode, pdfusetitle]{hyperref}
 \usepackage{bookmark}
 \usepackage[shortcuts]{extdash}
 %Einstellungen hier, z.B. Fonts
 \usepackage{booktabs} % Tabellen
 
+\setlength{\parindent}{0pt}
 
 \title{V500 - Der Photoeffekt}
 \author{
@@ -56,7 +57,7 @@
   Lasse Sternemann\\
   \href{mailto:lasse.sternemann@udo.edu}{lasse.sternemann@udo.edu}
 }
-\date{Bearbeitet am 29.05.2020}
+\date{Bearbeitet am 23.06.2020}
 
 \begin{document}
     \maketitle
@@ -64,6 +65,8 @@
     \tableofcontents
     \newpage
 
+    \section{Zielsetzung}
+        Mit diesen Versuchen soll die Abhängigkeit des Photostromes von Spannung und die Abhängigkeit der Grenzspannung von der Frequenz des einfallenden Lichtes in einer Photozelle untersucht werden.
 
     \section{Theoretische Grundlagen}
         \subsection{Physikalische Beschreibung des Lichts}
@@ -117,7 +120,6 @@
         proportional zur Frequenz $\nu$ des Lichts ist (\ref{eqn:Energiegleichung}) und dass die Anzahl der losgelösten Elektronen proportional zur Intensität des Lichts ist, da diese die Anzahl der 
         Photonen pro Zeit angibt und jedes Photon ein Elektron auslösen kann.
 
-
         \subsection{Elektronen im homogenen E-Feld}
         Freie Elektronen werden durch ein anliegendes, homogenes E-Feld beschleunigt und nehmen dabei eine elektrische Energie auf, die der kinetischen Energie des Elektrons nach der Beschleunigung
         im elektrischen Feld entspricht.
@@ -158,8 +160,6 @@
 
         \noindent
 
-
-
     \newpage
     \section{Aufbau und Durchführung}
         \subsection{Beleuchtung mit monochromatischen Licht}
@@ -174,7 +174,7 @@
                 \begin{figure}[h]
                   \centering
                   \includegraphics[width = 0.8\textwidth]{Bilder/Monolicht.png}
-                  \caption{In der Abbildung ist der schematische Aufbau zur Erzeugung von Spektrallicht und anschließender Aufteilung dieses in einzene monochromatische Strahlen zu sehen. Zudem ist ein Schwenkarm befestigt, der das Einstellen eines Schirms erlaubt, sodass immer nur ein monochromatischer Lichtstrahl durch die Schirmöffnung fällt. [1]}
+                  \caption{In der Abbildung ist der schematische Aufbau zur Erzeugung von Spektrallicht und anschließender Aufteilung dieses in einzelne monochromatische Strahlen zu sehen. Zudem ist ein Schwenkarm befestigt, der das Einstellen eines Schirms erlaubt, sodass immer nur ein monochromatischer Lichtstrahl durch die Schirmöffnung fällt. [1]}
                   \label{fig:MonoLicht}
                 \end{figure}
 
@@ -222,12 +222,246 @@
             
             \noindent
             Daraufhin wird unter konstanter Lichtintensität, sowie konstanter Lichtwellenlänge von $\lambda = 578 \, \text{nm}$ der Photostrom in Abhängigkeit von der angelgten Feldspannung gemessen.
-            Ähnlich zur ersten SPannung wird nun wieder von einer beschleunigenden Spannung bis zu einer Gegenspannung variiert. Die Spannung startet mit einer Beschleunigenden Spannung von 20 V und 
+            Ähnlich zur ersten Spannung wird nun wieder von einer beschleunigenden Spannung bis zu einer Gegenspannung variiert. Die Spannung startet mit einer Beschleunigenden Spannung von 20 V und 
             wird bis auf Null hinuntergeregelt und daraufhin auf eine Gegenspannung umgepolt und die Spannung erhöht bis der Photostrom wieder auf Null fällt. Auch hier wird im linearen Bereich mit 
             einer geringeren Spannungsänderung pro Messchritt gemessen.
+    
+    \newpage
+    \section{Auswertung}
+        \subsection{Gegenspannung bei gelbem Licht} \label{sec:gegenspannung_gelb}
+            \begin{figure}[h]
+              \centering
+              \includegraphics[width = 0.8\textwidth]{Bilder/Photostrom_Spannung_gelb.png}
+              \caption{Hier ist der gewurzelte Photostrom gegen die angelegte Gegenspannung für gelbes Licht aufgetragen. Negatives $U$ heißt, dass eine beschleunigende Spannung angelegt wird. Die Messwerte sind aus \autoref{tab:gelbesLicht} entnommen.}
+              \label{fig:gelbesLicht}
+            \end{figure}
 
+            \FloatBarrier
+            
+            Wie im vorherigen Abschnitt beschrieben, wird die Wurzel des registrierten Photostromes $\sqrt{\text{I}}$ gegen die Gegenspannung aufgetragen.
+            Dadurch entsteht eine Kurve, die in der Nähe der Nullstelle bzw. $U_\text{G}$ einen linearen Abschnitt besitzt.
+            Durch die 5 Messwerte in diesem Abschnitt wird eine Ausgleichsgerade gezogen, deren Schnittpunkt mit der x-Achse $U_\text{G}$, die Spannung ist, ab der kein Photostrom mehr gemessen werden kann.
+            Die lineare Regression hat die folgenden Parameter,
 
+            \begin{equation*}
+              m_{\text{gelb}} = (-1,17 \pm 0,05) \cdot 10^{-4} \frac{\sqrt{\text{A}}}{\text{V}} \qquad \quad \qquad b_{\text{gelb}} = (1,10 \pm 0,03) \sqrt{\text{A}}
+            \end{equation*}
 
-    \end{document}
+            wobei $m_{\text{gelb}}$ die Steigung und $b_{\text{gelb}}$ der y-Achsenabschnitt ist.
+            Mithilfe der Geradengleichung lässt sich jetzt bei bekannten Parametern die Nullstelle bestimmen:
+
+            \begin{equation}
+              m x_0 + b = 0 \qquad \implies \qquad x_0 = - \frac{b}{m} \\
+            \end{equation}
+
+            Hier gilt für die Nullstelle:
+
+            \begin{equation*}
+              U_\text{G,gelb} = (0,297 \pm 0,015) \text{V}
+            \end{equation*}
+
+        \newpage
+        \subsection{Gegenspannung bei grünem Licht}
+            \begin{figure}[h]
+              \centering
+              \includegraphics[width = 0.8\textwidth]{Bilder/Photostrom_Spannung_gruen.png}
+              \caption{Hier ist der gewurzelte Photostrom gegen die angelegte Gegenspannung für grünes Licht aufgetragen. Negatives $U$ heißt, dass eine beschleunigende Spannung angelegt wird. Die Messwerte sind aus \autoref{tab:gruenesLicht} entnommen.}
+              \label{fig:gelbesLicht}
+            \end{figure}
+
+            \FloatBarrier
+        
+            Hier wird wie in \autoref{sec:gegenspannung_gelb} verfahren. Es wird eine lineare Regression mit den letzten 5 Messwerten durchgeführt und es ergeben sich die Parameter $m_{\text{grün}}$ für die Steigung und $b_{\text{grün}}$ für den y-Achsenabschnitt der Ausgleichsgerade:
+
+            \begin{equation*}
+              m_{\text{grün}} = (-1,41 \pm 0,05) \cdot 10^{-4} \frac{\sqrt{\text{A}}}{\text{V}} \qquad \quad \qquad b_{\text{grün}} = (2,11 \pm 0,05) \sqrt{\text{A}}
+            \end{equation*}
+
+            Für die Grenzspannung $U_{\text{G,grün}}$ gilt dann:
+
+            \begin{equation*}
+              U_\text{G,grün} = (0,476 \pm 0,021) \text{V}
+            \end{equation*}
+
+        \newpage
+        \subsection{Gegenspannung bei violettem Licht}
+            \begin{figure}[h]
+              \centering
+              \includegraphics[width = 0.8\textwidth]{Bilder/Photostrom_Spannung_violett.png}
+              \caption{Hier ist der gewurzelte Photostrom gegen die angelegte Gegenspannung für violettes Licht aufgetragen. Die Messwerte sind aus \autoref{tab:violettesLicht} entnommen.}
+              \label{fig:gelbesLicht}
+            \end{figure}
+
+            \FloatBarrier
+    
+            Auch beim violleten Licht wird eine Ausgleichsgerade durch die letzten 9 Messwerte gelegt mit den folgenden sich ergebenden Parametern:
+
+            \begin{equation*}
+              m_{\text{violett}} = (-9,45 \pm 0,20) \cdot 10^{-5} \frac{\sqrt{\text{A}}}{\text{V}} \qquad \quad \qquad b_{\text{violett}} = (3,10 \pm 0,05) \sqrt{\text{A}}
+            \end{equation*}
+
+            Die Grenzspannung für das violette Licht ist:
+
+            \begin{equation*}
+              U_\text{G,viollet} = (1,037 \pm 0,027) \text{V}
+            \end{equation*}
+
+        \subsection{Zusammenhang zwischen Spannung und Frequenz}
+            Hier wird der Zusammenhang zwischen angelegter Spannung und der Frequenz des einfallenden Lichtes betrachtet.
+            Setzt man \autoref{eqn:Eel} in \autoref{eqn:Bestimmung} ein, so ergibt sich folgende Gleichung:
+            
+            \begin{equation}
+              h \cdot \nu = e \cdot U_{\text{G}} + A_{\text{k}} \qquad \implies \qquad U_{\text{G}}(\nu) = \frac{h}{e} \nu - \frac{A_{\text{k}}}{e}
+              \label{eqn:spannung_frequenz}
+            \end{equation}
+
+            Die Grenzspannungen werden aus den vorherigen Abschnitten entnommen und gegen die Frequenzen, die mit $\nu = \frac{c}{\lambda}$ aus der Lichtgeschwindigkeit $c$ und den Wellenlängen $\lambda$ berechnet werden, aufgetragen:
+
+            \begin{align*}
+              &\nu_{\text{gelb}} = 691 \, THz \qquad \qquad &U_\text{G,gelb} = (0,297 \pm 0,015) \text{V} \\
+              &\nu_{\text{grün}} = 549 \, THz \qquad \qquad &U_\text{G,grün} = (0,476 \pm 0,021) \text{V} \\
+              &\nu_{\text{violett}} = 519 \, THz \qquad \qquad  &U_\text{G,viollet} = (1,037 \pm 0,027) \text{V}
+            \end{align*}
+
+            \begin{figure}[h]
+              \centering
+              \includegraphics[width = 0.8\textwidth]{Bilder/Spannung_Frequenz.png}
+              \caption{Hier ist die Grenzspannung gegen die Frequenz des einfallenden Lichtes aufgetragen.}
+              \label{fig:spannung_frequenz}
+            \end{figure}
+
+            \FloatBarrier
+
+            Anhand von \autoref{eqn:spannung_frequenz} ist zu erkennen, dass $m = \frac{h}{e}$ und $b = -\frac{A_{\text{k}}}{e}$ für die Ausgleichsgerade in  \autoref{fig:spannung_frequenz} gilt. Dabei ist $A_{\text{k}}$ die Austrittsenergie in eV. Dementsprechend gilt:
+
+            \begin{equation*}
+              \frac{h}{e} = (4,19 \pm 0,28) \cdot 10^{-15} \text{Vs} \qquad \qquad A_{\text{k}} = (1,86 \pm 0,17) \text{eV}
+            \end{equation*}
+
+            Es wird angenommen, dass die Photokathode mit Caesium beschichtet ist, da die gemessene Austrittsarbeit der von Caesium am nächsten kommt. Damit hätte die gemessene Austrittsarbeit eine Abweichung von ca. $13$\% vom Literaturwert $A_{\text{k,lit}} = 2,14$eV [2]. Der gemessene Wert von $\frac{h}{e}$ weicht ca. $1$\% vom Theoriewert $4,135 \cdot 10^{-15}$Vs [3] ab.
+
+        \newpage
+        \subsection{Kurvenverlauf des Photostromes}
+            \begin{figure}[h]
+              \centering
+              \includegraphics[width = 0.8\textwidth]{Bilder/Photostrom_gelb.png}
+              \caption{Hier ist der Photostrom gegen die angelegte Gegenspannung für gelbes Licht aufgetragen.}
+              \label{fig:spannung_frequenz}
+            \end{figure}
+
+            \FloatBarrier
+
+            Die Kurve erreicht bei hohen beschleunigenden Spannungen einen Sättigungswert, da mit steigender beschleunigender Spannung immer mehr der Elektronen durch das elektrische Feld die Energie gewinnen, um die Potenialdifferenz zwischen Kathode und Anode zu überwinden.
+            Ab einem bestimmten Spannung werden sogar die herausgelösten Elektronen mit $E_{\text{kin}} = 0$ an der Anode ankommen und der Photostrom könnte nicht mehr durch eine größere beschleunigende Spannung erhöht werden.
+            Der Sättigungswert des Photostromes hängt nur von der Intensität des einfallenden Lichtes ab.
+
+            Die Kurve nähert sich dem Sättigungswert und $U_{\text{G}}$ asymptotisch an, weil Energie der ausgelösten Elektronen normalverteilt ist.
+            D.h. es gibt wenige Elektronen die eine niedrige Energie haben, weshalb die Kurve immer flacher wird.
+            Das Gleiche gilt auch für die hochenergetischen Elektronen, weswegen die Kurve in der Nähe der Grenzspannung auch immer flacher wird.
+            Um den Sättigungswert möglichst schnell zu erreichen, sollten Materiale für die Kathode und Anode mit kleiner Differenz in ihrer Austrittsarbeit verwendet werden, damit schon eine kleine beschleunigende Spannung fast alle Elektronen die Anode erreichen lässt.
+
+            Es kann ein dem Photostrom entgegengerichteter Strom auftreten, wenn die Gegenspannung so hoch ist, dass die ausgelösten Elektronen wieder zurück zur Kathode fliegen.
+
+    \section{Diskussion}
+        Das $\sqrt{I}$-Gesetz gilt für die drei überprüften Wellenlängen des Lichtes, da es bei allen drei Graphen einen linearen Abschnitt gab. Mit den durch die Ausgleichsgeraden bestimmten Werten für die Grenzspannung wird eine weitere Ausgleichrechnung durchgeführt. Trotz dieser Tatsache und dem überaus empfindlichen Picometer, welches manchmal Sprünge im Bereich einer Zehnerpotenz vollführt hat, sind die Abweichungen von den Theoriewerten klein.
+
+    \newpage
+    \section{Daten}
+    \FloatBarrier
+        \begin{table}[h]
+          \centering
+          \caption{Hier sind die Messwerte der Spannung $U$, des Photostromes $I$ und seine Messunsicherheit $I_{\text{u}}$ und die Wurzel des Photostromes $\sqrt{I}$ für das gelbe Licht dargestellt.}
+          \label{tab:gelbesLicht}
+          \begin{tabular}{c c c c c c c c}
+            \toprule
+            {$U$ [V]} & {$I$ [nA]} & {$I_{\text{u}}$ [nA]} & {$\sqrt{I}$ [$\sqrt{\text{nA}}$]} & {$U$ [V]} & {$I$ [nA]} & {$I_{\text{u}}$ [nA]} & {$\sqrt{I}$ [$\sqrt{\text{nA}}$]} \\
+            \midrule
+            -19.00   &   23.40   &   0.60   &   4.84   &  -2.00   &    9.60   &   0.20   &   3.10 \\
+            -18.00   &   23.40   &   0.60   &   4.84   &  -1.50   &    8.20   &   0.20   &   2.86 \\
+            -17.00   &   22.80   &   0.60   &   4.77   &  -1.25   &    7.40   &   0.20   &   2.72 \\
+            -16.00   &   22.80   &   0.60   &   4.77   &  -1.00   &    6.60   &   0.20   &   2.57 \\
+            -15.00   &   22.20   &   0.60   &   4.71   &  -0.90   &    6.20   &   0.20   &   2.49 \\
+            -14.00   &   22.20   &   0.60   &   4.71   &  -0.80   &    5.80   &   0.20   &   2.41 \\
+            -13.00   &   22.20   &   0.60   &   4.71   &  -0.70   &    5.20   &   0.20   &   2.28 \\
+            -12.00   &   22.20   &   0.60   &   4.71   &  -0.60   &    4.80   &   0.20   &   2.19 \\
+            -11.00   &   22.20   &   0.60   &   4.71   &  -0.50   &    4.20   &   0.20   &   2.05 \\
+            -10.00   &   21.60   &   0.60   &   4.65   &  -0.40   &    3.60   &   0.20   &   1.90 \\
+             -9.00   &   21.00   &   0.60   &   4.58   &  -0.30   &    3.20   &   0.20   &   1.79 \\
+             -8.00   &   20.40   &   0.60   &   4.52   &  -0.20   &    2.60   &   0.20   &   1.61 \\
+             -7.00   &   19.20   &   0.60   &   4.38   &  -0.10   &    1.80   &   0.20   &   1.34 \\
+             -6.00   &   18.00   &   0.60   &   4.24   &   0.00   &    1.20   &   0.20   &   1.10 \\
+             -5.00   &   16.80   &   0.60   &   4.10   &   0.10   &    0.52   &   0.02   &   0.72 \\
+             -4.00   &   15.00   &   0.60   &   3.87   &   0.20   &    0.16   &   0.02   &   0.40 \\
+             -3.00   &   12.60   &   0.60   &   3.55   &   0.29   &    0.00   &   0.02   &   0.00 \\
+              \bottomrule
+          \end{tabular}
+        \end{table}
+
+        \FloatBarrier
+  
+    \begin{table}[h]
+      \centering
+      \caption{Hier sind die Messwerte der Spannung $U$, des Photostromes $I$ und seine Messunsicherheit $I_{\text{u}}$ und die Wurzel des Photostromes $\sqrt{I}$ für das grüne Licht dargestellt.}
+      \label{tab:gruenesLicht}
+      \begin{tabular}{c c c c}
+        \toprule
+        {$U$ [V]} & {$I$ [nA]} & {$I_{\text{u}}$ [nA]} & {$\sqrt{I}$ [$\sqrt{\text{nA}}$]} \\
+        \midrule
+        -1.00   &   15.00   &   0.60   &   3.87 \\
+        -0.90   &   13.80   &   0.60   &   3.71 \\
+        -0.80   &   13.20   &   0.60   &   3.63 \\
+        -0.70   &   12.00   &   0.60   &   3.46 \\
+        -0.60   &   10.80   &   0.60   &   3.29 \\
+        -0.50   &   10.20   &   0.60   &   3.19 \\
+        -0.40   &    9.00   &   0.20   &   3.00 \\
+        -0.30   &    7.80   &   0.20   &   2.79 \\
+        -0.20   &    6.60   &   0.20   &   2.57 \\
+        -0.10   &    5.20   &   0.20   &   2.28 \\
+         0      &    4.00   &   0.20   &   2.00 \\
+         0.10   &    2.80   &   0.20   &   1.67 \\
+         0.20   &    1.60   &   0.20   &   1.26 \\
+         0.30   &    0.50   &   0.02   &   0.71 \\
+         0.40   &    0.12   &   0.02   &   0.35 \\
+         0.48   &    0.00   &   0.02   &   0.00 \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+
+    \FloatBarrier
+  
+    \begin{table}[h]
+      \centering
+      \caption{Hier sind die Messwerte der Spannung $U$, des Photostromes $I$ und seine Messunsicherheit $I_{\text{u}}$ und die Wurzel des Photostromes $\sqrt{I}$ für das violette Licht dargestellt.}
+      \label{tab:violettesLicht}
+      \begin{tabular}{c c c c}
+        \toprule
+        {$U$ [V]} & {$I$ [nA]} & {$I_{\text{u}}$ [nA]} & {$\sqrt{I}$ [$\sqrt{\text{nA}}$]} \\
+        \midrule
+        0      &   8.40   &   0.20   &   2.90 \\
+        0.10   &   7.40   &   0.20   &   2.72 \\
+        0.20   &   6.00   &   0.20   &   2.45 \\
+        0.30   &   4.80   &   0.20   &   2.19 \\
+        0.40   &   3.60   &   0.20   &   1.90 \\
+        0.50   &   2.60   &   0.20   &   1.61 \\
+        0.60   &   1.60   &   0.20   &   1.26 \\
+        0.70   &   1.20   &   0.20   &   1.10 \\
+        0.80   &   0.44   &   0.02   &   0.66 \\
+        0.90   &   0.18   &   0.02   &   0.42 \\
+        1.00   &   0.02   &   0.02   &   0.14 \\
+        1.02   &   0.00   &   0.02   &   0.00 \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+
+    \FloatBarrier
+  
+    \newpage
+    \section{Literaturverzeichnis}
+    [1] \textit{Versuchsanleitung V500 - Der Photoeffekt.} TU Dortmund, 2020 \newline
+    [2] SciPy: \textit{Open source scientific tools for Python}, from Eric Jones and Travis Oliphant and Pearu Peterson and others, 2020
+    \url{http://www.scipy.org/} \newline
+    [3] WIKIPEDIA: \textit{Caesium}
+    \url{https://de.wikipedia.org/wiki/Caesium}
+\end{document}
 
         
