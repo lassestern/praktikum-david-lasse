@@ -7,7 +7,7 @@ def Freifall(s, t):
     return 2*s/(t**2)
 
 def Schief(s, t, h):
-    return 2*s/(t**2*h/1.2)
+    return 1.2/h * (2*s/(t**2) + 4*s/(5*t**2))
 
 def Mittel(Werte):
     return np.sum(Werte)/len(Werte)
