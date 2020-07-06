@@ -127,7 +127,7 @@
 
             \begin{equation}
                 \delta = \frac{2\pi \text{s}}{\lambda} = \frac{2\pi \text{x} \sin(\varphi)}{\lambda}
-                \ref{eqn:Phasendiff}
+                \label{eqn:Phasendiff}
             \end{equation}
 
             \noindent
@@ -274,7 +274,6 @@
             ist die einfallende Intensität über einen Photostrom zu messen. Zudem ist sie auf einer Skala befestigt, die die Positionierung der Photodiode in Relation zum Zentrum des Laserstrahls
             angibt.
             
-        \newpage
         \subsection{Durchführung}
             Aufgrund mangelnder Zeit wird nur das Beugungsbild eines Einzelspalts untersucht.
             \subsubsection*{Untersuchung eines Einzelspalts}
@@ -283,15 +282,87 @@
                 vermessen. Zusätzlich muss eine Nullmessung des Photostroms durchgeführt werden, um im Nachhinein den Untergrund durch ungewollte Lichtquellen abziehen zu können. 
 
 
-                    
+    \newpage
+    \section{Auswertung}
+        Zuerst wurde der Dunkelstrom, d.h. der durch das natürlich vorhandene Licht ausgelöste Strom, gemessen.
+        Für diesen wurde aufgrund des stark abgedunkelten Zimmers ein Strom von $(1 \pm 0,2)$ nA gemessen.
+        Dieser Wert ist um eine bis zwei Zehnerpotenzen kleiner als die Messunsicherheiten der Messwerte für den Strom bei eingeschaltetem Laser.
+        Deswegen würde den Dunkelstrom von den Messwerten abzuziehen die Messergebnisse nicht beeinflussen.
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width = 0.8\textwidth]{Bilder/Einzelspalt_Messwerte.png}
+            \caption{Hier ist der Strom gegen den Winkel $\phi$ aus \autoref{fig:Phasendifferenz} aufgetragen. Die Messwerte dafür befinden sich in \autoref{tab:Messwerte}}
+            \label{fig:Einzelspalt_Messwerte}
+        \end{figure}
+
+        \FloatBarrier
+
+        Es wird eine Ausgleichsrechnung durchgeführt, wobei der Sinus cardinalis \\ $\text{sinc}(x) = \sin(x) / x$ an die Messwerte gefittet wird. Dazu wird \autoref{eqn:IEinzel} verwendet und ein Faktor $k$ für die Proportionalität zwischen $B(\varphi)$ und $I(\varphi)$ eingeführt. Um Größen zu erhalten, mit denen der Computer besser rechnen kann wird von folgenden Substitutionen Gebrauch gemacht,
+        \begin{equation*}
+            I_0 = k \cdot A_0^2 \cdot b^2 \qquad \text{und} \qquad \xi = \frac{b}{\lambda}
+        \end{equation*}
+        sodass \autoref{eqn:BEinzel} mit ihnen aussieht wie:
+        \begin{equation*}
+            I(\varphi) = I_0 \cdot \text{sinc}\bigl(\xi \cdot \sin(\varphi)\bigr)
+        \end{equation*}
+
+        Es ergeben sich für die beiden Parameter $I_0 = 3,24 \pm 0,02$ und $240.1 \pm 2,6$. Mit der Wellenlänge des Lasers $\lambda = 633\,$nm ist dann $b = 0,152\,$mm. Dieser Wert weicht um $a_b = 1,3\,$\% vom Literaturwert $b_{\text{lit}} = 0,15\,$mm ab. 
 
 
+        \newpage
+        \section{Diskussion}
+            Wir konnten leider wegen dem Zeitmangel keine Werte für den Doppelspalt aufnehmen und mussten uns mit den Messwerten zum Einzelspalt begnügen.
+
+            Da die Schrittweite vergleichsweise klein war und das Hauptmaximum mit einer noch kleineren Schrittweit durchmessen wurde, liegt die theoretische Kurve sehr nah an den Messwerten und ermöglicht eine genaue Bestimmung der Spaltbreite. Diese weicht nur um ca. $1,3\,$\% vom Literaturwert ab.
+
+            Hinzu kommt auch, dass der Raum in dem der Versuch durchgeführt wurde sehr stark abgedunkelt war, sodass fast kein natürliches Licht an den Detektor kam. Deswegen war der Dunkelstrom so gering, dass er die Messwerte nicht beeinflusst hat.
 
 
-
-
-                    
-
+    \newpage
+    \section{Daten}
+        \begin{table}[h]
+            \centering
+            \caption{Hier sind die Abstände vom Hauptmaximum $a$, der Winkel $\phi$ zwischen der Strecke vom Einzelspalt und einem Punkt auf dem Schirm, der gemessene Strom $I$ und seine Messunsucherheit $I_{\text{u}}$ dargestellt.}
+            \label{tab:Messwerte}
+            \begin{tabular}{c c c c | c c c c}
+                \toprule
+                {$a$ [mm]} & {$\phi$ [°]} & {$I$ [$\mu$A]} & {$I_{\text{u}}$ [$\mu$A]} & {$a$ [mm]} & {$\phi$ [°]} & {$I$ [$\mu$A]} & {$I_{\text{u}}$ [$\mu$A]} \\
+                \midrule
+                -9.00   &  -0.44   &   0.10   &   0.02   &    0.30   &   0.01   &  10.80   &   0.20 \\
+                -8.50   &  -0.42   &   0.20   &   0.02   &    0.60   &   0.03   &  10.80   &   0.20 \\
+                -8.00   &  -0.39   &   0.32   &   0.02   &    0.90   &   0.04   &   9.60   &   0.20 \\
+                -7.50   &  -0.37   &   0.44   &   0.02   &    1.20   &   0.06   &   9.00   &   0.20 \\
+                -7.00   &  -0.35   &   0.48   &   0.02   &    1.50   &   0.07   &   7.80   &   0.20 \\
+                -6.50   &  -0.32   &   0.42   &   0.02   &    1.80   &   0.09   &   6.60   &   0.20 \\
+                -6.00   &  -0.30   &   0.30   &   0.02   &    2.10   &   0.10   &   5.40   &   0.20 \\
+                -5.50   &  -0.27   &   0.16   &   0.02   &    2.40   &   0.12   &   4.20   &   0.20 \\
+                -5.00   &  -0.25   &   0.08   &   0.02   &    2.70   &   0.13   &   3.60   &   0.20 \\
+                -4.50   &  -0.22   &   0.16   &   0.02   &    3.00   &   0.15   &   2.60   &   0.20 \\
+                -4.20   &  -0.21   &   0.36   &   0.02   &    3.30   &   0.16   &   1.80   &   0.20 \\
+                -3.90   &  -0.19   &   0.68   &   0.02   &    3.60   &   0.18   &   1.00   &   0.20 \\
+                -3.60   &  -0.18   &   1.00   &   0.20   &    3.90   &   0.19   &   0.66   &   0.02 \\
+                -3.30   &  -0.16   &   1.60   &   0.20   &    4.20   &   0.21   &   0.32   &   0.02 \\
+                -3.00   &  -0.15   &   2.40   &   0.20   &    4.50   &   0.22   &   0.16   &   0.02 \\
+                -2.70   &  -0.13   &   3.20   &   0.20   &    5.00   &   0.25   &   0.10   &   0.02 \\
+                -2.40   &  -0.12   &   4.20   &   0.20   &    5.50   &   0.27   &   0.24   &   0.02 \\
+                -2.10   &  -0.10   &   5.20   &   0.20   &    6.00   &   0.30   &   0.42   &   0.02 \\
+                -1.80   &  -0.09   &   6.20   &   0.20   &    6.50   &   0.32   &   0.58   &   0.02 \\
+                -1.50   &  -0.07   &   7.20   &   0.20   &    7.00   &   0.35   &   0.62   &   0.02 \\
+                -1.20   &  -0.06   &   8.00   &   0.20   &    7.50   &   0.37   &   0.58   &   0.02 \\
+                -0.90   &  -0.04   &   8.80   &   0.20   &    8.00   &   0.39   &   0.46   &   0.02 \\
+                -0.60   &  -0.03   &   9.40   &   0.20   &    8.50   &   0.42   &   0.30   &   0.02 \\
+                -0.30   &  -0.01   &   9.60   &   0.20   &    9.00   &   0.44   &   0.18   &   0.02 \\
+                 0.00   &   0.00   &  11.40   &   0.20 \\
+                \bottomrule
+            \end{tabular}
+        \end{table}
+  
+      \FloatBarrier
+    
+    \newpage
+    \section{Literatur}
+        [1] \textit{Versuchsanleitung V406 - Beugung am Spalt.} TU Dortmund, 2020 \newline
 
 \end{document}
 
