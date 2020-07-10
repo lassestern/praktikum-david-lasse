@@ -1,0 +1,4 @@
+Diagramm 4:
+25 Kästchen pro 5V
+5 Kästchen pro 1V
+1 Kästchen entspricht 1mm
