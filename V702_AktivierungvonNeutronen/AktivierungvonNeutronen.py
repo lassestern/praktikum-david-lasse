@@ -40,7 +40,7 @@ Z = unumpy.log(N)
 Z_besser = Z[0:13]
 plt.errorbar(t, noms(Z), xerr = 0, yerr = stds(Z), fmt = "b.", label = r"Messwerte")
 
-# Ausgleichgerade durch alle und durch die erten 14 Messwerte legen
+# Ausgleichgerade durch alle und durch die ersten 14 Messwerte legen
 params, cov_matrix = curve_fit(f, t, noms(Z))
 m = ufloat(params[0], np.sqrt(cov_matrix[0, 0]))
 b = ufloat(params[1], np.sqrt(cov_matrix[1, 1]))
@@ -58,7 +58,7 @@ plt.plot(t_lin_besser, f(t_lin_besser, *params_besser), "g", label = r"2. Ausgle
 plt.xlabel(r"$\Delta t$ [s]")
 plt.ylabel(r"$ln{N}$")
 plt.legend(loc = "best")
-plt.savefig("Bilder/HalbwertszeitGraph.png")
+plt.savefig("Bilder/HalbwertszeitGraph_Vanadium.png")
 #plt.show()
 plt.clf()
 
@@ -152,7 +152,7 @@ plt.ylabel(r"$ln{N}$")
 plt.ylim(0)
 plt.legend(loc = "best")
 plt.savefig("Bilder/HalbwertszeitGraph_Rhodium.png")
-plt.show()
+#plt.show()
 plt.clf()
 
 

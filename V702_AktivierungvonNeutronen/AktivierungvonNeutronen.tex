@@ -9,6 +9,7 @@
 \usepackage{xparse}
 
 %Mathematik------------------------------------------------------
+\usepackage[nice]{nicefrac}
 \usepackage{amsmath}   % unverzichtbare Mathe-Befehle
 \usepackage{amssymb}   % viele Mathe-Symbole
 \usepackage{mathtools} % Erweiterungen fuÌˆr amsmath
@@ -42,12 +43,13 @@
 \usepackage{microtype}
 \usepackage{xfrac}
 \usepackage[autostyle]{csquotes}    % babel
-\usepackage[unicode, pdfusetitle]{hyperref}
+\usepackage[german, unicode, pdfusetitle]{hyperref}
 \usepackage{bookmark}
 \usepackage[shortcuts]{extdash}
 %Einstellungen hier, z.B. Fonts
 \usepackage{booktabs} % Tabellen
 
+\setlength{\parindent}{0pt}
 
 \title{V702 - Aktivierung mit Neutronen}
 \author{
@@ -107,7 +109,7 @@
                 Es handelt sich um schnelle Elektronen, wenn deren Geschwindigkeit so groß ist, dass deren De-Broglie-Wellenlänge gegenüber dem Kernradius ($\approx 10^{-12}$cm) klein wird. Dabei 
                 lässt sich das System analog zur Streuung von Licht an einem makroskopischen Objekt betrachten.
 
-            \subsubsection*{Langsamme Neutronen}
+            \subsubsection*{Langsame Neutronen}
                 Interessanter ist der Fall langsammer Neutronen, bei denen die De-Broglie-Wellenlänge groß gegen den Kernradius ist. Hierbei kann der Wirkungsquerschnitt in Abhängigkeit von der 
                 der Energie des Neutrons und den Energieniveaus des Zwischenkerns berechnen. $\widetilde{c}$ und $\sigma_0$ sind dabei Konstanten der zugehörigen Kernreaktion.
 
@@ -155,9 +157,10 @@
             \noindent
             Die Halbwertszeit beschreibt die Dauer in der von der anfänglichen Teilchenzahl nur noch die Hälfte übrig ist. Dies lässt sich wie folgt ausdrücken.
 
-            \begin{equation*}
-                \frac{1}{2} \cdot \text{N}_0 = \text{N}_0 \cdot e^{-\lambda T_{\frac{1}{2}}} \qquad \longrightarrow \qquad T_{\frac{1}{2}} = \frac{\ln(2)}{\lambda}
-            \end{equation*}
+            \begin{equation}
+                \frac{1}{2} \cdot \text{N}_0 = \text{N}_0 \cdot e^{-\lambda T_{\frac{1}{2}}} \qquad \longrightarrow \qquad T_{\nicefrac{1}{2}} = \frac{\ln(2)}{\lambda}
+                \label{eqn:Halbwertszeit}
+            \end{equation}
 
             \noindent
             So kann die spezifische Halbwertszeit für die Isotope bestimmt werden.
@@ -172,12 +175,14 @@
             \noindent
             Anwenden des Zerfallsgesetzes \ref{eqn:Zerfallsgesetz} und anschließendes anwenden des natürlichen Logarithmus liefert eine weitere Möglichkeit zur Bestimmung der Halbwertszeit.
             
-            \begin{equation*}
-                \text{N}_{\Delta t}(t) = \text{N}_0 \cdot e^{-\lambda t} - \text{N}_0 \cdot e^{-\lambda (t + \Delta t)} = \text{N}_0 \cdot \left(1 - e^{-\lambda \Delta t}\right) \cdot e^{-\lambda t} 
-            \end{equation*}
+            \begin{equation}
+                \text{N}_{\Delta t}(t) = \text{N}_0 \cdot e^{-\lambda t} - \text{N}_0 \cdot e^{-\lambda (t + \Delta t)} = \text{N}_0 \cdot \left(1 - e^{-\lambda \Delta t}\right) \cdot e^{-\lambda t}
+                \label{eqn:Zerfallsgesetz_}
+            \end{equation}
                 
             \begin{equation}
                 \ln\left(\text{N}_{\Delta t}(t)\right) = \ln \left(\text{N}_0 \cdot \left(1 - e^{-\lambda \Delta t}\right)\right) - \lambda t
+                \label{eqn:theorieGerade}
             \end{equation}
             
             \noindent
@@ -202,12 +207,13 @@
                 \subsubsection*{Rhodium}
                 Im Gegensatz zum Vanadium entstehen bei Rhodium durch Neutroneneinfang zwei instabile Isotope mit verschiedener Wahrscheinlichkeit.
 
-                \begin{equation*}
+                \begin{equation}
                     \ce{^{103}_{45}Rh} + \ce{^{1}_{0}n}  \begin{cases}
                         \xrightarrow{10\%} \ce{^{104i}_{45}Rh} \longrightarrow \ce{^{104}_{45}Rh} + \gamma \longrightarrow \ce{^{104}_{46}Pd} + \text{e} + \bar{\nu_e} \\
                         \xrightarrow{90\%} \ce{^{104}_{45}Rh} \longrightarrow \ce{^{104}_{46}Pd} + \text{e} + \bar{\nu_e}
                     \end{cases}
-                \end{equation*}
+                    \label{eqn:Rhodium}
+                \end{equation}
 
                 \noindent
                 Diese Isotope zerfallen auch beide in andere Elemente. Gemessenen werden kann jedoch nur die Gesamtaktivität der beiden Zerfallsketten. Da die beiden Isotope unterschiedlich schnell 
@@ -260,6 +266,212 @@
             Die Rhodiumprobe wird entsprechend der Vorbereitung der Vanadiumprobe auch neben der Neutronenquelle aktiviert. Die Messung der Aktivität verläuft analog zur Messung der Vanadiumprobe
             mit einer Messzeit von 15 Sekunden. Auch hier ermöglicht der Zeitschalter ein kontinuierliches Messen.
             
+    \section{Auswertung}
+        \subsection{Untergrundzählrate}
+            Zuerst wird die Untergrundzählrate, die von jeder Messung abgezogen werden muss, um korrekte Messwerte zu bekommen.
+            Deshalb wurden Werte für die Untergrundrate jeweils mit einer Integrationszeit von 300s gemessen:
+            \begin{equation*}
+                N_U = \{129, 143, 144, 136, 139, 126, 158\}
+            \end{equation*}
+
+            Der Mittelwert dieser Werte ist $N_{\text{U,m}} = (139 \pm 10)\,$Imp/300s. Da die Zählraten der Proben jedoch mit verschiedenen Integrationszeiten gemessen wurden, muss der Mittelwert auf diese Zeiten angepasst werden.
+
+        \subsection{Vanadium}
+            Da bei dieser Messreihe eine Messzeit von $\Delta t = 30$s verwendet wurde, wird die Untergrundzählrate durch 10 geteilt und von den gemessenen Werten $N^*_{\Delta t}$ abgezogen:
+            \begin{equation*}
+                N_{\Delta t} = N^*_{\Delta t} - \frac{N_{\text{U,m}}}{10}
+            \end{equation*}
+            
+            Die Messwerte werden halblogarithisch aufgetragen. Nach \autoref{eqn:theorieGerade} sollten die Werte theoretisch ca. proportional zur Zerfallskonstante $\lambda$ sein:
+            \begin{align*}
+                &\underbrace{\ln\left(N_{\Delta t}(t)\right)} = \underbrace{\ln \left(N_0 \cdot \left(1 - e^{-\lambda \Delta t}\right)\right)} \underbrace{ - \lambda} \hspace{2pt} \cdot \hspace{3pt} \underbrace{t} \\
+                & \hspace{26pt} y \hspace{25pt} = \hspace{47pt} b \hspace{49pt} + m \cdot x
+            \end{align*}            
+
+            Deshalb kann eine lineare Regression durch alle Werte durchgeführt werden, um die Zerfallskonstante und damit auch die Halbwertszeit anhand von \autoref{eqn:Halbwertszeit} zu berechnen.
+            Es ist jedoch leicht in \autoref{fig:Vanadium} zu erkennen, dass die Messwerte aufgrund der halblogarithmischen Darstellungsweise stark divergieren.
+
+            Deswegen wird zuerst mithilfe der ersten linearen Regression die vorläufige Halbwertszeit $T_{\nicefrac{1}{2}}$ bestimmt und für die zweite lineare Regression werden nur die Messwerte bis ca. zur doppelten Halbwertszeit, in diesem Fall die ersten 14, verwendet.
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width = 0.8\textwidth]{Bilder/HalbwertszeitGraph_Vanadium.png}
+                \caption{Es sind die Werte aus \autoref{tab:Vanadium} halblogarithmisch aufgetragen und eine Ausgleichgerade wird zuerst durch alle Punkte und eine zweite Ausgleichsgerade durch die ersten 14 Werte durchgeführt.}
+                \label{fig:Vanadium}
+            \end{figure}
+  
+            \FloatBarrier
+
+            Für die erste und zweite Ausgleichsgerade ergeben sich folgende Werte:
+            \begin{align*}
+                m_1 = (-3,17 \pm 0,16 \cdot 10^{-3}) \text{s}^{-1} \hspace{75pt} b_1 = (5,19 \pm 0,13) \\
+                m_2 = (-3,23 \pm 0,24 \cdot 10^{-3}) \text{s}^{-1} \hspace{75pt} b_2 = (5,32 \pm 0,06)
+            \end{align*}
+
+            Also ergibt sich mit \autoref{eqn:Halbwertszeit} für die Halbwertszeiten
+            \begin{align*}
+                T_{\nicefrac{1}{2} \text{, 1}} = (219 \pm 11)\, \text{s} \\
+                T_{\nicefrac{1}{2} \text{, 2}} = (214 \pm 16)\, \text{s}
+            \end{align*}
+            und aus dem y-Achsenabschnitt werden die Vorfaktoren
+            \begin{align*}
+                \text{e}^{b_1} = N_0 \left(1 - e^{-\lambda_1 \Delta t}\right) = (178 \pm 23) \,\text{Imp} \\
+                \text{e}^{b_2} = N_0 \left(1 - e^{-\lambda_2 \Delta t}\right) = (205 \pm 12) \,\text{Imp}
+            \end{align*}
+            berechnet.
+
+            Die Abweichung der Halbwertszeit vom Literaturwert $T_{\nicefrac{1}{2} \text{,lit}} = 224,6 \,$s sind:
+            \begin{align*}
+                a_1 = \frac{T_{\nicefrac{1}{2} \text{,lit}} - T_{\nicefrac{1}{2} \text{, 1}}}{T_{\nicefrac{1}{2} \text{,lit}}} = 2,6 \, \% \\
+                a_2 = \frac{T_{\nicefrac{1}{2} \text{,lit}} - T_{\nicefrac{1}{2} \text{, 2}}}{T_{\nicefrac{1}{2} \text{,lit}}} = 4,5 \, \%
+            \end{align*}
         
-                
-        \end{document}
+        \newpage
+        \subsection{Rhodium}
+            Bei dem Zerfall von Rhodium besteht das Problem, dass gleichzeitig zwei verschiedene Zerfallsprozesse stattfinden (siehe \autoref{eqn:Rhodium}).
+
+            Davon läuft der Eine langsamer und der Andere schneller ab. Deshalb sind nach einer gewissen Zeit $t^*$ in der Messung alle schnellen Zerfallsprozesse abgelaufen und es bleibt nur noch der langsame Zerfall. Das kann ist gut in \autoref{fig:Rhodium} daran erkennbar, dass der Graph zuerst schnell fällt und dann ab ca. $t^*$ einen linearen Anteil aufweist.
+
+            Es wird also zuerst die lineare Regression durch den linearen Teil des Graphen gemacht. Bei diesem Fall wurden die 18 letzten Messwerte benutzt.
+
+            Dann wird die Ausgleichsgerade extrapoliert und von dem Graphen subtrahiert. Dabei ist darauf zu achten, dass alle Werte der Ausgleichsgeraden unterhalb der Werten $N_{\Delta t}(t)$ mit $t < t^*$ liegen.
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width = 0.8\textwidth]{Bilder/HalbwertszeitGraph_Rhodium.png}
+                \caption{Es sind die Werte aus \autoref{tab:Rhodium} halblogarithmisch aufgetragen und eine Ausgleichgerade durch die letzten 18 Werte durchgeführt. Anschließend wird eine Ausgleichsgerade durch die ersten 14 korrigierten Werte durchgeführt.}
+                \label{fig:Rhodium}
+            \end{figure}
+
+              \FloatBarrier
+              
+              Aus den Parametern der Ausgleichsgerade für den langsamen Zerfall
+              \begin{equation*}
+                  m_l = (-3,31 \pm 1,00 \cdot 10^{-3}) \text{s}^{-1} \hspace{75pt} b_l = (4,57 \pm 0,54)
+              \end{equation*}
+
+              ergibt sich mit der gleichen Rechnung wie beim Vanadium die Halbwertszeit $T_{\nicefrac{1}{2} \text{, l}} = (209 \pm 63) \,$s und der Vorfaktor $e^{b_l} = (96,5 \pm 51,8) \,$Imp. \\
+
+              Wie in \autoref{fig:Rhodium} zu erkennen ist, macht es keinen Sinn die Ausgleichsgerade in einen Graphen einzuzeichnen, in dem der langsame Zerfall noch vorhanden ist.
+              \begin{figure}[h]
+                \centering
+                \includegraphics[width = 0.8\textwidth]{Bilder/HalbwertszeitGraph_Rhodium_kurzlebig.png}
+                \caption{Es sind die ersten 14 Werte aus \autoref{tab:Rhodium} halblogarithmisch aufgetragen, nachdem der langsame Zerfall abgezogen wurde.}
+                \label{fig:RhodiumSchnell}
+            \end{figure}
+
+            \FloatBarrier
+
+            Aus den Parametern der Ausgleichsgerade für den schnellen Zerfall
+            \begin{equation*}
+                m_s = (-18,1 \pm 0,4 \cdot 10^{-3}) \text{s}^{-1} \hspace{75pt} b_s = (6,76 \pm 0,05)
+            \end{equation*}
+
+            ergibt sich mit der gleichen Rechnung wie beim Vanadium die Halbwertszeit $T_{\nicefrac{1}{2} \text{, s}} = (38,4 \pm 0,8)$ und der Vorfaktor $e^{b_s} = (862,8 \pm 41) \,$Imp. \\
+
+            Die Abweichung der Halbwertszeit des langsamen und schnellen Zerfalls von den Literaturwerten $T_{\nicefrac{1}{2} \text{,l,lit}} = 260,4 \,$s und $T_{\nicefrac{1}{2} \text{,s,lit}} = 42,3 \,$s sind jeweils:
+            \begin{align*}
+                &a_l = 19,6 \, \% \\
+                &a_s = 9,2 \, \%
+            \end{align*}
+
+            Die Theoriekurve in \autoref{fig:Rhodium} wurde mit den jetzt bekannten Werten für die Zerfallskonstanten gezeichnet, anhand folgender Formel, die aus der Summe der beiden Gleichungen \ref{eqn:Zerfallsgesetz_} für den langsamen Zerfall und schnellen Zerfall entsteht:
+            \begin{align*}
+                &&N_{\Delta t, ges} &= N_0 (1 - e^{-\lambda_l \Delta t}) \cdot e^{-\lambda_l t} + N_0 (1 - e^{-\lambda_s \Delta t}) \cdot e^{-\lambda_s t} \\
+                \implies &&\ln\Bigl(N_{\Delta t, ges} \Bigr) &= \ln\Bigl(N_0 (1 - e^{-\lambda_l \Delta t}) \cdot e^{-\lambda_l t} + N_0 (1 - e^{-\lambda_s \Delta t}) \cdot e^{-\lambda_s t} \Bigr)
+            \end{align*}
+      
+    \newpage
+    \section{Diskussion}
+        Die Abweichungen der gemessenen Halbwertszeiten von den Literaturwerten sind beim Vanadium relativ gering.
+        Allerdings ist die Abweichung der Halbwertszeit, die mit der vermeintlich verbesserten Rechnung bestimmt wurde größer als die die mit der Ausgleichsrechnung über alle Werte bestimmt wurde.
+
+        Das liegt nur daran, dass die die Messwerte zufällig so verteilt sind, dass sich so eine Steigung ergibt. Normalerweise würde die zweite Ausgleichsrechnung ein Resultat ergeben, dass näher am tatsächlichen Wert liegt als die Erste. \\
+
+        Beim Rhodium sind die Abweichungen der Halbwertszeit des langsamen Zerfalls natürlicherweise größer, da $t^*$ zum Einen nur per Augenmaß gewählt wird und die Werte in der zweiten Hälfte des Graphen relativ weit gestreut sind.
+
+        Da die Werte für den schnellen Zerfall durch Subtraktion der Werte für den langsamen Zerfall entstehen, fließt die Ungenauigkeit der Ausgleichsrechnung für den langsamen Zerfall auch in die Berechnung der Halbwertszeit des schnellen Zerfalls mit ein und die Abweichung ist auch hier im Vergleich zum Vanadium relativ groß.
+
+
+
+    
+    \newpage
+    \section{Daten}
+        \begin{table}[h]
+            \centering
+            \caption{Hier sind die Messwerte der Zählrate des Zerfalls von Vanadium mit einem Integrationszeitraum von 30s angegeben.}
+            \label{tab:Vanadium}
+            \begin{tabular}{c c c c}
+            \toprule
+            {$t$ [s]} & {$N$ [Impulse/30s]} & {$t$ [s]} & {$N$ [Impulse/30s]} \\
+            \midrule
+            30	 &  189  &  690   &  35 \\
+            60	 &  197  &  720   &  19 \\
+            90	 &  150  &  750   &  28 \\
+            120	 &  159  &  780   &  27 \\
+            150	 &  155  &  810   &  36 \\
+            180	 &  132  &  840   &  25 \\
+            210	 &  117  &  870   &  29 \\
+            240	 &  107  &  900   &  18 \\
+            270	 &  94   &  930   &  17 \\
+            300	 &  100  &  960   &  24 \\
+            330	 &  79   &  990   &  21 \\
+            360	 &  69   &  1020  &  25 \\
+            390	 &  81   &  1050  &  21 \\
+            420	 &  46   &  1080  &  24 \\
+            450	 &  49   &  1110  &  25 \\
+            480	 &  61   &  1140  &  17 \\
+            510	 &  56   &  1170  &  20 \\
+            540	 &  40   &  1200  &  19 \\
+            570	 &  45   &  1230  &  20 \\
+            600	 &  32   &  1260  &  18 \\
+            630	 &  27   &  1290  &  16 \\
+            660	 &  43   &  1320  &  17 \\                        
+            \bottomrule
+            \end{tabular}
+        \end{table}
+
+        \FloatBarrier
+
+        \begin{table}[h]
+            \centering
+            \caption{Hier sind die Messwerte der Zählrate des Zerfalls von Rhodium mit einem Integrationszeitraum von 15s angegeben.}
+            \label{tab:Rhodium}
+            \begin{tabular}{c c c c}
+            \toprule
+            {$t$ [s]} & {$N$ [Impulse/15s]} & {$t$ [s]} & {$N$ [Impulse/15s]} \\
+            \midrule
+                15    &   667   &   345   &   36 \\ 
+                30    &   585   &   360   &   38 \\ 
+                45    &   474   &   375   &   34 \\
+                60    &   399   &   390   &   40 \\
+                75    &   304   &   405   &   21 \\
+                90    &   253   &   420   &   35 \\
+                105   &   213   &   435   &   33 \\
+                120   &   173   &   450   &   36 \\
+                135   &   152   &   465   &   20 \\
+                150   &   126   &   480   &   24 \\
+                165   &   111   &   495   &   30 \\
+                180   &    92   &   510   &   30 \\
+                195   &    79   &   525   &   26 \\
+                210   &    74   &   540   &   28 \\
+                225   &    60   &   555   &   23 \\
+                240   &    52   &   570   &   20 \\
+                255   &    56   &   585   &   28 \\
+                270   &    53   &   600   &   17 \\
+                285   &    41   &   615   &   26 \\
+                300   &    36   &   630   &   19 \\
+                315   &    37   &   645   &   13 \\
+                330   &    32   &   660   &   17 \\
+                \bottomrule
+            \end{tabular}
+        \end{table}
+
+        \FloatBarrier
+
+    \newpage
+    \section{Literatur}
+        [1] \textit{Versuchsanleitung V702 - Aktivierung der Neutronen.} TU Dortmund, 2020 \newline
+        [2] \textit{Nuclear Structure and Decay Data}, Brookhaven National Laboratory \newline
+        \url{https://www.nndc.bnl.gov/nudat2/}
+
+\end{document}
