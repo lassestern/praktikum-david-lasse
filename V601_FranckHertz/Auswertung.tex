@@ -1,0 +1,129 @@
+\documentclass[titlepage = firstcover]{scrartcl}
+\usepackage[aux]{rerunfilecheck}
+\usepackage{fontspec}
+\usepackage[main=ngerman, english, french]{babel}
+
+% mehr Pakete hier
+\usepackage{expl3}
+\usepackage{xparse}
+
+%Mathematik------------------------------------------------------
+\usepackage{amsmath}   % unverzichtbare Mathe-Befehle
+\usepackage{amssymb}   % viele Mathe-Symbole
+\usepackage{mathtools} % Erweiterungen fuÌˆr amsmath
+\usepackage{dsfont}
+\usepackage[
+  math-style=ISO,    % \
+  bold-style=ISO,    % |
+  sans-style=italic, % | ISO-Standard folgen
+  nabla=upright,     % |
+  partial=upright,   % /
+]{unicode-math}% "Does exactly what it says on the tin."
+\usepackage[section, below]{placeins}
+
+% Laden von OTF-Mathefonts
+% ErmoÌˆglich Unicode Eingabe von Zeichen: Î± statt \alpha
+
+\setmathfont{Latin Modern Math}
+%\setmathfont{Tex Gyre Pagella Math} % alternativ zu Latin Modern Math
+\setmathfont{XITS Math}[range={scr, bfscr}]
+\setmathfont{XITS Math}[range={cal, bfcal}, StylisticSet=1]
+
+\AtBeginDocument{ % wird bei \begin{document}
+  % werden sonst wieder von unicode-math uÌˆberschrieben
+  \RenewDocumentCommand \Re {} {\operatorname{Re}}
+  \RenewDocumentCommand \Im {} {\operatorname{Im}}
+}
+\usepackage{mleftright}
+\setlength{\delimitershortfall}{-1sp}
+\usepackage[version=4]{mhchem}
+
+%Sprache----------------------------------------------------------
+\usepackage{microtype}
+\usepackage{xfrac}
+\usepackage[autostyle]{csquotes}    % babel
+\usepackage[german, unicode, pdfusetitle]{hyperref}
+\usepackage{bookmark}
+\usepackage[shortcuts]{extdash}
+%Einstellungen hier, z.B. Fonts
+\usepackage{booktabs} % Tabellen
+
+\setlength{\parindent}{0pt}
+
+\title{V601 - Der Franck-Hertz Versuch}
+\author{
+  David Gutnikov\\
+  \href{mailto:david.gutnikov@udo.edu}{david.gutnikov@udo.edu}\\
+  Lasse Sternemann\\
+  \href{mailto:lasse.sternemann@udo.edu}{lasse.sternemann@udo.edu}
+}
+\date{Bearbeitet am 7.07.2020}
+
+\begin{document}
+    \maketitle
+    \newpage
+    \tableofcontents
+    \newpage
+
+    \section{Auswertung}    
+        \subsection{Bestimmung der mittleren freien Weglänge}
+            Zunächst wird überprüft, ob die freie Weglänge $\overline{w}$ die Bedingung erfüllt, um ca. das tausendfache kleiner als der Abstand a zwischen Glühkathode und Beschleunigungsanode zu sein.
+            Die freien Weglängen berechnen sich über Formel xx und werden daraufhin zur Berechnung des Verhältnis zwischen a=1cm und $\overline{w}$ genutzt.
+
+            \begin{table}[h]
+                \centering
+                \caption{In der Tabelle sind die den Temperaturen zugehörigen mittleren Weglängen der Gasatome, sowie das zugehörige Verhältnis zur Beschleunigungsdistanz a.}
+                \label{tab:TabGasdruck}
+
+                \begin{tabular}{c  c c}
+                    \toprule
+                    {$T \; [\text{K}] $} & {$\overline{w} \; [\text{m}\cdot 10^{-6}]$} &  {$\frac{\text{a}}{\overline{w}}$} \\
+                    \midrule
+                    300,85 & 4500 & 2,3 \\
+                    424,15 & 5,8 &  1800  \\
+                    443,15 & 2,9 &  3500  \\
+                    470,25 & 1,2 &  8500  \\
+                    \bottomrule
+                \end{tabular}
+
+            \end{table}
+        
+        \subsection{Bestimmung der Skalenanteile}
+            Zunächst wird berechnet wie viel Volt ein Kästchen auf dem Graphen der jeweiligen Temperatur des xy-Schreibers entspricht. Dazu wird folgende Formel benutzt, die zunächst aus den 
+            einzelnen Abständen $d_i$ den durchschnittlichen Abstand zwischen den 1 Volt Markierungen bestimmt und daraus die Volt pro Kästchen.
+
+            \begin{equation*}
+                \text{Volt/Kästchen} = \sum_{i=1}^{n} \frac{1}{d_i}
+            \end{equation*}
+
+            \begin{table}[h]
+                \centering
+                \caption{I die Masse des Wassers im Dewar-Gefäß $m_{\text{w}}$ angegeben.}
+                \label{tab:Tabelle1}
+
+                \begin{tabular}{c c c c c}
+                    \toprule
+                    {} & {300,85 K} & {424,15 K} \\
+                    \midrule
+                    Kästchen/Volt & 24 & 24 \\
+                                  & 24 & 24 \\
+                                  & 24 & 25 \\
+                                  & 25 & 24 \\
+                                  & 24 & 26 \\
+                                  & 24 & 25 \\
+                                  & 25 & 25 \\
+                                  & 26 & 25 \\
+                                  & 26 & 27 \\
+                                  & 28 & 24 \\
+                                  Graphit       & 80,0 & 21,4 & 23,2 & 0,56694 \\
+                    \bottomrule
+                \end{tabular}
+
+            \end{table}
+            
+            
+            
+            
+
+
+        \end{document}
