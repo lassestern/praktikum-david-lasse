@@ -41,5 +41,4 @@ tAb2 = Laufzeit(c_Acryl, Ab2_aS)
 tAuf1 = Laufzeit(c_Acryl, Auf1_aS)
 tAuf2 = Laufzeit(c_Acryl, Auf2_aS)
 
-print(AbweichungAb1)
-print(tAb1)
+
