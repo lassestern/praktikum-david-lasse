@@ -47,6 +47,7 @@
 \usepackage[shortcuts]{extdash}
 %Einstellungen hier, z.B. Fonts
 \usepackage{booktabs} % Tabellen
+\usepackage{subcaption}
 
 \setlength{\parindent}{0pt}
 
@@ -65,6 +66,99 @@
     \tableofcontents
     \newpage
 
+    \section{Zielsetzung}
+      Mithilfe dieser Versuche sollen die verschiedenen Messverfahren der Ultraschalltechnik kennengelerent werden.
+
+    \section{Theorie}
+      \subsection{Grundlagen zu Schall}
+        Ultraschall liegt genau über dem von Menschen wahrnehmbaren Frequenzbereich von 16Hz bis ca. 20kHz und erstreckt sich bis ca. 1GHz. Oberhalb dieser Schwelle handelt sich um Hyperschall und unterhalb von 16Hz wird der Bereich Infraschall genannt. \\
+
+        Schallwellen sind longitudinale Wellen. Sie bewegen sich aufgrund von Druckveränderung in einem Medium fort. Deswegen ist ihre Phasengeschwindigkeit abhängig davon durch welches Material sie propagieren.
+
+        Für eine Flüssigkeit hängt die Schallgeschwindigkeit von materialeigenen Eigenschaften wie der Kompressibilität $\kappa$ und der Dichte $\rho$ ab:
+        \begin{equation*}
+          c_{\text{Fl}} = \sqrt{\frac{1}{\kappa \cdot \rho}}
+        \end{equation*}
+
+        Bei Festkörpern ist die Schallausbreitung schwieriger zu beschreiben, da alle Atome oder Molekühle mit ihren Nachbarn verbunden sind und so z.B. Schwingungen eines Atom Auswirkungen auf die umliegenden Atome hat und andersherum.
+        Es handelt sich bei den Schallwellen also nicht mehr nur um Longitudinalwellen, sondern auch um Transversalwellen, da auch die seitlich von der Quelle liegenden Teilchen von den longitudinalen Wellen zu Schwingungen angeregt werden.
+
+        In Festkörpern wird die Kompressibilität $\kappa^{-1}$ durch das Elastizitätsmodul $E$ ersetzt:
+        \begin{equation*}
+          c_{\text{Fe}} = \sqrt{\frac{E}{\rho}}
+        \end{equation*}
+
+        Schalgeschwindigkeiten in Festkörpern sind dabei richtungsabhängig. \\
+
+        Bei Schallwellen geht ein Teil der Schwingungsenergie der Teilchen in andere Energiearten wie z.B. Wärme über.
+        Dabei folgt die Schallabsorption dem folgenden Gesetz. Die Anfangsintensität $I_0$ der Welle nimmt exponentiell mit der Strecke $x$ ab:
+        \begin{equation*}
+          I(x) = I_0 e^{\alpha x}
+        \end{equation*}
+        wo $\alpha$ der Absorptionskoeffizient ist. \\
+
+        Weil Luft Schall sehr stark absorbiert, wird die Oberfläche des untersuchten Materials mit einem Kontaktmittel versetzt. Ein Teil der Schallwellen wird an Grenzflächen von einem Medium in ein Anderes reflektiert und der andere Teil durchdringt das Medium / wird transmittiert. Der Reflexionskoeffizient $R$ wird aus den akustischen Impedanzen $Z = \rho \cdot c$ der beiden angrenzenden Materialien berechnet:
+        \begin{equation*}
+          R = \Bigl(\frac{Z_1 - Z_2}{Z_1 + Z_2}\Bigr)^2
+        \end{equation*}
+        Bei einem Grenzübergang von Luft zu einem Festkörper würde außerdem das $R$ relativ groß sein, was nicht sehr förderlich wäre.
+
+        Für den Transmissionskoeffizienten $T$, also das Verhältniss des transmittierten zur einfallenden Intensität, gilt:
+        \begin{equation*}
+          T = 1 - R
+        \end{equation*}
+
+      \subsection{Erzeugung von Ultraschall}
+        Eine Methode zur Erzeugung von Ultraschall besteht daraus, dass ein piezoelektrischer Kristall in ein elektrisches Wechselfeld gebracht wird. Dabei wird der Kristall zu Schwingungen angeregt und strahlt Ultraschallwellen ab. Ein Piezokristall kann auch als Empfänger von Ultraschallwellen dienen. Diese treffen auf ihn und regen ihn ihrerseits zu Schwingungen an.
+
+      \subsection{Anwendung}
+        In der Medizin und anderen Fachbereichen werden mit Ultraschall sogenannte Laufzeitmessungen durchgeführt.
+        Es gibt zwei Verfahren die angewendet werden:
+        \begin{figure}[h]
+          \centering
+          \begin{subfigure}{0.48\textwidth}
+            \centering
+            \includegraphics[width = 0.4\textwidth]{Bilder/Durchschallungsverfahren.png}
+            \caption{Das Durchschallungs-Verfahren.}
+            \label{fig:Durchschallungsverfahren}
+          \end{subfigure}
+          \begin{subfigure}{0.48\textwidth}
+            \centering
+            \includegraphics[width = 0.36\textwidth]{Bilder/Impulsechoverfahren.png}
+            \caption{Das Impuls-Echo-Verfahren.}
+            \label{fig:Impulsechoverfahren}
+          \end{subfigure}
+        \end{figure}
+
+        \FloatBarrier
+
+        \paragraph{Durchschallungs-Verfahren:}
+          Hierbei wird vor dem Probenstück ein Sender und hinter der Probe ein Empfänger plaziert. Werden jetzt Ultraschallwellen ausgesendet und treffen sie in der Probe auf eine Fehlstelle wird am Empfänger eine abgeschwächte Intensität registriert. Es ist nicht möglich die Lage der Fehlstelle zu bestimmen.
+
+        \paragraph{Impuls-Echo-Verfahren:}
+          Hier fungiert der Sender gleichzeitig als Empfänger. So können Ultraschallwellen losgesandt werden, ein Teil wird an der Grenzflächen an der Fehlstelle zum Sender zurückreflektiert und dieser registriert den Schallpuls.
+          Bei bekannter Schallgeschwindigkeit $c$ lässt sich jetzt über die Laufzeit $t$ des Pulses der vom Schall zurückgelegte Weg, also der Abstand $s$ zur Fehlstelle berechnen:
+          \begin{equation*}
+            s = \frac{1}{2}ct
+          \end{equation*}
+
+      \subsection{Laufzeitdiagramme}
+        Mithilfe des Impuls-Echo-Verfahrens können Laufzeitdiagramme erstellt werden.
+        \paragraph{A-Scan:}
+          Der Amplituden Scan ist ein eindimensionales Verfahren, d.h. es kann nur ein Abstand zu einer Fehlstelle bestimmt werden.
+        \paragraph{B-Scan:}
+          Der Brightness Scan ist ein zweidimensionales Verfahren mit dem ein Bild aufgenommen werden kann. Dieses wird durch ein gleichmäßiges Bewegen der Sonde erstellt. Die verschiedenen Helligkeitsstufen zeigen verschiedene Tiefen der Fehlstellen an.
+        \paragraph{TM-Scan:}
+          Mit dem Time-Motion Scan wird durch eine hochfrequentige Aussendung und Aufnahme von Ultraschallpulsen eine Bildfolge aufgenommen, sodass Veränderungen in Echtzeit in der Probe beobachtet werden können.
+
+    \section{Aufbau und Durchführung}
+        Es ist eine Ultraschallsonde gegeben, die mit einem Computer verbunden ist auf dem ein Messprogramm läuft. Durch dieses Programm kann eingestellt werden welches der drei Scan-Verfahren genutzt werden soll. Vor jeder Messung wurde die Oberfläche der Probe mit Kontaktmittel eingeschmiert.
+        \subsection*{A-Scan}
+          Hierbei sollte die Lage von Fehlstellen in einem quaderförmigen Acrylblock bestimmt werden. Dazu wurde die Abstand der Fehlerstellen von zwei Seiten des Blocks mit einem Messschieber und dann mit dem A-Scan bestimmt.
+        \subsection*{B-Scan}
+          Hierzu wurden das Messprogramm auf B-Scan eingestellt und es wurden zwei Seiten des Blockes möglichst gleichmäßig von der Sonde überstrichen. Daruch enstanden zwei Bilder der Probe, aus denen die Größe der Fehlstellen bestimmt werden kann.
+      
+    \newpage
     \section{Auswertung}
         Aufgrund mangelnder Kompetenz ist dem Programm nicht die Laufzeit des Schalls, sondern direkt die Tiefe der Löcher entnommen worden. Deswegen werden diese Werte direkt mit den mit Hilfe
         einer Schiebelehre gemessenen Werten verglichen und anschließend die theoretische Laufzeit des Schalls bei entsprechender Tiefe berechnet.
@@ -206,13 +300,15 @@
 
     \newpage
     \section{Diskussion}
-      Zuerst ist zu erwähnen, dass die Ergebnisse nicht als korrekt angenommen werden können. Dies iegt daran, dass die Abstände der Löcher direkt dem Bedienungsprogramm der Ultraschallsonde
+      Zuerst ist zu erwähnen, dass die Ergebnisse nicht als korrekt angenommen werden können. Dies liegt daran, dass die Abstände der Löcher direkt dem Bedienungsprogramm der Ultraschallsonde
       entnommen wurden. Demnach hat dieses auch direkt die gemessene Laufzeit des Schalls in die Strecke umgerechnet und dabei eine unbekannte spezifische Schallgeschwindigkeit angenommen. Der 
       Umstand, dass die per Ultraschall gemessene Distanz meist um 2 bis 3 mm größer war, als die per Schiebelehre gemessen, lässt vermuten, dass das Gerät eine spezifische Schallgeschwindigkeit
       angenommen hat, die größer als die von der in Acryl ist. Dies würde die größere Strecke erklären. An sich scheint die Genauigkeit der Messung dennoch gegeben zu sein. Denn in der Tabelle
-      \ref{tab:Lochdistanzen} ist zu erkennen, dass der Abstand zur Seite des Blocks zwar unterschieldiche ist. Der Abstand zwischen den Löchern jedoch bei beiden Messverfahren
-      annähernd übereinstimmt. Auch die Abstände der Löcher 1 und 2 lassen sich klar unterscheiden und zeigen, dass das Auflösungsvermögen des Ultraschallgeräts genügend ist. 
+      \ref{tab:Lochdistanzen} ist zu erkennen, dass der Abstand zur Seite des Blocks zwar unterschieldich ist, der Abstand zwischen den Löchern jedoch bei beiden Messverfahren annähernd übereinstimmt.
+      Auch die Abstände der Löcher 1 und 2 lassen sich klar unterscheiden und zeigen, dass das Auflösungsvermögen des Ultraschallgeräts genügend ist. 
       
+    \section{Literaturverzeichnis}
+    [1] \textit{Versuchsanleitung US2 - Scanverfahren in der Ultraschalltechnik.} TU Dortmund, 2020 \newline
 
     \end{document}
             
