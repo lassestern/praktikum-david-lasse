@@ -67,7 +67,7 @@
     \newpage
 
     \section{Zielsetzung}
-
+        Mithilfe dieses Versuches lässt sich die Ionisationsenergie/die Energiedifferenz zwischen dem 1. angeregten Zustand und dem Grundzustand von Quecksilber bestimmen.
 
     \section{Theorie}
         \subsection{Einleitung}
@@ -86,6 +86,8 @@
                 \caption{Der schematische Aufbau der Franck-Hertz-Versuches. [1]}
                 \label{fig:Aufbau_FranckHertz}
             \end{figure}
+
+            \FloatBarrier
 
             In einem evakuirten Glasgefäß befindet sich ein Quecksilbertropfen.
             Dieser verdampft abhängig von der Temperatur $T$ verschieden stark und das Gefäß füllt sich mit Hg-Gas.
@@ -158,14 +160,116 @@
 
             \begin{figure}[h]
                 \centering
-                \includegraphics[width = 0.5\textwidth]{Bilder/IdealerAuffaengerstrom.png}
+                \includegraphics[width = 0.45\textwidth]{Bilder/IdealerAuffaengerstrom.png}
                 \caption{Der ideale Verlauf einer Kurve, wo der Auffängerstrom $I_{\text{A}}$ gegen die Beschleunigungsspannung $U_{\text{B}}$ aufgetragen wird. [1]}
                 \label{fig:IdealerAuffaengerstrom}
             \end{figure}
 
-        \subsection{Die tatsächliche Franck-Hertz-Kurve}
-            
+            \FloatBarrier
 
+        \subsection{Die tatsächliche Franck-Hertz-Kurve}
+            Die tatsächliche Franck-Hertz-Kurve unterscheidet sich etwas von der idealen Kurve. Sie ist nicht so spitz zulaufend und breiter. Das hängt von den folgenden drei Effekten.
+            \subsubsection{Einfluss des Kontaktpotentials}
+                Für die den Glühdraht und die Beschleunigungselektrode werden Materialien mit verschiedenen Austrittsarbeiten verwendet.
+                Der Draht hat eine viel kleinere Austrittsarbeit $\Phi_{\text{G}}$ als die Beschleunigungselektrode $\Phi_{\text{B}}$. Dies führt dazu, dass auch bei niedrigen Temperaturen eine hohe Emissionsrate gegeben ist. 
+                
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width = 0.8\textwidth]{Bilder/Austrittsarbeit.png}
+                    \caption{Hier ist die tatsächliche Potentialdifferenz zwischen Gühdraht und Beschleunigungselektrode dargestellt. [1]}
+                    \label{fig:Austrittsarbeit}
+                \end{figure}
+
+                \FloatBarrier
+
+                Aus \autoref{fig:Austrittsarbeit} ist ersichtlich, dass für die tatsächliche Beschleunigungsspannung $U_{\text{B,eff}}$ gilt:
+                \begin{equation*}
+                    U_{\text{B}} + \frac{\Phi_{\text{G}}}{e_0} = U_{\text{B,eff}} + \frac{\Phi_{\text{B}}}{e_0} \qquad \implies \qquad U_{\text{B,eff}} = U_{\text{B}} - \underbrace{\frac{1}{e_0}(\Phi_{\text{B}} - \Phi_{\text{G}})}_{K}
+                \end{equation*}
+                Die Franck-Hertz-Kurve ist also um dieses sogenannte Kontaktpotential $K$ nach rechts verschoben, da die angelegte Beschleunigungsspannung um $K$ höher eingestellt werden muss, damit die effektive Beschleunigungsspannung ausreicht um die Hg-Atome anzuregen.
+
+            \subsubsection{Einfluss des Energie-Spektrums der Elektronen}
+                Es wurde hier zuerst angenommen, dass die Elektronen keine Anfangsgeschwindigkeit kurz nach dem Austreten aus dem Glühdraht besitzen. Doch jedes Elektron bringt eine Energie mit, da das Energiespektrum der freien Elektronen in einem Metall durch die Fermi-Dirac-verteilung beschrieben wird.
+
+                Also sind unter den Elektronen verschiedene Anfangsgeschwindigkeiten vertreten, die bei null anfangen und mit schnell abnehmender Häufigkeit kontinuirlich steigen. Aus dem selben Grund fangen die Elektronenenergien nach Durchlaufen der Beschleunigungsspannung bei $U_{\text{B,eff}}$ an und steigen kontinuirlich mit schnell abnehmender Häufigkeit. \\
+
+                Deswegen wird die zur Anregung nötige Elektronenenergie nicht mehr von allen Elektronen gleichzeitig erreicht und die Franck-Hertz-Kurve wird breiter und fällt nicht mehr so abrupt auf null herab, sondern sie nähert sich einem Minimum. Anschaulich sind die Peaks nicht mehr so spitz.
+
+            \subsubsection{Einfluss der elastischen Stöße}
+                Passieren elastische Stöße von Elektronen mit Hg-Atomen auf dem Beschleunigungsweg zwischen dem Glühdraht und der Beschleunigungselektrode, haben sie keine große Auswirkung auf den Auffängerstrom, da sie wieder beschleunigt werden.
+
+                Elastische Stöße zwischen der Beschleunigungselektrode und Auffängerelektrode tragen jedoch zu einer deutlichen Veränderung des Auffängerstromes bei. Durch die von den Stößen stammenden Richtungsänderungen werden die z-Komponenten der Elektrongeschwindigkeiten stark verändert und viele Elektronen schaffen es nicht mehr die Gegenspannung zu überwinden. \\
+
+                Die Kurve wird breiter und flacher.
+
+            \subsubsection{Einfluss des Dampfdruckes}
+                Damit möglichst viele Stöße passieren können, muss die freie Weglänge $\overline{w}$ der Hg-Atome klein gegen den Abstand $a$ des Drahtes von der Beschleunigungselektrode sein.
+
+                Die Weglänge kann durch den Sättigungsdruck $p_{\text{sät}}$ des Hg-Gases reguliert werden, welcher seinerseits nur durch die Umgebungstemperatur beeinflussbar ist:
+
+                \begin{align}
+                    &\overline{w} \; [\text{cm}] = \frac{0,0029}{p_{\text{sät}}} \; [p\text{ in mbar}] \\[10pt]
+                    &p_{\text{sät}}(T) = 5,5 \cdot 10^7 \exp\Bigl(-\frac{6876}{T}\Bigr) \quad [p\text{ in mbar, } T\text{ in K}]
+                \end{align}
+
+                Es gibt einen idealen Arbeitsbereich für den Franck-Hertz-Versuch, mit einem $\overline{w}$ um einen Faktor 1000 bis 4000 kleiner als $a$.
+
+                Ist der Dampfdruck zu groß, wird die freie Weglänge zu klein und es passieren viel mehr elastische Stöße, sodass durch die Richtungsänderungen der Auffängerstrom stark abnimmt.
+
+                Ist der Dampfdruck zu gering, wird die freie Weglänge zu groß und die Elektronen fliegen durch das Gas ohne mit den Atomen zu interagieren. Dabei erreichen sie mit steigender Beschleunigungsspannung so große Energieen, dass es theoretisch möglich wäre die Atome auf höhere Energieniveaus anzuregen. Die Stoßwarscheinlichkeit ist jedoch zu klein, um diesen Effekt messen zu können.
+
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width = 0.8\textwidth]{Bilder/Dampfdruckkurve.png}
+                    \caption{Hier ist die Dampfdruckkurve des Hg-Gases dargestellt. Dabei ist der Sättigungsdampfdruck gegen die Umgebungstemperatur aufgetragen. [1]}
+                    \label{fig:Dampfdruckkurve}
+                \end{figure}
+
+                \FloatBarrier
+    
+    \newpage
+    \section{Aufbau}
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width = 0.8\textwidth]{Bilder/Aufbau.png}
+            \caption{Hier ist der konkret für den Versuch benutzte Aufbau abgebildet. [1]}
+            \label{fig:Aufbau}
+        \end{figure}
+
+        \FloatBarrier
+
+        Wie schon zuvor beim allgemeinen Aufbau erklärt, werden die Stromkreise der Heizspannung, Beschleunigungsspannung und Gegenspannung mit Gleichstrom betrieben.
+        Der Aufbau besteht aus dem Glasgefäß mit dem Glühdraht, der netzförmigen Elektrode und der massiven Auffängerelektrode, den Apparaten zur Temperaturregelung und den dazugehörigen Messapparaten. \\
+
+        Das Glasgefäß ist in einem heizbaren Gehäuse untergebracht, welches an einen Heizgenerator und an ein elektrisches Thermometer angeschlossen ist. \\
+
+        Ein Picoamperemeter misst den Auffängerstrom und ist mit dem Y-Eingang eines XY-Schreiber verbunden, sodass die Kurven anhand der Messwerte für der Strom sofort gezeichnet werden können.
+
+        Zum X-Eingang des Schreibers wird entweder die Beschleunigungsspannung oder die Gegenspannung verbunden.
+
+        An den Spannungsquellen lässt sich einstellen, dass eine Spannug stetig steigen oder fallen soll.
+
+    \newpage
+    \section{Durchführung}
+        Vor der Aufnahme einer Messreihe wird der Nullpunkt der beiden Skalen in der linken unteren Ecke festgelegt. 
+        Zuerst wird ein unempfindlicher Bereich für die Skalen gewählt und dann solange runtergeregelt, bis eine gut erkennbare Kurve gezeichnet wird. \\
+
+        Kurz vor einer Messung wird der Stift des Schreibers auf ein Blatt Millimeterpapier aufgesetzt und die Spannung auf der x-Achse wird auf steigend gestellt. \\
+
+        Nach der Messung kann der Y-Eingang ausgestöpselt werden und die Spannung wird je einen oder zwei Volt fallen gelassen (je nachdem wie groß die Schrittweite der Skala sein soll), bevor sie gestoppt wird und durch ein Aufsetzen des Stiftes ein Punkt markiert wird. So kann ganz einfach eine Skala für die Spannung unter die Kurve gezeichnet werden.
+
+        \subsection*{Aufgabe a)}
+            Hier wird der Auffängerstrom in Abhängigkeit von der Gegenspannung $U_{\text{A}}$ bei einer festen Beschleunigungsspannung $U_{\text{B}} = 11$V gemessen. Die Spannung durchläuft dabei ein Intervall von 0V bis 47V.
+
+            Zuerst wird eine Messreihe bei Zimmertemperatur $T = 27,7°$C aufgenommen. Danach wird der die Temperatur am Heizgenerator durch eine höhere Spannung auf $T = 151°$C hochgeregelt und es wird eine zweite Messreihe aufgenommen.
+        
+        \subsection*{Aufgabe b)}
+            Hier wird genauso vorgegangen wie in Aufgabe a), nur dass der Auffängerstrom jetzt in Abhängigkeit von $U_{\text{B}}$ bei einem festen $U_{\text{A}} = 1$V gemessen. Die Spannung durchläuft dabei ein Intervall von 0V bis 47V.
+
+
+            Die Messung wird bei einem $T = 197,1°$C durchgeführt.
+    \newpage
     \section{Auswertung}    
         \subsection{Mittlere freie Weglänge}
             Zunächst wird überprüft, ob die freie Weglänge $\overline{w}$ die Bedingung erfüllt, um ca. das tausendfache kleiner als der Abstand a zwischen Glühkathode und Beschleunigungsanode zu sein.
